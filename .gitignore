@@ -9,3 +9,9 @@ temporary screenshots/
 # needs to be versioned too.
 brand assets/*
 !brand assets/brand.md
+
+# Per article and per project content folders the client drops in: manuscripts
+# and full size originals. Same deal as brand assets, the shipped derivatives
+# are generated into assets/img by tools/build-images.mjs.
+articles/
+reference-projects/

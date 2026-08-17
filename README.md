@@ -31,8 +31,9 @@ and any failed requests.
 
 ## Asset pipeline
 
-The client's originals live in `brand assets/` and are not committed. Three steps
-turn them into the small files the site actually serves:
+The client's originals live in `brand assets/`, plus per article and per project
+content folders under `articles/` and `reference-projects/`. None of them are
+committed. These steps turn them into the small files the site actually serves:
 
 ```
 node tools/stage-assets.mjs     # brand assets/ -> .staging/ with web safe names
@@ -42,8 +43,13 @@ node tools/build-fonts.mjs      # supplied TTFs -> assets/fonts/*.woff2
 ```
 
 `tools/assets.config.mjs` is the single list of what ships and at what width.
-Add an entry there, rerun `build-images`, reference the new name. Current total
-for `assets/`: about 3.6 MB, of which the hero video is 2.7 MB.
+Add an entry there, rerun `build-images`, reference the new name. A `from` with
+no slash is a name in `.staging/img`; a `from` with a slash is a path relative to
+the project root, which is how the `articles/` and `reference-projects/` folders
+are read. `build-images` prints the encoded pixel size of each output, so the
+`width` and `height` attributes in the HTML can be filled in truthfully.
+
+Current total for `assets/`: about 3.6 MB, of which the hero video is 2.7 MB.
 
 ## Design system
 
