@@ -81,7 +81,8 @@
   --col-gap: clamp(1.25rem, 2.2vw, 2.25rem);
 
   --head-h: 74px;
-  --radius: 3px;
+  /* No corner radius token, and no rounded corners anywhere. Tiles, controls,
+     image frames and the nav panel are all square by the client's decision. */
 
   /* Layered, ink tinted shadows. No flat grey drops. */
   --lift-1: 0 1px 1px color-mix(in srgb, var(--ink) 4%, transparent),
@@ -560,7 +561,6 @@ button {
   padding: 0.5rem;
   background: var(--paper);
   border: 1px solid var(--rule-soft);
-  border-radius: var(--radius);
   box-shadow: var(--lift-2);
 }
 
@@ -793,7 +793,6 @@ button {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  border-radius: var(--radius);
 }
 
 /* No caption sits on this image any more, so it carries no scrim. The hairline
@@ -802,7 +801,6 @@ button {
   content: '';
   position: absolute;
   inset: 0;
-  border-radius: var(--radius);
   box-shadow: inset 0 0 0 1px color-mix(in srgb, var(--ink) 10%, transparent);
   pointer-events: none;
 }
@@ -1037,7 +1035,6 @@ button {
 .card__media {
   position: relative;
   overflow: hidden;
-  border-radius: var(--radius);
 }
 
 .card__media img {
@@ -1053,7 +1050,6 @@ button {
   content: '';
   position: absolute;
   inset: 0;
-  border-radius: var(--radius);
   box-shadow: inset 0 0 0 1px color-mix(in srgb, var(--ink) 10%, transparent);
   pointer-events: none;
 }
@@ -1308,14 +1304,12 @@ button {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  border-radius: var(--radius);
 }
 
 .page-hero__media::after {
   content: '';
   position: absolute;
   inset: 0;
-  border-radius: var(--radius);
   box-shadow: inset 0 0 0 1px color-mix(in srgb, var(--ink) 10%, transparent);
   pointer-events: none;
 }
@@ -1353,7 +1347,6 @@ button {
   width: 100%;
   aspect-ratio: 21 / 9;
   object-fit: cover;
-  border-radius: var(--radius);
 }
 
 .deflist__title {
@@ -1667,7 +1660,6 @@ button {
 .member__portrait {
   position: relative;
   overflow: hidden;
-  border-radius: var(--radius);
   margin-bottom: var(--s4);
 }
 
@@ -1891,7 +1883,6 @@ button {
 .prose__figure img {
   width: 100%;
   height: auto;
-  border-radius: var(--radius);
   background: var(--surface);
 }
 
@@ -2037,7 +2028,6 @@ button {
   width: 100%;
   aspect-ratio: 16 / 9;
   object-fit: cover;
-  border-radius: var(--radius);
 }
 
 .article__body {
