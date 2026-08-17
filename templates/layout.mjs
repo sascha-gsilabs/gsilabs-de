@@ -215,7 +215,7 @@ export function layout({ title, description, path, content, headMode = 'paper', 
 
 <link rel="icon" href="/assets/logo/icon-day.svg" type="image/svg+xml">
 <link rel="apple-touch-icon" href="/assets/img/apple-touch-icon.png">
-<meta name="theme-color" content="#f8f6f2">
+<meta name="theme-color" content="#ffffff">
 
 <link rel="preload" href="/assets/fonts/SpaceGrotesk-Variable.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="/assets/fonts/Inter-Variable.woff2" as="font" type="font/woff2" crossorigin>

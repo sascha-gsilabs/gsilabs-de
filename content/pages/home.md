@@ -40,8 +40,8 @@ blocks:
     image:
       src: /assets/img/tunnel-in-service.webp
       alt: Rail track running through a finished tunnel bore
-      width: 1200
-      height: 1500
+      width: 1500
+      height: 886
     quote:
       text: >-
         "The tools GSI built for us have improved how engineers specify our

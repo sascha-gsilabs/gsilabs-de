@@ -63,7 +63,6 @@ const heroVideo = (b, ctx) => `<section class="band band--void band--flush hero"
       <source data-src="${b.video}" type="video/mp4">
     </video>
     <div class="hero__scrim" aria-hidden="true"></div>
-    <div class="hero__field" aria-hidden="true"></div>
 
     <div class="wrap hero__wrap">
       <div class="hero__stage">

@@ -16,25 +16,29 @@ so they contribute no additional hues. The palette has no chromatic accent.
 
 | Role                | Hex       | Notes                                                       |
 | ------------------- | --------- | ----------------------------------------------------------- |
-| Background (paper)  | `#F8F6F2` | Warm off white. Default page ground.                        |
+| Background (paper)  | `#FFFFFF` | Pure white. Default page ground.                            |
 | Text (ink)          | `#1F271B` | Deep olive black. All body copy and headings on paper.       |
 | Secondary surface   | `#EBEBEB` | Light grey. Cards, insets and quiet panels on paper.        |
 | Dark section ground | `#000000` | Pure black. Chosen by the client for all inverted sections.  |
-| Text on dark        | `#F8F6F2` | Paper doubles as the type color inside black sections.       |
+| Text on dark        | `#FFFFFF` | Paper doubles as the type color inside black sections.       |
 | Hairline on paper   | `#1F271B` | At 12 to 20 percent opacity. Never a separate gray.          |
-| Hairline on black   | `#F8F6F2` | At 12 to 20 percent opacity.                                 |
-| Pure white          | `#FFFFFF` | Reserved for logo marks and image mattes only.               |
+| Hairline on black   | `#FFFFFF` | At 12 to 20 percent opacity.                                 |
 
-Two roles were changed by the client after extraction, and both are deliberate:
+Three roles were changed by the client after extraction, and all three are
+deliberate:
 
 - The original Framer build used `#1F271B` as its dark section ground. That is
   now pure black, while `#1F271B` stays as the ink color on paper.
 - The secondary surface was the brand sand `#EAE3D7`. The client asked for light
   grey on the tiles, so it is now `#EBEBEB`. Sand is no longer used anywhere.
+- Paper was the warm off white `#F8F6F2`. The client asked for pure white as the
+  light page ground, so `--paper` is `#FFFFFF`. Because paper doubles as the type
+  color inside black bands, that type is now pure white as well. `#F8F6F2` is no
+  longer used anywhere.
 
 ## Rules
 
-1. There is no accent hue. Emphasis comes from sand on paper and paper on
+1. There is no accent hue. Emphasis comes from grey on paper and paper on
    black, never from an invented color.
 2. All values are exposed as CSS custom properties in
    `assets/css/site.css` (`--paper`, `--ink`, `--mist`, `--void`). Reference

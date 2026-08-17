@@ -156,7 +156,7 @@ They are kept for reference and are not part of the build.
 ## Design system
 
 Colors are locked to `brand assets/brand.md` and exposed as four custom properties:
-`--paper` `#F8F6F2`, `--ink` `#1F271B`, `--mist` `#EBEBEB`, `--void` `#000000`. There is
+`--paper` `#FFFFFF`, `--ink` `#1F271B`, `--mist` `#EBEBEB`, `--void` `#000000`. There is
 no accent hue. Everything else is opacity on one of those four.
 
 Sections are `.band`, and `.band--void` swaps a set of ground tokens (`--ground`,

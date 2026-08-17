@@ -9,7 +9,9 @@
 // 6000px originals.
 export const images = [
   // Homepage
-  { from: 'ricardo-gomez-angel-syk-jn0skby-unsplash.jpg', to: 'tunnel-in-service.webp', w: 1200 },
+  // Six of twelve columns since the client asked for it wider, so about 760 CSS
+  // px on a full width viewport. 1500 keeps it at 2x there.
+  { from: 'ricardo-gomez-angel-syk-jn0skby-unsplash.jpg', to: 'tunnel-in-service.webp', w: 1500 },
 
   // Client wordmarks. Encoded lossless: they are flat colour on transparency,
   // where lossy WebP leaves visible fringing around the letterforms.
