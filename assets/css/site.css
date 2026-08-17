@@ -88,7 +88,8 @@
             0 10px 20px -8px color-mix(in srgb, var(--ink) 14%, transparent),
             0 28px 48px -28px color-mix(in srgb, var(--ink) 18%, transparent);
 
-  /* Signature: the square dot raster taken from the GSI Labs mark. */
+  /* The square dot raster taken from the GSI Labs mark. Used by the hero field
+     only, after the client dropped the seam between paper and black bands. */
   --raster-cell: 15px;
   --raster: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='15' height='15'%3E%3Crect width='2' height='2' fill='%23000'/%3E%3C/svg%3E");
 
@@ -311,26 +312,6 @@ button {
   display: grid;
   grid-template-columns: repeat(12, minmax(0, 1fr));
   gap: var(--col-gap);
-}
-
-/* --- raster signature ----------------------------------------------------- */
-
-.raster {
-  background-color: currentColor;
-  mask-image: var(--raster);
-  mask-size: var(--raster-cell) var(--raster-cell);
-}
-
-/* Boundary strip between a paper band and a black band. The raster builds up
-   toward the band it hands over to. */
-.raster-seam {
-  height: calc(var(--raster-cell) * 4);
-  color: var(--on-ground);
-  background-color: currentColor;
-  opacity: 0.32;
-  mask-image: var(--raster), linear-gradient(to bottom, transparent, #000);
-  mask-size: var(--raster-cell) var(--raster-cell), 100% 100%;
-  mask-composite: intersect;
 }
 
 /* --- buttons and links ---------------------------------------------------- */

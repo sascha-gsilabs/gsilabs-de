@@ -67,8 +67,8 @@ Type is Space Grotesk for display and for the uppercase utility labels, Inter
 for body copy. The `//` delimiter comes from GSI Labs' own copy and is the only
 mark used between label fragments.
 
-The square dot raster is taken from the logo mark. It appears in two places
-only: the hero field, and the seam that hands a paper band over to a black one.
+The square dot raster is taken from the logo mark. It appears in the hero field
+and nowhere else.
 
 Photography ships in its original colour. Where type sits over an image, the
 legibility scrim is a plain black gradient rather than an ink tint, so the photo
