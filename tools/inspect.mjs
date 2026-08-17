@@ -62,6 +62,17 @@ try {
         box('.process__list'),
         box('.news__list'),
         box('.raster-seam'),
+        (() => {
+          // Actual rendered width of the closing hero line, versus the column it
+          // has to fit into.
+          const el = document.querySelector('.hero__title--b .hero__line')
+          if (!el) return 'closing line: MISSING'
+          const r = new Range()
+          r.selectNodeContents(el)
+          const text = r.getBoundingClientRect()
+          const box = el.getBoundingClientRect()
+          return `closing line: text ${Math.round(text.width)}px in ${Math.round(box.width)}px column, ${Math.round(text.height / (parseFloat(getComputedStyle(el).lineHeight) || 1))} line(s)`
+        })(),
       ],
       fonts: [...document.fonts].map((f) => `${f.family} ${f.weight} ${f.status}`),
     }
