@@ -28,6 +28,14 @@ cta:
   label: Get Started
   href: /get-started
 
+# The language switcher in the header. `short` is what the trigger shows, so the
+# header reads DE the moment `active` moves to the German entry. An entry without
+# an `href` is offered but not yet reachable, which is where German stands until
+# the German pages exist: give it `href: /de` and it becomes a link.
+languages:
+  - { code: en, label: English, short: EN, active: true, href: / }
+  - { code: de, label: German, short: DE }
+
 # The header menus. The footer reuses these groups, plus the legal links.
 nav:
   - label: Solutions

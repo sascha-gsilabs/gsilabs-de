@@ -24,7 +24,7 @@ changing copy.
 
 ```
 content/
-  site.yml                     navigation, company details, social links, SEO defaults
+  site.yml                     navigation, languages, company details, social links, SEO defaults
   partials/
     why-partner.yml            a section reused verbatim by more than one page
   pages/                       one file per one off page, home.md included
@@ -98,6 +98,16 @@ Common options on any block: `tone: void` for a black band, `id` for an anchor,
 
 Two conveniences in the content itself: ` // ` surrounded by spaces becomes the styled
 brand delimiter, and a Markdown image with a title becomes a captioned figure.
+
+### Languages
+
+The site is English only. `languages:` in `site.yml` drives the header switcher and the
+document's `lang` attribute, and nothing else: no page is translated. The entry carrying
+`active: true` sets both, so its `short` is what the trigger shows. German is listed
+without an `href`, which renders it as an option that is visibly not reachable yet.
+
+Turning German on later means: build the German pages, give that entry its `href`, and
+move `active: true` to it. The header then reads DE with no template change.
 
 ## Asset pipeline
 

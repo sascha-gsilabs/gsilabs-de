@@ -57,7 +57,47 @@ const CHEVRON =
 export const ARROW =
   '<svg class="btn__arrow" viewBox="0 0 12 12" aria-hidden="true"><path d="M2 6h8M6.5 2.5 10 6l-3.5 3.5" fill="none" stroke="currentColor" stroke-width="1.4"/></svg>'
 
+/* Whether a nav entry covers the current path, itself or as its parent. Used for
+   the group trigger, so the section stays marked on a detail page that the nav
+   does not list. The links inside a menu need the exact path instead: with the
+   parent rule, /insights/projects marks both "Projects" and "All Insights", and
+   the overview reads as permanently on. */
 const isActive = (href, path) => href === path || (href !== '/' && path.startsWith(href + '/'))
+
+/* The language switcher. Same open and close behaviour as the nav groups, since
+   it is a .nav__item[data-menu] and the header script treats them all alike. The
+   active language is a plain span: it is the state, not somewhere to go. A
+   language with no href yet is rendered as a disabled button rather than a link,
+   so it reads as a choice that exists without leading anywhere. */
+function langSwitch(site) {
+  const languages = site.languages ?? []
+  if (languages.length < 2) return ''
+
+  const active = languages.find((l) => l.active) ?? languages[0]
+  const options = languages
+    .map((l) => {
+      if (l === active) return `<li><span class="nav__lang is-current" aria-current="true">${esc(l.label)}</span></li>`
+      return l.href
+        ? `<li><a href="${l.href}" lang="${l.code}">${esc(l.label)}</a></li>`
+        : `<li><button class="nav__lang" type="button" lang="${l.code}" disabled>${esc(l.label)}</button></li>`
+    })
+    .join('\n          ')
+
+  return `    <div class="nav__item nav__item--lang" data-menu data-open="false">
+      <button class="nav__trigger nav__trigger--lang" type="button"
+              aria-expanded="false" aria-controls="menu-language"
+              aria-label="Language, ${esc(active.label)} selected">
+        <span aria-hidden="true">${esc(active.short)}</span>
+        ${CHEVRON}
+      </button>
+      <div class="nav__menu nav__menu--lang" id="menu-language">
+        <ul>
+          ${options}
+        </ul>
+      </div>
+    </div>
+`
+}
 
 function header(site, path, mode) {
   const menus = site.nav
@@ -67,7 +107,7 @@ function header(site, path, mode) {
       const links = group.items
         .map(
           (item) =>
-            `<li><a href="${item.href}"${isActive(item.href, path) ? ' aria-current="page"' : ''}>${esc(item.label)}</a></li>`
+            `<li><a href="${item.href}"${item.href === path ? ' aria-current="page"' : ''}>${esc(item.label)}</a></li>`
         )
         .join('\n              ')
       return `        <li class="nav__item" data-menu data-open="false">
@@ -108,6 +148,7 @@ ${menus}
       </div>
     </nav>
 
+${langSwitch(site)}
     <a class="btn btn--solid head__cta" href="${site.cta.href}">${esc(site.cta.label)}</a>
 
     <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav">
@@ -196,9 +237,12 @@ export function layout({ title, description, path, content, headMode = 'paper', 
   const fullTitle = title === site.seo.titleSuffix ? title : `${title} | ${site.seo.titleSuffix}`
   const desc = description || site.seo.defaultDescription
   const canonical = site.seo.origin + (path === '/' ? '/' : path)
+  // Follows the switcher, so the document language moves with it rather than
+  // being a second place to remember.
+  const lang = (site.languages ?? []).find((l) => l.active)?.code ?? 'en'
 
   return `<!doctype html>
-<html lang="en">
+<html lang="${lang}">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">

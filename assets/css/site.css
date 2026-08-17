@@ -584,6 +584,51 @@ button {
   color: var(--ink);
 }
 
+/* --- language switcher ---------------------------------------------------- */
+
+/* The nav beside it is centred by its own auto margins, so this only needs to
+   keep its width. */
+.nav__item--lang {
+  flex: none;
+}
+
+/* The code is two capitals, so it needs the tracking of a label rather than the
+   setting of a nav word. */
+.nav__trigger--lang {
+  letter-spacing: 0.08em;
+}
+
+/* Right aligned and narrow: it sits at the end of the header, where a wide panel
+   dropped from the left edge would run past the viewport. */
+.nav__menu--lang {
+  left: auto;
+  right: 0;
+  min-width: 168px;
+}
+
+/* The two entries match the nav links above them, whichever element they are:
+   a link once the language exists, a disabled button until then, and a span for
+   the one that is already on. */
+.nav__lang {
+  display: block;
+  width: 100%;
+  padding: 0.55rem 0.75rem;
+  font-family: inherit;
+  font-size: var(--step-small);
+  text-align: left;
+  color: var(--ink-70);
+}
+
+.nav__lang.is-current {
+  color: var(--ink);
+  background: var(--mist);
+}
+
+.nav__lang:disabled {
+  color: color-mix(in srgb, var(--ink) 35%, transparent);
+  cursor: default;
+}
+
 .head__cta {
   flex: none;
 }
@@ -2328,6 +2373,12 @@ button {
 
   .nav-toggle {
     display: inline-flex;
+  }
+
+  /* The nav is a sheet from here down, so it no longer holds the middle of the
+     bar open. The language switcher takes over pushing the right hand group out,
+     and sits beside the toggle. */
+  .nav__item--lang {
     margin-left: auto;
   }
 
