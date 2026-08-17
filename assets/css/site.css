@@ -817,26 +817,15 @@ button {
   border-radius: var(--radius);
 }
 
-/* Scrim for the caption that sits on the image. Black rather than ink, so it
-   darkens the photo without pulling it toward olive. */
+/* No caption sits on this image any more, so it carries no scrim. The hairline
+   seats it against the paper ground, same as the news card images. */
 .cap__figure::after {
   content: '';
   position: absolute;
   inset: 0;
   border-radius: var(--radius);
-  background: linear-gradient(to top, color-mix(in srgb, var(--void) 62%, transparent) 0%,
-      color-mix(in srgb, var(--void) 18%, transparent) 26%, transparent 48%);
+  box-shadow: inset 0 0 0 1px color-mix(in srgb, var(--ink) 10%, transparent);
   pointer-events: none;
-}
-
-.cap__caption {
-  position: absolute;
-  z-index: 1;
-  left: var(--s4);
-  right: var(--s4);
-  bottom: var(--s4);
-  color: var(--paper);
-  opacity: 0.85;
 }
 
 /* --- quote card ----------------------------------------------------------- */
