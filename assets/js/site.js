@@ -68,15 +68,23 @@
       setOpen(item, item.dataset.open !== 'true')
     })
 
+    // Closing is delayed a little so a diagonal move from the trigger toward the
+    // panel does not shut the menu on the way.
+    let closeTimer
+
     item.addEventListener('pointerenter', (event) => {
       if (event.pointerType !== 'mouse' || !hoverDriven()) return
+      clearTimeout(closeTimer)
       item.dataset.hoverOpen = 'true'
       setOpen(item, true)
     })
     item.addEventListener('pointerleave', (event) => {
       if (event.pointerType !== 'mouse' || !hoverDriven()) return
-      delete item.dataset.hoverOpen
-      setOpen(item, false)
+      clearTimeout(closeTimer)
+      closeTimer = setTimeout(() => {
+        delete item.dataset.hoverOpen
+        setOpen(item, false)
+      }, 220)
     })
 
     // Keyboard: leaving the group closes it.

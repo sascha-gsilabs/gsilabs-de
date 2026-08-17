@@ -541,21 +541,29 @@ button {
   position: relative;
 }
 
+/* The menu is a transparent bridge that starts flush against the trigger, and the
+   visible panel is the list inside it. Without the bridge, the gap between the two
+   belongs to neither, and the pointer leaves the item while crossing it, which
+   closes the menu before it can be reached. */
 .nav__menu {
   position: absolute;
-  top: calc(100% + 0.6rem);
+  top: 100%;
   left: 0;
   min-width: 268px;
-  padding: 0.5rem;
-  background: var(--paper);
+  padding-top: 0.6rem;
   color: var(--ink);
-  border: 1px solid var(--rule-soft);
-  border-radius: var(--radius);
-  box-shadow: var(--lift-2);
   opacity: 0;
   transform: translateY(-6px);
   pointer-events: none;
   transition: opacity 0.22s var(--ease-out), transform 0.32s var(--ease-spring);
+}
+
+.nav__menu > ul {
+  padding: 0.5rem;
+  background: var(--paper);
+  border: 1px solid var(--rule-soft);
+  border-radius: var(--radius);
+  box-shadow: var(--lift-2);
 }
 
 .nav__item[data-open='true'] .nav__menu {
@@ -2368,14 +2376,18 @@ button {
   .nav.is-open .nav__menu {
     position: static;
     min-width: 0;
-    border: 0;
-    box-shadow: none;
-    background: none;
     padding: 0 0 var(--s3);
     opacity: 1;
     transform: none;
     pointer-events: auto;
     display: none;
+  }
+
+  .nav.is-open .nav__menu > ul {
+    padding: 0;
+    border: 0;
+    box-shadow: none;
+    background: none;
   }
 
   .nav.is-open .nav__item[data-open='true'] .nav__menu {
