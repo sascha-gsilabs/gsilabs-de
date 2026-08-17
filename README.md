@@ -48,7 +48,7 @@ for `assets/`: about 3.6 MB, of which the hero video is 2.7 MB.
 ## Design system
 
 Colors are locked to `brand assets/brand.md` and exposed as four custom
-properties: `--paper` `#F8F6F2`, `--ink` `#1F271B`, `--sand` `#EAE3D7`,
+properties: `--paper` `#F8F6F2`, `--ink` `#1F271B`, `--mist` `#EBEBEB`,
 `--void` `#000000`. There is no accent hue. Everything else is opacity on one of
 those four.
 
@@ -76,7 +76,7 @@ remaining pages mirror the original site's structure one to one:
 - `/solutions/` general-contractors, planning-design-offices,
   geotechnical-engineers, precast-manufacturers, product-manufacturers,
   real-estate-developers
-- `/services/` ai-workshop, robotics-feasibility-study
+- `/services/` ai-workshop, robotics-feasibility-study, dedicated-dev-team
 - `/about`, `/our-process`, `/careers` (plus job template), `/get-started`
 - `/insights`, `/insights/articles`, `/insights/projects` (plus article template)
 - `/imprint`, `/privacy`

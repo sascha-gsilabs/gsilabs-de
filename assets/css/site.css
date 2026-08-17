@@ -30,7 +30,9 @@
   /* Brand palette. Locked. */
   --paper: #f8f6f2;
   --ink: #1f271b;
-  --sand: #eae3d7;
+  /* Secondary surface. Was the brand sand #EAE3D7 until the client asked for
+     light grey on the tiles. */
+  --mist: #ebebeb;
   --void: #000000;
 
   /* Derived surfaces and lines. Opacity only, never a new hue. */
@@ -46,7 +48,7 @@
   --on-ground-faint: var(--ink-55);
   --line: var(--rule);
   --line-soft: var(--rule-soft);
-  --surface: var(--sand);
+  --surface: var(--mist);
 
   /* Type */
   --font-display: 'Space Grotesk', 'Segoe UI', system-ui, sans-serif;
@@ -89,8 +91,6 @@
   /* Signature: the square dot raster taken from the GSI Labs mark. */
   --raster-cell: 15px;
   --raster: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='15' height='15'%3E%3Crect width='2' height='2' fill='%23000'/%3E%3C/svg%3E");
-  /* Five squares lifted out of the mark, used as the eyebrow glyph. */
-  --raster-glyph: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 10 10'%3E%3Cpath fill='%23000' d='M0 0h3v3H0zM7 0h3v3H7zM3.5 3.5h3v3h-3zM0 7h3v3H0zM7 7h3v3H7z'/%3E%3C/svg%3E");
 
   --ease-spring: cubic-bezier(0.22, 1, 0.36, 1);
   --ease-out: cubic-bezier(0.33, 1, 0.68, 1);
@@ -274,22 +274,7 @@ button {
 }
 
 .eyebrow {
-  display: flex;
-  align-items: center;
-  gap: 0.75rem;
   margin-bottom: var(--s5);
-}
-
-.eyebrow::before {
-  content: '';
-  width: 10px;
-  height: 10px;
-  flex: none;
-  background-color: var(--on-ground);
-  mask-image: var(--raster-glyph);
-  mask-size: 100% 100%;
-  mask-repeat: no-repeat;
-  opacity: 0.7;
 }
 
 /* --- layout --------------------------------------------------------------- */
@@ -608,7 +593,7 @@ button {
 }
 
 .nav__menu a:hover {
-  background: var(--sand);
+  background: var(--mist);
   color: var(--ink);
 }
 

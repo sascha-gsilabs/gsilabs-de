@@ -18,23 +18,26 @@ so they contribute no additional hues. The palette has no chromatic accent.
 | ------------------- | --------- | ----------------------------------------------------------- |
 | Background (paper)  | `#F8F6F2` | Warm off white. Default page ground.                        |
 | Text (ink)          | `#1F271B` | Deep olive black. All body copy and headings on paper.       |
-| Secondary surface   | `#EAE3D7` | Sand. Cards, insets and quiet panels on paper.              |
+| Secondary surface   | `#EBEBEB` | Light grey. Cards, insets and quiet panels on paper.        |
 | Dark section ground | `#000000` | Pure black. Chosen by the client for all inverted sections.  |
 | Text on dark        | `#F8F6F2` | Paper doubles as the type color inside black sections.       |
 | Hairline on paper   | `#1F271B` | At 12 to 20 percent opacity. Never a separate gray.          |
 | Hairline on black   | `#F8F6F2` | At 12 to 20 percent opacity.                                 |
 | Pure white          | `#FFFFFF` | Reserved for logo marks and image mattes only.               |
 
-Note: the original Framer build used `#1F271B` as its dark section ground.
-The client explicitly replaced that with pure black for the rebuild, and kept
-`#1F271B` as the ink color on paper.
+Two roles were changed by the client after extraction, and both are deliberate:
+
+- The original Framer build used `#1F271B` as its dark section ground. That is
+  now pure black, while `#1F271B` stays as the ink color on paper.
+- The secondary surface was the brand sand `#EAE3D7`. The client asked for light
+  grey on the tiles, so it is now `#EBEBEB`. Sand is no longer used anywhere.
 
 ## Rules
 
 1. There is no accent hue. Emphasis comes from sand on paper and paper on
    black, never from an invented color.
 2. All values are exposed as CSS custom properties in
-   `assets/css/site.css` (`--paper`, `--ink`, `--sand`, `--void`). Reference
+   `assets/css/site.css` (`--paper`, `--ink`, `--mist`, `--void`). Reference
    those everywhere. No hardcoded one off colors.
 3. Layout, typography, spacing and effects are free. These colors are locked.
 
