@@ -46,11 +46,16 @@ const button = (cta, variant = 'solid') =>
     ? `<a class="btn btn--${variant}" href="${cta.href}">${esc(cta.label)}${variant === 'outline' ? ARROW : ''}</a>`
     : ''
 
+/* `focus` moves the crop of an image that fills a frame taller or wider than
+   itself. Only worth setting where the subject is off centre: a screenshot whose
+   heading carries the meaning, or a diagram that reads from the top down. */
 const photo = (img, { className = '', sizes = '' } = {}) =>
   img
     ? `<img class="photo${className ? ' ' + className : ''}" src="${img.src}" alt="${esc(img.alt ?? '')}"${
         img.width ? ` width="${img.width}"` : ''
-      }${img.height ? ` height="${img.height}"` : ''}${sizes ? ` sizes="${sizes}"` : ''} loading="lazy" decoding="async">`
+      }${img.height ? ` height="${img.height}"` : ''}${
+        img.focus ? ` style="object-position:${esc(img.focus)}"` : ''
+      }${sizes ? ` sizes="${sizes}"` : ''} loading="lazy" decoding="async">`
     : ''
 
 /* ---------------------------------------------------------------- heroes --- */

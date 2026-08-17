@@ -78,8 +78,9 @@ blocks:
         image:
           src: /assets/img/tab-code-compliance.webp
           alt: The EA-Pfähle recommendations on piling, the code a foundation design is checked against
-          width: 684
-          height: 1024
+          width: 380
+          height: 722
+          focus: top
 
   - type: showcase
     tone: void

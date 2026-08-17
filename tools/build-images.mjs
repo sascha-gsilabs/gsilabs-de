@@ -32,7 +32,40 @@ for (const { from, to } of logos) {
 let before = 0
 let after = 0
 
-for (const { from, to, w, lossless } of images) {
+// Some supplied images sit on a white sheet with the subject floating in the
+// middle. Inside a frame that every image fills, those read as smaller than the
+// rest, so `trim: true` cuts the sheet away first. The box is found by decoding a
+// small grayscale copy and taking the extent of everything darker than near
+// white, then mapped back onto the source dimensions.
+function trimBox(file) {
+  const N = 200
+  const gray = execFileSync(
+    ffmpeg,
+    ['-hide_banner', '-loglevel', 'error', '-i', file, '-vf', `scale=${N}:${N}`, '-pix_fmt', 'gray', '-f', 'rawvideo', '-'],
+    { maxBuffer: 1 << 26 }
+  )
+  let x0 = N, x1 = -1, y0 = N, y1 = -1
+  for (let y = 0; y < N; y++) {
+    for (let x = 0; x < N; x++) {
+      if (gray[y * N + x] >= 245) continue
+      if (x < x0) x0 = x
+      if (x > x1) x1 = x
+      if (y < y0) y0 = y
+      if (y > y1) y1 = y
+    }
+  }
+  if (x1 < 0) return null
+  // A little of the sheet is left standing, so the subject does not sit hard
+  // against the frame edge.
+  const pad = 0.01
+  const l = Math.max(0, x0 / N - pad)
+  const t = Math.max(0, y0 / N - pad)
+  const r = Math.min(1, (x1 + 1) / N + pad)
+  const b = Math.min(1, (y1 + 1) / N + pad)
+  return `crop=iw*${(r - l).toFixed(4)}:ih*${(b - t).toFixed(4)}:iw*${l.toFixed(4)}:ih*${t.toFixed(4)}`
+}
+
+for (const { from, to, w, lossless, trim } of images) {
   // A path means a content folder in the repo, a bare name means .staging/img.
   const src = from.includes('/') ? from : `.staging/img/${from}`
   if (!existsSync(src)) {
@@ -45,8 +78,11 @@ for (const { from, to, w, lossless } of images) {
     continue
   }
 
-  // Never upscale: scale to w only when the source is wider.
-  const scale = `scale='min(${w},iw)':-2:flags=lanczos`
+  // Never upscale: scale to w only when the source is wider. Any trim runs
+  // first, so the width applies to what is left.
+  const steps = trim ? [trimBox(src)].filter(Boolean) : []
+  steps.push(`scale='min(${w},iw)':-2:flags=lanczos`)
+  const scale = steps.join(',')
   const ext = extname(to).toLowerCase()
   const codec =
     ext === '.webp'

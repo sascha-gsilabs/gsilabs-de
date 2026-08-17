@@ -1455,29 +1455,30 @@ button {
   display: none;
 }
 
-/* The client supplies one image per tab, and they arrive in every orientation
-   from 2:3 portrait to 19:10. The box is a fixed 4 by 3 so the band does not
-   jump as you click through, and the image is contained inside it rather than
-   cropped, because most of them are screenshots that a crop would slice through.
-   No matte behind it: several carry their own white or black ground, and any
-   fill colour would only show up as a border on some of them and not others. */
+/* One frame for every panel image on every solution page, and each image fills
+   it. 3 by 2 is the median ratio of the 23 the client supplied, which are spread
+   from 2:3 portrait to 19:10, so it is the ratio that crops the least across the
+   whole set. The frame is what keeps the band from changing height as you click
+   through, and filling it is what keeps the images the same size as each other. */
 .tabs__media {
   position: relative;
-  aspect-ratio: 4 / 3;
+  aspect-ratio: 3 / 2;
 }
 
-/* Taken out of flow and pinned to the frame, so a tall image can neither
-   stretch the box past its ratio nor overflow it. Percentage sizing in flow is
-   not enough here: the height the box gets from aspect-ratio is not definite
-   enough for a percentage height to resolve against, and the image falls back
-   to its intrinsic size. No corner radius, because with contain the corners of
-   this element are empty. */
+/* Taken out of flow and pinned to the frame, so a tall image can neither stretch
+   the box past its ratio nor overflow it. Percentage sizing in flow is not enough
+   here: the height the box gets from aspect-ratio is not definite enough for a
+   percentage height to resolve against, and the image falls back to its intrinsic
+   size. Centred by default, which suits the photography. The panels whose meaning
+   sits at the top, interfaces with a heading and the diagram that reads top down,
+   carry `focus: top` in the content and override this per image. */
 .tabs__media img {
   position: absolute;
   inset: 0;
   width: 100%;
   height: 100%;
-  object-fit: contain;
+  object-fit: cover;
+  object-position: center;
 }
 
 .tabs__copy {
@@ -2277,12 +2278,6 @@ button {
     grid-column: 1;
     grid-row: 2;
     grid-template-columns: minmax(0, 1fr);
-  }
-
-  /* Stacked, and the panel now has the full width, so a shallower box keeps the
-     copy from being pushed too far down the page. */
-  .tabs__media {
-    aspect-ratio: 3 / 2;
   }
 
   .page-hero__head,

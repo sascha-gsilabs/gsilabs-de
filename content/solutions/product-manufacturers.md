@@ -35,6 +35,7 @@ blocks:
           alt: Configurator for a perforated metal sheet, with the parameter panel and the resulting technical data
           width: 1024
           height: 806
+          focus: top
       - label: BIM Implementation
         body: >-
           BIM objects and plugin integrations that place your products directly inside the
@@ -78,8 +79,9 @@ blocks:
         image:
           src: /assets/img/tab-analytics-insights.webp
           alt: Analytics dashboard with product views and placements broken down by BIM software and by country
-          width: 1024
-          height: 654
+          width: 982
+          height: 630
+          focus: top
 
   - type: showcase
     tone: void

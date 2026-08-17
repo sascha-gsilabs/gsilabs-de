@@ -107,18 +107,25 @@ export const images = [
   // the mapping needs no lookup table. Tab labels are unique across all six
   // pages, so one flat namespace is enough.
   //
-  // They arrive in mixed orientations, from 2:3 portrait to 19:10, and the panel
-  // frame is fixed so the band does not jump as you click through. 1200 is the
-  // ceiling rather than the target: the encoder never upscales, and most of these
-  // are 1024 at source.
+  // They arrive in mixed orientations, from 2:3 portrait to 19:10. The panel
+  // frame is a fixed 3 by 2 that every image fills, so the band does not jump as
+  // you click through and no image reads as smaller than its neighbours. 1200 is
+  // the ceiling rather than the target: the encoder never upscales, and most of
+  // these are 1024 at source.
+  //
+  // `trim: true` is on the five that arrive on a white sheet with the subject
+  // floating in the middle. Without it they fill the frame with their own
+  // margins and the subject ends up visibly smaller than on the other panels.
+  // The book cover is the extreme case, with about a fifth of the file blank on
+  // every side.
   { from: 'risk-detection.avif', to: 'tab-risk-detection.webp', w: 1200 },
-  { from: 'decision-support.avif', to: 'tab-decision-support.webp', w: 1200 },
-  { from: 'portfolio-memory.avif', to: 'tab-portfolio-memory.webp', w: 1200 },
+  { from: 'decision-support.avif', to: 'tab-decision-support.webp', w: 1200, trim: true },
+  { from: 'portfolio-memory.avif', to: 'tab-portfolio-memory.webp', w: 1200, trim: true },
 
   { from: 'soil-modeling.avif', to: 'tab-soil-modeling.webp', w: 1200 },
   { from: 'design-optimization.avif', to: 'tab-design-optimization.webp', w: 1200 },
   { from: 'co2-reduction.webp', to: 'tab-co2-reduction.webp', w: 1200 },
-  { from: 'code-compliance.webp', to: 'tab-code-compliance.webp', w: 1200 },
+  { from: 'code-compliance.webp', to: 'tab-code-compliance.webp', w: 1200, trim: true },
 
   { from: 'workflow-analysis.avif', to: 'tab-workflow-analysis.webp', w: 1200 },
   { from: 'plugin-development.avif', to: 'tab-plugin-development.webp', w: 1200 },
@@ -127,14 +134,14 @@ export const images = [
   { from: 'continous-updates.avif', to: 'tab-continuous-updates.webp', w: 1200 },
 
   { from: 'project-modularization.avif', to: 'tab-project-modularization.webp', w: 1200 },
-  { from: 'drawing-automation.webp', to: 'tab-drawing-automation.webp', w: 1200 },
+  { from: 'drawing-automation.webp', to: 'tab-drawing-automation.webp', w: 1200, trim: true },
   { from: 'machine-file-export.webp', to: 'tab-machine-file-export.webp', w: 1200 },
   { from: 'production-rules.webp', to: 'tab-production-rules.webp', w: 1200 },
 
   { from: '3d-configurator.avif', to: 'tab-3d-configurator.webp', w: 1200 },
   { from: 'bim-implementation.webp', to: 'tab-bim-implementation.webp', w: 1200 },
   { from: 'ai-assistant.webp', to: 'tab-ai-assistant.webp', w: 1200 },
-  { from: 'analytics-insights.webp', to: 'tab-analytics-insights.webp', w: 1200 },
+  { from: 'analytics-insights.webp', to: 'tab-analytics-insights.webp', w: 1200, trim: true },
 
   { from: 'data-collection.avif', to: 'tab-data-collection.webp', w: 1200 },
   { from: 'cost-estimation.avif', to: 'tab-cost-estimation.webp', w: 1200 },

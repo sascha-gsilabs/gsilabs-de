@@ -48,8 +48,8 @@ blocks:
         image:
           src: /assets/img/tab-drawing-automation.webp
           alt: Generated shop drawing of a precast element with its dimensions and connection details
-          width: 1024
-          height: 724
+          width: 972
+          height: 648
       - label: Machine File Export
         body: >-
           Approved elements are exported directly as machine readable files in the

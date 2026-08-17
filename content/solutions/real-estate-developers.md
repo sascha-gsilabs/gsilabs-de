@@ -81,6 +81,7 @@ blocks:
           alt: Cost breakdown for a residential scheme above a list of flagged risk exposures
           width: 530
           height: 776
+          focus: top
 
   - type: showcase
     tone: void

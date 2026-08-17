@@ -46,8 +46,9 @@ blocks:
         image:
           src: /assets/img/tab-decision-support.webp
           alt: Dashboard listing the open risks on a project beside its cost, change order and communication figures
-          width: 874
-          height: 872
+          width: 835
+          height: 824
+          focus: top
       - label: Portfolio Memory
         body: >-
           Over time, the system builds a comprehensive risk profile for each project.
@@ -61,8 +62,9 @@ blocks:
         image:
           src: /assets/img/tab-portfolio-memory.webp
           alt: Diagram of the risk agent, from the email and document sources through the ingestion pipeline to the API surfaces
-          width: 590
+          width: 546
           height: 844
+          focus: top
 
   - type: showcase
     tone: void

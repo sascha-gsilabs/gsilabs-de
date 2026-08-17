@@ -125,8 +125,16 @@ Current total for `assets/`: about 7.6 MB, of which the hero video is 2.8 MB.
 The click through panels on the six solution pages are named after their tab, both in
 `brand assets/website images/` and as `tab-<tab slug>.webp` in `assets/img`, so a new
 image for a tab needs no lookup: drop it in under the tab's name and encode. They arrive
-in every orientation, so the panel frame is a fixed 4 by 3 and the image is contained
-inside it rather than cropped.
+in every orientation, so the panel frame is a fixed 3 by 2 that each image fills, which
+keeps them all the same size on the page.
+
+Two knobs for that, both optional:
+
+- `trim: true` in `assets.config.mjs` cuts a white sheet away before encoding, for
+  images where the subject floats in the middle of the file. Without it those fill the
+  frame with their own margins and look smaller than their neighbours.
+- `focus: top` on an image in the content moves the crop, for a screenshot whose heading
+  carries the meaning or a diagram that reads top down. Default is centred.
 
 ## Review tools
 
