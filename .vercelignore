@@ -7,8 +7,9 @@ node_modules/
 .staging/
 temporary screenshots/
 brand assets/
-articles/
-reference-projects/
+# Anchored, so these do not also match the generated insights/articles/ route.
+/articles/
+/reference-projects/
 
 serve.mjs
 screenshot.mjs

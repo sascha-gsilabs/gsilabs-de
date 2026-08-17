@@ -13,5 +13,9 @@ brand assets/*
 # Per article and per project content folders the client drops in: manuscripts
 # and full size originals. Same deal as brand assets, the shipped derivatives
 # are generated into assets/img by tools/build-images.mjs.
-articles/
-reference-projects/
+#
+# Anchored to the repo root on purpose. Without the leading slash, "articles/"
+# also matches the generated insights/articles/ route, which is how that page
+# went missing from the first deployment.
+/articles/
+/reference-projects/
