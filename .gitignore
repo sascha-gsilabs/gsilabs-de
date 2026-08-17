@@ -1,0 +1,11 @@
+node_modules/
+.staging/
+temporary screenshots/
+
+# The client's raw source library: 200+ MB of 6000px originals and a 19 MB
+# master video. Kept on disk, deliberately out of git so the repo stays pushable.
+# Everything the site ships is generated from it into assets/ by
+# tools/build-images.mjs and tools/build-video.mjs. Add Git LFS if this library
+# needs to be versioned too.
+brand assets/*
+!brand assets/brand.md
