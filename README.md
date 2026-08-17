@@ -63,8 +63,10 @@ mark used between label fragments.
 
 The square dot raster is taken from the logo mark. It appears in two places
 only: the hero field, and the seam that hands a paper band over to a black one.
-Photography is monochrome throughout, which is what makes a library sourced from
-stock, client renders and product screenshots read as one system.
+
+Photography ships in its original colour. Where type sits over an image, the
+legibility scrim is a plain black gradient rather than an ink tint, so the photo
+darkens without being pulled toward olive.
 
 ## Status
 

@@ -136,12 +136,10 @@ video {
   height: auto;
 }
 
-/* One photographic treatment for the whole site. The library comes from stock,
-   client renders and product screenshots, and stripping the colour is what
-   makes those read as one system next to a palette that has no hue of its own.
-   Client logos are credentials, not photography, and keep their own colours. */
+/* Photography ships in its original colour. Where type sits over an image the
+   legibility scrim is a plain black gradient, so it darkens without tinting. */
 .photo {
-  filter: grayscale(1) contrast(1.05) brightness(0.98);
+  filter: saturate(1.02) contrast(1.02);
 }
 
 h1,
@@ -727,7 +725,9 @@ button {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  filter: grayscale(1) contrast(1.08) brightness(0.88);
+  /* Held slightly down so the headline stays readable where it crosses the
+     panel. The colour is untouched. */
+  filter: contrast(1.04) brightness(0.92);
 }
 
 /* Colour treatment layer. The left edge is driven down to near black so the
@@ -908,13 +908,15 @@ button {
   border-radius: var(--radius);
 }
 
+/* Scrim for the caption that sits on the image. Black rather than ink, so it
+   darkens the photo without pulling it toward olive. */
 .cap__figure::after {
   content: '';
   position: absolute;
   inset: 0;
   border-radius: var(--radius);
-  background: linear-gradient(to top, color-mix(in srgb, var(--ink) 55%, transparent), transparent 62%);
-  mix-blend-mode: multiply;
+  background: linear-gradient(to top, color-mix(in srgb, var(--void) 62%, transparent) 0%,
+      color-mix(in srgb, var(--void) 18%, transparent) 26%, transparent 48%);
   pointer-events: none;
 }
 
@@ -1162,18 +1164,20 @@ button {
   transition: transform 0.7s var(--ease-spring), filter 0.4s var(--ease-out);
 }
 
+/* No type sits on a card image, so it gets a hairline to seat it against paper
+   instead of an overlay that would mute the colour. */
 .card__media::after {
   content: '';
   position: absolute;
   inset: 0;
-  background: linear-gradient(to top, color-mix(in srgb, var(--ink) 42%, transparent), transparent 58%);
-  mix-blend-mode: multiply;
+  border-radius: var(--radius);
+  box-shadow: inset 0 0 0 1px color-mix(in srgb, var(--ink) 10%, transparent);
   pointer-events: none;
 }
 
 .card:hover .card__media img {
   transform: scale(1.035);
-  filter: grayscale(0.82) contrast(1.06) brightness(1.01);
+  filter: saturate(1.08) contrast(1.03);
 }
 
 .card:hover .card__title {
