@@ -1,28 +1,22 @@
-﻿{
-    "name":  "gsilabs-de",
-    "version":  "1.0.0",
-    "description":  "",
-    "main":  "index.js",
-    "scripts":  {
-                    "build":  "node tools/build-site.mjs",
-                    "serve":  "node serve.mjs",
-                    "dev":  "node tools/build-site.mjs \u0026\u0026 node serve.mjs",
-                    "audit":  "node tools/audit.mjs",
-                    "build:assets":  "node tools/stage-assets.mjs \u0026\u0026 node tools/build-images.mjs \u0026\u0026 node tools/build-video.mjs \u0026\u0026 node tools/build-fonts.mjs"
-                },
-    "keywords":  [
-
-                 ],
-    "author":  "",
-    "license":  "ISC",
-    "type":  "commonjs",
-    "dependencies":  {
-                         "puppeteer-core":  "^25.8.0",
-                         "ttf2woff2":  "^8.0.1"
-                     },
-    "devDependencies":  {
-                            "ffmpeg-static":  "^5.3.0",
-                            "marked":  "^18.0.9",
-                            "yaml":  "^2.9.0"
-                        }
+{
+  "name": "gsilabs-de",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Static site for gsilabs.de, generated from content/ into plain HTML.",
+  "license": "UNLICENSED",
+  "scripts": {
+    "build": "node tools/build-site.mjs",
+    "serve": "node serve.mjs",
+    "dev": "node tools/build-site.mjs && node serve.mjs",
+    "audit": "node tools/audit.mjs",
+    "test:nav": "node tools/test-nav.mjs",
+    "build:assets": "node tools/stage-assets.mjs && node tools/build-images.mjs && node tools/build-video.mjs && node tools/build-fonts.mjs"
+  },
+  "devDependencies": {
+    "ffmpeg-static": "^5.3.0",
+    "marked": "^18.0.9",
+    "puppeteer-core": "^25.8.0",
+    "ttf2woff2": "^8.0.1",
+    "yaml": "^2.9.0"
+  }
 }

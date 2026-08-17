@@ -1,0 +1,18 @@
+# The deployment only needs the generated HTML plus assets/. Everything that
+# produces them stays out, so the live site does not serve its own source.
+content/
+templates/
+tools/
+node_modules/
+.staging/
+temporary screenshots/
+brand assets/
+articles/
+reference-projects/
+
+serve.mjs
+screenshot.mjs
+package.json
+package-lock.json
+README.md
+CLAUDE-frontend-rules.md
