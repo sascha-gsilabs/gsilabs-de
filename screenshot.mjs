@@ -75,12 +75,14 @@ try {
     document.querySelectorAll('img[loading="lazy"]').forEach((img) => (img.loading = 'eager'))
   })
   await page.evaluate(async () => {
+    // behavior: instant, otherwise the page's smooth scrolling is still gliding
+    // when the capture fires.
     const step = window.innerHeight * 0.8
     for (let y = 0; y < document.body.scrollHeight; y += step) {
-      window.scrollTo(0, y)
+      window.scrollTo({ top: y, behavior: 'instant' })
       await new Promise((r) => setTimeout(r, 90))
     }
-    window.scrollTo(0, 0)
+    window.scrollTo({ top: 0, behavior: 'instant' })
     await new Promise((r) => setTimeout(r, 250))
   })
   // Lazy images are requested during the scroll pass, so wait them out.
