@@ -1,0 +1,65 @@
+# Site wide content. Every page's header, footer and metadata comes from here,
+# so navigation only ever needs editing in one place.
+
+company:
+  name: GSI Labs
+  legalName: GSI Software GmbH
+  street: Rudi-Dutschke-Str. 23
+  postcode: "10969"
+  city: Berlin
+  country: Germany
+  email: info@gsilabs.de
+  phone: "+49 30 75431568"
+  phoneHref: "+493075431568"
+  legalLine: >-
+    GSI Software GmbH. Registered in Berlin, Germany (HRB 193812 B).
+    Managing Director: Sascha Avermiddig. VAT ID: DE316566578.
+    Contact: info@gsilabs.de
+
+seo:
+  titleSuffix: GSI Labs
+  defaultDescription: >-
+    GSI Labs builds AI solutions for the AEC industry. We automate workflows for
+    contractors, engineers, manufacturers, and developers across Europe.
+  origin: https://www.gsilabs.de
+  socialImage: /assets/img/social-preview.jpg
+
+cta:
+  label: Get Started
+  href: /get-started
+
+# The header menus. The footer reuses these groups, plus the legal links.
+nav:
+  - label: Solutions
+    items:
+      - { label: For General Contractors, href: /solutions/general-contractors }
+      - { label: For Design Offices, href: /solutions/planning-design-offices }
+      - { label: For Geo Engineers, href: /solutions/geotechnical-engineers }
+      - { label: For Precast Manufacturers, href: /solutions/precast-manufacturers }
+      - { label: For Product Manufacturers, href: /solutions/product-manufacturers }
+      - { label: For Real Estate Developers, href: /solutions/real-estate-developers }
+  - label: Company
+    items:
+      - { label: About, href: /about }
+      - { label: Our Process, href: /our-process }
+      - { label: Careers, href: /careers }
+      - { label: Imprint, href: /imprint }
+      - { label: Privacy, href: /privacy }
+  - label: Services
+    items:
+      - { label: AI workshop, href: /services/ai-workshop }
+      - { label: Robotics Feasibility Study, href: /services/robotics-feasibility-study }
+      - { label: Dedicated Dev Team, href: /services/dedicated-dev-team }
+  - label: Insights
+    items:
+      - { label: Projects, href: /insights/projects }
+      - { label: Articles, href: /insights/articles }
+      - { label: All Insights, href: /insights }
+
+social:
+  - { label: LinkedIn, href: "https://www.linkedin.com/company/gsi-software-gmbh", icon: linkedin }
+  - { label: YouTube, href: "https://www.youtube.com/@GSI-Software-Germany", icon: youtube }
+
+outboundNote:
+  label: Explore more geotechnical solutions on piledesigner.io
+  href: "https://piledesigner.io/"

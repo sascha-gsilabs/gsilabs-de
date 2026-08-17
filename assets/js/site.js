@@ -147,6 +147,39 @@
     targets.forEach((el) => observer.observe(el))
   }
 
+  /* --- feature tabs ------------------------------------------------------ */
+
+  document.querySelectorAll('[data-tabs]').forEach((group) => {
+    const tabs = [...group.querySelectorAll('[role="tab"]')]
+    const panels = [...group.querySelectorAll('[role="tabpanel"]')]
+
+    const select = (index, { focus = false } = {}) => {
+      tabs.forEach((tab, i) => {
+        const on = i === index
+        tab.setAttribute('aria-selected', String(on))
+        tab.tabIndex = on ? 0 : -1
+        panels[i].hidden = !on
+      })
+      if (focus) tabs[index].focus()
+    }
+
+    tabs.forEach((tab, i) => {
+      tab.addEventListener('click', () => select(i))
+      tab.addEventListener('keydown', (event) => {
+        const step = { ArrowDown: 1, ArrowRight: 1, ArrowUp: -1, ArrowLeft: -1 }[event.key]
+        if (step) {
+          event.preventDefault()
+          select((i + step + tabs.length) % tabs.length, { focus: true })
+          return
+        }
+        if (event.key === 'Home' || event.key === 'End') {
+          event.preventDefault()
+          select(event.key === 'Home' ? 0 : tabs.length - 1, { focus: true })
+        }
+      })
+    })
+  })
+
   /* --- hero video: only fetch it once the poster is on screen ------------ */
 
   const video = document.querySelector('[data-hero-video]')

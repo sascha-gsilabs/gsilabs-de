@@ -1,0 +1,40 @@
+# Shared word for word by all six solution pages on the live site. Kept here so
+# a wording change lands on all of them at once.
+blocks:
+  - type: pillars
+    tone: void
+    title: Why partner with GSI Labs?
+    items:
+      - title: Practical Innovation
+        body:
+          - >-
+            At GSI Labs, AI isn't a slide deck. It's running in production. We build
+            and deploy systems that solve real problems on real construction
+            projects.
+          - >-
+            Our team works iteratively, close to your operations, testing and
+            refining until the workflow delivers measurable results. No proof of
+            concepts that gather dust. Every solution we build is designed to work
+            from day one and scale from there.
+      - title: Strategic Edge
+        body:
+          - >-
+            Partnering with GSI Labs means more than a one-off project. It means
+            gaining a strategic edge that compounds over time.
+          - >-
+            While your competitors still manage risks manually, your team acts on
+            AI-driven insights weeks earlier. We don't just deliver tools. We embed
+            intelligence into your workflows that makes your entire operation
+            faster, leaner, and harder to compete with.
+      - title: Industry DNA
+        body:
+          - >-
+            Our team brings together construction professionals and AI engineers
+            who speak both languages. We understand load calculations, project
+            schedules, and claim management just as well as neural networks and
+            workflow automation.
+          - >-
+            That means no long onboarding, no explaining your industry from
+            scratch. We get to work on day one because we already understand how
+            your projects run, where things go wrong, and what actually moves the
+            needle.
