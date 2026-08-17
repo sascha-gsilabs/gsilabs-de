@@ -10,8 +10,11 @@
 export const images = [
   // Homepage
   { from: 'ricardo-gomez-angel-syk-jn0skby-unsplash.jpg', to: 'tunnel-in-service.webp', w: 1200 },
-  { from: 'gsilabs-reference-allplan.jpg', to: 'portrait-cristian-panturoiu.webp', w: 160 },
-  { from: 'logo-schoeck-de-2021-rgb.png', to: 'client-schoeck.webp', w: 340 },
+
+  // Client wordmarks. Encoded lossless: they are flat colour on transparency,
+  // where lossy WebP leaves visible fringing around the letterforms.
+  { from: 'logo-schoeck-de-2021-rgb.png', to: 'client-schoeck.webp', w: 340, lossless: true },
+  { from: 'logo-allplan-company-negativ.png', to: 'client-allplan.webp', w: 320, lossless: true },
 
   // Homepage news cards, from the client's article and project folders.
   {

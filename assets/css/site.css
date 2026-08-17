@@ -1009,12 +1009,13 @@ button {
   margin-top: var(--s6);
 }
 
-.pull__avatar {
-  width: 52px;
-  height: 52px;
+/* A client wordmark, not a portrait, so it is set on the type baseline grid and
+   separated by a rule rather than cropped into a circle. */
+.pull__logo {
+  width: 124px;
   flex: none;
-  border-radius: 50%;
-  object-fit: cover;
+  padding-right: var(--s4);
+  border-right: 1px solid var(--line);
 }
 
 .pull__name {

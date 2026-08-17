@@ -32,7 +32,7 @@ for (const { from, to } of logos) {
 let before = 0
 let after = 0
 
-for (const { from, to, w } of images) {
+for (const { from, to, w, lossless } of images) {
   // A path means a content folder in the repo, a bare name means .staging/img.
   const src = from.includes('/') ? from : `.staging/img/${from}`
   if (!existsSync(src)) {
@@ -50,7 +50,9 @@ for (const { from, to, w } of images) {
   const ext = extname(to).toLowerCase()
   const codec =
     ext === '.webp'
-      ? ['-c:v', 'libwebp', '-quality', '82', '-compression_level', '6']
+      ? lossless
+        ? ['-c:v', 'libwebp', '-lossless', '1', '-compression_level', '6']
+        : ['-c:v', 'libwebp', '-quality', '82', '-compression_level', '6']
       : ext === '.png'
         ? ['-c:v', 'png']
         : ['-c:v', 'mjpeg', '-q:v', '4']
