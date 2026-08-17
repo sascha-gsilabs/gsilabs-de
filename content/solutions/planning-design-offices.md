@@ -31,10 +31,10 @@ blocks:
           - Identification of repetitive, rule based operations
           - Works across Revit, Tekla, Allplan, and Archicad
         image:
-          src: /assets/img/sol-design-plans.webp
-          alt: Drawing sheets laid out for review
+          src: /assets/img/tab-workflow-analysis.webp
+          alt: CAD window with a curved shell model beside the parameter panel that drives its reinforcement
           width: 1200
-          height: 800
+          height: 674
       - label: Plugin Development
         body: >-
           Based on the workflow analysis, we build tailored plugins that integrate
@@ -46,10 +46,10 @@ blocks:
           - Built to match your templates, standards, and project requirements
           - Iterative development with your team's feedback at every stage
         image:
-          src: /assets/img/sol-design-dashboard.webp
-          alt: A project dashboard summarising automated workflow runs
-          width: 1024
-          height: 654
+          src: /assets/img/tab-plugin-development.webp
+          alt: Developer at a desk with plugin code open across two screens
+          width: 683
+          height: 1024
       - label: Standards Compliance
         body: >-
           Every plugin enforces your office standards. Naming conventions, layer
@@ -61,10 +61,10 @@ blocks:
           - Consistent output regardless of who runs the workflow
           - Aligned with national and company specific standards
         image:
-          src: /assets/img/sol-design-plans.webp
-          alt: Drawing sheets laid out for review
-          width: 1200
-          height: 800
+          src: /assets/img/tab-standards-compliance.webp
+          alt: Two engineers reviewing a drawing set against the applicable standards
+          width: 1024
+          height: 684
       - label: Continuous Updates
         body: >-
           Deployment is not the finish line. As your projects evolve, so do the
@@ -76,10 +76,10 @@ blocks:
           - Compatibility updates when BIM software versions change
           - New automation features added based on real usage data
         image:
-          src: /assets/img/sol-design-dashboard.webp
-          alt: A project dashboard summarising automated workflow runs
+          src: /assets/img/tab-continuous-updates.webp
+          alt: Tower cranes over a building under construction
           width: 1024
-          height: 654
+          height: 684
 
   - type: showcase
     tone: void

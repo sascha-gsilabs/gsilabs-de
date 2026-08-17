@@ -31,10 +31,10 @@ blocks:
           - Automatic generation of specification documents and datasheets
           - Embedded directly into your website with no separate login required
         image:
-          src: /assets/img/sol-product-hero.webp
-          alt: A 3D product configurator showing perforated metal panels
-          width: 1400
-          height: 933
+          src: /assets/img/tab-3d-configurator.webp
+          alt: Configurator for a perforated metal sheet, with the parameter panel and the resulting technical data
+          width: 1024
+          height: 806
       - label: BIM Implementation
         body: >-
           BIM objects and plugin integrations that place your products directly inside the
@@ -46,10 +46,10 @@ blocks:
           - Parametric families that update automatically with your product data
           - Download tracking that shows you who specifies your products
         image:
-          src: /assets/img/sol-product-assistant.webp
-          alt: The AI product assistant answering a specification question
-          width: 1200
-          height: 800
+          src: /assets/img/tab-bim-implementation.webp
+          alt: BIM authoring window with three coordinated views of the same building model
+          width: 1024
+          height: 576
       - label: AI Assistant
         body: >-
           An AI powered product assistant trained on your technical documentation that
@@ -61,11 +61,11 @@ blocks:
           - Handles product selection, compatibility checks, and specification generation
           - Available around the clock on your website with no wait time for customers
         image:
-          src: /assets/img/sol-product-assistant.webp
-          alt: The AI product assistant answering a specification question
-          width: 1200
-          height: 800
-      - label: Analytics &amp; Insights
+          src: /assets/img/tab-ai-assistant.webp
+          alt: Assistant working through a flat roof build up and offering the layer package as an IFC export
+          width: 1024
+          height: 616
+      - label: Analytics & Insights
         body: >-
           Every interaction with your digital tools generates data. Which products get
           configured most? Where do users drop off? Which BIM objects get downloaded in
@@ -76,10 +76,10 @@ blocks:
           - BIM download tracking by region, firm type, and project stage
           - AI assistant conversation analytics and frequently asked questions
         image:
-          src: /assets/img/sol-product-hero.webp
-          alt: A 3D product configurator showing perforated metal panels
-          width: 1400
-          height: 933
+          src: /assets/img/tab-analytics-insights.webp
+          alt: Analytics dashboard with product views and placements broken down by BIM software and by country
+          width: 1024
+          height: 654
 
   - type: showcase
     tone: void

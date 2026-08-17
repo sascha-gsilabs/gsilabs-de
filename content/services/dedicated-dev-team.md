@@ -32,7 +32,7 @@ blocks:
         body: >-
           Developers who already understand AEC processes, BIM standards, and the daily
           reality of design offices, contractors, and manufacturers.
-      - title: BIM &amp; Workflow Fluency
+      - title: BIM & Workflow Fluency
         body: >-
           Teams that speak the language of your domain experts, so requirements get
           understood the first time instead of after three rounds of clarification.
@@ -54,13 +54,13 @@ blocks:
           for both sides. Because we already know AEC workflows and BIM, this conversation
           is fast and substantive. We are selective about who we work with, and we expect
           the same from you. If it fits, we move forward. If it does not, we will tell you.
-      - title: Team Assembly &amp; Onboarding
+      - title: Team Assembly & Onboarding
         body: >-
           We assemble a dedicated team matched to your project: the right mix of developers,
           BIM knowledge, and domain experience. Onboarding is short. The team already
           understands your context, so they integrate with your people and tools quickly
           instead of spending weeks learning the basics.
-      - title: Build &amp; Deliver
+      - title: Build & Deliver
         body: >-
           The team works in agile cycles, with clear sprints, regular reviews, and direct
           communication with your stakeholders. You see progress continuously, not just at

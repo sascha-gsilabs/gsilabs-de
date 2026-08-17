@@ -36,7 +36,7 @@ blocks:
           Structured ideation where each use case is defined with a role, a task, and
           specific instructions, then prioritized by value, risk, and implementation
           effort.
-      - title: Compliance &amp; Regulations
+      - title: Compliance & Regulations
         body: >-
           Hands on prototype building where your team creates and deploys their first AI
           agent during the workshop, not weeks later.

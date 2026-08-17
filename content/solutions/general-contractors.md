@@ -30,10 +30,10 @@ blocks:
           - Risk scoring based on language and context to flag what's likely to escalate.
           - Works with your existing email setup without disrupting how teams communicate.
         image:
-          src: /assets/img/sol-sentinel-risk.webp
-          alt: Risk detection view listing flagged project threads
+          src: /assets/img/tab-risk-detection.webp
+          alt: Two site engineers in high visibility gear looking out across a construction site
           width: 1200
-          height: 675
+          height: 934
       - label: Decision Support
         body: >-
           When a risk surfaces, your team gets more than an alert. Every flag comes
@@ -44,10 +44,10 @@ blocks:
           - Suggested response drafts and escalation paths grounded in your project's documents.
           - One click handover to the right owner on your team, with the full reasoning attached.
         image:
-          src: /assets/img/sol-sentinel-support.webp
-          alt: Decision support view with a recommended next step for a flagged risk
-          width: 1200
-          height: 675
+          src: /assets/img/tab-decision-support.webp
+          alt: Dashboard listing the open risks on a project beside its cost, change order and communication figures
+          width: 874
+          height: 872
       - label: Portfolio Memory
         body: >-
           Over time, the system builds a comprehensive risk profile for each project.
@@ -59,10 +59,10 @@ blocks:
           - Recurring patterns across your portfolio surfaced as benchmarks for new projects.
           - Lessons learned captured automatically, searchable when the same situation comes up again.
         image:
-          src: /assets/img/sol-sentinel-memory.webp
-          alt: Portfolio view comparing risk patterns across projects
-          width: 1200
-          height: 675
+          src: /assets/img/tab-portfolio-memory.webp
+          alt: Diagram of the risk agent, from the email and document sources through the ingestion pipeline to the API surfaces
+          width: 590
+          height: 844
 
   - type: showcase
     tone: void

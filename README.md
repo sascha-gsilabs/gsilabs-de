@@ -120,7 +120,13 @@ colour wordmarks, where lossy WebP fringes the letterforms. `build-images` print
 encoded pixel size of every output so the `width` and `height` in the content can be
 filled in truthfully.
 
-Current total for `assets/`: about 6 MB, of which the hero video is 2.7 MB.
+Current total for `assets/`: about 7.6 MB, of which the hero video is 2.8 MB.
+
+The click through panels on the six solution pages are named after their tab, both in
+`brand assets/website images/` and as `tab-<tab slug>.webp` in `assets/img`, so a new
+image for a tab needs no lookup: drop it in under the tab's name and encode. They arrive
+in every orientation, so the panel frame is a fixed 4 by 3 and the image is contained
+inside it rather than cropped.
 
 ## Review tools
 

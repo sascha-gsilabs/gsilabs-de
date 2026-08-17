@@ -177,7 +177,7 @@ button {
 :focus-visible {
   outline: 2px solid currentColor;
   outline-offset: 3px;
-  border-radius: 1px;
+  border-radius: 0;
 }
 
 ::selection {
@@ -322,7 +322,8 @@ button {
   font-size: var(--step-small);
   font-weight: 500;
   letter-spacing: -0.01em;
-  border-radius: 999px;
+  /* Every control on the site is square cornered, same as the tiles. */
+  border-radius: 0;
   border: 1px solid transparent;
   transition: transform 0.35s var(--ease-spring), opacity 0.2s linear,
     background-color 0.2s linear, border-color 0.2s linear, color 0.2s linear;
@@ -513,7 +514,7 @@ button {
   font-family: var(--font-display);
   font-size: var(--step-small);
   font-weight: 500;
-  border-radius: 999px;
+  border-radius: 0;
   transition: background-color 0.2s linear, opacity 0.2s linear;
 }
 
@@ -573,7 +574,7 @@ button {
   display: block;
   padding: 0.55rem 0.75rem;
   font-size: var(--step-small);
-  border-radius: 2px;
+  border-radius: 0;
   color: var(--ink-70);
   transition: background-color 0.18s linear, color 0.18s linear;
 }
@@ -603,7 +604,7 @@ button {
   text-transform: uppercase;
   padding: 0.7rem 0.9rem;
   border: 1px solid color-mix(in srgb, currentColor 22%, transparent);
-  border-radius: 999px;
+  border-radius: 0;
 }
 
 /* ==========================================================================
@@ -1193,7 +1194,7 @@ button {
   width: 34px;
   height: 34px;
   border: 1px solid var(--line);
-  border-radius: 50%;
+  border-radius: 0;
   transition: background-color 0.2s linear, border-color 0.2s linear,
     transform 0.35s var(--ease-spring);
 }
@@ -1461,15 +1462,29 @@ button {
   display: none;
 }
 
-/* Most panel media are product screenshots, which a portrait crop would slice
-   through, so the frame stays close to their native proportions. */
-.tabs__media img {
-  width: 100%;
+/* The client supplies one image per tab, and they arrive in every orientation
+   from 2:3 portrait to 19:10. The box is a fixed 4 by 3 so the band does not
+   jump as you click through, and the image is contained inside it rather than
+   cropped, because most of them are screenshots that a crop would slice through.
+   No matte behind it: several carry their own white or black ground, and any
+   fill colour would only show up as a border on some of them and not others. */
+.tabs__media {
+  position: relative;
   aspect-ratio: 4 / 3;
-  object-fit: cover;
-  object-position: left top;
-  border-radius: var(--radius);
-  background: var(--surface);
+}
+
+/* Taken out of flow and pinned to the frame, so a tall image can neither
+   stretch the box past its ratio nor overflow it. Percentage sizing in flow is
+   not enough here: the height the box gets from aspect-ratio is not definite
+   enough for a percentage height to resolve against, and the image falls back
+   to its intrinsic size. No corner radius, because with contain the corners of
+   this element are empty. */
+.tabs__media img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
 }
 
 .tabs__copy {
@@ -1692,7 +1707,7 @@ button {
   font-size: var(--step-small);
   font-weight: 500;
   border: 1px solid var(--line);
-  border-radius: 999px;
+  border-radius: 0;
   color: var(--on-ground-dim);
   transition: background-color 0.2s linear, color 0.2s linear, border-color 0.2s linear;
 }
@@ -1759,7 +1774,7 @@ button {
   width: 34px;
   height: 34px;
   border: 1px solid var(--line);
-  border-radius: 50%;
+  border-radius: 0;
   transition: background-color 0.2s linear, border-color 0.2s linear;
 }
 
@@ -2250,7 +2265,7 @@ button {
     width: auto;
     padding: 0.55rem 0.95rem;
     border: 1px solid var(--line);
-    border-radius: 999px;
+    border-radius: 0;
   }
 
   .tabs__tab:hover,
@@ -2274,7 +2289,9 @@ button {
     grid-template-columns: minmax(0, 1fr);
   }
 
-  .tabs__media img {
+  /* Stacked, and the panel now has the full width, so a shallower box keeps the
+     copy from being pushed too far down the page. */
+  .tabs__media {
     aspect-ratio: 3 / 2;
   }
 

@@ -33,10 +33,10 @@ blocks:
           - Connection to regional market databases and cost indices
           - Benchmarking against comparable developments by type, region, and size
         image:
-          src: /assets/img/sol-realestate-forecast.webp
-          alt: A cost forecast broken down by trade and phase
-          width: 1200
-          height: 800
+          src: /assets/img/tab-data-collection.webp
+          alt: High rise towers of a completed development against the sky
+          width: 1024
+          height: 596
       - label: Cost Estimation
         body: >-
           When a new development opportunity comes in, the system generates a detailed
@@ -47,10 +47,10 @@ blocks:
           - Current material prices and local labor rate integration
           - Transparent calculations that show exactly where the numbers come from
         image:
-          src: /assets/img/sol-realestate-hero.webp
-          alt: A cost prediction dashboard for a residential development
-          width: 1400
-          height: 933
+          src: /assets/img/tab-cost-estimation.webp
+          alt: Abstract network of connected data points
+          width: 1024
+          height: 544
       - label: Risk Analysis
         body: >-
           Every estimate includes a risk assessment that identifies where the biggest cost
@@ -62,11 +62,11 @@ blocks:
           - Scenario modeling for best case, expected, and worst case outcomes
           - Contingency recommendations based on project specific risk factors
         image:
-          src: /assets/img/sol-realestate-forecast.webp
-          alt: A cost forecast broken down by trade and phase
-          width: 1200
-          height: 800
-      - label: Monitoring &amp; Recalibration
+          src: /assets/img/tab-risk-analysis.webp
+          alt: Two analysts working through project figures on laptops with handwritten notes beside them
+          width: 1024
+          height: 684
+      - label: Monitoring & Recalibration
         body: >-
           Cost estimation does not stop at the feasibility stage. As the project moves
           through planning and construction, the system continuously compares actual costs
@@ -77,10 +77,10 @@ blocks:
           - Early deviation alerts with root cause explanations
           - Every completed project feeds back into the model automatically
         image:
-          src: /assets/img/sol-realestate-hero.webp
-          alt: A cost prediction dashboard for a residential development
-          width: 1400
-          height: 933
+          src: /assets/img/tab-monitoring-recalibration.webp
+          alt: Cost breakdown for a residential scheme above a list of flagged risk exposures
+          width: 530
+          height: 776
 
   - type: showcase
     tone: void

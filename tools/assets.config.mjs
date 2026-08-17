@@ -93,28 +93,53 @@ export const images = [
     w: 1400,
   },
 
-  // Solution pages: hero media and feature panels.
+  // Solution page heroes.
   { from: 'gsilabs-sentinel.jpg', to: 'sol-contractors-hero.webp', w: 1400 },
   { from: 'gsilabs-solutions-for-general-contractors.jpg', to: 'sol-contractors-site.webp', w: 1200 },
-  { from: 'gsilabs-sentinel-risk-detection.jpg', to: 'sol-sentinel-risk.webp', w: 1200 },
-  { from: 'gsilabs-sentinel-decision-support.jpg', to: 'sol-sentinel-support.webp', w: 1200 },
-  { from: 'gsilabs-sentinel-decision-memory.jpg', to: 'sol-sentinel-memory.webp', w: 1200 },
-
   { from: 'evgeniy-surzhan-vfmhqkil6e4-unsplash.jpg', to: 'sol-design-hero.webp', w: 1400 },
-  { from: 'dashboard-overview-kopie-rev01-1024x654.png', to: 'sol-design-dashboard.webp', w: 1024 },
-  { from: 'plans.png', to: 'sol-design-plans.webp', w: 1200 },
-
   { from: 'scott-blake-x-ghf9ljrvg-unsplash.jpg', to: 'sol-geo-hero.webp', w: 1400 },
-  { from: 'geojango-maps-z8ugb80-46w-unsplash.jpg', to: 'sol-geo-map.webp', w: 1200 },
-
   { from: 'gsilabs-stack-of-reinforced-concrete-slabs-in-a-factory-workshop.jpg', to: 'sol-precast-hero.webp', w: 1400 },
-  { from: 'csm-structural-precast-parametric-staircase-planning-e340f5de20.jpg', to: 'sol-precast-staircase.webp', w: 1200 },
-
   { from: 'gsilabs-3d-product-configurator.jpg', to: 'sol-product-hero.webp', w: 1400 },
-  { from: 'gsilabs-ai-product-assistant.png', to: 'sol-product-assistant.webp', w: 1200 },
-
   { from: 'gsilabs-ai-cost-prediction-real-estate.jpg', to: 'sol-realestate-hero.webp', w: 1400 },
-  { from: 'gsilabs-ai-cost-prediction.jpg', to: 'sol-realestate-forecast.webp', w: 1200 },
+
+  // The click through panels on the six solution pages. The client supplied one
+  // image per tab, named after the tab, so the output name is the tab slug and
+  // the mapping needs no lookup table. Tab labels are unique across all six
+  // pages, so one flat namespace is enough.
+  //
+  // They arrive in mixed orientations, from 2:3 portrait to 19:10, and the panel
+  // frame is fixed so the band does not jump as you click through. 1200 is the
+  // ceiling rather than the target: the encoder never upscales, and most of these
+  // are 1024 at source.
+  { from: 'risk-detection.avif', to: 'tab-risk-detection.webp', w: 1200 },
+  { from: 'decision-support.avif', to: 'tab-decision-support.webp', w: 1200 },
+  { from: 'portfolio-memory.avif', to: 'tab-portfolio-memory.webp', w: 1200 },
+
+  { from: 'soil-modeling.avif', to: 'tab-soil-modeling.webp', w: 1200 },
+  { from: 'design-optimization.avif', to: 'tab-design-optimization.webp', w: 1200 },
+  { from: 'co2-reduction.webp', to: 'tab-co2-reduction.webp', w: 1200 },
+  { from: 'code-compliance.webp', to: 'tab-code-compliance.webp', w: 1200 },
+
+  { from: 'workflow-analysis.avif', to: 'tab-workflow-analysis.webp', w: 1200 },
+  { from: 'plugin-development.avif', to: 'tab-plugin-development.webp', w: 1200 },
+  { from: 'standards-compliance.avif', to: 'tab-standards-compliance.webp', w: 1200 },
+  // The source file spells it "continous".
+  { from: 'continous-updates.avif', to: 'tab-continuous-updates.webp', w: 1200 },
+
+  { from: 'project-modularization.avif', to: 'tab-project-modularization.webp', w: 1200 },
+  { from: 'drawing-automation.webp', to: 'tab-drawing-automation.webp', w: 1200 },
+  { from: 'machine-file-export.webp', to: 'tab-machine-file-export.webp', w: 1200 },
+  { from: 'production-rules.webp', to: 'tab-production-rules.webp', w: 1200 },
+
+  { from: '3d-configurator.avif', to: 'tab-3d-configurator.webp', w: 1200 },
+  { from: 'bim-implementation.webp', to: 'tab-bim-implementation.webp', w: 1200 },
+  { from: 'ai-assistant.webp', to: 'tab-ai-assistant.webp', w: 1200 },
+  { from: 'analytics-insights.webp', to: 'tab-analytics-insights.webp', w: 1200 },
+
+  { from: 'data-collection.avif', to: 'tab-data-collection.webp', w: 1200 },
+  { from: 'cost-estimation.avif', to: 'tab-cost-estimation.webp', w: 1200 },
+  { from: 'risk-analysis.avif', to: 'tab-risk-analysis.webp', w: 1200 },
+  { from: 'monitoring-recalibration.webp', to: 'tab-monitoring-recalibration.webp', w: 1200 },
 
   // Service pages.
   { from: 'kvalifik-5q07ss54d0q-unsplash.jpg', to: 'svc-workshop-hero.webp', w: 1400 },

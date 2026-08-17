@@ -31,10 +31,10 @@ blocks:
           - Respects maximum dimensions, weight limits, and transport constraints
           - Optimized element sizing based on your mold inventory
         image:
-          src: /assets/img/sol-precast-hero.webp
-          alt: Stacked reinforced concrete slabs in a precast factory workshop
-          width: 1400
-          height: 933
+          src: /assets/img/tab-project-modularization.webp
+          alt: Line drawing of a reinforced stair flight modelled inside its shaft
+          width: 830
+          height: 466
       - label: Drawing Automation
         body: >-
           For each element, the system generates detailed shop drawings including
@@ -46,10 +46,10 @@ blocks:
           - Generated to match your company templates and standards
           - Review and approve workflow instead of draw from scratch
         image:
-          src: /assets/img/sol-precast-staircase.webp
-          alt: A parametrically planned precast staircase with its reinforcement
-          width: 1200
-          height: 800
+          src: /assets/img/tab-drawing-automation.webp
+          alt: Generated shop drawing of a precast element with its dimensions and connection details
+          width: 1024
+          height: 724
       - label: Machine File Export
         body: >-
           Approved elements are exported directly as machine readable files in the
@@ -61,10 +61,10 @@ blocks:
           - Compatible with plotting tables, bending machines, and casting robots
           - No manual file conversion or re-entry of data
         image:
-          src: /assets/img/sol-precast-staircase.webp
-          alt: A parametrically planned precast staircase with its reinforcement
-          width: 1200
-          height: 800
+          src: /assets/img/tab-machine-file-export.webp
+          alt: Precast factory hall with pallet circulation carriages on the production line
+          width: 1024
+          height: 854
       - label: Production Rules
         body: >-
           Before any automation runs, we define your production rules together. Maximum
@@ -76,10 +76,10 @@ blocks:
           - Covers dimensions, weight, connections, and reinforcement standards
           - Rules can be updated as your plant capabilities evolve
         image:
-          src: /assets/img/sol-precast-hero.webp
-          alt: Stacked reinforced concrete slabs in a precast factory workshop
-          width: 1400
-          height: 933
+          src: /assets/img/tab-production-rules.webp
+          alt: Aerial view of a precast yard with finished elements stacked for dispatch
+          width: 1200
+          height: 800
 
   - type: showcase
     tone: void

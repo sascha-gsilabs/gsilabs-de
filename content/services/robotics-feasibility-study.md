@@ -27,7 +27,7 @@ blocks:
       pilot and an expensive disappointment is the analysis you do before you buy. We help
       you get that analysis right.
     items:
-      - title: Site &amp; Task Analysis
+      - title: Site & Task Analysis
         body: >-
           Systematic evaluation of your site operations to identify which tasks are
           repetitive, physically demanding, or quality critical enough to justify robotic

@@ -31,10 +31,10 @@ blocks:
           - Statistical interpolation between investigation points
           - Probabilistic soil profiles that reflect real site conditions
         image:
-          src: /assets/img/sol-geo-map.webp
-          alt: Site plan with the investigation points a soil model is built from
-          width: 1200
-          height: 800
+          src: /assets/img/tab-soil-modeling.webp
+          alt: Aerial view of an excavation with a drilling rig and excavators at work
+          width: 1024
+          height: 576
       - label: Design Optimization
         body: >-
           Based on the statistical soil model, the system evaluates thousands of pile
@@ -46,10 +46,10 @@ blocks:
           - Automatic evaluation against bearing capacity and settlement limits
           - Comparison of design alternatives with cost and material breakdowns
         image:
-          src: /assets/img/sol-geo-hero.webp
-          alt: Aerial view of a foundation site with driven piles
-          width: 1400
-          height: 933
+          src: /assets/img/tab-design-optimization.webp
+          alt: Structural model of a high rise building on its piled foundation
+          width: 1024
+          height: 1024
       - label: CO2 Reduction
         body: >-
           Every cubic meter of concrete and every ton of steel has a carbon footprint.
@@ -61,10 +61,10 @@ blocks:
           - Material savings quantified in kg CO2 equivalent
           - Documentation ready for sustainability reporting and certifications
         image:
-          src: /assets/img/sol-geo-map.webp
-          alt: Site plan with the investigation points a soil model is built from
-          width: 1200
-          height: 800
+          src: /assets/img/tab-co2-reduction.webp
+          alt: Concrete mixer truck delivering to an inner city construction site
+          width: 1024
+          height: 684
       - label: Code Compliance
         body: >-
           All design calculations follow the EA Pfähle (Recommendations on Piling) and
@@ -76,10 +76,10 @@ blocks:
           - Automatic application of partial safety factors per national annex
           - Exportable calculation reports for review and approval
         image:
-          src: /assets/img/sol-geo-hero.webp
-          alt: Aerial view of a foundation site with driven piles
-          width: 1400
-          height: 933
+          src: /assets/img/tab-code-compliance.webp
+          alt: The EA-Pfähle recommendations on piling, the code a foundation design is checked against
+          width: 684
+          height: 1024
 
   - type: showcase
     tone: void

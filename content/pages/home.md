@@ -70,19 +70,19 @@ blocks:
     title: Our process
     items:
       - step: Discover
-        title: Discover &amp; Assess
+        title: Discover & Assess
         body: >-
           We analyze your existing workflows, data landscape, and team capabilities
           to identify the highest-impact AI opportunities. Every engagement starts
           with a clear ranking of use cases by feasibility and business value.
       - step: Build
-        title: Build &amp; Deploy
+        title: Build & Deploy
         body: >-
           We develop production-ready AI solutions tailored to your specific
           processes. From working prototype to full integration into your existing
           systems, typically within 6 to 12 weeks.
       - step: Scale
-        title: Scale &amp; Enable
+        title: Scale & Enable
         body: >-
           We train your team to work with AI independently and ensure the solutions
           grow with your business. Ongoing optimization and support turn a single
