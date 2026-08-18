@@ -552,15 +552,30 @@ const contact = (b, ctx) =>
 
 /* -------------------------------------------------------------- hubspot --- */
 
-/* The enquiry page: what we need from you on the left, the form to fill in on
-   the right, split down the middle by a rule that runs the height of the band.
+/**
+ * The HubSpot frame and the script that fills it, for one of the forms named in
+ * site.yml. Exported because the job pages embed the application form outside
+ * the block system.
+ *
+ * The loader renders into a cross origin iframe, so the fields inside are out of
+ * this site's reach: only the frame around them is ours to style. The script
+ * rides along with the frame rather than sitting in the page shell, so a page
+ * only pays for HubSpot when it actually carries a form. Emitting it twice is
+ * harmless: the second request is served from cache, and the loader picks up
+ * every frame div on the page rather than only the first.
+ */
+export function formFrame(name, site) {
+  const hs = site.hubspot ?? {}
+  const id = hs.forms?.[name]
+  if (!id) throw new Error(`unknown hubspot form: ${name}. Add it under hubspot.forms in site.yml`)
+  return `<div class="hs-form-frame" data-region="${esc(hs.region)}" data-form-id="${esc(
+    id
+  )}" data-portal-id="${esc(hs.portalId)}"></div>
+      <script src="https://js-${esc(hs.region)}.hsforms.net/forms/embed/${esc(hs.portalId)}.js" defer></script>`
+}
 
-   HubSpot renders the form into a cross origin iframe, so the fields inside are
-   out of this stylesheet's reach. What is styled here is the frame around them.
-   The loader script sits in the block rather than the page shell, so a page only
-   pays for HubSpot when it actually carries a form. Repeating it is harmless:
-   the second request is served from cache and the loader picks up every frame
-   div on the page, not just the first. */
+/* The enquiry band: what we need from you on the left, the form to put it in on
+   the right, split down the middle by a rule that runs the height of the band. */
 const form = (b, ctx) =>
   band(
     join([
@@ -572,14 +587,13 @@ ${points(b.points)}
       ${b.image ? `<figure class="form-intro__media">${photo(b.image, { sizes: '(max-width: 900px) 92vw, 46vw' })}</figure>` : ''}
     </div>`,
       `    <div class="form-embed">
-      <div class="hs-form-frame" data-region="${esc(b.region ?? 'eu1')}" data-form-id="${esc(b.formId)}" data-portal-id="${esc(b.portalId)}"></div>
+      ${formFrame(b.form, ctx.site)}
       <noscript>
         <p class="form-embed__note">The form needs JavaScript. Write to <a href="mailto:${
           ctx.site.company.email
         }">${esc(ctx.site.company.email)}</a> instead and you reach the same people.</p>
       </noscript>
       ${b.note ? `<p class="form-embed__note">${mdInline(b.note)}</p>` : ''}
-      <script src="https://js-${esc(b.region ?? 'eu1')}.hsforms.net/forms/embed/${esc(b.portalId)}.js" defer></script>
     </div>`,
     ]),
     { ...bandOpts(b), className: `band--split ${b.flushTop ? 'band--flush-top' : ''}`.trim() }

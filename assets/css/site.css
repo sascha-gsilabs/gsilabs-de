@@ -2068,6 +2068,28 @@ button {
   text-decoration-color: currentColor;
 }
 
+/* The application form closing a job page. One column rather than the enquiry
+   page's split: there is nothing to put beside it, and a form this narrow is
+   easier to fill than one stretched across the body measure. */
+.job-apply__inner {
+  grid-column: 2 / 9;
+}
+
+.job-apply .hs-form-frame {
+  /* Five fields with the name pair sharing a row, one row more than the enquiry
+     form. Measured in this column, same as the other floor. */
+  min-height: 36rem;
+  margin-top: var(--s5);
+}
+
+.job-apply__back {
+  display: flex;
+  align-items: baseline;
+  gap: 0.4rem;
+  border-top: 1px solid var(--line);
+  padding-top: var(--s3);
+}
+
 /* --- contact grid --------------------------------------------------------- */
 
 .contact-grid {
@@ -2331,6 +2353,7 @@ button {
   .prose,
   .article__body,
   .article__head,
+  .job-apply__inner,
   .job__head {
     grid-column: 1 / 13;
   }
@@ -2637,8 +2660,15 @@ button {
 }
 
 @media (max-width: 480px) {
-  /* First and last name drop onto their own rows below this width. */
+  /* First and last name drop onto their own rows below this width, adding a row
+     to both forms. The job selector is repeated rather than left to the rule
+     above, which is less specific than .job-apply .hs-form-frame and so would
+     lose to it here and crop the application form. */
   .hs-form-frame {
+    min-height: 40rem;
+  }
+
+  .job-apply .hs-form-frame {
     min-height: 40rem;
   }
 }

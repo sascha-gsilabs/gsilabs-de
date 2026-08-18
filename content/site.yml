@@ -24,6 +24,17 @@ seo:
   origin: https://www.gsilabs.de
   socialImage: /assets/img/social-preview.jpg
 
+# The HubSpot forms the site embeds, named for the job they do rather than by
+# their id, so a page asks for `enquiry` and never carries a UUID. Region and
+# portal belong to the account and are the same for every form: only the id under
+# `forms` changes. Replacing a form means pasting its new id here, once.
+hubspot:
+  region: eu1
+  portalId: "146150011"
+  forms:
+    enquiry: 16241ff4-56ee-42ce-a5b7-9967520290c5
+    application: 13146800-d8a8-4ccd-9c2e-f409489abeaf
+
 cta:
   label: Get Started
   href: /get-started

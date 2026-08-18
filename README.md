@@ -81,7 +81,9 @@ Markdown body. Use #### and ##### for section headings, matching the source arti
 ![alt text](/assets/img/fig-x.webp "Figure 1: this becomes the caption")
 ```
 
-Jobs need `title`, `employment`, `location`, `excerpt` and a Markdown body.
+Jobs need `title`, `employment`, `location`, `excerpt` and a Markdown body. The
+application form is appended to every one of them, so nothing in the file asks
+for it.
 
 ### Composed pages
 
@@ -98,9 +100,22 @@ Common options on any block: `tone: void` for a black band, `id` for an anchor,
 
 ### Forms
 
-`form` is the enquiry band: what we need from you on the left, the HubSpot form
-to put it in on the right, split by a rule down the middle. Everything it needs
-comes from the embed code HubSpot gives you:
+The site embeds two HubSpot forms. Both are declared once in `site.yml`, named
+for the job they do so no page ever carries a UUID:
+
+```yaml
+hubspot:
+  region: eu1
+  portalId: "146150011"
+  forms:
+    enquiry: 16241ff4-56ee-42ce-a5b7-9967520290c5      # /get-started
+    application: 13146800-d8a8-4ccd-9c2e-f409489abeaf  # the job pages
+```
+
+Replacing a form in HubSpot means pasting its new id there, once.
+
+`form` is the enquiry band on Get Started: what we need from you on the left,
+the form on the right, split by a rule down the middle.
 
 ```yaml
   - type: form
@@ -109,29 +124,43 @@ comes from the embed code HubSpot gives you:
       - One line per thing the reader gets.
     image: { src: /assets/img/get-started-workshop.webp, alt: ..., width: 1300, height: 976 }
     note: Small print under the form. Markdown links work.
-    region: eu1                 # data-region
-    portalId: "146150011"       # data-portal-id, quoted so YAML keeps it a string
-    formId: 16241ff4-56ee-42ce-a5b7-9967520290c5   # data-form-id
+    form: enquiry               # a key under hubspot.forms
 ```
 
-`eyebrow` and `title` are available too, and `id` gives the band an anchor. The
-loader script is emitted by the block, so nothing needs adding to the page shell.
+`eyebrow` and `title` are available too, and `id` gives the band an anchor.
 
-HubSpot renders the form inside a cross origin iframe. That means
-`assets/css/site.css` can style the frame and the note around it but cannot
-reach a single field inside. Field colours, fonts and corners are set in
-HubSpot, under the form's own style settings.
+The application form is not a block: every job page ends with it, so `jobPage`
+in `templates/pages.mjs` emits it directly. The button in the job header is an
+anchor down to it rather than a link away from the page.
 
-It also means the frame's height is whatever HubSpot posts back to the page, and
-it posts zero on any origin it does not recognise. `.hs-form-frame` carries a
-`min-height` as the floor that keeps the form visible either way, measured
-against the form as it actually renders: 34rem beside the copy, 40rem once the
-columns stack and the name fields split onto their own rows. Add or remove
-fields and both numbers need remeasuring.
+Both go through `formFrame()` in `templates/blocks.mjs`, which emits the frame
+div and the loader script together. The script rides along with the frame rather
+than sitting in the page shell, so a page only pays for HubSpot when it carries
+a form.
+
+**What can and cannot be styled.** HubSpot renders into a cross origin iframe.
+`assets/css/site.css` can style the frame and whatever sits around it, and
+cannot reach a single field inside. Field colours, fonts and corners are set in
+HubSpot, under each form's own style settings.
+
+**Why the min-heights exist.** The frame's height is whatever HubSpot posts back
+to the page, and it posts zero on any origin it does not recognise, which would
+leave the form invisible. `.hs-form-frame` carries a `min-height` as the floor
+that keeps it on the page either way, measured against each form as it actually
+renders:
+
+| | beside the copy | stacked, under 480px |
+| --- | --- | --- |
+| enquiry, 5 fields | 34rem | 40rem |
+| application, 5 fields, all required | 36rem | 40rem |
+
+Add or remove a field and the matching number needs remeasuring, or the form
+gets cropped: the iframe carries `scrolling="no"`, so whatever overflows is
+simply gone.
 
 Note for screenshots: Chrome does not paint a cross origin iframe that sits
-outside the viewport, so a `--fullPage` capture of this page shows the form's
-reserved space as blank. Capture it with `--viewport --scroll=` instead.
+outside the viewport, so a full page capture of either page shows the form's
+reserved space as blank. Capture with `--viewport --scroll=` instead.
 
 Two conveniences in the content itself: ` // ` surrounded by spaces becomes the styled
 brand delimiter, and a Markdown image with a title becomes a captioned figure.

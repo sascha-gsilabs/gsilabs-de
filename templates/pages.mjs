@@ -1,7 +1,7 @@
 // Renderers for the two content types that are body text first: insight detail
 // pages (articles and projects) and job detail pages.
 import { ARROW, esc, join, md, mdInline, paras } from './layout.mjs'
-import { insightCard } from './blocks.mjs'
+import { formFrame, insightCard } from './blocks.mjs'
 
 export function insightPage(doc, ctx) {
   const related = ctx.insights.filter((i) => i.slug !== doc.slug).slice(0, 2)
@@ -72,9 +72,7 @@ export function jobPage(doc, ctx) {
       </p>
       <h1 class="article__title" id="page-title">${mdInline(doc.title)}</h1>
       ${doc.excerpt ? `<p class="lede article__lede">${mdInline(doc.excerpt)}</p>` : ''}
-      <a class="btn btn--solid" href="mailto:${ctx.site.company.email}?subject=${encodeURIComponent(
-        'Application: ' + doc.title
-      )}">Apply by email</a>
+      <a class="btn btn--solid" href="#apply">Apply now</a>
     </div>
 
     <dl class="article__facts">
@@ -108,19 +106,18 @@ ${md(doc.body)}
   </div>
 </article>`,
 
-    `<section class="band band--void" aria-labelledby="apply-title">
+    `<section class="band job-apply" id="apply" aria-labelledby="apply-title">
   <div class="wrap grid">
-    <div class="closer">
-      <h2 class="closer__title" id="apply-title">Interested?</h2>
-      <div class="closer__body">${paras([
-        `Send your CV and a short note about what you want to work on to ${ctx.site.company.email}. No cover letter template needed.`,
-      ])}</div>
-      <div class="closer__actions">
-        <a class="btn btn--solid" href="mailto:${ctx.site.company.email}?subject=${encodeURIComponent(
-          'Application: ' + doc.title
-        )}">Apply by email</a>
-        <a class="link" href="/careers">See all roles${ARROW}</a>
-      </div>
+    <div class="job-apply__inner">
+      <h2 class="statement__title" id="apply-title">Apply now</h2>
+      ${formFrame('application', ctx.site)}
+      <noscript>
+        <p class="form-embed__note">The form needs JavaScript. Send your CV and a short note about
+          what you want to work on to <a href="mailto:${ctx.site.company.email}?subject=${encodeURIComponent(
+            'Application: ' + doc.title
+          )}">${esc(ctx.site.company.email)}</a> instead.</p>
+      </noscript>
+      <p class="form-embed__note job-apply__back"><a href="/careers">See all roles</a>${ARROW}</p>
     </div>
   </div>
 </section>`,

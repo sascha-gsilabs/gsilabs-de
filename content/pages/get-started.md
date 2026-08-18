@@ -23,7 +23,5 @@ blocks:
     note: >-
       \* By submitting this form, you agree that GSI Labs may process your information to
       respond to your inquiry. See our [Privacy Policy](/privacy) for details.
-    region: eu1
-    portalId: "146150011"
-    formId: 16241ff4-56ee-42ce-a5b7-9967520290c5
+    form: enquiry
 ---
