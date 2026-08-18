@@ -668,7 +668,8 @@ button {
   flex-direction: column;
 }
 
-.hero__video {
+.hero__video,
+.hero__cover {
   position: absolute;
   inset: 0;
   width: 100%;
@@ -979,6 +980,37 @@ button {
 .stage:hover {
   transform: translateY(-4px);
   box-shadow: var(--lift-2);
+}
+
+/* `layout: rows` reads the same items down the page instead of across it: the
+   number, then the heading, then the prose, one line per item. For a list that is
+   read rather than compared, which is what the mission statements are, the tiles
+   put three short blocks of text into three boxes for no reason. */
+.process__list--rows {
+  grid-template-columns: minmax(0, 1fr);
+  gap: 0;
+  border-top: 1px solid var(--line);
+}
+
+.process__list--rows .stage {
+  display: grid;
+  grid-template-columns: 4rem minmax(0, 14rem) minmax(0, 1fr);
+  gap: var(--col-gap);
+  align-items: baseline;
+  padding: var(--s4) 0;
+  background: none;
+  border-bottom: 1px solid var(--line);
+}
+
+.process__list--rows .stage:hover {
+  transform: none;
+  box-shadow: none;
+}
+
+/* The rule after the number belongs to the tile, where it fills the width. In a
+   row the number sits in its own column and the rule has nothing to span. */
+.process__list--rows .stage__index::after {
+  display: none;
 }
 
 .stage__index {
@@ -1306,6 +1338,20 @@ button {
   margin-top: var(--s5);
 }
 
+/* The picture beside a statement, square like the ones on the solution pages.
+   Pinned to the top so copy shorter than the frame does not drag it up the band. */
+.statement__media {
+  grid-column: 7 / 13;
+  align-self: start;
+  aspect-ratio: 1 / 1;
+}
+
+.statement__media img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
 /* --- page hero ------------------------------------------------------------ */
 
 .page-hero {
@@ -1362,6 +1408,27 @@ button {
   align-self: start;
   min-height: 0;
   aspect-ratio: var(--media-ratio);
+}
+
+/* Banner variant: the picture runs the content width above the title, which is
+   how the Company pages open. Row placement rather than markup order, so the
+   heading still comes first to anything reading the document. */
+.page-hero--banner {
+  padding-top: calc(var(--head-h) + var(--s5));
+}
+
+.page-hero--banner .page-hero__media {
+  grid-column: 1 / 13;
+  grid-row: 1;
+}
+
+.page-hero--banner .page-hero__head {
+  grid-row: 2;
+  margin-top: var(--s6);
+}
+
+.page-hero--banner .page-hero__aside {
+  grid-row: 3;
 }
 
 .page-hero__media img {
@@ -1468,6 +1535,18 @@ button {
 /* No note under the tiles, so there is one row less to run beside. */
 .band--metrics-media--short .tile-metrics__media {
   grid-row: 1 / span 2;
+}
+
+/* Mirrored: the picture takes the left half and the copy with its numbers the
+   right, which is how the careers page reads. */
+.band--metrics-media-left .tile-metrics__media {
+  grid-column: 1 / 7;
+}
+
+.band--metrics-media-left .statement--split,
+.band--metrics-media-left .tile-metrics,
+.band--metrics-media-left .tile-metrics__note {
+  grid-column: 7 / 13;
 }
 
 .tile-metrics__media img {
@@ -1741,18 +1820,29 @@ button {
 
 /* --- team ----------------------------------------------------------------- */
 
+/* Two to a row, each portrait beside its name rather than above it, which is the
+   reading the page this replaces uses. Three across put the photographs at 420px,
+   larger than anything else on the page and larger than the team is. */
 .team {
   grid-column: 1 / 13;
   margin-top: var(--s7);
   display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: var(--col-gap);
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: var(--s6) var(--col-gap);
 }
 
+.member {
+  display: grid;
+  grid-template-columns: 12rem minmax(0, 1fr);
+  gap: var(--s4);
+  align-items: start;
+}
+
+/* Square, like every other frame on the site. The original crops these to
+   circles; the client asked for the corners to come off everywhere. */
 .member__portrait {
   position: relative;
   overflow: hidden;
-  margin-bottom: var(--s4);
 }
 
 .member__portrait img {
@@ -1827,6 +1917,20 @@ button {
 .joblist {
   grid-column: 8 / 13;
   border-top: 1px solid var(--line);
+}
+
+/* Half the column at most: this one sits above a short paragraph rather than
+   carrying a band, and at full column width it outweighs the roles beside it. */
+.joblist__media {
+  margin-block: var(--s5);
+  max-width: 20rem;
+  aspect-ratio: 1 / 1;
+}
+
+.joblist__media img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }
 
 .joblist__item {
@@ -2050,9 +2154,11 @@ button {
   margin-top: var(--s8);
 }
 
+/* 5 by 3 unless the content asks for another shape: the enquiry page crops its
+   photograph that way, the contact page runs a square. */
 .form-intro__media {
   margin-top: var(--s6);
-  aspect-ratio: 5 / 3;
+  aspect-ratio: var(--media-ratio, 5 / 3);
 }
 
 .form-intro__media img {
@@ -2104,6 +2210,35 @@ button {
 .form-embed__note a:hover {
   color: var(--on-ground);
   text-decoration-color: currentColor;
+}
+
+/* Flipped: form on the left, the picture and the address on the right. The inner
+   padding moves with it, so the gap stays between the rule and the form. */
+.band--form-flip .form-embed {
+  grid-column: 1 / 7;
+  padding-left: 0;
+  padding-right: var(--col-gap);
+}
+
+.band--form-flip .form-intro {
+  grid-column: 7 / 13;
+}
+
+.form-embed__lead {
+  margin-bottom: var(--s6);
+}
+
+.form-intro__contact {
+  margin-top: var(--s5);
+}
+
+/* Two to a row here, unlike the stacked column on the enquiry page: this list is
+   three short entries under a picture rather than the whole right hand side. */
+.contact-grid--inline {
+  grid-column: auto;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: var(--s4) var(--col-gap);
+  margin-top: var(--s4);
 }
 
 /* The application form closing a job page. One column rather than the enquiry
@@ -2407,6 +2542,7 @@ button {
 
   .tile-metrics,
   .contact-grid,
+  .statement__media,
   .joblist,
   .statement__points,
   .pillars__note {
@@ -2434,6 +2570,15 @@ button {
   /* Stacked, so the rule down the middle has nothing left to divide. */
   .band--split::before {
     display: none;
+  }
+
+  .band--form-flip .form-embed,
+  .band--form-flip .form-intro {
+    grid-column: 1 / 13;
+  }
+
+  .band--form-flip .form-embed {
+    padding-right: 0;
   }
 
   .form-intro,
@@ -2733,6 +2878,22 @@ button {
   .process__list,
   .news__list {
     grid-template-columns: minmax(0, 1fr);
+  }
+
+  .team {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .process__list--rows .stage {
+    grid-template-columns: 3rem minmax(0, 1fr);
+  }
+
+  .process__list--rows .stage > :last-child {
+    grid-column: 2;
+  }
+
+  .member {
+    grid-template-columns: 8rem minmax(0, 1fr);
   }
 
   .site-foot__main {

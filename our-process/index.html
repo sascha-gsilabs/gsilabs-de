@@ -134,57 +134,71 @@
 </header>
 
 <main id="main">
-<section class="band page-hero" aria-labelledby="page-title">
+<section class="band band--void band--flush hero" aria-labelledby="hero-title" data-head-over>
+    <img class="hero__cover" src="/assets/img/our-process-top.webp" alt="" width="1400" height="1050" fetchpriority="high" decoding="async">
+    <div class="hero__scrim" aria-hidden="true"></div>
+
+    <div class="wrap hero__wrap">
+      <div class="hero__stage">
+        <h1 class="hero__title hero__title--a" id="hero-title">
+          <span class="hero__line" style="--enter-delay:120ms">Our</span>
+          <span class="hero__line" style="--enter-delay:220ms">Process</span>
+        </h1>
+
+        <div class="hero__support" style="--enter-delay:460ms">
+          <p>How we take you from first conversation to AI in production.</p>
+          
+        </div>
+      </div>
+    </div>
+  </section>
+
+<section class="band band--split">
   <div class="wrap grid">
-    <div class="page-hero__head">
-      <p class="label eyebrow">Company</p>
-      <h1 class="page-hero__title" id="page-title">Our Process</h1>
+    <div class="reveal statement statement--split">
+      <p class="label eyebrow">Phase one</p>
+      <h2 class="statement__title">Understand Your Workflows</h2>
+      <div class="statement__body"><p class="lede">Every engagement starts with listening. We spend time with your team to understand how work actually gets done today. Which tasks take the most time? Where do errors happen? What tools do people rely on, and where do they work around them? We map your workflows end to end so every recommendation is grounded in reality, not assumptions.</p>
+<p class="lede">The output of this phase is a clear picture of where AI can have the highest impact in your specific environment, with a prioritized list of opportunities ranked by effort, value, and feasibility.</p></div>
+      
     </div>
-    <div class="page-hero__aside">
-      <p class="lede">How we take you from first conversation to AI in production.</p>
-      <a class="btn btn--solid" href="/get-started">Get Started</a>
-    </div>
-    <figure class="page-hero__media"><img class="photo" src="/assets/img/our-process-top.webp" alt="Working an approach out on a glass wall in coloured marker" width="1400" height="1050" loading="lazy" decoding="async"></figure>
+    <figure style="--reveal-delay:90ms" class="reveal statement__media"><img class="photo" src="/assets/img/our-process-understand.webp" alt="An engineer marking up a printed drawing at a desk, laptop open beside it" width="1300" height="1950" sizes="(max-width: 900px) 92vw, 46vw" loading="lazy" decoding="async"></figure>
   </div>
 </section>
 
-<section class="band band--flush-top" id="phases">
+<section class="band band--split">
   <div class="wrap grid">
-    <div class="reveal process__head">
-      
-      
+    <div class="reveal statement statement--split">
+      <p class="label eyebrow">Phase two</p>
+      <h2 class="statement__title">Build and Validate</h2>
+      <div class="statement__body"><p class="lede">Based on the workflow analysis, we design and develop AI solutions tailored to your operations. Whether it is a BIM plugin, a reporting automation, a production planning tool, or a risk detection system, we build it to work with your existing infrastructure. No rip and replace.</p>
+<p class="lede">Every solution is tested on real project data before it goes live. Your team reviews the output, provides feedback, and signs off before anything reaches production. We iterate until the results meet your standards, not ours.</p></div>
       
     </div>
-    <ol style="--reveal-delay:90ms" class="reveal process__list">
-      <li class="stage">
-        <p class="label stage__index">Phase one</p>
-        <h3 class="title stage__title">Understand Your Workflows</h3>
-        <p>Every engagement starts with listening. We spend time with your team to understand how work actually gets done today. Which tasks take the most time? Where do errors happen? What tools do people rely on, and where do they work around them? We map your workflows end to end so every recommendation is grounded in reality, not assumptions.</p>
-<p>The output of this phase is a clear picture of where AI can have the highest impact in your specific environment, with a prioritized list of opportunities ranked by effort, value, and feasibility.</p>
-      </li>
-      <li class="stage">
-        <p class="label stage__index">Phase two</p>
-        <h3 class="title stage__title">Build and Validate</h3>
-        <p>Based on the workflow analysis, we design and develop AI solutions tailored to your operations. Whether it is a BIM plugin, a reporting automation, a production planning tool, or a risk detection system, we build it to work with your existing infrastructure. No rip and replace.</p>
-<p>Every solution is tested on real project data before it goes live. Your team reviews the output, provides feedback, and signs off before anything reaches production. We iterate until the results meet your standards, not ours.</p>
-      </li>
-      <li class="stage">
-        <p class="label stage__index">Phase three</p>
-        <h3 class="title stage__title">Deploy and Improve</h3>
-        <p>Once a solution is validated, we roll it out across your team. But deployment is not the finish line. We monitor usage, track performance, and collect feedback continuously. The system gets better with every project it processes.</p>
-<p>As your operations evolve, we expand the automation to new use cases, new teams, and new markets. We stay involved as a long term partner, not a vendor who disappears after delivery. Our goal is to make AI a permanent part of how your company operates.</p>
-      </li>
-    </ol>
+    <figure style="--reveal-delay:90ms" class="reveal statement__media"><img class="photo" src="/assets/img/our-process-build.webp" alt="A developer working across two screens of code" width="1300" height="1950" sizes="(max-width: 900px) 92vw, 46vw" loading="lazy" decoding="async"></figure>
   </div>
 </section>
 
-<section class="band band--void">
+<section class="band band--split">
+  <div class="wrap grid">
+    <div class="reveal statement statement--split">
+      <p class="label eyebrow">Phase three</p>
+      <h2 class="statement__title">Deploy and Improve</h2>
+      <div class="statement__body"><p class="lede">Once a solution is validated, we roll it out across your team. But deployment is not the finish line. We monitor usage, track performance, and collect feedback continuously. The system gets better with every project it processes.</p>
+<p class="lede">As your operations evolve, we expand the automation to new use cases, new teams, and new markets. We stay involved as a long term partner, not a vendor who disappears after delivery. Our goal is to make AI a permanent part of how your company operates.</p></div>
+      
+    </div>
+    <figure style="--reveal-delay:90ms" class="reveal statement__media"><img class="photo" src="/assets/img/our-process-deploy.webp" alt="A wide monitor showing dashboards of usage and performance charts" width="1300" height="866" sizes="(max-width: 900px) 92vw, 46vw" loading="lazy" decoding="async"></figure>
+  </div>
+</section>
+
+<section class="band">
   <div class="wrap grid">
     <div class="reveal faq__head">
       
       <h2 class="statement__title">Frequently Asked Questions</h2>
       <p class="body faq__note">If you have further questions, please reach out via our Contact page.</p>
-      <a class="btn btn--outline" href="/get-started">Contact us<svg class="btn__arrow" viewBox="0 0 12 12" aria-hidden="true"><path d="M2 6h8M6.5 2.5 10 6l-3.5 3.5" fill="none" stroke="currentColor" stroke-width="1.4"/></svg></a>
+      <a class="btn btn--solid" href="/get-started">Contact us</a>
     </div>
     <div style="--reveal-delay:90ms" class="reveal faq">
       <details class="faq__item">
@@ -229,20 +243,6 @@
         </summary>
         <div class="faq__a"><p>Yes, and we encourage it. Most engagements begin with a single workflow or use case. This lets you see measurable results quickly and build confidence before scaling. The pilot is a full production solution, not a demo or proof of concept. If it works, we expand. If it does not, you have not committed to anything beyond the pilot scope.</p></div>
       </details>
-    </div>
-  </div>
-</section>
-
-<section class="band band--void">
-  <div class="wrap grid">
-    <div class="reveal closer">
-      
-      <h2 class="closer__title">Start with one workflow</h2>
-      <div class="closer__body"><p class="lede">The fastest way to find out whether this works for you is to pick the single process that costs your team the most time and let us look at it.</p></div>
-      <div class="closer__actions">
-        <a class="btn btn--solid" href="/get-started">Get Started</a>
-        <a class="link" href="/services/ai-workshop">Book the AI workshop<svg class="btn__arrow" viewBox="0 0 12 12" aria-hidden="true"><path d="M2 6h8M6.5 2.5 10 6l-3.5 3.5" fill="none" stroke="currentColor" stroke-width="1.4"/></svg></a>
-      </div>
     </div>
   </div>
 </section>

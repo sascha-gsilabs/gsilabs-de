@@ -19,6 +19,8 @@ blocks:
   - type: prose
     flushTop: true
     body: |
+      Last updated April 2026.
+
       GSI Software GmbH ("GSI Labs", "we", "us") takes the protection of your personal
       data seriously. This privacy policy explains what data we collect when you visit
       our website, how we use it, and what rights you have. The responsible party is GSI
@@ -39,9 +41,16 @@ blocks:
 
       #### Contact, External Services, and Your Rights
 
-      If you contact us by email, we store the information you provide (name, email
-      address, message content) to process your inquiry. The legal basis is Art. 6(1)(b)
-      and Art. 6(1)(f) GDPR.
+      If you contact us through one of the forms on this website or by email, we store the
+      information you provide (name, email address, message content, and for applications
+      the details you enter in the application form) to process your inquiry. The legal
+      basis is Art. 6(1)(b) and Art. 6(1)(f) GDPR.
+
+      The forms on this website are provided by HubSpot Ireland Limited, which processes
+      the data you submit on our behalf as a processor under Art. 28 GDPR. The form is
+      served from HubSpot's EU infrastructure, so your entries are stored on servers in the
+      European Union. Loading a page that carries a form causes your browser to contact
+      HubSpot, which receives your IP address for that request.
 
       The typefaces used on this website are hosted on our own servers. No font request
       is made to Google or any other third party, and no data is transferred to them when

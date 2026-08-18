@@ -48,16 +48,20 @@ blocks:
             Whether you come from a construction background and want to learn AI, or from a
             tech background and want to learn AEC, we support both directions.
 
-  - type: statement
+  - type: metricTiles
+    split: true
+    mediaLeft: true
     title: A team built for the intersection of construction and AI.
     body: >-
       We are looking for people who are curious about both worlds. You do not need to be an
       expert in AI and construction at the same time. You need to be excellent at one and
       genuinely interested in learning the other. That combination is what makes our team
       effective.
-
-  - type: metrics
-    flushTop: true
+    image:
+      src: /assets/img/careers-team.webp
+      alt: A colleague working through a wall of notes on a whiteboard
+      width: 1300
+      height: 706
     items:
       - { value: Berlin, label: Headquartered in Kreuzberg }
       - { value: "6", label: Industry segments we serve }
@@ -67,6 +71,11 @@ blocks:
     id: roles
     tone: void
     title: Current opportunities
+    image:
+      src: /assets/img/careers-roles.webp
+      alt: Two colleagues talking at a desk in the studio
+      width: 700
+      height: 440
     body: >-
       We are always looking for smart, motivated people who want to work at the
       intersection of AI and construction. If you do not see an open role that fits, reach

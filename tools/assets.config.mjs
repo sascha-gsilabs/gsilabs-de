@@ -101,6 +101,16 @@ export const images = [
   // than remembered. The remaining entries below still carry names of mine, for
   // the pages the client has not renamed a file for.
   { from: 'about-us-top.avif', to: 'about-us-top.webp', w: 1400 },
+  // The square images beside the copy on the Company pages, and the three that
+  // sit next to the process steps. All half the content width, so 1300 at 2x.
+  // Pulled from the live site: the client's folder has none of them.
+  { from: 'about-us-side.jpg', to: 'about-us-side.webp', w: 1300 },
+  { from: 'imprint-office.jpg', to: 'imprint-office.webp', w: 1300 },
+  { from: 'careers-team.jpg', to: 'careers-team.webp', w: 1300 },
+  { from: 'careers-roles.jpg', to: 'careers-roles.webp', w: 700 },
+  { from: 'our-process-understand.jpg', to: 'our-process-understand.webp', w: 1300 },
+  { from: 'our-process-build.jpg', to: 'our-process-build.webp', w: 1300 },
+  { from: 'our-process-deploy.jpg', to: 'our-process-deploy.webp', w: 1300 },
   { from: 'careers-top.avif', to: 'careers-top.webp', w: 1400 },
   { from: 'our-process-top.jpg', to: 'our-process-top.webp', w: 1400 },
   { from: 'ai-workshop-top.avif', to: 'ai-workshop-top.webp', w: 1400 },

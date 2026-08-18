@@ -134,48 +134,40 @@
 </header>
 
 <main id="main">
-<section class="band page-hero" aria-labelledby="page-title">
+<section class="band page-hero page-hero--banner" aria-labelledby="page-title">
   <div class="wrap grid">
     <div class="page-hero__head">
       <p class="label eyebrow">Company</p>
       <h1 class="page-hero__title" id="page-title">About us</h1>
     </div>
-    <div class="page-hero__aside">
-      <p class="lede">GSI Labs builds AI systems for the architecture, engineering, and construction industry. We started as a software company serving structural engineers and precast manufacturers. Today we help AEC firms across Europe automate workflows, reduce manual effort, and make better decisions with their data.</p>
-      <a class="btn btn--solid" href="/get-started">Get Started</a>
-    </div>
-    <figure class="page-hero__media"><img class="photo" src="/assets/img/about-us-top.webp" alt="The Spree in Berlin, looking across the park towards the Hauptbahnhof quarter" width="1400" height="1052" loading="lazy" decoding="async"></figure>
+
+    <figure class="page-hero__media page-hero__media--ratio" style="--media-ratio:8 / 3"><img class="photo" src="/assets/img/about-us-top.webp" alt="The Spree in Berlin, looking across the park towards the Hauptbahnhof quarter" width="1400" height="1052" loading="lazy" decoding="async"></figure>
   </div>
 </section>
 
-<section class="band band--flush-top">
+<section class="band band--metrics-media band--split">
   <div class="wrap grid">
-    <div class="reveal statement">
-      
-      <h2 class="statement__title">Our team combines deep construction expertise with applied AI engineering so we can deliver solutions that work in production, not just in presentations.</h2>
+    <div class="reveal statement statement--split">
       
       
+      <div class="statement__body"><p class="lede">GSI Labs builds AI systems for the architecture, engineering, and construction industry. We started as a software company serving structural engineers and precast manufacturers. Today we help AEC firms across Europe automate workflows, reduce manual effort, and make better decisions with their data. Our team combines deep construction expertise with applied AI engineering so we can deliver solutions that work in production, not just in presentations.</p></div>
     </div>
+    <figure style="--reveal-delay:90ms" class="reveal tile-metrics__media"><img class="photo" src="/assets/img/about-us-side.webp" alt="An engineer at a workstation, reviewing a model on screen" width="1300" height="866" sizes="(max-width: 900px) 92vw, 46vw" loading="lazy" decoding="async"></figure>
+    <dl style="--reveal-delay:180ms" class="reveal tile-metrics">
+      <div class="tile-metric">
+        <dt class="tile-metric__value">2023</dt>
+        <dd class="label tile-metric__label">Building AEC solutions since</dd>
+      </div>
+      <div class="tile-metric">
+        <dt class="tile-metric__value">800+</dt>
+        <dd class="label tile-metric__label">Professionals using GSI Labs built tools daily</dd>
+      </div>
+    </dl>
+    <p style="--reveal-delay:270ms" class="reveal small tile-metrics__note">* GSI Software GmbH, headquartered in Berlin, Germany</p>
   </div>
 </section>
 
 <section class="band band--void">
-  <div class="wrap grid">
-    <dl class="reveal metrics__list">
-      <div class="metric">
-        <dt class="metric__value">2023</dt>
-        <dd class="metric__label">Building AEC solutions since</dd>
-      </div>
-      <div class="metric">
-        <dt class="metric__value">800+</dt>
-        <dd class="metric__label">Professionals using GSI Labs built tools daily</dd>
-      </div>
-    </dl>
-    <p style="--reveal-delay:90ms" class="reveal small metrics__note">* GSI Software GmbH, headquartered in Berlin, Germany</p>
-  </div>
-</section>
-
-<section class="band">
   <div class="wrap grid">
     <div class="reveal pillars__head">
       <p class="label eyebrow">Leadership</p>
@@ -184,34 +176,40 @@
     <ul style="--reveal-delay:90ms" class="reveal team">
       <li class="member">
         <div class="member__portrait"><img class="photo" src="/assets/img/team-sascha.webp" alt="Sascha Avermiddig" width="640" height="640" loading="lazy" decoding="async"></div>
-        <h3 class="title member__name">Sascha Avermiddig</h3>
-        <p class="label member__role">Managing Director</p>
-        <p class="small"><a class="link" href="mailto:sascha@gsilabs.de">sascha@gsilabs.de</a></p>
+        <div class="member__body">
+          <h3 class="title member__name">Sascha Avermiddig</h3>
+          <p class="label member__role">Managing Director</p>
+          <p class="small"><a class="link" href="mailto:sascha@gsilabs.de">sascha@gsilabs.de</a></p>
+        </div>
       </li>
       <li class="member">
         <div class="member__portrait"><img class="photo" src="/assets/img/team-adrian.webp" alt="Adrian Grabara" width="640" height="640" loading="lazy" decoding="async"></div>
-        <h3 class="title member__name">Adrian Grabara</h3>
-        <p class="label member__role">General Director</p>
-        <p class="small"><a class="link" href="mailto:adrian@gsilabs.de">adrian@gsilabs.de</a></p>
+        <div class="member__body">
+          <h3 class="title member__name">Adrian Grabara</h3>
+          <p class="label member__role">General Director</p>
+          <p class="small"><a class="link" href="mailto:adrian@gsilabs.de">adrian@gsilabs.de</a></p>
+        </div>
       </li>
       <li class="member">
         <div class="member__portrait"><img class="photo" src="/assets/img/team-daniel.webp" alt="Daniel Bacon" width="640" height="640" loading="lazy" decoding="async"></div>
-        <h3 class="title member__name">Daniel Bacon</h3>
-        <p class="label member__role">Technical Director</p>
-        <p class="small"><a class="link" href="mailto:daniel@gsilabs.de">daniel@gsilabs.de</a></p>
+        <div class="member__body">
+          <h3 class="title member__name">Daniel Bacon</h3>
+          <p class="label member__role">Technical Director</p>
+          <p class="small"><a class="link" href="mailto:daniel@gsilabs.de">daniel@gsilabs.de</a></p>
+        </div>
       </li>
     </ul>
   </div>
 </section>
 
-<section class="band band--void" id="mission">
+<section class="band" id="mission">
   <div class="wrap grid">
     <div class="reveal process__head">
       
       <h2 class="display" id="mission-title">Our Mission</h2>
       
     </div>
-    <ol style="--reveal-delay:90ms" class="reveal process__list">
+    <ol style="--reveal-delay:90ms" class="reveal process__list process__list--rows">
       <li class="stage">
         <p class="label stage__index"></p>
         <h3 class="title stage__title">Competitive Infrastructure</h3>

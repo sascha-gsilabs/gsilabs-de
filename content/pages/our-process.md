@@ -4,61 +4,77 @@ description: >-
   How we take you from first conversation to AI in production, in three phases with a
   working solution at the end of each.
 blocks:
-  - type: hero
-    eyebrow: Company
-    title: Our Process
+  - type: heroCover
+    title: [Our, Process]
     lede: How we take you from first conversation to AI in production.
-    cta: { label: Get Started, href: /get-started }
     image:
       src: /assets/img/our-process-top.webp
-      alt: Working an approach out on a glass wall in coloured marker
+      alt: ""
       width: 1400
       height: 1050
 
-  - type: stages
-    flushTop: true
-    id: phases
-    items:
-      - step: Phase one
-        title: Understand Your Workflows
-        body:
-          - >-
-            Every engagement starts with listening. We spend time with your team to
-            understand how work actually gets done today. Which tasks take the most time?
-            Where do errors happen? What tools do people rely on, and where do they work
-            around them? We map your workflows end to end so every recommendation is
-            grounded in reality, not assumptions.
-          - >-
-            The output of this phase is a clear picture of where AI can have the highest
-            impact in your specific environment, with a prioritized list of opportunities
-            ranked by effort, value, and feasibility.
-      - step: Phase two
-        title: Build and Validate
-        body:
-          - >-
-            Based on the workflow analysis, we design and develop AI solutions tailored to
-            your operations. Whether it is a BIM plugin, a reporting automation, a
-            production planning tool, or a risk detection system, we build it to work with
-            your existing infrastructure. No rip and replace.
-          - >-
-            Every solution is tested on real project data before it goes live. Your team
-            reviews the output, provides feedback, and signs off before anything reaches
-            production. We iterate until the results meet your standards, not ours.
-      - step: Phase three
-        title: Deploy and Improve
-        body:
-          - >-
-            Once a solution is validated, we roll it out across your team. But deployment is
-            not the finish line. We monitor usage, track performance, and collect feedback
-            continuously. The system gets better with every project it processes.
-          - >-
-            As your operations evolve, we expand the automation to new use cases, new teams,
-            and new markets. We stay involved as a long term partner, not a vendor who
-            disappears after delivery. Our goal is to make AI a permanent part of how your
-            company operates.
+  - type: statement
+    split: true
+    eyebrow: Phase one
+    title: Understand Your Workflows
+    body:
+      - >-
+        Every engagement starts with listening. We spend time with your team to
+        understand how work actually gets done today. Which tasks take the most time?
+        Where do errors happen? What tools do people rely on, and where do they work
+        around them? We map your workflows end to end so every recommendation is
+        grounded in reality, not assumptions.
+      - >-
+        The output of this phase is a clear picture of where AI can have the highest
+        impact in your specific environment, with a prioritized list of opportunities
+        ranked by effort, value, and feasibility.
+    image:
+      src: /assets/img/our-process-understand.webp
+      alt: An engineer marking up a printed drawing at a desk, laptop open beside it
+      width: 1300
+      height: 1950
+
+  - type: statement
+    split: true
+    eyebrow: Phase two
+    title: Build and Validate
+    body:
+      - >-
+        Based on the workflow analysis, we design and develop AI solutions tailored to
+        your operations. Whether it is a BIM plugin, a reporting automation, a
+        production planning tool, or a risk detection system, we build it to work with
+        your existing infrastructure. No rip and replace.
+      - >-
+        Every solution is tested on real project data before it goes live. Your team
+        reviews the output, provides feedback, and signs off before anything reaches
+        production. We iterate until the results meet your standards, not ours.
+    image:
+      src: /assets/img/our-process-build.webp
+      alt: A developer working across two screens of code
+      width: 1300
+      height: 1950
+
+  - type: statement
+    split: true
+    eyebrow: Phase three
+    title: Deploy and Improve
+    body:
+      - >-
+        Once a solution is validated, we roll it out across your team. But deployment is
+        not the finish line. We monitor usage, track performance, and collect feedback
+        continuously. The system gets better with every project it processes.
+      - >-
+        As your operations evolve, we expand the automation to new use cases, new teams,
+        and new markets. We stay involved as a long term partner, not a vendor who
+        disappears after delivery. Our goal is to make AI a permanent part of how your
+        company operates.
+    image:
+      src: /assets/img/our-process-deploy.webp
+      alt: A wide monitor showing dashboards of usage and performance charts
+      width: 1300
+      height: 866
 
   - type: faq
-    tone: void
     title: Frequently Asked Questions
     note: If you have further questions, please reach out via our Contact page.
     cta: { label: Contact us, href: /get-started }
@@ -102,12 +118,4 @@ blocks:
           scaling. The pilot is a full production solution, not a demo or proof of concept.
           If it works, we expand. If it does not, you have not committed to anything beyond
           the pilot scope.
-
-  - type: closer
-    title: Start with one workflow
-    body: >-
-      The fastest way to find out whether this works for you is to pick the single process
-      that costs your team the most time and let us look at it.
-    cta: { label: Get Started, href: /get-started }
-    secondary: { label: Book the AI workshop, href: /services/ai-workshop }
 ---

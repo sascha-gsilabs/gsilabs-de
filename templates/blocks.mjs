@@ -88,10 +88,39 @@ ${b.titleBottom.map((l, i) => `          <span class="hero__line" style="--enter
     </div>
   </section>`
 
+/* The same full bleed frame as the video hero, with a still behind it instead.
+   Used where a Company page opens on a photograph rather than on paper: the title
+   sits top left, the sentence that explains it bottom right, both over the image.
+   `title` is a list, one entry per line, because where it breaks is a decision
+   rather than whatever the column width produces. */
+const heroCover = (b) => `<section class="band band--void band--flush hero" aria-labelledby="hero-title" data-head-over>
+    <img class="hero__cover" src="${b.image.src}" alt="${esc(b.image.alt ?? '')}"${
+  b.image.width ? ` width="${b.image.width}"` : ''
+}${b.image.height ? ` height="${b.image.height}"` : ''} fetchpriority="high" decoding="async">
+    <div class="hero__scrim" aria-hidden="true"></div>
+
+    <div class="wrap hero__wrap">
+      <div class="hero__stage">
+        <h1 class="hero__title hero__title--a" id="hero-title">
+${b.title.map((l, i) => `          <span class="hero__line" style="--enter-delay:${120 + i * 100}ms">${esc(l)}</span>`).join('\n')}
+        </h1>
+
+        <div class="hero__support" style="--enter-delay:${120 + b.title.length * 100 + 140}ms">
+          ${b.lede ? `<p>${mdInline(b.lede)}</p>` : ''}
+          ${button(b.cta, 'outline')}
+        </div>
+      </div>
+    </div>
+  </section>`
+
 /** Light page hero: headline left, support copy and CTA below it, media right. */
+/* `image.banner: true` puts the picture across the top, above the title, instead
+   of in the column beside it. The figure still follows the heading in the markup:
+   the picture is the page's backdrop, not what it leads with, and CSS puts it
+   back on top. */
 const hero = (b) => `<section class="band page-hero${
   b.lede || b.cta || b.image ? '' : ' page-hero--title-only'
-}" aria-labelledby="page-title">
+}${b.image?.banner ? ' page-hero--banner' : ''}" aria-labelledby="page-title">
   <div class="wrap grid">
     <div class="page-hero__head">
       ${eyebrow(b.eyebrow)}
@@ -127,18 +156,26 @@ ${list.map((p) => `        <li>${mdInline(p)}</li>`).join('\n')}
       </ul>`
     : ''
 
+/* An `image` puts a picture in the right hand half and moves the copy into the
+   left, which is how the process phases read. `split: true` adds the rule between
+   the two, the same one the enquiry band uses. */
 const statement = (b) =>
   band(
     join([
-      `    <div class="statement${b.wide ? ' statement--wide' : ''}${b.points ? ' statement--split' : ''}">
+      `    <div class="statement${b.wide ? ' statement--wide' : ''}${
+        b.points || b.image ? ' statement--split' : ''
+      }">
       ${eyebrow(b.eyebrow)}
       <h2 class="statement__title">${mdInline(b.title)}</h2>
       ${b.body ? `<div class="statement__body">${paras(b.body, 'lede')}</div>` : ''}
       ${button(b.cta)}
     </div>`,
       b.points ? `    <div class="statement__points">\n${points(b.points)}\n    </div>` : '',
+      b.image
+        ? `    <figure class="statement__media">${photo(b.image, { sizes: '(max-width: 900px) 92vw, 46vw' })}</figure>`
+        : '',
     ]),
-    bandOpts(b)
+    { ...bandOpts(b), className: (bandOpts(b).className + (b.split ? ' band--split' : '')).trim() }
   )
 
 /** A statement over a full width image, used for the dark feature bands. */
@@ -225,13 +262,18 @@ const metricTiles = (b) => {
   /* The image spans the rows beside it, so the stylesheet has to know how many
      there are: the tiles and a note, or the tiles alone. */
   const media = b.image ? ` band--metrics-media${b.note ? '' : ' band--metrics-media--short'}` : ''
+  /* `split: true` draws the rule down the middle, for the bands that read as
+     two halves rather than a column beside a picture. */
+  const split = b.split ? ' band--split' : ''
+  /* `mediaLeft: true` swaps the halves, for the bands whose picture leads. */
+  const side = b.image && b.mediaLeft ? ' band--metrics-media-left' : ''
 
   return band(
     join([
-      b.title
+      b.title || b.body
         ? `    <div class="statement statement--split">
       ${eyebrow(b.eyebrow)}
-      <h2 class="statement__title">${mdInline(b.title)}</h2>
+      ${b.title ? `<h2 class="statement__title">${mdInline(b.title)}</h2>` : ''}
       ${b.body ? `<div class="statement__body">${paras(b.body, 'lede')}</div>` : ''}
     </div>`
         : '',
@@ -250,7 +292,7 @@ ${b.items
     </dl>`,
       b.note ? `    <p class="small tile-metrics__note">${mdInline(b.note)}</p>` : '',
     ]),
-    { ...bandOpts(b), className: (bandOpts(b).className + media).trim() }
+    { ...bandOpts(b), className: (bandOpts(b).className + media + split + side).trim() }
   )
 }
 
@@ -263,7 +305,7 @@ const stages = (b) =>
       ${b.title ? `<h2 class="display" id="${b.id ?? 'stages'}-title">${mdInline(b.title)}</h2>` : ''}
       ${b.lede ? `<p class="lede process__lede">${mdInline(b.lede)}</p>` : ''}
     </div>`,
-      `    <ol class="process__list">
+      `    <ol class="process__list${b.layout === 'rows' ? ' process__list--rows' : ''}">
 ${b.items
   .map(
     (item) => `      <li class="stage">
@@ -315,9 +357,11 @@ ${b.items
   .map(
     (p) => `      <li class="member">
         <div class="member__portrait">${photo(p.image)}</div>
-        <h3 class="title member__name">${esc(p.name)}</h3>
-        <p class="label member__role">${esc(p.role)}</p>
-        <p class="small"><a class="link" href="mailto:${p.email}">${esc(p.email)}</a></p>
+        <div class="member__body">
+          <h3 class="title member__name">${esc(p.name)}</h3>
+          <p class="label member__role">${esc(p.role)}</p>
+          <p class="small"><a class="link" href="mailto:${p.email}">${esc(p.email)}</a></p>
+        </div>
       </li>`
   )
   .join('\n')}
@@ -488,6 +532,7 @@ const jobList = (b, ctx) =>
       `    <div class="statement statement--split">
       ${eyebrow(b.eyebrow)}
       ${b.title ? `<h2 class="statement__title">${mdInline(b.title)}</h2>` : ''}
+      ${b.image ? `<figure class="joblist__media">${photo(b.image, { sizes: '(max-width: 900px) 92vw, 30vw' })}</figure>` : ''}
       ${b.body ? `<div class="statement__body">${paras(b.body, 'lede')}</div>` : ''}
       ${button(b.cta)}
     </div>`,
@@ -600,9 +645,39 @@ const form = (b, ctx) =>
       ${b.title ? `<h2 class="statement__title">${mdInline(b.title)}</h2>` : ''}
       ${b.body ? `<div class="form-intro__body">${paras(b.body, 'lede')}</div>` : ''}
 ${points(b.points)}
-      ${b.image ? `<figure class="form-intro__media">${photo(b.image, { sizes: '(max-width: 900px) 92vw, 46vw' })}</figure>` : ''}
+      ${
+        b.image
+          ? `<figure class="form-intro__media"${
+              b.image.ratio ? ` style="--media-ratio:${esc(b.image.ratio)}"` : ''
+            }>${photo(b.image, { sizes: '(max-width: 900px) 92vw, 46vw' })}</figure>`
+          : ''
+      }
+      ${
+        b.contactDetails
+          ? `<div class="form-intro__contact">
+        <h2 class="title">Contact details</h2>
+        <dl class="contact-grid contact-grid--inline">
+          <div class="contact-grid__item">
+            <dt class="label">Address</dt>
+            <dd>${esc(ctx.site.company.legalName)}<br>${esc(ctx.site.company.street)}, ${esc(
+              ctx.site.company.postcode
+            )} ${esc(ctx.site.company.city)}, ${esc(ctx.site.company.country)}</dd>
+          </div>
+          <div class="contact-grid__item">
+            <dt class="label">Email</dt>
+            <dd><a class="link" href="mailto:${ctx.site.company.email}">${esc(ctx.site.company.email)}</a></dd>
+          </div>
+          <div class="contact-grid__item">
+            <dt class="label">Phone</dt>
+            <dd><a class="link" href="tel:${ctx.site.company.phoneHref}">${esc(ctx.site.company.phone)}</a></dd>
+          </div>
+        </dl>
+      </div>`
+          : ''
+      }
     </div>`,
       `    <div class="form-embed">
+      ${b.lead ? `<div class="form-embed__lead">${paras(b.lead, 'lede')}</div>` : ''}
       ${formFrame(b.form, ctx.site)}
       <noscript>
         <p class="form-embed__note">The form needs JavaScript. Write to <a href="mailto:${
@@ -612,11 +687,17 @@ ${points(b.points)}
       ${b.note ? `<p class="form-embed__note">${mdInline(b.note)}</p>` : ''}
     </div>`,
     ]),
-    { ...bandOpts(b), className: `band--split ${b.flushTop ? 'band--flush-top' : ''}`.trim() }
+    {
+      ...bandOpts(b),
+      /* `flip: true` puts the form in the left half and the supporting column on
+         the right, which is the order the contact page reads in. */
+      className: `band--split${b.flip ? ' band--form-flip' : ''} ${b.flushTop ? 'band--flush-top' : ''}`.trim(),
+    }
   )
 
 export const BLOCKS = {
   heroVideo,
+  heroCover,
   hero,
   team,
   statement,

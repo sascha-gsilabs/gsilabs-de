@@ -9,12 +9,22 @@ blocks:
       Have a question about GSI Labs, our projects, or a potential collaboration? Send us a
       message and we will get back to you.
 
-  - type: contact
-    flushTop: true
-    title: Contact details
-    body: >-
-      GSI Software GmbH is registered in Berlin, Germany. The details below are the
-      information required under section 5 of the German Telemediengesetz.
+  - type: form
+    flip: true
+    lead: >-
+      Have a question about GSI Labs, our projects, or a potential collaboration? Send us
+      a message and we will get back to you.
+    form: enquiry
+    note: >-
+      \* By submitting this form, you agree to our [privacy policy](/privacy). We will use
+      your information solely to respond to your inquiry.
+    image:
+      src: /assets/img/imprint-office.webp
+      alt: The GSI Labs studio in Kreuzberg, desks behind a planted partition
+      width: 800
+      height: 450
+      ratio: 1 / 1
+    contactDetails: true
 
   - type: prose
     title: Legal notice

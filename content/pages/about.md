@@ -7,32 +7,35 @@ blocks:
   - type: hero
     eyebrow: Company
     title: About us
-    lede: >-
-      GSI Labs builds AI systems for the architecture, engineering, and construction
-      industry. We started as a software company serving structural engineers and precast
-      manufacturers. Today we help AEC firms across Europe automate workflows, reduce
-      manual effort, and make better decisions with their data.
-    cta: { label: Get Started, href: /get-started }
     image:
       src: /assets/img/about-us-top.webp
       alt: The Spree in Berlin, looking across the park towards the Hauptbahnhof quarter
       width: 1400
       height: 1052
+      banner: true
+      ratio: 8 / 3
 
-  - type: statement
-    flushTop: true
-    title: >-
-      Our team combines deep construction expertise with applied AI engineering so we can
-      deliver solutions that work in production, not just in presentations.
-
-  - type: metrics
-    tone: void
+  - type: metricTiles
+    split: true
+    body: >-
+      GSI Labs builds AI systems for the architecture, engineering, and construction
+      industry. We started as a software company serving structural engineers and precast
+      manufacturers. Today we help AEC firms across Europe automate workflows, reduce
+      manual effort, and make better decisions with their data. Our team combines deep
+      construction expertise with applied AI engineering so we can deliver solutions that
+      work in production, not just in presentations.
+    image:
+      src: /assets/img/about-us-side.webp
+      alt: An engineer at a workstation, reviewing a model on screen
+      width: 1300
+      height: 866
     items:
       - { value: "2023", label: Building AEC solutions since }
       - { value: "800+", label: Professionals using GSI Labs built tools daily }
     note: "* GSI Software GmbH, headquartered in Berlin, Germany"
 
   - type: team
+    tone: void
     eyebrow: Leadership
     title: Meet our team
     items:
@@ -50,7 +53,7 @@ blocks:
         image: { src: /assets/img/team-daniel.webp, alt: Daniel Bacon, width: 640, height: 640 }
 
   - type: stages
-    tone: void
+    layout: rows
     id: mission
     title: Our Mission
     items:
