@@ -5,26 +5,19 @@ blocks:
   - type: hero
     eyebrow: Legal
     title: Imprint
-    lede: >-
-      Have a question about GSI Labs, our projects, or a potential collaboration? Send us a
-      message and we will get back to you.
 
-  - type: form
-    flip: true
-    lead: >-
-      Have a question about GSI Labs, our projects, or a potential collaboration? Send us
-      a message and we will get back to you.
-    form: enquiry
-    note: >-
-      \* By submitting this form, you agree to our [privacy policy](/privacy). We will use
-      your information solely to respond to your inquiry.
+  - type: contact
+    split: true
+    body: >-
+      Have a question about GSI Labs, our projects, or a potential collaboration? Write to
+      us or call and you reach the people who would work on it.
     image:
       src: /assets/img/imprint-office.webp
       alt: The GSI Labs studio in Kreuzberg, desks behind a planted partition
       width: 800
       height: 450
       ratio: 1 / 1
-    contactDetails: true
+    title2: Contact details
 
   - type: prose
     title: Legal notice

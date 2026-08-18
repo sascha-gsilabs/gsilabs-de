@@ -111,7 +111,8 @@ export const images = [
   { from: 'our-process-understand.jpg', to: 'our-process-understand.webp', w: 1300 },
   { from: 'our-process-build.jpg', to: 'our-process-build.webp', w: 1300 },
   { from: 'our-process-deploy.jpg', to: 'our-process-deploy.webp', w: 1300 },
-  { from: 'careers-top.avif', to: 'careers-top.webp', w: 1400 },
+  // The client picked this one over the careers-top file they first supplied.
+  { from: 'gsilabs-careers.jpg', to: 'careers-top.webp', w: 1400 },
   { from: 'our-process-top.jpg', to: 'our-process-top.webp', w: 1400 },
   { from: 'ai-workshop-top.avif', to: 'ai-workshop-top.webp', w: 1400 },
   { from: 'dedicated-dev-team-top.avif', to: 'dedicated-dev-team-top.webp', w: 1400 },

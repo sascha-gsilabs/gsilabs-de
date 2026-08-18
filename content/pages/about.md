@@ -5,7 +5,6 @@ description: >-
   industry, combining construction expertise with applied AI engineering.
 blocks:
   - type: hero
-    eyebrow: Company
     title: About us
     image:
       src: /assets/img/about-us-top.webp
@@ -39,14 +38,14 @@ blocks:
     eyebrow: Leadership
     title: Meet our team
     items:
-      - name: Sascha Avermiddig
-        role: Managing Director
-        email: sascha@gsilabs.de
-        image: { src: /assets/img/team-sascha.webp, alt: Sascha Avermiddig, width: 640, height: 640 }
       - name: Adrian Grabara
         role: General Director
         email: adrian@gsilabs.de
         image: { src: /assets/img/team-adrian.webp, alt: Adrian Grabara, width: 640, height: 640 }
+      - name: Sascha Avermiddig
+        role: Managing Director
+        email: sascha@gsilabs.de
+        image: { src: /assets/img/team-sascha.webp, alt: Sascha Avermiddig, width: 640, height: 640 }
       - name: Daniel Bacon
         role: Technical Director
         email: daniel@gsilabs.de
@@ -74,7 +73,6 @@ blocks:
           and make smarter decisions about materials and resources from the start.
 
   - type: news
-    eyebrow: From the studio
     title: Latest News
     allHref: /insights
     limit: 3

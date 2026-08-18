@@ -93,7 +93,7 @@ ${b.titleBottom.map((l, i) => `          <span class="hero__line" style="--enter
    sits top left, the sentence that explains it bottom right, both over the image.
    `title` is a list, one entry per line, because where it breaks is a decision
    rather than whatever the column width produces. */
-const heroCover = (b) => `<section class="band band--void band--flush hero" aria-labelledby="hero-title" data-head-over>
+const heroCover = (b) => `<section class="band band--void band--flush hero hero--cover" aria-labelledby="hero-title" data-head-over>
     <img class="hero__cover" src="${b.image.src}" alt="${esc(b.image.alt ?? '')}"${
   b.image.width ? ` width="${b.image.width}"` : ''
 }${b.image.height ? ` height="${b.image.height}"` : ''} fetchpriority="high" decoding="async">
@@ -280,7 +280,7 @@ const metricTiles = (b) => {
       b.image
         ? `    <figure class="tile-metrics__media">${photo(b.image, { sizes: '(max-width: 900px) 92vw, 46vw' })}</figure>`
         : '',
-      `    <dl class="tile-metrics">
+      `    <dl class="tile-metrics${b.plain ? ' tile-metrics--plain' : ''}">
 ${b.items
   .map(
     (item) => `      <div class="tile-metric">
@@ -584,7 +584,7 @@ const closer = (b) =>
     bandOpts(b, 'void')
   )
 
-/** Contact details laid out as a definition grid, for the get started page. */
+/** Contact details as a definition grid, optionally under a picture. */
 const contact = (b, ctx) =>
   band(
     join([
@@ -593,22 +593,32 @@ const contact = (b, ctx) =>
       ${b.title ? `<h2 class="statement__title">${mdInline(b.title)}</h2>` : ''}
       ${b.body ? `<div class="statement__body">${paras(b.body, 'lede')}</div>` : ''}
     </div>`,
-      `    <dl class="contact-grid">
-      <div class="contact-grid__item">
-        <dt class="label">Email</dt>
-        <dd><a class="link" href="mailto:${ctx.site.company.email}">${esc(ctx.site.company.email)}</a></dd>
-      </div>
-      <div class="contact-grid__item">
-        <dt class="label">Phone</dt>
-        <dd><a class="link" href="tel:${ctx.site.company.phoneHref}">${esc(ctx.site.company.phone)}</a></dd>
-      </div>
-      <div class="contact-grid__item">
-        <dt class="label">Office</dt>
-        <dd>${esc(ctx.site.company.street)}<br>${esc(ctx.site.company.postcode)} ${esc(ctx.site.company.city)}</dd>
-      </div>
-    </dl>`,
+      `    <div class="contact-side">
+      ${
+        b.image
+          ? `<figure class="contact-side__media"${
+              b.image.ratio ? ` style="--media-ratio:${esc(b.image.ratio)}"` : ''
+            }>${photo(b.image, { sizes: '(max-width: 900px) 92vw, 46vw' })}</figure>`
+          : ''
+      }
+      ${b.title2 ? `<h2 class="title contact-side__title">${mdInline(b.title2)}</h2>` : ''}
+      <dl class="contact-grid${b.image ? ' contact-grid--inline' : ''}">
+        <div class="contact-grid__item">
+          <dt class="label">Email</dt>
+          <dd><a class="link" href="mailto:${ctx.site.company.email}">${esc(ctx.site.company.email)}</a></dd>
+        </div>
+        <div class="contact-grid__item">
+          <dt class="label">Phone</dt>
+          <dd><a class="link" href="tel:${ctx.site.company.phoneHref}">${esc(ctx.site.company.phone)}</a></dd>
+        </div>
+        <div class="contact-grid__item">
+          <dt class="label">Office</dt>
+          <dd>${esc(ctx.site.company.street)}<br>${esc(ctx.site.company.postcode)} ${esc(ctx.site.company.city)}</dd>
+        </div>
+      </dl>
+    </div>`,
     ]),
-    bandOpts(b)
+    { ...bandOpts(b), className: (bandOpts(b).className + (b.split ? ' band--split' : '')).trim() }
   )
 
 /* -------------------------------------------------------------- hubspot --- */
@@ -652,32 +662,8 @@ ${points(b.points)}
             }>${photo(b.image, { sizes: '(max-width: 900px) 92vw, 46vw' })}</figure>`
           : ''
       }
-      ${
-        b.contactDetails
-          ? `<div class="form-intro__contact">
-        <h2 class="title">Contact details</h2>
-        <dl class="contact-grid contact-grid--inline">
-          <div class="contact-grid__item">
-            <dt class="label">Address</dt>
-            <dd>${esc(ctx.site.company.legalName)}<br>${esc(ctx.site.company.street)}, ${esc(
-              ctx.site.company.postcode
-            )} ${esc(ctx.site.company.city)}, ${esc(ctx.site.company.country)}</dd>
-          </div>
-          <div class="contact-grid__item">
-            <dt class="label">Email</dt>
-            <dd><a class="link" href="mailto:${ctx.site.company.email}">${esc(ctx.site.company.email)}</a></dd>
-          </div>
-          <div class="contact-grid__item">
-            <dt class="label">Phone</dt>
-            <dd><a class="link" href="tel:${ctx.site.company.phoneHref}">${esc(ctx.site.company.phone)}</a></dd>
-          </div>
-        </dl>
-      </div>`
-          : ''
-      }
     </div>`,
       `    <div class="form-embed">
-      ${b.lead ? `<div class="form-embed__lead">${paras(b.lead, 'lede')}</div>` : ''}
       ${formFrame(b.form, ctx.site)}
       <noscript>
         <p class="form-embed__note">The form needs JavaScript. Write to <a href="mailto:${
@@ -687,12 +673,7 @@ ${points(b.points)}
       ${b.note ? `<p class="form-embed__note">${mdInline(b.note)}</p>` : ''}
     </div>`,
     ]),
-    {
-      ...bandOpts(b),
-      /* `flip: true` puts the form in the left half and the supporting column on
-         the right, which is the order the contact page reads in. */
-      className: `band--split${b.flip ? ' band--form-flip' : ''} ${b.flushTop ? 'band--flush-top' : ''}`.trim(),
-    }
+    { ...bandOpts(b), className: `band--split ${b.flushTop ? 'band--flush-top' : ''}`.trim() }
   )
 
 export const BLOCKS = {

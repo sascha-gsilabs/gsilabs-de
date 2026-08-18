@@ -81,8 +81,9 @@
   --col-gap: clamp(1.25rem, 2.2vw, 2.25rem);
 
   --head-h: 74px;
-  /* No corner radius token, and no rounded corners anywhere. Tiles, controls,
-     image frames and the nav panel are all square by the client's decision. */
+  /* No corner radius token. Tiles, controls, image frames and the nav panel are
+     all square by the client's decision. The single exception is the leadership
+     portraits on the about page, which are circles by the same decision. */
 
   /* Layered, ink tinted shadows. No flat grey drops. */
   --lift-1: 0 1px 1px color-mix(in srgb, var(--ink) 4%, transparent),
@@ -696,6 +697,22 @@ button {
     linear-gradient(to top, color-mix(in srgb, var(--void) 80%, transparent) 0%,
       color-mix(in srgb, var(--void) 30%, transparent) 26%,
       transparent 48%);
+}
+
+/* A still holds far more detail than a frame of the video does, and the gradients
+   alone leave the middle of it competing with the type. An even wash under them
+   settles the whole picture down without flattening the corners further. */
+.hero--cover .hero__scrim {
+  background:
+    linear-gradient(color-mix(in srgb, var(--void) 42%, transparent),
+      color-mix(in srgb, var(--void) 42%, transparent)),
+    linear-gradient(to right, color-mix(in srgb, var(--void) 72%, transparent) 0%,
+      color-mix(in srgb, var(--void) 44%, transparent) 38%,
+      color-mix(in srgb, var(--void) 22%, transparent) 100%),
+    linear-gradient(to bottom, color-mix(in srgb, var(--void) 58%, transparent) 0%,
+      transparent 24%),
+    linear-gradient(to top, color-mix(in srgb, var(--void) 62%, transparent) 0%,
+      transparent 40%);
 }
 
 .hero__wrap {
@@ -1327,6 +1344,12 @@ button {
   text-wrap: balance;
 }
 
+/* The gap belongs under a heading. With no heading above it, the copy starts at
+   the top of the column like everything else in the row. */
+.statement__body:first-child {
+  margin-top: 0;
+}
+
 .statement__body {
   margin-top: var(--s5);
   max-width: 60ch;
@@ -1491,6 +1514,25 @@ button {
   display: grid;
   gap: var(--col-gap);
   align-content: start;
+  /* Beside an image that spans the rows, the row is as tall as the picture. The
+     tiles size to their content and sit at the top of it rather than stretching
+     to fill the leftover. */
+  align-self: start;
+}
+
+/* `plain: true` drops the filled tile and rules the figures off instead, which is
+   how the careers page lists them. The tile reads as a statistic worth framing;
+   these are facts about the company, and framing them opens a gap beside a
+   picture that is taller than they are. */
+.tile-metrics--plain {
+  gap: 0;
+  border-top: 1px solid var(--line);
+}
+
+.tile-metrics--plain .tile-metric {
+  padding: var(--s4) 0;
+  background: none;
+  border-bottom: 1px solid var(--line);
 }
 
 .tile-metric {
@@ -1838,11 +1880,13 @@ button {
   align-items: start;
 }
 
-/* Square, like every other frame on the site. The original crops these to
-   circles; the client asked for the corners to come off everywhere. */
+/* The one exception to the square rule, asked for by name: leadership portraits
+   are circles. Nothing else on the site rounds, so the radius lives here rather
+   than in a token that would invite reuse. */
 .member__portrait {
   position: relative;
   overflow: hidden;
+  border-radius: 50%;
 }
 
 .member__portrait img {
@@ -2212,26 +2256,6 @@ button {
   text-decoration-color: currentColor;
 }
 
-/* Flipped: form on the left, the picture and the address on the right. The inner
-   padding moves with it, so the gap stays between the rule and the form. */
-.band--form-flip .form-embed {
-  grid-column: 1 / 7;
-  padding-left: 0;
-  padding-right: var(--col-gap);
-}
-
-.band--form-flip .form-intro {
-  grid-column: 7 / 13;
-}
-
-.form-embed__lead {
-  margin-bottom: var(--s6);
-}
-
-.form-intro__contact {
-  margin-top: var(--s5);
-}
-
 /* Two to a row here, unlike the stacked column on the enquiry page: this list is
    three short entries under a picture rather than the whole right hand side. */
 .contact-grid--inline {
@@ -2264,6 +2288,31 @@ button {
 }
 
 /* --- contact grid --------------------------------------------------------- */
+
+/* The column the address sits in, with or without a picture over it. */
+.contact-side {
+  grid-column: 7 / 13;
+  align-self: start;
+}
+
+.contact-side__media {
+  margin-bottom: var(--s5);
+  aspect-ratio: var(--media-ratio, 5 / 3);
+}
+
+.contact-side__media img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.contact-side__title {
+  margin-bottom: var(--s4);
+}
+
+.contact-side .contact-grid {
+  grid-column: auto;
+}
 
 .contact-grid {
   grid-column: 8 / 13;
@@ -2542,6 +2591,7 @@ button {
 
   .tile-metrics,
   .contact-grid,
+  .contact-side,
   .statement__media,
   .joblist,
   .statement__points,
@@ -2570,15 +2620,6 @@ button {
   /* Stacked, so the rule down the middle has nothing left to divide. */
   .band--split::before {
     display: none;
-  }
-
-  .band--form-flip .form-embed,
-  .band--form-flip .form-intro {
-    grid-column: 1 / 13;
-  }
-
-  .band--form-flip .form-embed {
-    padding-right: 0;
   }
 
   .form-intro,

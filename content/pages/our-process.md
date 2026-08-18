@@ -15,7 +15,7 @@ blocks:
 
   - type: statement
     split: true
-    eyebrow: Phase one
+    eyebrow: "01"
     title: Understand Your Workflows
     body:
       - >-
@@ -36,7 +36,7 @@ blocks:
 
   - type: statement
     split: true
-    eyebrow: Phase two
+    eyebrow: "02"
     title: Build and Validate
     body:
       - >-
@@ -56,7 +56,7 @@ blocks:
 
   - type: statement
     split: true
-    eyebrow: Phase three
+    eyebrow: "03"
     title: Deploy and Improve
     body:
       - >-

@@ -13,9 +13,9 @@ blocks:
     cta: { label: View open roles, href: "#roles" }
     image:
       src: /assets/img/careers-top.webp
-      alt: Planning the coming quarters on a glass wall covered in notes
-      width: 1024
-      height: 556
+      alt: A red GSI Labs hard hat resting on the ground at a construction site
+      width: 1400
+      height: 788
 
   - type: pillars
     tone: void
@@ -51,6 +51,7 @@ blocks:
   - type: metricTiles
     split: true
     mediaLeft: true
+    plain: true
     title: A team built for the intersection of construction and AI.
     body: >-
       We are looking for people who are curious about both worlds. You do not need to be an
