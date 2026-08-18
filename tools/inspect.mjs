@@ -1,5 +1,5 @@
 // Ad hoc DOM inspector for debugging layout during the rebuild.
-//   node tools/inspect.mjs http://localhost:3000
+//   node tools/inspect.mjs http://localhost:3001
 import { existsSync } from 'node:fs'
 import puppeteer from 'puppeteer-core'
 
@@ -8,7 +8,7 @@ const CHROME = [
   'C:/Users/sascha.avermiddig.GBCVN/.cache/puppeteer/chrome/win64-149.0.7827.22/chrome-win64/chrome.exe',
 ].find(existsSync)
 
-const url = process.argv[2] ?? 'http://localhost:3000'
+const url = process.argv[2] ?? 'http://localhost:3001'
 
 const browser = await puppeteer.launch({ executablePath: CHROME, headless: true, args: ['--no-sandbox'] })
 try {

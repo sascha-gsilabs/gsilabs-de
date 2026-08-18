@@ -1,9 +1,9 @@
 // Screenshot a localhost URL into ./temporary screenshots/
 //
-//   node screenshot.mjs http://localhost:3000
-//   node screenshot.mjs http://localhost:3000 hero-fix
-//   node screenshot.mjs http://localhost:3000 mobile --width=390 --height=844
-//   node screenshot.mjs http://localhost:3000 above-fold --viewport
+//   node screenshot.mjs http://localhost:3001
+//   node screenshot.mjs http://localhost:3001 hero-fix
+//   node screenshot.mjs http://localhost:3001 mobile --width=390 --height=844
+//   node screenshot.mjs http://localhost:3001 above-fold --viewport
 //
 // Files are auto incremented and never overwritten.
 import { existsSync, mkdirSync, readdirSync } from 'node:fs'

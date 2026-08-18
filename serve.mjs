@@ -1,5 +1,5 @@
 // Static dev server for the gsilabs.de rebuild.
-// Serves the project root at http://localhost:3000 with byte range support
+// Serves the project root at http://localhost:3001 with byte range support
 // so the hero video seeks correctly.
 //
 //   node serve.mjs
@@ -9,7 +9,7 @@ import { createServer } from 'node:http'
 import { extname, join, normalize, sep } from 'node:path'
 
 const ROOT = process.cwd()
-const PORT = Number(process.env.PORT) || 3000
+const PORT = Number(process.env.PORT) || 3001
 
 const MIME = {
   '.html': 'text/html; charset=utf-8',

@@ -1,7 +1,7 @@
 // Regression test for the header menus: hover a trigger, walk the pointer down
 // into the panel the way a user does, and confirm the menu is still open and the
 // link actually navigates.
-//   node tools/test-nav.mjs [http://localhost:3000]
+//   node tools/test-nav.mjs [http://localhost:3001]
 import { existsSync } from 'node:fs'
 import puppeteer from 'puppeteer-core'
 
@@ -10,7 +10,7 @@ const CHROME = [
   'C:/Users/sascha.avermiddig.GBCVN/.cache/puppeteer/chrome/win64-149.0.7827.22/chrome-win64/chrome.exe',
 ].find(existsSync)
 
-const BASE = (process.argv[2] ?? 'http://localhost:3000').replace(/\/$/, '')
+const BASE = (process.argv[2] ?? 'http://localhost:3001').replace(/\/$/, '')
 const failures = []
 
 const browser = await puppeteer.launch({

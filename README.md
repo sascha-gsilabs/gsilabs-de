@@ -9,7 +9,7 @@ self hosted fonts.
 
 ```
 npm run build     # content/ -> HTML at the project root
-npm run serve     # http://localhost:3000
+npm run serve     # http://localhost:3001
 npm run dev       # build, then serve
 npm run audit     # crawl every page for broken links, errors, overflow
 ```
@@ -186,8 +186,8 @@ Two knobs for that, both optional:
 ## Review tools
 
 ```
-node screenshot.mjs http://localhost:3000/about label --width=390 --viewport
-node tools/inspect.mjs http://localhost:3000/about 390 844
+node screenshot.mjs http://localhost:3001/about label --width=390 --viewport
+node tools/inspect.mjs http://localhost:3001/about 390 844
 node tools/audit.mjs
 ```
 

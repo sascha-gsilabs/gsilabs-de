@@ -1,6 +1,6 @@
 // Visit every generated page and report broken requests, console errors, missing
 // headings, horizontal overflow and dead internal links.
-//   node tools/audit.mjs [http://localhost:3000]
+//   node tools/audit.mjs [http://localhost:3001]
 import { existsSync, readFileSync } from 'node:fs'
 import puppeteer from 'puppeteer-core'
 
@@ -9,7 +9,7 @@ const CHROME = [
   'C:/Users/sascha.avermiddig.GBCVN/.cache/puppeteer/chrome/win64-149.0.7827.22/chrome-win64/chrome.exe',
 ].find(existsSync)
 
-const BASE = (process.argv[2] ?? 'http://localhost:3000').replace(/\/$/, '')
+const BASE = (process.argv[2] ?? 'http://localhost:3001').replace(/\/$/, '')
 
 const routes = [...readFileSync('sitemap.xml', 'utf8').matchAll(/<loc>(.*?)<\/loc>/g)]
   .map((m) => new URL(m[1]).pathname)
