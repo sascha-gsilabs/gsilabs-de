@@ -11,10 +11,14 @@ self hosted fonts.
 npm run build     # content/ -> HTML at the project root
 npm run serve     # http://localhost:3001
 npm run dev       # build, then serve
-npm run audit     # crawl every page for broken links, errors, overflow
+npm run audit     # crawl every page for broken links, errors, metadata, overflow
+
+npm run translations        # write translations.txt, every text EN beside DE
+npm run translations:apply  # read the edited file back into content/de/
 ```
 
 Edit a file under `content/`, run `npm run build`, reload. That is the whole loop.
+For German wording, `translations.txt` is the shortcut: edit there and apply.
 
 ## Content, the CMS part
 
@@ -238,6 +242,32 @@ Nav groups carry an `id:` (`solutions`, `company`, …) that is the same in both
 The menu ids in the markup come from it rather than from the label, so CSS, the header
 script and `tools/test-nav.mjs` keep working when the labels are German words.
 
+#### Correcting a translation without opening a content file
+
+`translations.txt` at the repo root holds every piece of text on the site, English
+beside German, in one editable file. It is generated, and it writes back.
+
+```
+npm run translations         regenerate translations.txt from content/
+npm run translations:apply   read it back into content/de/
+npm run build
+```
+
+Each pair is labelled with the file it came from and the path inside it, and only
+the DE block is ever written back: `content/` stays the canonical English site, so
+editing the EN text in the file changes nothing.
+
+Three things it refuses to do quietly. An empty DE block is skipped rather than
+saved as an empty string. A path that no longer exists in the content file is
+reported instead of silently dropped. And if the English text in the file no longer
+matches the English site, the file is older than the content and `apply` says so
+before you overwrite a newer translation with an older one, which is why step zero
+is always to regenerate.
+
+Only files with a real change are rewritten. Serialising a YAML file re-wraps every
+folded block in it, which is harmless but would otherwise put the whole German site
+into the diff for a one word correction.
+
 #### Adding a language
 
 1. Add an entry to `languages:` with its `prefix`, `dateLocale` and `dir`.
@@ -328,6 +358,7 @@ Two knobs for that, both optional:
 node screenshot.mjs http://localhost:3001/about label --width=390 --viewport
 node tools/inspect.mjs http://localhost:3001/about 390 844
 node tools/audit.mjs
+node tools/translations.mjs
 ```
 
 `screenshot.mjs` writes to `temporary screenshots/`, auto numbered, never overwriting.
