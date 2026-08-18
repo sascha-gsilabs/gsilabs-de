@@ -12,10 +12,10 @@ blocks:
       compliance using statistical soil modeling and automated design evaluation.
     cta: { label: Get Started, href: /get-started }
     image:
-      src: /assets/img/sol-geo-hero.webp
-      alt: Aerial view of a foundation site with driven piles
-      width: 1400
-      height: 933
+      src: /assets/img/geo-engineers-top.webp
+      alt: Aerial view of a foundation site with the pile grid set out across the plot
+      width: 1024
+      height: 576
 
   - type: featureTabs
     title: Engineered for geotechnics, not adapted from generic optimization tools.
@@ -87,6 +87,11 @@ blocks:
     title: >-
       Optimized foundation design that saves material, reduces carbon, and meets every
       code requirement.
+    image:
+      src: /assets/img/geo-engineers-bottom.webp
+      alt: Piling rig at work on a site beside a finished residential development
+      width: 1024
+      height: 576
 
   - type: metricTiles
     title: Better foundations through data, not assumptions

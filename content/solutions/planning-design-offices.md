@@ -84,6 +84,11 @@ blocks:
   - type: showcase
     tone: void
     title: Custom BIM plugins that run inside your authoring environment, not beside it.
+    image:
+      src: /assets/img/planning-design-offices-bottom.webp
+      alt: Two engineers working through a coloured site plan together
+      width: 1024
+      height: 684
 
   - type: metricTiles
     title: >-

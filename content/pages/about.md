@@ -14,10 +14,10 @@ blocks:
       manual effort, and make better decisions with their data.
     cta: { label: Get Started, href: /get-started }
     image:
-      src: /assets/img/careers-hero.webp
-      alt: The GSI Labs team at work in the Berlin office
+      src: /assets/img/about-us-top.webp
+      alt: The Spree in Berlin, looking across the park towards the Hauptbahnhof quarter
       width: 1400
-      height: 788
+      height: 1052
 
   - type: statement
     flushTop: true

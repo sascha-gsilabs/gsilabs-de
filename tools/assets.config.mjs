@@ -56,8 +56,10 @@ export const images = [
     to: 'cover-placement-workflows.webp',
     w: 1600,
   },
-  { from: '5d6f97d416986458acfce7a0-betahaus-shipka-sofia.jpg', to: 'cover-great-spaces.webp', w: 1600 },
-  { from: '5d6f97d416986458acfce7a0-betahaus-shipka-sofia.jpg', to: 'news-great-spaces.webp', w: 900 },
+  // Insight covers keep their own two size naming, so only the source moved to
+  // the file the client named for this story.
+  { from: 'our-contribution-to-great-spaces-top.avif', to: 'cover-great-spaces.webp', w: 1600 },
+  { from: 'our-contribution-to-great-spaces-top.avif', to: 'news-great-spaces.webp', w: 900 },
 
   // Figures inside the articles.
   {
@@ -93,12 +95,30 @@ export const images = [
     w: 1400,
   },
 
-  // Solution page heroes.
+  // Page media the client named after the page it belongs on, with "top" for the
+  // hero and "bottom" for the wide band further down. The shipped name repeats
+  // that, so which image belongs where is checkable against the folder rather
+  // than remembered. The remaining entries below still carry names of mine, for
+  // the pages the client has not renamed a file for.
+  { from: 'about-us-top.avif', to: 'about-us-top.webp', w: 1400 },
+  { from: 'careers-top.avif', to: 'careers-top.webp', w: 1400 },
+  { from: 'our-process-top.jpg', to: 'our-process-top.webp', w: 1400 },
+  { from: 'ai-workshop-top.avif', to: 'ai-workshop-top.webp', w: 1400 },
+  { from: 'dedicated-dev-team-top.avif', to: 'dedicated-dev-team-top.webp', w: 1400 },
+  { from: 'robotics-feasibility-study-bottom.jpg', to: 'robotics-feasibility-study-bottom.webp', w: 1600 },
+  { from: 'geo-engineers-top.avif', to: 'geo-engineers-top.webp', w: 1400 },
+  { from: 'precast-manufacturers-top.avif', to: 'precast-manufacturers-top.webp', w: 1400 },
+  // The wide bands run the full content width, so 1600 is the target rather than
+  // the ceiling. These three sources are 1024 across, which the encoder will not
+  // upscale, so they ship softer than the rest.
+  { from: 'general-contractors-bottom.avif', to: 'general-contractors-bottom.webp', w: 1600 },
+  { from: 'geo-engineers-bottom.avif', to: 'geo-engineers-bottom.webp', w: 1600 },
+  { from: 'planning-design-offices-bottom.avif', to: 'planning-design-offices-bottom.webp', w: 1600 },
+
+  // Solution page media still on names of mine.
   { from: 'gsilabs-sentinel.jpg', to: 'sol-contractors-hero.webp', w: 1400 },
   { from: 'gsilabs-solutions-for-general-contractors.jpg', to: 'sol-contractors-site.webp', w: 1200 },
   { from: 'evgeniy-surzhan-vfmhqkil6e4-unsplash.jpg', to: 'sol-design-hero.webp', w: 1400 },
-  { from: 'scott-blake-x-ghf9ljrvg-unsplash.jpg', to: 'sol-geo-hero.webp', w: 1400 },
-  { from: 'gsilabs-stack-of-reinforced-concrete-slabs-in-a-factory-workshop.jpg', to: 'sol-precast-hero.webp', w: 1400 },
   { from: 'gsilabs-3d-product-configurator.jpg', to: 'sol-product-hero.webp', w: 1400 },
   { from: 'gsilabs-ai-cost-prediction-real-estate.jpg', to: 'sol-realestate-hero.webp', w: 1400 },
 
@@ -148,14 +168,11 @@ export const images = [
   { from: 'risk-analysis.avif', to: 'tab-risk-analysis.webp', w: 1200 },
   { from: 'monitoring-recalibration.webp', to: 'tab-monitoring-recalibration.webp', w: 1200 },
 
-  // Service pages.
-  { from: 'kvalifik-5q07ss54d0q-unsplash.jpg', to: 'svc-workshop-hero.webp', w: 1400 },
+  // Service pages. The workshop, dev team and robotics media are in the block
+  // above, under the client's own names.
   { from: 'robot-dog-construction-site.jpg', to: 'svc-robotics-hero.webp', w: 1400 },
-  { from: 'unitree-g1-169-png.png', to: 'svc-robotics-unit.webp', w: 1200 },
-  { from: 'thisisengineering-veomkbduizs-unsplash.jpg', to: 'svc-team-hero.webp', w: 1400 },
 
   // Company pages.
-  { from: 'gsilabs-careers.jpg', to: 'careers-hero.webp', w: 1400 },
   { from: 'sascha-gsilabs.jpg', to: 'team-sascha.webp', w: 640 },
   { from: 'daniel-gsilabs.jpg', to: 'team-daniel.webp', w: 640 },
   { from: 'adrian-gsilabs.jpg', to: 'team-adrian.webp', w: 640 },

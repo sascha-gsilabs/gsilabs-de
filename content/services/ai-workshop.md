@@ -13,10 +13,10 @@ blocks:
       companies.
     cta: { label: Get Started, href: /get-started }
     image:
-      src: /assets/img/svc-workshop-hero.webp
-      alt: A team working through ideas on a wall of notes
-      width: 1400
-      height: 933
+      src: /assets/img/ai-workshop-top.webp
+      alt: A workshop session, the room following the presentation on their laptops
+      width: 512
+      height: 342
 
   - type: pillars
     eyebrow: Proven results

@@ -12,10 +12,10 @@ blocks:
       architectural model to machine readable production files.
     cta: { label: Get Started, href: /get-started }
     image:
-      src: /assets/img/sol-precast-hero.webp
-      alt: Stacked reinforced concrete slabs in a precast factory workshop
-      width: 1400
-      height: 933
+      src: /assets/img/precast-manufacturers-top.webp
+      alt: A precast wall panel on the crane hook against a clear sky
+      width: 1365
+      height: 2048
 
   - type: featureTabs
     title: Automated modularization and drawing generation for precast plants.

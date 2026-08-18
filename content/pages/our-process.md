@@ -10,10 +10,10 @@ blocks:
     lede: How we take you from first conversation to AI in production.
     cta: { label: Get Started, href: /get-started }
     image:
-      src: /assets/img/sol-design-hero.webp
-      alt: Two engineers reviewing a structural model on screen
+      src: /assets/img/our-process-top.webp
+      alt: Working an approach out on a glass wall in coloured marker
       width: 1400
-      height: 933
+      height: 1050
 
   - type: stages
     flushTop: true

@@ -11,14 +11,14 @@ description: >-
   technology we build and which we leave alone.
 image:
   src: /assets/img/cover-great-spaces.webp
-  alt: People working in a converted building with an exposed timber and steel structure
+  alt: Architectural studies of a residential block, from the balconies to the street it sits on
   width: 1600
-  height: 1067
+  height: 896
 cardImage:
   src: /assets/img/news-great-spaces.webp
-  alt: People working in a converted building with an exposed timber and steel structure
+  alt: Architectural studies of a residential block, from the balconies to the street it sits on
   width: 900
-  height: 600
+  height: 504
 facts:
   - { label: Written by, value: Sascha Avermiddig }
   - { label: Category, value: Articles }

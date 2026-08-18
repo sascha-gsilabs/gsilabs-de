@@ -12,10 +12,10 @@ blocks:
       understand BIM, your workflows, and how your industry actually works.
     cta: { label: Request Access, href: /get-started }
     image:
-      src: /assets/img/svc-team-hero.webp
-      alt: Engineers working together at a shared desk
-      width: 1400
-      height: 933
+      src: /assets/img/dedicated-dev-team-top.webp
+      alt: Developers at work in a shared office, code across several screens
+      width: 512
+      height: 342
 
   - type: pillars
     eyebrow: Why partners choose us

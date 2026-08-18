@@ -70,10 +70,10 @@ blocks:
     tone: void
     title: AI-powered risk detection across all project communication channels.
     image:
-      src: /assets/img/sol-contractors-site.webp
-      alt: Site engineers reviewing reinforcement work on a construction site
-      width: 1200
-      height: 800
+      src: /assets/img/general-contractors-bottom.webp
+      alt: Aerial view of a deck under construction, with crews working across the formwork
+      width: 1024
+      height: 676
 
   - type: metricTiles
     title: Concrete recommendations to resolve issues before they escalate.

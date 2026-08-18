@@ -132,6 +132,12 @@ filled in truthfully.
 
 Current total for `assets/`: about 7.6 MB, of which the hero video is 2.8 MB.
 
+Page media follows the same rule as the panels below: the client names the file after
+the page it belongs on, plus `top` for the hero and `bottom` for the wide band further
+down, and the shipped name repeats it. So `about-us-top.webp` is the hero on /about, and
+nothing has to be remembered to check it. Pages the client has not renamed a file for
+still carry names of mine, `sol-` and `svc-` prefixed.
+
 The click through panels on the six solution pages are named after their tab, both in
 `brand assets/website images/` and as `tab-<tab slug>.webp` in `assets/img`, so a new
 image for a tab needs no lookup: drop it in under the tab's name and encode. They arrive

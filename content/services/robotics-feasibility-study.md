@@ -81,10 +81,10 @@ blocks:
       the construction experience and the technology knowledge together so you can make
       decisions based on data, not marketing brochures.
     image:
-      src: /assets/img/svc-robotics-unit.webp
-      alt: A humanoid robot unit evaluated as part of a fleet study
-      width: 1200
-      height: 675
+      src: /assets/img/robotics-feasibility-study-bottom.webp
+      alt: A humanoid robot mid stride
+      width: 1600
+      height: 1004
 
   - type: statement
     title: What makes our assessment different

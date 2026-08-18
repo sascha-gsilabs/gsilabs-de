@@ -12,10 +12,10 @@ blocks:
       and technology skills come together to solve real problems.
     cta: { label: View open roles, href: "#roles" }
     image:
-      src: /assets/img/careers-hero.webp
-      alt: The GSI Labs team at work in the Berlin office
-      width: 1400
-      height: 788
+      src: /assets/img/careers-top.webp
+      alt: Planning the coming quarters on a glass wall covered in notes
+      width: 1024
+      height: 556
 
   - type: pillars
     tone: void
