@@ -108,6 +108,10 @@ export const images = [
   { from: 'robotics-feasibility-study-bottom.jpg', to: 'robotics-feasibility-study-bottom.webp', w: 1600 },
   { from: 'geo-engineers-top.avif', to: 'geo-engineers-top.webp', w: 1400 },
   { from: 'precast-manufacturers-top.avif', to: 'precast-manufacturers-top.webp', w: 1400 },
+  // Get Started. Sits in half the content width beside the form, so about 650
+  // CSS px at the widest. 1300 keeps it at 2x there. Pulled from the live site:
+  // the client's folder has no copy of it.
+  { from: 'get-started-workshop.jpg', to: 'get-started-workshop.webp', w: 1300 },
   // The wide bands run the full content width, so 1600 is the target rather than
   // the ceiling. These three sources are 1024 across, which the encoder will not
   // upscale, so they ship softer than the rest.

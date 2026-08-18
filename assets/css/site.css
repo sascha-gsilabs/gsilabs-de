@@ -1312,6 +1312,14 @@ button {
   padding-top: calc(var(--head-h) + clamp(2.5rem, 6vw, 5.5rem));
 }
 
+/* A hero carrying nothing but the title has no second column to fill and no
+   lede to hold the band open, so the full band padding below it reads as a gap
+   rather than as breathing room. It keeps enough to sit clear of whatever rule
+   or section follows. */
+.page-hero--title-only {
+  padding-bottom: var(--s6);
+}
+
 .page-hero__head {
   grid-column: 1 / 7;
   grid-row: 1;
@@ -1974,25 +1982,62 @@ button {
 
 /* --- embedded form -------------------------------------------------------- */
 
-/* HubSpot renders its form into a cross origin iframe, so none of the fields
-   inside can be reached from this stylesheet. Everything below is the frame the
-   form sits in: its column, its width, and the note underneath. The fields
-   themselves are styled in HubSpot, under the form's own style settings, which
-   is where the square corners and the brand colours have to be set to match. */
+/* The enquiry band reads as two halves: what we need from you, and the form to
+   put it in. A rule down the middle carries that split the full height of the
+   band, not just as far as the shorter column reaches, so it stays a division of
+   the page rather than a border on one box. */
+.band--split {
+  border-top: 1px solid var(--line);
+}
+
+.band--split::before {
+  content: '';
+  position: absolute;
+  inset-block: 0;
+  left: 50%;
+  width: 1px;
+  background: var(--line);
+}
+
+.form-intro {
+  grid-column: 1 / 7;
+}
+
+/* No measure cap: the opening line runs the width of its half, the way it does
+   on the page this replaces. */
+
+/* The points sit well below the opening line rather than following it, which is
+   the pause the original page puts between the ask and what you get for it. */
+.form-intro .points {
+  margin-top: var(--s8);
+}
+
+.form-intro__media {
+  margin-top: var(--s6);
+  aspect-ratio: 5 / 3;
+}
+
+.form-intro__media img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Six columns, mirroring the intro, so the rule down the middle divides the band
+   evenly. The padding is the gap between that rule and the first field, which the
+   grid gutter alone would not give it. */
 .form-embed {
   grid-column: 7 / 13;
   align-self: start;
+  padding-left: var(--col-gap);
 }
 
-/* The loader sets the frame to height 0 and only grows it once the iframe posts
-   its measured height back. That message does not always arrive: on any origin
-   HubSpot does not recognise, the frame stays at zero and the form is invisible.
-   The min-height is the floor that keeps it on the page regardless, sized to the
-   form as it actually renders, so a working resize message adds nothing visible
-   and a missing one costs nothing either. Remeasure it if fields are added.
-
-   34rem covers the five field layout at every width down to where first and last
-   name stop sharing a row, which is a little under 440px of form. */
+/* HubSpot sets the frame to height zero and only grows it once the iframe posts
+   its measured height back. That message does not always arrive: on an origin
+   HubSpot does not recognise the frame stays at zero and the form is invisible.
+   This min-height is the floor that keeps it on the page regardless, measured
+   against the form as it actually renders in this column. Remeasure it if the
+   form gains or loses fields. */
 .hs-form-frame {
   min-height: 34rem;
 }
@@ -2005,21 +2050,21 @@ button {
 
 .form-embed__note {
   margin-top: var(--s4);
-  padding-top: var(--s3);
-  border-top: 1px solid var(--line);
   font-size: var(--step-small);
-  color: var(--on-ground-dim);
+  line-height: 1.6;
+  color: var(--on-ground-faint);
 }
 
 .form-embed__note a {
-  color: var(--on-ground);
+  color: var(--on-ground-dim);
   text-decoration: underline;
   text-underline-offset: 0.2em;
   text-decoration-color: var(--line);
-  transition: text-decoration-color 0.2s linear;
+  transition: text-decoration-color 0.2s linear, color 0.2s linear;
 }
 
 .form-embed__note a:hover {
+  color: var(--on-ground);
   text-decoration-color: currentColor;
 }
 
@@ -2301,7 +2346,6 @@ button {
 
   .tile-metrics,
   .contact-grid,
-  .form-embed,
   .joblist,
   .statement__points,
   .pillars__note {
@@ -2311,6 +2355,21 @@ button {
 
   .tile-metrics {
     grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  /* Stacked, so the rule down the middle has nothing left to divide. */
+  .band--split::before {
+    display: none;
+  }
+
+  .form-intro,
+  .form-embed {
+    grid-column: 1 / 13;
+  }
+
+  .form-embed {
+    margin-top: var(--s6);
+    padding-left: 0;
   }
 
   .tile-metrics__note {

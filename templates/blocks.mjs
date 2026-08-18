@@ -89,16 +89,25 @@ ${b.titleBottom.map((l, i) => `          <span class="hero__line" style="--enter
   </section>`
 
 /** Light page hero: headline left, support copy and CTA below it, media right. */
-const hero = (b) => `<section class="band page-hero" aria-labelledby="page-title">
+const hero = (b) => `<section class="band page-hero${
+  b.lede || b.cta || b.image ? '' : ' page-hero--title-only'
+}" aria-labelledby="page-title">
   <div class="wrap grid">
     <div class="page-hero__head">
       ${eyebrow(b.eyebrow)}
       <h1 class="page-hero__title" id="page-title">${mdInline(b.title)}</h1>
     </div>
-    <div class="page-hero__aside">
+${
+      /* A page whose hero is the title alone, with the lede carried by the
+         section below it, would otherwise get an empty aside still holding its
+         top padding open. */
+      b.lede || b.cta
+        ? `    <div class="page-hero__aside">
       ${b.lede ? `<p class="lede">${mdInline(b.lede)}</p>` : ''}
       ${button(b.cta)}
-    </div>
+    </div>`
+        : ''
+    }
 ${b.image ? `    <figure class="page-hero__media">${photo(b.image)}</figure>` : ''}
   </div>
 </section>`
@@ -543,26 +552,29 @@ const contact = (b, ctx) =>
 
 /* -------------------------------------------------------------- hubspot --- */
 
-/* A HubSpot form, embedded next to the copy that introduces it. The loader
-   renders the form into the frame div in place rather than into an iframe, so
-   the fields are ours to style: see .form-embed in site.css.
+/* The enquiry page: what we need from you on the left, the form to fill in on
+   the right, split down the middle by a rule that runs the height of the band.
 
-   The script tag sits inside the block instead of the layout, so a page only
-   pays for it when it actually carries a form. Repeating it across blocks on
-   one page is harmless: the browser serves the second request from cache and
-   HubSpot's loader picks up every frame div on the page, not just the first. */
+   HubSpot renders the form into a cross origin iframe, so the fields inside are
+   out of this stylesheet's reach. What is styled here is the frame around them.
+   The loader script sits in the block rather than the page shell, so a page only
+   pays for HubSpot when it actually carries a form. Repeating it is harmless:
+   the second request is served from cache and the loader picks up every frame
+   div on the page, not just the first. */
 const form = (b, ctx) =>
   band(
     join([
-      `    <div class="statement statement--split">
+      `    <div class="form-intro">
       ${eyebrow(b.eyebrow)}
       ${b.title ? `<h2 class="statement__title">${mdInline(b.title)}</h2>` : ''}
-      ${b.body ? `<div class="statement__body">${paras(b.body, 'lede')}</div>` : ''}
+      ${b.body ? `<div class="form-intro__body">${paras(b.body, 'lede')}</div>` : ''}
+${points(b.points)}
+      ${b.image ? `<figure class="form-intro__media">${photo(b.image, { sizes: '(max-width: 900px) 92vw, 46vw' })}</figure>` : ''}
     </div>`,
       `    <div class="form-embed">
       <div class="hs-form-frame" data-region="${esc(b.region ?? 'eu1')}" data-form-id="${esc(b.formId)}" data-portal-id="${esc(b.portalId)}"></div>
       <noscript>
-        <p class="form-embed__note">The form needs JavaScript. Write to <a class="link" href="mailto:${
+        <p class="form-embed__note">The form needs JavaScript. Write to <a href="mailto:${
           ctx.site.company.email
         }">${esc(ctx.site.company.email)}</a> instead and you reach the same people.</p>
       </noscript>
@@ -570,7 +582,7 @@ const form = (b, ctx) =>
       <script src="https://js-${esc(b.region ?? 'eu1')}.hsforms.net/forms/embed/${esc(b.portalId)}.js" defer></script>
     </div>`,
     ]),
-    bandOpts(b)
+    { ...bandOpts(b), className: `band--split ${b.flushTop ? 'band--flush-top' : ''}`.trim() }
   )
 
 export const BLOCKS = {

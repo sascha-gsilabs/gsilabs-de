@@ -98,23 +98,24 @@ Common options on any block: `tone: void` for a black band, `id` for an anchor,
 
 ### Forms
 
-`form` embeds a HubSpot form beside the copy that introduces it. Everything it
-needs comes from the embed code HubSpot gives you:
+`form` is the enquiry band: what we need from you on the left, the HubSpot form
+to put it in on the right, split by a rule down the middle. Everything it needs
+comes from the embed code HubSpot gives you:
 
 ```yaml
   - type: form
-    id: enquiry                 # anchor, so a CTA can point at "#enquiry"
-    eyebrow: Send us your project
-    title: A few lines are enough to start
-    body: What the visitor should tell us.
+    body: The opening line, above the points.
+    points:
+      - One line per thing the reader gets.
+    image: { src: /assets/img/get-started-workshop.webp, alt: ..., width: 1300, height: 976 }
     note: Small print under the form. Markdown links work.
     region: eu1                 # data-region
     portalId: "146150011"       # data-portal-id, quoted so YAML keeps it a string
     formId: 16241ff4-56ee-42ce-a5b7-9967520290c5   # data-form-id
 ```
 
-The loader script is emitted by the block itself, so nothing needs adding to the
-page shell.
+`eyebrow` and `title` are available too, and `id` gives the band an anchor. The
+loader script is emitted by the block, so nothing needs adding to the page shell.
 
 HubSpot renders the form inside a cross origin iframe. That means
 `assets/css/site.css` can style the frame and the note around it but cannot
@@ -124,8 +125,13 @@ HubSpot, under the form's own style settings.
 It also means the frame's height is whatever HubSpot posts back to the page, and
 it posts zero on any origin it does not recognise. `.hs-form-frame` carries a
 `min-height` as the floor that keeps the form visible either way, measured
-against the form as it actually renders. Add or remove fields and that number
-needs remeasuring.
+against the form as it actually renders: 34rem beside the copy, 40rem once the
+columns stack and the name fields split onto their own rows. Add or remove
+fields and both numbers need remeasuring.
+
+Note for screenshots: Chrome does not paint a cross origin iframe that sits
+outside the viewport, so a `--fullPage` capture of this page shows the form's
+reserved space as blank. Capture it with `--viewport --scroll=` instead.
 
 Two conveniences in the content itself: ` // ` surrounded by spaces becomes the styled
 brand delimiter, and a Markdown image with a title becomes a captioned figure.
