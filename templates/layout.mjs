@@ -26,11 +26,25 @@ marked.use({
 const unwrapFigures = (html) =>
   html.replace(/<p>(\s*<figure[\s\S]*?<\/figure>\s*)<\/p>/g, '$1')
 
+/* A list entry written as `- Some label: the rest` is a mapping to YAML, not the
+   sentence it looks like, and String() would quietly render it as [object Object]
+   on the page. Catching it here turns a typo that survives review into a failed
+   build naming the value. */
+function text(value) {
+  if (value !== null && typeof value === 'object') {
+    throw new Error(
+      `expected text, got ${JSON.stringify(value)}. A colon in a list entry makes YAML ` +
+        `read it as a key. Quote the whole entry or rewrite it without the colon.`
+    )
+  }
+  return String(value)
+}
+
 /** Markdown to HTML, block level. */
-export const md = (s = '') => delimiters(unwrapFigures(marked.parse(String(s).trim())))
+export const md = (s = '') => delimiters(unwrapFigures(marked.parse(text(s).trim())))
 
 /** Markdown to HTML without the wrapping paragraph, for headings and labels. */
-export const mdInline = (s = '') => delimiters(marked.parseInline(String(s).trim()))
+export const mdInline = (s = '') => delimiters(marked.parseInline(text(s).trim()))
 
 /** Joins an array of strings, dropping empties, so templates can use && freely. */
 export const join = (parts) => parts.filter(Boolean).join('\n')

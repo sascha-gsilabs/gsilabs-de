@@ -1,4 +1,7 @@
 ---
+# Taken off the site at the client's request. Kept whole so it can be put back:
+# delete this flag and restore the nav entry in site.yml.
+draft: true
 title: Robotics Feasibility Study
 description: >-
   A structured feasibility study that evaluates whether robotic systems can deliver

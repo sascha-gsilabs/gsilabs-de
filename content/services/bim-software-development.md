@@ -1,5 +1,5 @@
 ---
-title: Dedicated Dev Team
+title: BIM Software Development
 description: >-
   For a select group of partners, we build dedicated engineering teams that already
   understand BIM, your workflows, and how your industry actually works.

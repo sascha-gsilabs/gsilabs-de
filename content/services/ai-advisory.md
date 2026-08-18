@@ -1,5 +1,5 @@
 ---
-title: AI workshop
+title: AI Advisory
 description: >-
   A structured two day program that takes your team from AI fundamentals to a
   prioritized list of use cases and a working prototype. Built for AEC companies.

@@ -65,9 +65,11 @@ nav:
       - { label: Privacy, href: /privacy }
   - label: Services
     items:
-      - { label: AI workshop, href: /services/ai-workshop }
-      - { label: Robotics Feasibility Study, href: /services/robotics-feasibility-study }
-      - { label: Dedicated Dev Team, href: /services/dedicated-dev-team }
+      - { label: AI Advisory, href: /services/ai-advisory }
+      - { label: AI Sovereign Infrastructure, href: /services/ai-sovereign-infrastructure }
+      - { label: Geotechnical Engineering Software, href: /services/geotechnical-engineering-software }
+      - { label: Design Automation, href: /services/design-automation }
+      - { label: BIM Software Development, href: /services/bim-software-development }
   - label: Insights
     items:
       - { label: Projects, href: /insights/projects }

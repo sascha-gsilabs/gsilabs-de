@@ -145,6 +145,38 @@ for (const dir of ['pages', 'solutions', 'services']) {
 for (const item of insights) emit(item.href, item, insightPage(item, ctx))
 for (const item of jobs) emit(item.href, item, jobPage(item, ctx))
 
+/* ----------------------------------------------------------------- prune --- */
+
+/* Renaming a page leaves the folder the old build wrote, and nothing links to it
+   any more, so it goes unnoticed while staying reachable by its URL. These four
+   directories hold nothing but generated pages, so anything with an index.html in
+   them that this run did not write is left over and gets removed. Routes outside
+   them are the one off pages at the project root, which are not swept: the root
+   holds files that are not ours to delete. */
+const kept = new Set(written.map((f) => f.replace(/\\/g, '/')))
+
+for (const dir of ['services', 'solutions', 'insights', 'careers']) {
+  let entries = []
+  try {
+    entries = readdirSync(dir, { withFileTypes: true })
+  } catch {
+    continue
+  }
+  for (const entry of entries) {
+    if (!entry.isDirectory()) continue
+    const page = `${dir}/${entry.name}/index.html`
+    try {
+      statSync(page)
+    } catch {
+      continue
+    }
+    if (!kept.has(page)) {
+      rmSync(`${dir}/${entry.name}`, { recursive: true, force: true })
+      console.log(`removed stale ${dir}/${entry.name}`)
+    }
+  }
+}
+
 /* ---------------------------------------------------------------- sitemap --- */
 
 const routes = written.map((f) =>

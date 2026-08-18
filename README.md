@@ -29,7 +29,7 @@ content/
     why-partner.yml            a section reused verbatim by more than one page
   pages/                       one file per one off page, home.md included
   solutions/                   the six audience pages
-  services/                    the three service pages
+  services/                    the service pages
   insights/
     articles/                  one file per article
     projects/                  one file per reference project
@@ -43,7 +43,7 @@ content/
 | `pages/home.md` | `/` |
 | `pages/about.md` | `/about` |
 | `solutions/precast-manufacturers.md` | `/solutions/precast-manufacturers` |
-| `services/ai-workshop.md` | `/services/ai-workshop` |
+| `services/ai-advisory.md` | `/services/ai-advisory` |
 | `insights/articles/<slug>.md` | `/insights/<slug>` |
 | `insights/projects/<slug>.md` | `/insights/<slug>` |
 | `jobs/<slug>.md` | `/careers/<slug>` |
@@ -95,9 +95,16 @@ left at that route is removed. Also delete the page's entry from `nav` in
 To put it back, delete the flag and restore the nav entry. Nothing else is lost:
 the content file, its images and any partial it uses all stay where they were.
 
-Currently down: `solutions/general-contractors`. Its images and the shared
+Currently down: `solutions/general-contractors` and
+`services/robotics-feasibility-study`. Their images and the shared
 `partials/why-partner.yml` are still in place for that reason, so they are not
 orphans to be cleaned up.
+
+Renaming a page is the same idea from the other end. The build sweeps
+`services/`, `solutions/`, `insights/` and `careers/` after writing, removing any
+folder with an `index.html` this run did not produce, so a renamed page does not
+leave its old URL alive behind it. The project root is not swept: it holds files
+that are not the build's to delete.
 
 ### Composed pages
 
