@@ -85,6 +85,20 @@ Jobs need `title`, `employment`, `location`, `excerpt` and a Markdown body. The
 application form is appended to every one of them, so nothing in the file asks
 for it.
 
+### Taking a page down
+
+`draft: true` in a page's frontmatter keeps the file but stops publishing it: no
+HTML is written, the route leaves `sitemap.xml`, and any file an earlier build
+left at that route is removed. Also delete the page's entry from `nav` in
+`site.yml`, or the header links to a 404.
+
+To put it back, delete the flag and restore the nav entry. Nothing else is lost:
+the content file, its images and any partial it uses all stay where they were.
+
+Currently down: `solutions/general-contractors`. Its images and the shared
+`partials/why-partner.yml` are still in place for that reason, so they are not
+orphans to be cleaned up.
+
 ### Composed pages
 
 Marketing pages list their sections under `blocks:`. Each block has a `type` that maps

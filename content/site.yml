@@ -51,7 +51,6 @@ languages:
 nav:
   - label: Solutions
     items:
-      - { label: For General Contractors, href: /solutions/general-contractors }
       - { label: For Design Offices, href: /solutions/planning-design-offices }
       - { label: For Geo Engineers, href: /solutions/geotechnical-engineers }
       - { label: For Precast Manufacturers, href: /solutions/precast-manufacturers }

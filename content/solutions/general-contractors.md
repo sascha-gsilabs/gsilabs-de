@@ -1,4 +1,7 @@
 ---
+# Taken off the site at the client's request. The page is kept whole so it can be
+# put back: delete this flag and restore the nav entry in site.yml.
+draft: true
 title: For General Contractors
 description: >-
   Analyze project emails in real time and flag risks before they turn into delays,

@@ -115,10 +115,24 @@ function emit(route, doc, content, headMode = 'paper') {
   )
 }
 
+/* Pages carrying `draft: true` stay in content/ but are not published: no HTML is
+   written and they stay out of the sitemap. Removing the flag brings the page
+   back exactly as it was, which is why taking one down is a one line change here
+   rather than a deleted file. Whoever takes one down also has to remove its entry
+   from `nav` in site.yml, or the header links into nothing. */
+const drafts = []
+
 // Composed pages: content/pages, content/solutions, content/services.
 for (const dir of ['pages', 'solutions', 'services']) {
   for (const { slug, doc } of listDir(`${CONTENT}/${dir}`)) {
     const route = doc.route ?? (dir === 'pages' ? (slug === 'home' ? '/' : `/${slug}`) : `/${dir}/${slug}`)
+    if (doc.draft) {
+      drafts.push(route)
+      /* An earlier build may have published it. Leaving that file behind would
+         keep the page reachable by URL while nothing links to it. */
+      rmSync(route.replace(/^\//, ''), { recursive: true, force: true })
+      continue
+    }
     const blocks = expand(doc.blocks)
     const first = blocks[0]
     const headMode =
@@ -155,3 +169,7 @@ writeFileSync('robots.txt', `User-agent: *\nAllow: /\nSitemap: ${site.seo.origin
 
 console.log(`${written.length} pages written`)
 console.log(routes.sort().map((r) => '  ' + r).join('\n'))
+if (drafts.length) {
+  console.log(`\n${drafts.length} draft, not published:`)
+  console.log(drafts.sort().map((r) => '  ' + r).join('\n'))
+}
