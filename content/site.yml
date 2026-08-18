@@ -70,6 +70,7 @@ nav:
       - { label: Geotechnical Engineering Software, href: /services/geotechnical-engineering-software }
       - { label: Design Automation, href: /services/design-automation }
       - { label: BIM Software Development, href: /services/bim-software-development }
+      - { label: BIM Content Development, href: /services/bim-content-development }
   - label: Insights
     items:
       - { label: Projects, href: /insights/projects }
