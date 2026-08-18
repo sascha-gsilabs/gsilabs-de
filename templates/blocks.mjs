@@ -1,7 +1,7 @@
 // Section renderers. A content file lists its sections under `blocks:`, each
 // with a `type` that maps to one function here, so pages are composed from data
 // rather than hand written markup.
-import { ARROW, esc, join, md, mdInline, paras } from './layout.mjs'
+import { ARROW, esc, join, md, mdInline, paras, t, withEmail } from './layout.mjs'
 
 /**
  * Every direct child of a band's grid gets the scroll reveal class and a small
@@ -481,10 +481,10 @@ const news = (b, ctx) => {
     join([
       `    <div class="news__head">
       ${eyebrow(b.eyebrow)}
-      <h2 class="display" id="news-title">${mdInline(b.title ?? 'Latest News')}</h2>
+      <h2 class="display" id="news-title">${mdInline(b.title ?? t(ctx.site, 'latestNews'))}</h2>
     </div>`,
       b.allHref
-        ? `    <a class="link news__all" href="${b.allHref}">All insights${ARROW}</a>`
+        ? `    <a class="link news__all" href="${b.allHref}">${esc(t(ctx.site, 'allInsights'))}${ARROW}</a>`
         : '',
       `    <ul class="news__list${items.length === 2 ? ' news__list--pair' : ''}">
 ${items.filter(Boolean).map((i) => insightCard(i)).join('\n')}
@@ -666,9 +666,7 @@ ${points(b.points)}
       `    <div class="form-embed">
       ${formFrame(b.form, ctx.site)}
       <noscript>
-        <p class="form-embed__note">The form needs JavaScript. Write to <a href="mailto:${
-          ctx.site.company.email
-        }">${esc(ctx.site.company.email)}</a> instead and you reach the same people.</p>
+        <p class="form-embed__note">${withEmail(ctx.site, 'formNoscript')}</p>
       </noscript>
       ${b.note ? `<p class="form-embed__note">${mdInline(b.note)}</p>` : ''}
     </div>`,

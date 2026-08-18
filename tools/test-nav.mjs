@@ -1,6 +1,8 @@
 // Regression test for the header menus: hover a trigger, walk the pointer down
 // into the panel the way a user does, and confirm the menu is still open and the
-// link actually navigates.
+// link actually navigates. Run against every language, since the German header is
+// the same markup with different words in it, and a layout that fits one set of
+// labels can still break on the other.
 //   node tools/test-nav.mjs [http://localhost:3001]
 import { existsSync } from 'node:fs'
 import puppeteer from 'puppeteer-core'
@@ -20,10 +22,11 @@ const browser = await puppeteer.launch({
 })
 
 try {
-  for (const menu of ['solutions', 'company', 'services', 'insights']) {
+  for (const home of ['', '/de'])
+    for (const menu of ['solutions', 'company', 'services', 'insights']) {
     const page = await browser.newPage()
     await page.setViewport({ width: 1440, height: 900 })
-    await page.goto(BASE + '/', { waitUntil: 'networkidle2' })
+    await page.goto(BASE + (home || '/'), { waitUntil: 'networkidle2' })
     await page.evaluate(() => document.fonts.ready)
 
     const trigger = await page.$(`[aria-controls="menu-${menu}"]`)
@@ -68,9 +71,9 @@ try {
       await Promise.all([page.waitForNavigation({ waitUntil: 'domcontentloaded' }), link.click()])
       const landed = new URL(page.url()).pathname.replace(/\/$/, '')
       if (landed !== href) failures.push(`${menu}: clicking ${href} landed on ${landed}`)
-      else console.log(` ok  ${menu.padEnd(10)} hover, cross the gap, click -> ${landed}`)
+      else console.log(` ok  ${(home || '/').padEnd(4)} ${menu.padEnd(10)} hover, cross the gap, click -> ${landed}`)
     } else {
-      console.log(`FAIL ${menu}`)
+      console.log(`FAIL ${home || '/'} ${menu}`)
     }
 
     await page.close()
@@ -83,5 +86,5 @@ if (failures.length) {
   console.log('\n' + failures.map((f) => '  ' + f).join('\n'))
   process.exitCode = 1
 } else {
-  console.log('\nall four menus reachable by mouse')
+  console.log('\nall four menus reachable by mouse, in both languages')
 }

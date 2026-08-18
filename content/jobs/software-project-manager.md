@@ -2,6 +2,10 @@
 title: Software Project Manager
 employment: Full Time
 location: Berlin
+employmentType: FULL_TIME
+# The date this role was published. Google shows jobs by how recent they are, so
+# this has to be the real posting date, not the date the file was written.
+posted: 2026-08-18
 description: >-
   Own the delivery of AI and BIM automation projects for AEC companies, from first
   conversation to final deployment.

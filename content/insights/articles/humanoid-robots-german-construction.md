@@ -1,5 +1,7 @@
 ---
 title: The Potential of Humanoid Robots in the German Construction Industry
+# The heading above is the article. This is what a search result shows.
+metaTitle: Humanoid Robots in German Construction
 date: 2026-05-22
 author: Yuyang Peng
 readTime: 4 min read

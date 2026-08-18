@@ -4,5 +4,38 @@
   "buildCommand": "",
   "outputDirectory": ".",
   "cleanUrls": true,
-  "trailingSlash": false
+  "trailingSlash": false,
+  "redirects": [
+    {
+      "source": "/services/ai-workshop",
+      "destination": "/services/ai-advisory",
+      "permanent": true
+    },
+    {
+      "source": "/services/dedicated-dev-team",
+      "destination": "/services/bim-software-development",
+      "permanent": true
+    },
+    {
+      "source": "/solutions/general-contractors",
+      "destination": "/services/ai-sovereign-infrastructure",
+      "permanent": true
+    },
+    {
+      "source": "/services/robotics-feasibility-study",
+      "destination": "/services/ai-advisory",
+      "permanent": true
+    }
+  ],
+  "headers": [
+    {
+      "source": "/assets/(.*)",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=604800, stale-while-revalidate=86400"
+        }
+      ]
+    }
+  ]
 }

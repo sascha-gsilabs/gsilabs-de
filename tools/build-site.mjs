@@ -5,6 +5,12 @@
 //
 // Every page ends up at <route>/index.html so clean URLs work without host
 // specific rewrite rules. The homepage is the one exception, at ./index.html.
+//
+// The site is published in every language listed under `languages` in
+// content/site.yml. The first one is served from the root, the rest from their
+// `prefix`, so English lives at /about and German at /de/about. Each language
+// reads its own content tree; German pages keep the English slugs, which is what
+// lets the language switcher be a prefix and nothing more.
 import { mkdirSync, readFileSync, readdirSync, rmSync, statSync, writeFileSync } from 'node:fs'
 import { dirname, join as joinPath } from 'node:path'
 import YAML from 'yaml'
@@ -35,11 +41,76 @@ const listDir = (dir) => {
   }
 }
 
+/* ------------------------------------------------------------- languages --- */
+
+/* The German site.yml is an overlay: it lists only what differs and inherits the
+   rest, so the phone number and the HubSpot ids cannot drift between languages.
+   Arrays replace rather than merge, because a half overridden nav would be worse
+   than an obviously wrong one. */
+function merge(base, over) {
+  if (over === null || typeof over !== 'object' || Array.isArray(over)) return over
+  if (base === null || typeof base !== 'object' || Array.isArray(base)) return over
+  const out = { ...base }
+  for (const [k, v] of Object.entries(over)) out[k] = k in base ? merge(base[k], v) : v
+  return out
+}
+
+/* An internal path, meaning one that has a copy per language. /assets is shared
+   and protocol relative URLs point off site, so both are left alone. */
+const INTERNAL = /^\/(?!\/|assets\/)/
+
+const withPrefix = (href, prefix) =>
+  !prefix || !INTERNAL.test(href) ? href : href === '/' ? prefix : prefix + href
+
+/* Every `href` in the language's site.yml, so the header, the footer and the CTA
+   point inside the language they are rendered in. */
+function localizeTree(value, prefix) {
+  if (Array.isArray(value)) return value.map((v) => localizeTree(v, prefix))
+  if (value && typeof value === 'object')
+    return Object.fromEntries(
+      Object.entries(value).map(([k, v]) => [
+        k,
+        k === 'href' && typeof v === 'string' ? withPrefix(v, prefix) : localizeTree(v, prefix),
+      ])
+    )
+  return value
+}
+
+/* The same job for a rendered page body, which is where the links written in
+   content files and the ones the templates hard code both end up. Doing it here
+   rather than in the content means a German page is a translation and nothing
+   else: no rewritten link targets to keep in step with the English ones. */
+const localizeHtml = (html, prefix) =>
+  prefix
+    ? html.replace(/href="(\/[^"]*)"/g, (all, href) =>
+        INTERNAL.test(href) ? `href="${withPrefix(href, prefix)}"` : all
+      )
+    : html
+
+const baseSite = YAML.parse(readFileSync(`${CONTENT}/site.yml`, 'utf8'))
+
+const locales = (baseSite.languages ?? [{ code: 'en', prefix: '', dir: CONTENT }]).map((lang) => {
+  let site = baseSite
+  if (lang.dir !== CONTENT) {
+    let overlay
+    try {
+      overlay = YAML.parse(readFileSync(`${lang.dir}/site.yml`, 'utf8')) ?? {}
+    } catch {
+      throw new Error(
+        `${lang.dir}/site.yml is missing. Every language needs one, even an empty overlay.`
+      )
+    }
+    site = merge(baseSite, overlay)
+  }
+  return { ...lang, site: localizeTree(site, lang.prefix) }
+})
+
 /* ---------------------------------------------------------------- helpers --- */
 
-const DATE_FMT = new Intl.DateTimeFormat('en-US', { month: 'short', day: 'numeric', year: 'numeric' })
-
-const dateLabel = (iso) => DATE_FMT.format(new Date(iso + 'T12:00:00Z'))
+const dateLabel = (iso, locale) =>
+  new Intl.DateTimeFormat(locale, { month: 'short', day: 'numeric', year: 'numeric' }).format(
+    new Date(iso + 'T12:00:00Z')
+  )
 
 function write(route, html) {
   const out = route === '/' ? 'index.html' : joinPath(route.replace(/^\//, ''), 'index.html')
@@ -48,72 +119,20 @@ function write(route, html) {
   return out
 }
 
-/* ---------------------------------------------------------------- content --- */
-
-const site = YAML.parse(readFileSync(`${CONTENT}/site.yml`, 'utf8'))
-
-const articles = listDir(`${CONTENT}/insights/articles`).map(({ slug, doc }) => ({
-  ...doc,
-  slug,
-  kind: 'Articles',
-  kindLabel: 'Articles',
-  href: `/insights/${slug}`,
-  dateLabel: dateLabel(doc.date),
-}))
-
-const projects = listDir(`${CONTENT}/insights/projects`).map(({ slug, doc }) => ({
-  ...doc,
-  slug,
-  kind: 'Projects',
-  kindLabel: 'Projects',
-  href: `/insights/${slug}`,
-  dateLabel: dateLabel(doc.date),
-}))
-
-const insights = [...articles, ...projects].sort((a, b) => (a.date < b.date ? 1 : -1))
-
-const jobs = listDir(`${CONTENT}/jobs`).map(({ slug, doc }) => ({
-  ...doc,
-  slug,
-  href: `/careers/${slug}`,
-}))
-
-const bySlug = Object.fromEntries(insights.map((i) => [i.slug, i]))
-
-const ctx = { site, insights, articles, projects, jobs, bySlug }
-
 /**
- * A block of `{ type: include, name: x }` splices in content/partials/x.yml.
+ * A block of `{ type: include, name: x }` splices in <lang>/partials/x.yml.
  * Several pages share whole sections word for word, and duplicating them across
  * six content files would guarantee they drift apart.
  */
-function expand(blocks = []) {
+function expand(blocks = [], dir) {
   return blocks.flatMap((b) => {
     if (b.type !== 'include') return [b]
-    const partial = YAML.parse(readFileSync(`${CONTENT}/partials/${b.name}.yml`, 'utf8'))
-    return expand(partial.blocks ?? []).map((inner) => ({ ...inner, ...(b.overrides ?? {}) }))
+    const partial = YAML.parse(readFileSync(`${dir}/partials/${b.name}.yml`, 'utf8'))
+    return expand(partial.blocks ?? [], dir).map((inner) => ({ ...inner, ...(b.overrides ?? {}) }))
   })
 }
 
-/* ----------------------------------------------------------------- render --- */
-
-const written = []
-
-function emit(route, doc, content, headMode = 'paper') {
-  written.push(
-    write(
-      route,
-      layout({
-        title: doc.title ?? site.seo.titleSuffix,
-        description: doc.description,
-        path: route,
-        headMode,
-        content,
-        site,
-      })
-    )
-  )
-}
+/* ---------------------------------------------------------------- collect --- */
 
 /* Pages carrying `draft: true` stay in content/ but are not published: no HTML is
    written and they stay out of the sitemap. Removing the flag brings the page
@@ -122,40 +141,268 @@ function emit(route, doc, content, headMode = 'paper') {
    from `nav` in site.yml, or the header links into nothing. */
 const drafts = []
 
-// Composed pages: content/pages, content/solutions, content/services.
-for (const dir of ['pages', 'solutions', 'services']) {
-  for (const { slug, doc } of listDir(`${CONTENT}/${dir}`)) {
-    const route = doc.route ?? (dir === 'pages' ? (slug === 'home' ? '/' : `/${slug}`) : `/${dir}/${slug}`)
-    if (doc.draft) {
-      drafts.push(route)
-      /* An earlier build may have published it. Leaving that file behind would
-         keep the page reachable by URL while nothing links to it. */
-      rmSync(route.replace(/^\//, ''), { recursive: true, force: true })
-      continue
+/** Everything one language publishes, worked out before anything is rendered. */
+function collect(locale) {
+  const { dir, prefix, dateLocale } = locale
+
+  const kindOf = (folder) => (folder === 'articles' ? 'Articles' : 'Projects')
+
+  const insightsIn = (folder) =>
+    listDir(`${dir}/insights/${folder}`).map(({ slug, doc }) => ({
+      ...doc,
+      slug,
+      kind: kindOf(folder),
+      kindLabel: locale.site.ui[folder === 'articles' ? 'articles' : 'projects'],
+      href: `/insights/${slug}`,
+      dateLabel: dateLabel(doc.date, dateLocale),
+    }))
+
+  const articles = insightsIn('articles')
+  const projects = insightsIn('projects')
+  const insights = [...articles, ...projects].sort((a, b) => (a.date < b.date ? 1 : -1))
+
+  const jobs = listDir(`${dir}/jobs`).map(({ slug, doc }) => ({
+    ...doc,
+    slug,
+    href: `/careers/${slug}`,
+  }))
+
+  const ctx = {
+    site: locale.site,
+    lang: locale.code,
+    insights,
+    articles,
+    projects,
+    jobs,
+    bySlug: Object.fromEntries(insights.map((i) => [i.slug, i])),
+  }
+
+  const pages = []
+
+  for (const folder of ['pages', 'solutions', 'services']) {
+    for (const { slug, doc } of listDir(`${dir}/${folder}`)) {
+      const logical =
+        doc.route ?? (folder === 'pages' ? (slug === 'home' ? '/' : `/${slug}`) : `/${folder}/${slug}`)
+      const route = withPrefix(logical, prefix)
+      if (doc.draft) {
+        drafts.push(route)
+        /* An earlier build may have published it. Leaving that file behind would
+           keep the page reachable by URL while nothing links to it. */
+        rmSync(route.replace(/^\//, ''), { recursive: true, force: true })
+        continue
+      }
+      pages.push({ route, logical, doc, kind: folder === 'pages' ? 'page' : folder.slice(0, -1) })
     }
-    const blocks = expand(doc.blocks)
-    const first = blocks[0]
-    const headMode =
-      doc.headMode ?? (first?.type === 'heroVideo' || first?.tone === 'void' ? 'over' : 'paper')
-    emit(route, doc, renderBlocks(blocks, ctx), headMode)
+  }
+
+  for (const item of insights)
+    pages.push({ route: withPrefix(item.href, prefix), logical: item.href, doc: item, kind: 'insight' })
+  for (const item of jobs)
+    pages.push({ route: withPrefix(item.href, prefix), logical: item.href, doc: item, kind: 'job' })
+
+  return { ...locale, ctx, pages }
+}
+
+const built = locales.map(collect)
+
+/* Which languages each page exists in, keyed by the route with the language
+   prefix taken off. hreflang has to be reciprocal and complete or search engines
+   ignore it, so it is worked out once here from the files that are actually
+   there rather than assumed page by page. */
+const alternates = new Map()
+for (const locale of built)
+  for (const page of locale.pages) {
+    if (!alternates.has(page.logical)) alternates.set(page.logical, {})
+    alternates.get(page.logical)[locale.code] = page.route
+  }
+
+/* ------------------------------------------------------------- structured --- */
+
+/* schema.org records, embedded as JSON-LD. Only the ones that earn their place:
+   who the company is, where a page sits in the site, and the two content types
+   search engines display differently when they can read them, articles and job
+   openings. */
+
+const organization = (site) => ({
+  '@type': 'Organization',
+  '@id': site.seo.origin + '/#organization',
+  name: site.company.name,
+  legalName: site.company.legalName,
+  url: site.seo.origin + '/',
+  logo: site.seo.origin + '/assets/logo/logo-day.svg',
+  image: site.seo.origin + site.seo.socialImage,
+  description: site.seo.description,
+  email: site.company.email,
+  telephone: site.company.phone,
+  address: {
+    '@type': 'PostalAddress',
+    streetAddress: site.company.street,
+    postalCode: site.company.postcode,
+    addressLocality: site.company.city,
+    addressCountry: 'DE',
+  },
+  sameAs: site.social.map((s) => s.href),
+})
+
+function breadcrumbs(page, locale) {
+  const parts = page.logical.split('/').filter(Boolean)
+  if (!parts.length) return null
+
+  const site = locale.site
+  const items = [{ name: site.company.name, item: site.seo.origin + (locale.prefix || '/') }]
+
+  /* The section a page sits in is a real page only for /insights. /services and
+     /solutions have a menu but no overview page, so they are named as a step
+     without a URL rather than pointed at a 404. */
+  if (parts.length > 1) {
+    const section = parts[0]
+    const localized = withPrefix('/' + section, locale.prefix)
+    const group = site.nav.find((g) => g.items.some((i) => i.href.startsWith(localized + '/')))
+    items.push({
+      name: group?.label ?? section,
+      item: section === 'insights' ? site.seo.origin + localized : null,
+    })
+  }
+
+  items.push({ name: page.doc.title, item: site.seo.origin + page.route })
+
+  return {
+    '@type': 'BreadcrumbList',
+    itemListElement: items.map((entry, i) => ({
+      '@type': 'ListItem',
+      position: i + 1,
+      name: entry.name,
+      ...(entry.item ? { item: entry.item } : {}),
+    })),
   }
 }
 
-// Detail pages.
-for (const item of insights) emit(item.href, item, insightPage(item, ctx))
-for (const item of jobs) emit(item.href, item, jobPage(item, ctx))
+function structured(page, locale) {
+  const site = locale.site
+  const url = site.seo.origin + page.route
+  const records = []
+
+  if (page.logical === '/') {
+    records.push(organization(site))
+    records.push({
+      '@type': 'WebSite',
+      '@id': site.seo.origin + '/#website',
+      url: site.seo.origin + '/',
+      name: site.seo.siteName,
+      description: site.seo.defaultDescription,
+      publisher: { '@id': site.seo.origin + '/#organization' },
+      inLanguage: locale.code,
+    })
+  }
+
+  if (page.kind === 'insight')
+    records.push({
+      '@type': page.doc.kind === 'Projects' ? 'Article' : 'BlogPosting',
+      headline: page.doc.title,
+      description: page.doc.description,
+      image: site.seo.origin + page.doc.image.src,
+      datePublished: page.doc.date,
+      dateModified: page.doc.date,
+      author: { '@type': 'Person', name: page.doc.author },
+      publisher: { '@id': site.seo.origin + '/#organization' },
+      mainEntityOfPage: url,
+      inLanguage: locale.code,
+    })
+
+  /* A JobPosting without datePosted is not eligible for the job listing result,
+     so a job file that has not been given one is published as an ordinary page
+     rather than with a record search engines will reject. */
+  if (page.kind === 'job' && page.doc.posted)
+    records.push({
+      '@type': 'JobPosting',
+      title: page.doc.title,
+      description: page.doc.description,
+      datePosted: page.doc.posted,
+      employmentType: page.doc.employmentType ?? 'FULL_TIME',
+      hiringOrganization: { '@id': site.seo.origin + '/#organization' },
+      jobLocation: {
+        '@type': 'Place',
+        address: { '@type': 'PostalAddress', addressLocality: page.doc.location },
+      },
+      directApply: true,
+    })
+
+  if (page.kind === 'service')
+    records.push({
+      '@type': 'Service',
+      name: page.doc.title,
+      description: page.doc.description,
+      serviceType: page.doc.title,
+      provider: { '@id': site.seo.origin + '/#organization' },
+      areaServed: { '@type': 'Place', name: 'Europe' },
+      url,
+    })
+
+  const crumbs = breadcrumbs(page, locale)
+  if (crumbs) records.push(crumbs)
+
+  return records.map((r) => ({ '@context': 'https://schema.org', ...r }))
+}
+
+/* ----------------------------------------------------------------- render --- */
+
+const written = []
+
+for (const locale of built) {
+  const { ctx, prefix } = locale
+
+  for (const page of locale.pages) {
+    const { doc } = page
+    let content
+    let headMode = doc.headMode ?? 'paper'
+
+    if (page.kind === 'insight') content = insightPage(doc, ctx)
+    else if (page.kind === 'job') content = jobPage(doc, ctx)
+    else {
+      const blocks = expand(doc.blocks, locale.dir)
+      const first = blocks[0]
+      headMode =
+        doc.headMode ?? (first?.type === 'heroVideo' || first?.tone === 'void' ? 'over' : 'paper')
+      content = renderBlocks(blocks, ctx)
+    }
+
+    written.push(
+      write(
+        page.route,
+        layout({
+          title: doc.metaTitle ?? doc.title ?? ctx.site.seo.titleSuffix,
+          description: doc.description,
+          path: page.route,
+          headMode,
+          content: localizeHtml(content, prefix),
+          site: ctx.site,
+          lang: locale.code,
+          alternates: alternates.get(page.logical) ?? {},
+          jsonLd: structured(page, locale),
+        })
+      )
+    )
+  }
+}
 
 /* ----------------------------------------------------------------- prune --- */
 
 /* Renaming a page leaves the folder the old build wrote, and nothing links to it
-   any more, so it goes unnoticed while staying reachable by its URL. These four
+   any more, so it goes unnoticed while staying reachable by its URL. These
    directories hold nothing but generated pages, so anything with an index.html in
    them that this run did not write is left over and gets removed. Routes outside
    them are the one off pages at the project root, which are not swept: the root
    holds files that are not ours to delete. */
 const kept = new Set(written.map((f) => f.replace(/\\/g, '/')))
 
-for (const dir of ['services', 'solutions', 'insights', 'careers']) {
+const generated = ['services', 'solutions', 'insights', 'careers']
+const sweep = generated.concat(
+  locales
+    .filter((l) => l.prefix)
+    .flatMap((l) => generated.map((d) => `${l.prefix.replace(/^\//, '')}/${d}`))
+)
+
+for (const dir of sweep) {
   let entries = []
   try {
     entries = readdirSync(dir, { withFileTypes: true })
@@ -179,29 +426,58 @@ for (const dir of ['services', 'solutions', 'insights', 'careers']) {
 
 /* ---------------------------------------------------------------- sitemap --- */
 
-const routes = written.map((f) =>
-  f === 'index.html' ? '/' : '/' + f.replace(/\\/g, '/').replace(/\/index\.html$/, '')
-)
+/* Each URL carries the full set of language alternates, itself included. That is
+   what tells a search engine the German page is a translation of the English one
+   rather than a second, competing page about the same thing. */
+const origin = baseSite.seo.origin
 
-const urls = routes
-  .sort()
-  .map((r) => `  <url><loc>${site.seo.origin}${r}</loc></url>`)
+const entries = built
+  .flatMap((locale) => locale.pages)
+  .sort((a, b) => (a.route < b.route ? -1 : 1))
+
+const urls = entries
+  .map((page) => {
+    const alt = alternates.get(page.logical) ?? {}
+    const links = Object.entries(alt)
+      .map(([code, route]) => `    <xhtml:link rel="alternate" hreflang="${code}" href="${origin}${route}"/>`)
+      .concat(
+        alt.en ? [`    <xhtml:link rel="alternate" hreflang="x-default" href="${origin}${alt.en}"/>`] : []
+      )
+      .join('\n')
+    const lastmod = page.doc.date ? `\n    <lastmod>${page.doc.date}</lastmod>` : ''
+    return `  <url>\n    <loc>${origin}${page.route}</loc>${lastmod}\n${links}\n  </url>`
+  })
   .join('\n')
 
 writeFileSync(
   'sitemap.xml',
   `<?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">
 ${urls}
 </urlset>
 `
 )
 
-writeFileSync('robots.txt', `User-agent: *\nAllow: /\nSitemap: ${site.seo.origin}/sitemap.xml\n`)
+writeFileSync('robots.txt', `User-agent: *\nAllow: /\nSitemap: ${origin}/sitemap.xml\n`)
 
-console.log(`${written.length} pages written`)
-console.log(routes.sort().map((r) => '  ' + r).join('\n'))
+/* ------------------------------------------------------------------ log --- */
+
+for (const locale of built)
+  console.log(
+    `${locale.code}: ${locale.pages.length} pages${locale.prefix ? ` under ${locale.prefix}` : ' at the root'}`
+  )
+
+/* A page that exists in one language only is not an error, but it is the thing
+   most likely to have been forgotten, so it is named rather than buried. */
+const missing = [...alternates.entries()].filter(([, a]) => Object.keys(a).length < built.length)
+if (missing.length) {
+  console.log(`\n${missing.length} page(s) in one language only:`)
+  for (const [logical, a] of missing.sort()) console.log(`  ${logical.padEnd(46)} ${Object.keys(a).join(', ')}`)
+}
+
 if (drafts.length) {
   console.log(`\n${drafts.length} draft, not published:`)
   console.log(drafts.sort().map((r) => '  ' + r).join('\n'))
 }
+
+console.log(`\n${written.length} pages written`)

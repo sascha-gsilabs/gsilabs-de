@@ -1,6 +1,8 @@
 ---
 title: Imprint
-description: Legal notice and contact details for GSI Software GmbH.
+description: >-
+  Legal notice for GSI Software GmbH, trading as GSI Labs: registered office in Berlin,
+  commercial register entry, VAT number and how to reach us.
 blocks:
   - type: hero
     eyebrow: Legal

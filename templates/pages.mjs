@@ -1,9 +1,10 @@
 // Renderers for the two content types that are body text first: insight detail
 // pages (articles and projects) and job detail pages.
-import { ARROW, esc, join, md, mdInline, paras } from './layout.mjs'
+import { ARROW, esc, join, md, mdInline, paras, t } from './layout.mjs'
 import { formFrame, insightCard } from './blocks.mjs'
 
 export function insightPage(doc, ctx) {
+  const site = ctx.site
   const related = ctx.insights.filter((i) => i.slug !== doc.slug).slice(0, 2)
 
   return join([
@@ -48,9 +49,9 @@ ${md(doc.body)}
       ? `<section class="band" aria-labelledby="related-title">
   <div class="wrap grid">
     <div class="news__head">
-      <h2 class="display" id="related-title">Keep reading</h2>
+      <h2 class="display" id="related-title">${esc(t(site, 'keepReading'))}</h2>
     </div>
-    <a class="link news__all" href="/insights">All insights${ARROW}</a>
+    <a class="link news__all" href="/insights">${esc(t(site, 'allInsights'))}${ARROW}</a>
     <ul class="news__list news__list--pair">
 ${related.map((i) => insightCard(i)).join('\n')}
     </ul>
@@ -61,31 +62,32 @@ ${related.map((i) => insightCard(i)).join('\n')}
 }
 
 export function jobPage(doc, ctx) {
+  const site = ctx.site
   return join([
     `<article class="band band--flush job">
   <div class="wrap grid job__top">
     <div class="job__head">
       <p class="label article__kicker">
-        <a href="/careers">Careers</a>
+        <a href="/careers">${esc(t(site, 'careers'))}</a>
         <span class="label__sep">//</span>
         ${esc(doc.employment)}
       </p>
       <h1 class="article__title" id="page-title">${mdInline(doc.title)}</h1>
       ${doc.excerpt ? `<p class="lede article__lede">${mdInline(doc.excerpt)}</p>` : ''}
-      <a class="btn btn--solid" href="#apply">Apply now</a>
+      <a class="btn btn--solid" href="#apply">${esc(t(site, 'applyNow'))}</a>
     </div>
 
     <dl class="article__facts">
       <div class="article__fact">
-        <dt class="label">Role</dt>
+        <dt class="label">${esc(t(site, 'role'))}</dt>
         <dd>${esc(doc.title)}</dd>
       </div>
       <div class="article__fact">
-        <dt class="label">Employment</dt>
+        <dt class="label">${esc(t(site, 'employment'))}</dt>
         <dd>${esc(doc.employment)}</dd>
       </div>
       <div class="article__fact">
-        <dt class="label">Location</dt>
+        <dt class="label">${esc(t(site, 'location'))}</dt>
         <dd>${esc(doc.location)}</dd>
       </div>
 ${(doc.facts ?? [])
@@ -109,15 +111,17 @@ ${md(doc.body)}
     `<section class="band job-apply" id="apply" aria-labelledby="apply-title">
   <div class="wrap grid">
     <div class="job-apply__inner">
-      <h2 class="statement__title" id="apply-title">Apply now</h2>
+      <h2 class="statement__title" id="apply-title">${esc(t(site, 'applyNow'))}</h2>
       ${formFrame('application', ctx.site)}
       <noscript>
-        <p class="form-embed__note">The form needs JavaScript. Send your CV and a short note about
-          what you want to work on to <a href="mailto:${ctx.site.company.email}?subject=${encodeURIComponent(
-            'Application: ' + doc.title
-          )}">${esc(ctx.site.company.email)}</a> instead.</p>
+        <p class="form-embed__note">${esc(t(site, 'applyNoscript')).replace(
+          '{email}',
+          `<a href="mailto:${site.company.email}?subject=${encodeURIComponent(
+            t(site, 'applicationSubject') + ': ' + doc.title
+          )}">${esc(site.company.email)}</a>`
+        )}</p>
       </noscript>
-      <p class="form-embed__note job-apply__back"><a href="/careers">See all roles</a>${ARROW}</p>
+      <p class="form-embed__note job-apply__back"><a href="/careers">${esc(t(site, 'seeAllRoles'))}</a>${ARROW}</p>
     </div>
   </div>
 </section>`,

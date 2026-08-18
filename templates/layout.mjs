@@ -5,6 +5,25 @@ import { marked } from 'marked'
 export const esc = (s = '') =>
   String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;')
 
+/* Interface text the templates emit themselves, as opposed to text that comes
+   out of a content file. Keys live under `ui` in site.yml, so the German build
+   gets German buttons without a second code path. A missing key throws rather
+   than falling back to the key name: an English word left on a German page is
+   the exact failure this table exists to prevent. */
+export const t = (site, key) => {
+  const value = site.ui?.[key]
+  if (value == null) throw new Error(`unknown ui string: ${key}. Add it under \`ui\` in site.yml`)
+  return String(value).trim()
+}
+
+/* A sentence with a link inside it, written as one string with an {email} slot.
+   Cutting it into a head and a tail instead would work in English and break in
+   German, which puts the address elsewhere in the sentence. */
+export const withEmail = (site, key) => {
+  const address = site.company.email
+  return esc(t(site, key)).replace('{email}', `<a href="mailto:${address}">${esc(address)}</a>`)
+}
+
 // GSI Labs' own copy uses " // " as a delimiter. Content files write it plainly
 // and it is styled on the way out. Spaces are required on both sides so URLs are
 // left alone.
@@ -80,27 +99,31 @@ const isActive = (href, path) => href === path || (href !== '/' && path.startsWi
 
 /* The language switcher. Same open and close behaviour as the nav groups, since
    it is a .nav__item[data-menu] and the header script treats them all alike. The
-   active language is a plain span: it is the state, not somewhere to go. A
-   language with no href yet is rendered as a disabled button rather than a link,
-   so it reads as a choice that exists without leading anywhere. */
-function langSwitch(site) {
+   current language is a plain span: it is the state, not somewhere to go.
+
+   `alternates` is where this page exists in each language, worked out by the
+   build from the content files that are actually there. A language this page has
+   no counterpart in points at that language's homepage instead of disappearing:
+   someone who wants German should always be able to get to German, including
+   from a page nobody has translated yet. */
+function langSwitch(site, lang, alternates) {
   const languages = site.languages ?? []
   if (languages.length < 2) return ''
 
-  const active = languages.find((l) => l.active) ?? languages[0]
+  const active = languages.find((l) => l.code === lang) ?? languages[0]
   const options = languages
     .map((l) => {
-      if (l === active) return `<li><span class="nav__lang is-current" aria-current="true">${esc(l.label)}</span></li>`
-      return l.href
-        ? `<li><a href="${l.href}" lang="${l.code}">${esc(l.label)}</a></li>`
-        : `<li><button class="nav__lang" type="button" lang="${l.code}" disabled>${esc(l.label)}</button></li>`
+      if (l.code === active.code)
+        return `<li><span class="nav__lang is-current" aria-current="true">${esc(l.label)}</span></li>`
+      const href = alternates?.[l.code] ?? (l.prefix || '/')
+      return `<li><a href="${href}" lang="${l.code}" hreflang="${l.code}">${esc(l.label)}</a></li>`
     })
     .join('\n          ')
 
   return `    <div class="nav__item nav__item--lang" data-menu data-open="false">
       <button class="nav__trigger nav__trigger--lang" type="button"
               aria-expanded="false" aria-controls="menu-language"
-              aria-label="Language, ${esc(active.label)} selected">
+              aria-label="${esc(t(site, 'language'))}, ${esc(active.label)} ${esc(t(site, 'languageSelected'))}">
         <span aria-hidden="true">${esc(active.short)}</span>
         ${CHEVRON}
       </button>
@@ -113,10 +136,15 @@ function langSwitch(site) {
 `
 }
 
-function header(site, path, mode) {
+/* Where the brand mark leads. The root belongs to the first language, every
+   other one lives under its prefix, so this is the one link in the shell that
+   cannot simply be written as "/". */
+const homeHref = (site, lang) => (site.languages ?? []).find((l) => l.code === lang)?.prefix || '/'
+
+function header(site, path, mode, lang, alternates) {
   const menus = site.nav
     .map((group, i) => {
-      const id = `menu-${group.label.toLowerCase()}`
+      const id = `menu-${group.id}`
       const open = group.items.some((item) => isActive(item.href, path))
       const links = group.items
         .map(
@@ -140,12 +168,12 @@ function header(site, path, mode) {
 
   return `<header class="site-head" data-mode="${mode}">
   <div class="site-head__inner">
-    <a class="brand" href="/" aria-label="${esc(site.company.name)}, home">
+    <a class="brand" href="${homeHref(site, lang)}" aria-label="${esc(site.company.name)}, ${esc(t(site, 'home'))}">
       <img class="brand__night" src="/assets/logo/logo-night.svg" alt="${esc(site.company.name)}" width="92" height="42">
       <img class="brand__day" src="/assets/logo/logo-day.svg" alt="" width="92" height="42" aria-hidden="true">
     </a>
 
-    <nav class="nav" id="site-nav" aria-label="Main">
+    <nav class="nav" id="site-nav" aria-label="${esc(t(site, 'mainNav'))}">
       <ul class="nav__list">
 ${menus}
       </ul>
@@ -154,19 +182,19 @@ ${menus}
       <div class="nav__foot">
         <a class="btn btn--solid" href="${site.cta.href}">${esc(site.cta.label)}</a>
         <dl class="nav__contact">
-          <dt class="label">Email</dt>
+          <dt class="label">${esc(t(site, 'email'))}</dt>
           <dd><a href="mailto:${site.company.email}">${esc(site.company.email)}</a></dd>
-          <dt class="label">Phone</dt>
+          <dt class="label">${esc(t(site, 'phone'))}</dt>
           <dd><a href="tel:${site.company.phoneHref}">${esc(site.company.phone)}</a></dd>
         </dl>
       </div>
     </nav>
 
-${langSwitch(site)}
+${langSwitch(site, lang, alternates)}
     <a class="btn btn--solid head__cta" href="${site.cta.href}">${esc(site.cta.label)}</a>
 
     <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav">
-      <span data-toggle-label>Menu</span>
+      <span data-toggle-label>${esc(t(site, 'menu'))}</span>
     </button>
   </div>
 </header>`
@@ -175,7 +203,7 @@ ${langSwitch(site)}
 function footer(site) {
   const columns = site.nav
     .map((group) => {
-      const id = `foot-${group.label.toLowerCase()}`
+      const id = `foot-${group.id}`
       const links = group.items
         .map((item) => `          <li><a href="${item.href}">${esc(item.label)}</a></li>`)
         .join('\n')
@@ -191,7 +219,7 @@ ${links}
   const social = site.social
     .map(
       (s) => `        <li>
-          <a href="${s.href}" rel="noopener" aria-label="${esc(site.company.name)} on ${esc(s.label)}">
+          <a href="${s.href}" rel="noopener" aria-label="${esc(site.company.name)} ${esc(t(site, 'socialOn'))} ${esc(s.label)}">
             <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">${ICONS[s.icon]}</svg>
           </a>
         </li>`
@@ -211,9 +239,9 @@ ${links}
         </address>
 
         <dl>
-          <dt class="label">Email</dt>
+          <dt class="label">${esc(t(site, 'email'))}</dt>
           <dd><a href="mailto:${site.company.email}">${esc(site.company.email)}</a></dd>
-          <dt class="label">Phone</dt>
+          <dt class="label">${esc(t(site, 'phone'))}</dt>
           <dd><a href="tel:${site.company.phoneHref}">${esc(site.company.phone)}</a></dd>
         </dl>
       </div>
@@ -245,15 +273,42 @@ ${social}
  * @param {string} o.path        canonical path, used for nav highlighting
  * @param {string} o.content     page body
  * @param {'over'|'paper'} o.headMode  header starts transparent over a dark hero
- * @param {object} o.site        parsed site.yml
+ * @param {object} o.site        parsed site.yml for this language
+ * @param {string} o.lang        language code of this page
+ * @param {Record<string,string>} o.alternates  this page's path in each language
+ * @param {object[]} o.jsonLd    schema.org records to embed
  */
-export function layout({ title, description, path, content, headMode = 'paper', site }) {
+export function layout({
+  title,
+  description,
+  path,
+  content,
+  headMode = 'paper',
+  site,
+  lang = 'en',
+  alternates = {},
+  jsonLd = [],
+}) {
   const fullTitle = title === site.seo.titleSuffix ? title : `${title} | ${site.seo.titleSuffix}`
   const desc = description || site.seo.defaultDescription
-  const canonical = site.seo.origin + (path === '/' ? '/' : path)
-  // Follows the switcher, so the document language moves with it rather than
-  // being a second place to remember.
-  const lang = (site.languages ?? []).find((l) => l.active)?.code ?? 'en'
+  const url = (p) => site.seo.origin + (p === '/' ? '/' : p)
+  const canonical = url(path)
+
+  /* One <link rel="alternate"> per language this page exists in, plus x-default.
+     Search engines need the set to agree with itself: every alternate has to list
+     every other one, including itself, which is why this is built from the same
+     map the switcher uses rather than assembled per page. x-default points at the
+     English page, which is what someone with no matching language setting gets. */
+  const hreflang = Object.entries(alternates)
+    .map(([code, p]) => `<link rel="alternate" hreflang="${code}" href="${url(p)}">`)
+    .concat(alternates.en ? [`<link rel="alternate" hreflang="x-default" href="${url(alternates.en)}">`] : [])
+    .join('\n')
+
+  const structured = jsonLd.length
+    ? `\n<script type="application/ld+json">${JSON.stringify(
+        jsonLd.length === 1 ? jsonLd[0] : jsonLd
+      ).replace(/</g, '\u003c')}</script>`
+    : ''
 
   return `<!doctype html>
 <html lang="${lang}">
@@ -263,13 +318,19 @@ export function layout({ title, description, path, content, headMode = 'paper', 
 <title>${esc(fullTitle)}</title>
 <meta name="description" content="${esc(desc)}">
 <link rel="canonical" href="${canonical}">
+${hreflang}
 
 <meta property="og:type" content="website">
+<meta property="og:site_name" content="${esc(site.seo.siteName)}">
+<meta property="og:locale" content="${esc(site.seo.ogLocale)}">
 <meta property="og:title" content="${esc(fullTitle)}">
 <meta property="og:url" content="${canonical}">
 <meta property="og:description" content="${esc(desc)}">
 <meta property="og:image" content="${site.seo.origin}${site.seo.socialImage}">
 <meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="${esc(fullTitle)}">
+<meta name="twitter:description" content="${esc(desc)}">
+<meta name="twitter:image" content="${site.seo.origin}${site.seo.socialImage}">${structured}
 
 <link rel="icon" href="/assets/logo/icon-day.svg" type="image/svg+xml">
 <link rel="apple-touch-icon" href="/assets/img/apple-touch-icon.png">
@@ -281,9 +342,9 @@ export function layout({ title, description, path, content, headMode = 'paper', 
 </head>
 
 <body>
-<a class="skip" href="#main">Skip to content</a>
+<a class="skip" href="#main">${esc(t(site, 'skipToContent'))}</a>
 
-${header(site, path, headMode)}
+${header(site, path, headMode, lang, alternates)}
 
 <main id="main">
 ${content}

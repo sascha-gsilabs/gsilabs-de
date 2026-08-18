@@ -2,6 +2,10 @@
 title: General Manager
 employment: Full Time
 location: Ho Chi Minh City
+employmentType: FULL_TIME
+# The date this role was published. Google shows jobs by how recent they are, so
+# this has to be the real posting date, not the date the file was written.
+posted: 2026-08-18
 description: >-
   Lead the GSI Labs Vietnam entity end to end: strategy, team, go to market, and P&L,
   reporting directly to the founders.

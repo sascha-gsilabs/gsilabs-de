@@ -1,0 +1,97 @@
+# Die deutsche Seite. Diese Datei ist ein Overlay über content/site.yml: sie
+# nennt nur, was sich unterscheidet, alles andere wird geerbt. Telefonnummer,
+# HubSpot-Formulare, Social-Links und Bildpfade stehen deshalb bewusst nicht
+# hier, damit sie zwischen den Sprachen nicht auseinanderlaufen können.
+#
+# Listen werden ersetzt, nicht zusammengeführt. `nav` und `social` müssen also
+# vollständig dastehen, wenn sie überhaupt dastehen.
+
+company:
+  country: Deutschland
+  legalLine: >-
+    GSI Software GmbH. Eingetragen in Berlin, Deutschland (HRB 193812 B).
+    Geschäftsführer: Sascha Avermiddig. USt-IdNr.: DE316566578.
+    Kontakt: info@gsilabs.de
+
+seo:
+  defaultDescription: >-
+    GSI Labs entwickelt KI-Lösungen für die Bauwirtschaft. Wir automatisieren
+    Arbeitsabläufe für Bauunternehmen, Ingenieurbüros, Hersteller und
+    Projektentwickler in ganz Europa.
+  ogLocale: de_DE
+  description: >-
+    GSI Labs ist der KI- und Softwarepartner für die gebaute Umwelt. Wir
+    entwickeln Automatisierung, Ingenieursoftware und KI-Systeme für
+    Bauunternehmen, Planungsbüros, Hersteller und Projektentwickler in Europa.
+
+ui:
+  skipToContent: Zum Inhalt springen
+  mainNav: Hauptnavigation
+  menu: Menü
+  close: Schließen
+  home: Startseite
+  email: E-Mail
+  phone: Telefon
+  language: Sprache
+  languageSelected: ausgewählt
+  socialOn: bei
+  articles: Artikel
+  projects: Projekte
+  latestNews: Aktuelles
+  allInsights: Alle Insights
+  keepReading: Weiterlesen
+  readMore: Mehr erfahren
+  careers: Karriere
+  role: Position
+  employment: Anstellung
+  location: Standort
+  applyNow: Jetzt bewerben
+  seeAllRoles: Alle Stellen ansehen
+  applicationSubject: "Bewerbung"
+  applyNoscript: >-
+    Das Formular benötigt JavaScript. Senden Sie uns stattdessen Ihren Lebenslauf
+    und ein paar Zeilen dazu, woran Sie arbeiten möchten, an {email}.
+  formNoscript: >-
+    Das Formular benötigt JavaScript. Schreiben Sie uns stattdessen an {email},
+    Sie erreichen dieselben Leute.
+
+cta:
+  label: Kontakt aufnehmen
+  href: /get-started
+
+nav:
+  - id: solutions
+    label: Lösungen
+    items:
+      - { label: Für Planungsbüros, href: /solutions/planning-design-offices }
+      - { label: Für Geotechnik, href: /solutions/geotechnical-engineers }
+      - { label: Für Fertigteilwerke, href: /solutions/precast-manufacturers }
+      - { label: Für Produkthersteller, href: /solutions/product-manufacturers }
+      - { label: Für Projektentwickler, href: /solutions/real-estate-developers }
+  - id: company
+    label: Unternehmen
+    items:
+      - { label: Über uns, href: /about }
+      - { label: Unser Vorgehen, href: /our-process }
+      - { label: Karriere, href: /careers }
+      - { label: Impressum, href: /imprint }
+      - { label: Datenschutz, href: /privacy }
+  - id: services
+    label: Leistungen
+    items:
+      - { label: KI-Beratung, href: /services/ai-advisory }
+      - { label: Souveräne KI-Infrastruktur, href: /services/ai-sovereign-infrastructure }
+      - { label: Software für Geotechnik, href: /services/geotechnical-engineering-software }
+      - { label: Planungsautomatisierung, href: /services/design-automation }
+      - { label: BIM-Softwareentwicklung, href: /services/bim-software-development }
+      - { label: BIM-Content-Entwicklung, href: /services/bim-content-development }
+  - id: insights
+    label: Insights
+    items:
+      - { label: Projekte, href: /insights/projects }
+      - { label: Artikel, href: /insights/articles }
+      - { label: Alle Insights, href: /insights }
+
+outboundNote:
+  label: Weitere Lösungen für die Geotechnik auf piledesigner.io
+  href: "https://piledesigner.io/"

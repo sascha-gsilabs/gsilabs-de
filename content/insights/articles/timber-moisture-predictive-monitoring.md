@@ -1,5 +1,7 @@
 ---
 title: What Timber Moisture Data Can Tell Us About Building Health
+# The heading above is the article. This is what a search result shows.
+metaTitle: What Timber Moisture Data Says About a Building
 date: 2026-05-22
 author: Yuyang Peng
 readTime: 4 min read

@@ -28,13 +28,20 @@ content/
   partials/
     why-partner.yml            a section reused verbatim by more than one page
   pages/                       one file per one off page, home.md included
-  solutions/                   the six audience pages
+  solutions/                   the audience pages
   services/                    the service pages
   insights/
     articles/                  one file per article
     projects/                  one file per reference project
   jobs/                        one file per open role
+  de/                          the same tree again, in German
+    site.yml                   an overlay, only what differs from the English one
+    pages/ solutions/ services/ insights/ jobs/ partials/
 ```
+
+`content/` is the English site and the canonical one. `content/de/` mirrors it file for
+file, using the same filenames, which is what makes a page and its translation two
+copies of one thing rather than two separate pages.
 
 ### Routes
 
@@ -50,6 +57,10 @@ content/
 
 A `route:` key in the frontmatter overrides the default, which is how
 `pages/insights-articles.md` ends up at `/insights/articles`.
+
+German pages take the same routes with `/de` in front: `content/de/pages/about.md`
+becomes `/de/about`. Slugs are deliberately not translated, so the switcher is a prefix
+and nothing more, and a link only ever has to be written once.
 
 Every page is written to `<route>/index.html` so clean URLs work on any host without
 rewrite rules. `sitemap.xml` and `robots.txt` are regenerated on every build.
@@ -193,13 +204,80 @@ brand delimiter, and a Markdown image with a title becomes a captioned figure.
 
 ### Languages
 
-The site is English only. `languages:` in `site.yml` drives the header switcher and the
-document's `lang` attribute, and nothing else: no page is translated. The entry carrying
-`active: true` sets both, so its `short` is what the trigger shows. German is listed
-without an `href`, which renders it as an option that is visibly not reachable yet.
+The site is published in English at the root and in German under `/de`. Both come from
+the same templates and the same block types: a German page is a translation, not a
+second design.
 
-Turning German on later means: build the German pages, give that entry its `href`, and
-move `active: true` to it. The header then reads DE with no template change.
+`languages:` in `content/site.yml` is the whole configuration.
+
+```yaml
+languages:
+  - { code: en, label: English,  short: EN, prefix: "",    dateLocale: en-US, dir: content }
+  - { code: de, label: Deutsch,  short: DE, prefix: /de,   dateLocale: de-DE, dir: content/de }
+```
+
+The first entry is served from the root, every later one from its `prefix`. Which entry
+is current, where the switcher points, and which pages exist in which language are all
+worked out per page by the build from the files that are actually there, so adding a
+page never means editing this list.
+
+Three things follow from that, and they are the reason there is no second code path:
+
+- **Links are written once.** Content files and templates write `/about`. On a German
+  page the build puts `/de` in front of every internal `href`, on the way out. Nothing
+  under `/assets` is touched, since there is one copy of those.
+- **`content/de/site.yml` is an overlay.** It lists only the keys whose value differs and
+  inherits the rest, so the phone number, the HubSpot form ids and the social links
+  cannot drift between the two sites. Lists replace rather than merge: `nav:` has to be
+  given in full or not at all.
+- **Interface text lives under `ui:`.** Every word the templates emit themselves, from
+  "Skip to content" to "Apply now", is a key there. A missing key fails the build rather
+  than falling back to English, which is the failure this table exists to prevent.
+
+Nav groups carry an `id:` (`solutions`, `company`, …) that is the same in both files.
+The menu ids in the markup come from it rather than from the label, so CSS, the header
+script and `tools/test-nav.mjs` keep working when the labels are German words.
+
+#### Adding a language
+
+1. Add an entry to `languages:` with its `prefix`, `dateLocale` and `dir`.
+2. Create that directory with a `site.yml`, even an empty one, and translate the content
+   files you want published.
+3. Build. Pages you have not translated simply do not exist in that language: the build
+   lists them at the end, and the switcher sends a visitor to that language's homepage
+   rather than to a 404.
+
+## Search engines
+
+Everything below is generated, so it stays right when pages are added or renamed.
+
+- **Titles and descriptions** come from each content file. A page whose heading is longer
+  than a search result can show sets `metaTitle:` as well, which is used in `<title>` and
+  the social tags while `title:` stays the heading on the page. Both long articles do this.
+- **hreflang.** Every page carries one `<link rel="alternate">` per language it exists in,
+  itself included, plus `x-default` pointing at the English page. The same set goes into
+  `sitemap.xml` as `xhtml:link` entries. The set is built from one map, so it is always
+  reciprocal, which is the condition for search engines to use it at all.
+- **JSON-LD.** The homepage carries `Organization` and `WebSite`, service pages carry
+  `Service`, articles carry `BlogPosting` or `Article`, job pages carry `JobPosting`, and
+  every page below the top level carries a `BreadcrumbList`. All of them reference one
+  `Organization` node by `@id`, so the two language sites describe one company.
+- **JobPosting needs a date.** A job file without `posted:` is published as an ordinary
+  page rather than with a record Google would reject. `employmentType:` is the schema.org
+  value (`FULL_TIME`), separate from `employment:`, which is the label shown on the page
+  and differs per language.
+- **Redirects** live in `vercel.json`. Four URLs from the Framer site have moved and are
+  answered with a 301 rather than a 404:
+
+  | Old URL | Now |
+  | --- | --- |
+  | `/services/ai-workshop` | `/services/ai-advisory` |
+  | `/services/dedicated-dev-team` | `/services/bim-software-development` |
+  | `/solutions/general-contractors` | `/services/ai-sovereign-infrastructure` |
+  | `/services/robotics-feasibility-study` | `/services/ai-advisory` |
+
+  Renaming or unpublishing a page means adding a line here. `npm run build` will remove
+  the old folder, so without a redirect the URL starts answering 404.
 
 ## Asset pipeline
 
@@ -266,9 +344,16 @@ Captures emulate `prefers-reduced-motion: reduce` by default, which makes them
 deterministic rather than caught mid transition.
 
 `tools/inspect.mjs` prints computed boxes, overflow offenders and failed requests for
-one page. `tools/audit.mjs` crawls every page in the sitemap and reports broken
-requests, console errors, dead internal links, missing or duplicated `h1`, and
-horizontal overflow.
+one page. `tools/audit.mjs` crawls every page in the sitemap, in both languages, and
+reports broken requests, console errors, dead internal links, missing or duplicated
+`h1`, horizontal overflow, and the metadata a search engine reads: title and description
+length, a canonical that does not match the page it is on, JSON-LD that does not parse,
+an incomplete hreflang set, and any title or description used by two pages in the same
+language. It is the check that catches a `/de/de/` link or a translation that quietly
+went missing.
+
+`tools/test-nav.mjs` walks the header menus with the mouse on both homepages, since the
+German labels are longer words in the same layout.
 
 The `tools/scrape-live.mjs`, `tools/extract-live.mjs`, `tools/trim-live.mjs` and
 `tools/compact-extract.mjs` scripts were used once to recover copy and structure from
@@ -300,13 +385,29 @@ darkens without being pulled toward olive.
 - **Privacy policy.** The text is reproduced from the Framer site and two of its
   statements stop being true at launch: hosting is no longer Framer, and Google Fonts are
   no longer loaded because both typefaces are self hosted. Both are flagged in a comment
-  at the top of `content/pages/privacy.md` and need legal sign off.
+  at the top of `content/pages/privacy.md` and in `content/de/pages/privacy.md`, and need
+  legal sign off in both languages. The German version is the one a German visitor will
+  be judged against, so it is the one to have checked first.
 - **Imprint.** The old page was a contact form, not a legal notice. The rebuild has a
-  proper Impressum assembled from the company data in the footer. Please check the
-  wording of the liability and copyright paragraphs.
-- **Contact forms.** A static site cannot process a form without a backend. The
-  Get Started and Imprint pages currently use direct email and phone links. Say the word
-  and we wire up a form service.
+  proper Impressum assembled from the company data in the footer, in German under
+  `/de/imprint` with the usual `§ 5 DDG` headings. Please check the wording of the
+  liability and copyright paragraphs.
+- **HubSpot form styling.** The forms are HubSpot's new embed, which renders inside a
+  cross origin iframe. The frame is ours to style, the fields inside it are not: their
+  3px corner radii and pale blue fills come from the form's own style settings in
+  HubSpot and have to be changed there. The live site has the same mismatch.
+- **The AI Advisory hero is the wrong photograph.** The page is now about advisory work
+  rather than a two day workshop, but the photo is still a speaker addressing a seated
+  room, and the source file is only 512px wide, which is soft on a modern screen. It
+  wants a working session photo at a usable size. Flagged in a comment in
+  `content/services/ai-advisory.md`.
+- **Job posting dates.** `posted:` in both job files is set to the day the German site was
+  built. Set it to the real date each role was published: Google ranks job results by how
+  recent they are.
+- **Client quotes are translated.** The testimonials on the homepage and on AI Advisory
+  appear in German on the German site. They are translations of the English wording, not
+  something the named people said in German. Worth a sign off from them, or swap in their
+  own words if they gave them.
 - **Some imagery is a semantic match, not a confirmed one.** The solution and service
   page photography was picked from the brand library by subject. Where you have the
   intended image, send it and it is a one line change in `tools/assets.config.mjs`.

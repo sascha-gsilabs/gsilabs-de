@@ -1,0 +1,41 @@
+# Wortgleich von allen sechs Lösungsseiten der Live-Seite übernommen. Steht hier,
+# damit eine Textänderung auf allen gleichzeitig ankommt.
+blocks:
+  - type: pillars
+    tone: void
+    title: Warum GSI Labs?
+    items:
+      - title: Praktische Innovation
+        body:
+          - >-
+            Bei GSI Labs ist KI keine Präsentation. Sie läuft im Produktivbetrieb.
+            Wir bauen Systeme, die echte Probleme auf echten Bauprojekten lösen, und
+            bringen sie in den Einsatz.
+          - >-
+            Unser Team arbeitet iterativ und nah an Ihrem Betrieb, testet und
+            verfeinert, bis der Ablauf messbare Ergebnisse liefert. Keine
+            Machbarkeitsstudien, die im Regal verstauben. Jede Lösung, die wir bauen,
+            ist darauf ausgelegt, vom ersten Tag an zu funktionieren und von dort zu
+            wachsen.
+      - title: Strategischer Vorsprung
+        body:
+          - >-
+            Eine Partnerschaft mit GSI Labs ist mehr als ein einzelnes Projekt. Sie
+            ist ein Vorsprung, der sich über die Zeit verstärkt.
+          - >-
+            Während Ihre Wettbewerber Risiken noch von Hand verwalten, handelt Ihr
+            Team Wochen früher auf Basis von KI-Auswertungen. Wir liefern nicht nur
+            Werkzeuge. Wir verankern Intelligenz in Ihren Abläufen und machen Ihren
+            gesamten Betrieb schneller, schlanker und schwerer angreifbar.
+      - title: Branchen-DNA
+        body:
+          - >-
+            In unserem Team arbeiten Fachleute aus der Bauwirtschaft und
+            KI-Ingenieure zusammen, die beide Sprachen sprechen. Wir verstehen
+            Lastberechnungen, Bauzeitenpläne und Nachtragsmanagement genauso gut wie
+            neuronale Netze und Prozessautomatisierung.
+          - >-
+            Das heißt: kein langes Onboarding, keine Erklärung Ihrer Branche von
+            Grund auf. Wir sind vom ersten Tag an im Thema, weil wir bereits
+            verstehen, wie Ihre Projekte laufen, wo es hakt und was wirklich etwas
+            bewegt.

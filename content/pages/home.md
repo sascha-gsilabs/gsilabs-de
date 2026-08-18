@@ -1,6 +1,9 @@
 ---
 route: /
-title: GSI Labs
+title: AI Engineering for Construction
+description: >-
+  GSI Labs builds AI and software for the built environment: automation, engineering
+  tools and AI systems for contractors, design offices and manufacturers.
 blocks:
   - type: heroVideo
     poster: /assets/img/hero-poster.webp
