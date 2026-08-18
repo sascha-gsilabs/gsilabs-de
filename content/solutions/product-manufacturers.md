@@ -12,6 +12,7 @@ blocks:
       that help your customers find, specify, and order the right product in seconds.
     cta: { label: Get Started, href: /get-started }
     image:
+      ratio: 1 / 1
       src: /assets/img/sol-product-hero.webp
       alt: A 3D product configurator showing perforated metal panels
       width: 1400
@@ -83,26 +84,9 @@ blocks:
           height: 630
           focus: top
 
-  - type: showcase
+  - type: faq
     tone: void
     title: Built for manufacturers who sell through specifications, not just catalogs.
-
-  - type: metricTiles
-    title: Put your products at the point of decision.
-    body: >-
-      Construction product manufacturers compete on more than just quality. The firms
-      that win specifications are the ones whose products are easiest to find, configure,
-      and integrate into a project. We build the digital tools that put your products at
-      the point of decision.
-    items:
-      - { value: 5x, label: More product specifications through digital channels }
-      - { value: 80%, label: Reduction in repetitive technical inquiries }
-    note: >-
-      * Figures based on client implementation data. Actual results may vary depending on
-      product range, market, and integration complexity.
-
-  - type: faq
-    title: Questions manufacturers ask us
     note: If you have further questions, please reach out via our Contact page.
     cta: { label: Contact us, href: /get-started }
     items:
@@ -139,6 +123,25 @@ blocks:
           assistant interactions, and specification document generation. You can see
           exactly how many specifications your digital tools generate compared to
           traditional channels.
+
+  - type: metricTiles
+    title: Put your products at the point of decision.
+    body: >-
+      Construction product manufacturers compete on more than just quality. The firms
+      that win specifications are the ones whose products are easiest to find, configure,
+      and integrate into a project. We build the digital tools that put your products at
+      the point of decision.
+    image:
+      src: /assets/img/product-manufacturers-bottom.webp
+      alt: Rendered column base plate being lowered onto its anchor bolts
+      width: 1280
+      height: 720
+    items:
+      - { value: 5x, label: More product specifications through digital channels }
+      - { value: 80%, label: Reduction in repetitive technical inquiries }
+    note: >-
+      * Figures based on client implementation data. Actual results may vary depending on
+      product range, market, and integration complexity.
 
   - type: pillars
     tone: void

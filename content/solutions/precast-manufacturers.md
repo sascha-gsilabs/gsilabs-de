@@ -12,6 +12,7 @@ blocks:
       architectural model to machine readable production files.
     cta: { label: Get Started, href: /get-started }
     image:
+      ratio: 1 / 1
       src: /assets/img/precast-manufacturers-top.webp
       alt: A precast wall panel on the crane hook against a clear sky
       width: 1365
@@ -81,28 +82,11 @@ blocks:
           width: 1200
           height: 800
 
-  - type: showcase
+  - type: faq
     tone: void
     title: >-
       Built for how precast plants actually work, not how software companies imagine
       they work.
-
-  - type: metricTiles
-    title: Concrete recommendations to accelerate your project throughput.
-    body: >-
-      Every precast project starts the same way. Engineers receive architectural plans
-      and manually break them into producible elements, then create individual drawings
-      for each piece. This process takes weeks and is repeated for every new project. Our
-      system does it in a fraction of the time.
-    items:
-      - { value: 80%, label: Reduction in drawing production time }
-      - { value: 3x, label: More projects per engineering team per year }
-    note: >-
-      * Figures based on client implementation data. Actual results may vary depending on
-      project complexity, element types, and production setup.
-
-  - type: faq
-    title: Questions precast plants ask us
     note: If you have further questions, please reach out via our Contact page.
     cta: { label: Contact us, href: /get-started }
     items:
@@ -141,6 +125,25 @@ blocks:
           production. The system also runs automated checks for clashes, reinforcement
           coverage, and producibility violations. Engineers approve the final output, not
           the machine.
+
+  - type: metricTiles
+    title: Concrete recommendations to accelerate your project throughput.
+    body: >-
+      Every precast project starts the same way. Engineers receive architectural plans
+      and manually break them into producible elements, then create individual drawings
+      for each piece. This process takes weeks and is repeated for every new project. Our
+      system does it in a fraction of the time.
+    image:
+      src: /assets/img/precast-manufacturers-bottom.webp
+      alt: Stacks of hollow core slabs in a precast plant, ready for despatch
+      width: 1300
+      height: 866
+    items:
+      - { value: 80%, label: Reduction in drawing production time }
+      - { value: 3x, label: More projects per engineering team per year }
+    note: >-
+      * Figures based on client implementation data. Actual results may vary depending on
+      project complexity, element types, and production setup.
 
   - type: pillars
     tone: void

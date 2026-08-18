@@ -12,6 +12,7 @@ blocks:
       performance, not spreadsheets and gut feeling.
     cta: { label: Get Started, href: /get-started }
     image:
+      ratio: 1 / 1
       src: /assets/img/sol-realestate-hero.webp
       alt: A cost prediction dashboard for a residential development
       width: 1400
@@ -83,27 +84,9 @@ blocks:
           height: 776
           focus: top
 
-  - type: showcase
+  - type: faq
     tone: void
     title: Cost prediction that gets smarter with every project you complete.
-
-  - type: metricTiles
-    title: Make investment decisions based on data, not assumptions.
-    body: >-
-      Most cost overruns in real estate development start with inaccurate feasibility
-      estimates. By the time the numbers are wrong, capital is already committed. Our
-      system gives you reliable cost intelligence at the point where it matters most:
-      before you decide to build.
-    items:
-      - { value: 90%, label: Estimate accuracy at feasibility stage }
-      - { value: 15 min, label: From project parameters to detailed cost breakdown }
-    note: >-
-      * Figures based on pilot implementations with German residential and commercial
-      developers. Actual results depend on data quality, project type, and market
-      conditions.
-
-  - type: faq
-    title: Questions developers ask us
     note: If you have further questions, please reach out via our Contact page.
     cta: { label: Contact us, href: /get-started }
     items:
@@ -145,6 +128,26 @@ blocks:
           material availability, regulatory costs, and market conditions. We currently
           cover the German market in detail, with other European markets being added. Each
           region uses its own set of benchmarks and cost drivers.
+
+  - type: metricTiles
+    title: Make investment decisions based on data, not assumptions.
+    body: >-
+      Most cost overruns in real estate development start with inaccurate feasibility
+      estimates. By the time the numbers are wrong, capital is already committed. Our
+      system gives you reliable cost intelligence at the point where it matters most:
+      before you decide to build.
+    image:
+      src: /assets/img/real-estate-developers-bottom.webp
+      alt: Aerial view of a residential development laid out around a junction
+      width: 1300
+      height: 924
+    items:
+      - { value: 90%, label: Estimate accuracy at feasibility stage }
+      - { value: 15 min, label: From project parameters to detailed cost breakdown }
+    note: >-
+      * Figures based on pilot implementations with German residential and commercial
+      developers. Actual results depend on data quality, project type, and market
+      conditions.
 
   - type: pillars
     tone: void

@@ -94,6 +94,11 @@ to a renderer in `templates/blocks.mjs`:
 `stages` `pillars` `team` `featureTabs` `faq` `pullQuote` `news` `insightIndex`
 `jobList` `prose` `closer` `contact` `form`
 
+The six solution pages share one shape, taken from the pages they replace: hero,
+`featureTabs`, the FAQ on a black band, `metricTiles` with a square image beside
+the numbers, why partner, news. The FAQ carries the band's headline rather than a
+question about questions, which is where the original puts it.
+
 Common options on any block: `tone: void` for a black band, `id` for an anchor,
 `flushTop: true` to read as a continuation of the section above.
 `{ type: include, name: why-partner }` splices in a shared partial.

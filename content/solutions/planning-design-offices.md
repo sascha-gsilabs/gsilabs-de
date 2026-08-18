@@ -12,6 +12,7 @@ blocks:
       Built for Revit, Tekla, Allplan, and Archicad.
     cta: { label: Get Started, href: /get-started }
     image:
+      ratio: 1 / 1
       src: /assets/img/sol-design-hero.webp
       alt: Two engineers reviewing a structural model on screen
       width: 1400
@@ -81,32 +82,9 @@ blocks:
           width: 1024
           height: 684
 
-  - type: showcase
+  - type: faq
     tone: void
     title: Custom BIM plugins that run inside your authoring environment, not beside it.
-    image:
-      src: /assets/img/planning-design-offices-bottom.webp
-      alt: Two engineers working through a coloured site plan together
-      width: 1024
-      height: 684
-
-  - type: metricTiles
-    title: >-
-      Faster project delivery through intelligent automation of repetitive design
-      tasks.
-    body: >-
-      Planning offices spend up to 40% of project time on tasks that follow clear
-      rules and patterns. Our plugins handle those tasks automatically so your
-      engineers can focus on the work that requires their expertise.
-    items:
-      - { value: 70%, label: Reduction in repetitive BIM tasks }
-      - { value: 4x, label: Faster drawing production on automated workflows }
-    note: >-
-      * Figures based on simulated project data. Actual results may vary depending on
-      project size, communication volume, and data quality.
-
-  - type: faq
-    title: Questions design offices ask us
     note: If you have further questions, please reach out via our Contact page.
     cta: { label: Contact us, href: /get-started }
     items:
@@ -149,6 +127,26 @@ blocks:
           team interacts with them through buttons, menus, and dialog boxes inside the
           BIM software they already know. No scripting, no command lines, no technical
           setup. If someone can use Revit or Tekla, they can use the plugin.
+
+  - type: metricTiles
+    title: >-
+      Faster project delivery through intelligent automation of repetitive design
+      tasks.
+    body: >-
+      Planning offices spend up to 40% of project time on tasks that follow clear
+      rules and patterns. Our plugins handle those tasks automatically so your
+      engineers can focus on the work that requires their expertise.
+    image:
+      src: /assets/img/planning-design-offices-bottom.webp
+      alt: Two engineers working through a coloured site plan together
+      width: 1024
+      height: 684
+    items:
+      - { value: 70%, label: Reduction in repetitive BIM tasks }
+      - { value: 4x, label: Faster drawing production on automated workflows }
+    note: >-
+      * Figures based on simulated project data. Actual results may vary depending on
+      project size, communication volume, and data quality.
 
   - type: pillars
     tone: void

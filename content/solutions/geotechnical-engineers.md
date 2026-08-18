@@ -12,6 +12,7 @@ blocks:
       compliance using statistical soil modeling and automated design evaluation.
     cta: { label: Get Started, href: /get-started }
     image:
+      ratio: 1 / 1
       src: /assets/img/geo-engineers-top.webp
       alt: Aerial view of a foundation site with the pile grid set out across the plot
       width: 1024
@@ -82,33 +83,11 @@ blocks:
           height: 722
           focus: top
 
-  - type: showcase
+  - type: faq
     tone: void
     title: >-
       Optimized foundation design that saves material, reduces carbon, and meets every
       code requirement.
-    image:
-      src: /assets/img/geo-engineers-bottom.webp
-      alt: Piling rig at work on a site beside a finished residential development
-      width: 1024
-      height: 576
-
-  - type: metricTiles
-    title: Better foundations through data, not assumptions
-    body: >-
-      Conservative pile design wastes material and increases carbon emissions because
-      it assumes the worst case at every point. Our approach uses real soil data
-      statistically to design foundations that are safer, leaner, and more sustainable.
-    items:
-      - { value: 25%, label: Average material reduction on optimized designs }
-      - { value: 40t CO2, label: Average carbon savings per project }
-    note: >-
-      * Figures based on pilot project results across residential and commercial
-      foundation projects in Germany. Actual results depend on soil conditions, project
-      size, and design constraints.
-
-  - type: faq
-    title: Questions geotechnical engineers ask us
     note: If you have further questions, please reach out via our Contact page.
     cta: { label: Contact us, href: /get-started }
     items:
@@ -150,6 +129,25 @@ blocks:
           configured for different countries. We currently support the German, Austrian,
           and Dutch national annexes, with more being added. If your country is not yet
           supported, we can add the relevant annex within a few weeks.
+
+  - type: metricTiles
+    title: Better foundations through data, not assumptions
+    body: >-
+      Conservative pile design wastes material and increases carbon emissions because
+      it assumes the worst case at every point. Our approach uses real soil data
+      statistically to design foundations that are safer, leaner, and more sustainable.
+    image:
+      src: /assets/img/geo-engineers-bottom.webp
+      alt: Piling rig at work on a site beside a finished residential development
+      width: 1024
+      height: 576
+    items:
+      - { value: 25%, label: Average material reduction on optimized designs }
+      - { value: 40t CO2, label: Average carbon savings per project }
+    note: >-
+      * Figures based on pilot project results across residential and commercial
+      foundation projects in Germany. Actual results depend on soil conditions, project
+      size, and design constraints.
 
   - type: pillars
     tone: void

@@ -108,7 +108,13 @@ ${
     </div>`
         : ''
     }
-${b.image ? `    <figure class="page-hero__media">${photo(b.image)}</figure>` : ''}
+${
+  b.image
+    ? `    <figure class="page-hero__media${
+        b.image.ratio ? ' page-hero__media--ratio' : ''
+      }"${b.image.ratio ? ` style="--media-ratio:${esc(b.image.ratio)}"` : ''}>${photo(b.image)}</figure>`
+    : ''
+}
   </div>
 </section>`
 
@@ -213,8 +219,14 @@ ${b.items
   )
 
 /** The same numbers as tiles, used on the solution pages. */
-const metricTiles = (b) =>
-  band(
+/* Two figures beside the claim they back up, with an image running the height of
+   both. Without an image the tiles take the right hand column instead. */
+const metricTiles = (b) => {
+  /* The image spans the rows beside it, so the stylesheet has to know how many
+     there are: the tiles and a note, or the tiles alone. */
+  const media = b.image ? ` band--metrics-media${b.note ? '' : ' band--metrics-media--short'}` : ''
+
+  return band(
     join([
       b.title
         ? `    <div class="statement statement--split">
@@ -222,6 +234,9 @@ const metricTiles = (b) =>
       <h2 class="statement__title">${mdInline(b.title)}</h2>
       ${b.body ? `<div class="statement__body">${paras(b.body, 'lede')}</div>` : ''}
     </div>`
+        : '',
+      b.image
+        ? `    <figure class="tile-metrics__media">${photo(b.image, { sizes: '(max-width: 900px) 92vw, 46vw' })}</figure>`
         : '',
       `    <dl class="tile-metrics">
 ${b.items
@@ -235,8 +250,9 @@ ${b.items
     </dl>`,
       b.note ? `    <p class="small tile-metrics__note">${mdInline(b.note)}</p>` : '',
     ]),
-    bandOpts(b)
+    { ...bandOpts(b), className: (bandOpts(b).className + media).trim() }
   )
+}
 
 /** Numbered stages. Numbering is only used where the content is a real sequence. */
 const stages = (b) =>

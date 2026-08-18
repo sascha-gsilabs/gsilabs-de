@@ -112,12 +112,16 @@ export const images = [
   // CSS px at the widest. 1300 keeps it at 2x there. Pulled from the live site:
   // the client's folder has no copy of it.
   { from: 'get-started-workshop.jpg', to: 'get-started-workshop.webp', w: 1300 },
-  // The wide bands run the full content width, so 1600 is the target rather than
-  // the ceiling. These three sources are 1024 across, which the encoder will not
-  // upscale, so they ship softer than the rest.
-  { from: 'general-contractors-bottom.avif', to: 'general-contractors-bottom.webp', w: 1600 },
-  { from: 'geo-engineers-bottom.avif', to: 'geo-engineers-bottom.webp', w: 1600 },
-  { from: 'planning-design-offices-bottom.avif', to: 'planning-design-offices-bottom.webp', w: 1600 },
+  // The square image beside the metrics on each solution page. Half the content
+  // width, about 650 CSS px, so 1300 keeps it at 2x. The client's folder has the
+  // first three, at 1024 across, which the encoder will not upscale: those ship
+  // softer than the rest. The other three were pulled from the live site.
+  { from: 'general-contractors-bottom.avif', to: 'general-contractors-bottom.webp', w: 1300 },
+  { from: 'geo-engineers-bottom.avif', to: 'geo-engineers-bottom.webp', w: 1300 },
+  { from: 'planning-design-offices-bottom.avif', to: 'planning-design-offices-bottom.webp', w: 1300 },
+  { from: 'precast-manufacturers-bottom.jpg', to: 'precast-manufacturers-bottom.webp', w: 1300 },
+  { from: 'product-manufacturers-bottom.jpg', to: 'product-manufacturers-bottom.webp', w: 1300 },
+  { from: 'real-estate-developers-bottom.jpg', to: 'real-estate-developers-bottom.webp', w: 1300 },
 
   // Solution page media still on names of mine.
   { from: 'gsilabs-sentinel.jpg', to: 'sol-contractors-hero.webp', w: 1400 },

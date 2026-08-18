@@ -1353,6 +1353,17 @@ button {
   min-height: clamp(260px, 32vw, 460px);
 }
 
+/* With `ratio` on the image, the frame holds that shape instead of stretching to
+   whatever the text column happens to be. The six solution pages set 1/1, which
+   is the square the pages they replace use: without it a page with a long lede
+   gets a hero half again as tall as the next page's, for no reason the reader
+   can see. */
+.page-hero__media--ratio {
+  align-self: start;
+  min-height: 0;
+  aspect-ratio: var(--media-ratio);
+}
+
 .page-hero__media img {
   width: 100%;
   height: 100%;
@@ -1436,6 +1447,33 @@ button {
 .tile-metrics__note {
   grid-column: 1 / 8;
   margin-top: var(--s5);
+}
+
+/* With an image beside them, the tiles move under the claim they back up and the
+   picture takes the right hand half, running the height of both. The row spans
+   are counted rather than open ended: `-1` resolves against the explicit grid,
+   which has no rows declared here, so it would collapse to a single row. */
+.band--metrics-media .tile-metrics,
+.band--metrics-media .tile-metrics__note {
+  grid-column: 1 / 7;
+}
+
+.tile-metrics__media {
+  grid-column: 7 / 13;
+  grid-row: 1 / span 3;
+  align-self: start;
+  aspect-ratio: 1 / 1;
+}
+
+/* No note under the tiles, so there is one row less to run beside. */
+.band--metrics-media--short .tile-metrics__media {
+  grid-row: 1 / span 2;
+}
+
+.tile-metrics__media img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }
 
 /* --- tabs ----------------------------------------------------------------- */
@@ -2378,6 +2416,19 @@ button {
 
   .tile-metrics {
     grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .band--metrics-media .tile-metrics,
+  .band--metrics-media .tile-metrics__note,
+  .tile-metrics__media {
+    grid-column: 1 / 13;
+  }
+
+  /* Stacked, so the image no longer runs beside anything. */
+  .tile-metrics__media,
+  .band--metrics-media--short .tile-metrics__media {
+    grid-row: auto;
+    margin-top: var(--s6);
   }
 
   /* Stacked, so the rule down the middle has nothing left to divide. */

@@ -12,6 +12,7 @@ blocks:
       they turn into delays, disputes, or cost overruns.
     cta: { label: Get Started, href: /get-started }
     image:
+      ratio: 1 / 1
       src: /assets/img/sol-contractors-hero.webp
       alt: The GSI Labs risk dashboard for a live construction project
       width: 1400
@@ -66,30 +67,9 @@ blocks:
           height: 844
           focus: top
 
-  - type: showcase
+  - type: faq
     tone: void
     title: AI-powered risk detection across all project communication channels.
-    image:
-      src: /assets/img/general-contractors-bottom.webp
-      alt: Aerial view of a deck under construction, with crews working across the formwork
-      width: 1024
-      height: 676
-
-  - type: metricTiles
-    title: Concrete recommendations to resolve issues before they escalate.
-    body: >-
-      Every construction project generates thousands of emails. Most risks hide in
-      plain sight across inboxes. Our AI connects the dots and gives your team the
-      time to act before small issues become expensive problems.
-    items:
-      - { value: 18 days, label: Average early warning lead time }
-      - { value: "€340k", label: Saved per project per quarter }
-    note: >-
-      * Figures based on simulated project data. Actual results may vary depending on
-      project size, communication volume, and data quality.
-
-  - type: faq
-    title: Questions general contractors ask us
     note: If you have further questions, please reach out via our Contact page.
     cta: { label: Contact us, href: /get-started }
     items:
@@ -123,6 +103,24 @@ blocks:
           No. That's the point. Your team writes emails as they always do. The AI
           reads between the lines and surfaces what humans tend to overlook when
           managing multiple workstreams at once.
+
+  - type: metricTiles
+    title: Concrete recommendations to resolve issues before they escalate.
+    body: >-
+      Every construction project generates thousands of emails. Most risks hide in
+      plain sight across inboxes. Our AI connects the dots and gives your team the
+      time to act before small issues become expensive problems.
+    image:
+      src: /assets/img/general-contractors-bottom.webp
+      alt: Aerial view of a deck under construction, with crews working across the formwork
+      width: 1024
+      height: 676
+    items:
+      - { value: 18 days, label: Average early warning lead time }
+      - { value: "€340k", label: Saved per project per quarter }
+    note: >-
+      * Figures based on simulated project data. Actual results may vary depending on
+      project size, communication volume, and data quality.
 
   - type: include
     name: why-partner
