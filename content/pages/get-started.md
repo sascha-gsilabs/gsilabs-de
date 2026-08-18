@@ -10,7 +10,7 @@ blocks:
     lede: >-
       We will get back to you within two business days with an honest assessment of how we
       can help.
-    cta: { label: Write to us, href: "mailto:info@gsilabs.de?subject=Project%20enquiry" }
+    cta: { label: Start the conversation, href: "#enquiry" }
     image:
       src: /assets/img/sol-contractors-site.webp
       alt: Site engineers reviewing reinforcement work on a construction site
@@ -25,14 +25,27 @@ blocks:
       - No obligation. We only recommend solutions we believe will deliver measurable results.
       - Direct access to our engineering and AI team, not a sales department.
 
+  - type: form
+    id: enquiry
+    eyebrow: Send us your project
+    title: A few lines are enough to start
+    body: >-
+      Tell us which process costs your team the most time, which tools you work in, and what
+      is slowing you down. No brief or specification needed. Your enquiry goes straight to
+      the people who would actually build your solution.
+    note: >-
+      We use your details only to answer your enquiry. See our [privacy notice](/privacy).
+    region: eu1
+    portalId: "146150011"
+    formId: 16241ff4-56ee-42ce-a5b7-9967520290c5
+
   - type: contact
     tone: void
     eyebrow: Reach us directly
-    title: No form in between.
+    title: Or skip the form entirely.
     body: >-
-      Email or call us and you land with the people who would actually build your solution.
-      Tell us which process costs your team the most time and we will come back with an
-      honest read on whether we can help.
+      Email or call us and you land with the same people. Whichever way you reach us, you
+      get an honest read on whether we can help, not a pitch.
 
   - type: stages
     id: what-happens
@@ -60,6 +73,6 @@ blocks:
     body: >-
       Most engagements begin with a single use case, run as a full production solution
       rather than a proof of concept. If it works, we expand from there.
-    cta: { label: Write to us, href: "mailto:info@gsilabs.de?subject=Project%20enquiry" }
+    cta: { label: Send us your project, href: "#enquiry" }
     secondary: { label: Read our process, href: /our-process }
 ---

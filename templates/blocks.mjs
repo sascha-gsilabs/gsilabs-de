@@ -541,6 +541,38 @@ const contact = (b, ctx) =>
     bandOpts(b)
   )
 
+/* -------------------------------------------------------------- hubspot --- */
+
+/* A HubSpot form, embedded next to the copy that introduces it. The loader
+   renders the form into the frame div in place rather than into an iframe, so
+   the fields are ours to style: see .form-embed in site.css.
+
+   The script tag sits inside the block instead of the layout, so a page only
+   pays for it when it actually carries a form. Repeating it across blocks on
+   one page is harmless: the browser serves the second request from cache and
+   HubSpot's loader picks up every frame div on the page, not just the first. */
+const form = (b, ctx) =>
+  band(
+    join([
+      `    <div class="statement statement--split">
+      ${eyebrow(b.eyebrow)}
+      ${b.title ? `<h2 class="statement__title">${mdInline(b.title)}</h2>` : ''}
+      ${b.body ? `<div class="statement__body">${paras(b.body, 'lede')}</div>` : ''}
+    </div>`,
+      `    <div class="form-embed">
+      <div class="hs-form-frame" data-region="${esc(b.region ?? 'eu1')}" data-form-id="${esc(b.formId)}" data-portal-id="${esc(b.portalId)}"></div>
+      <noscript>
+        <p class="form-embed__note">The form needs JavaScript. Write to <a class="link" href="mailto:${
+          ctx.site.company.email
+        }">${esc(ctx.site.company.email)}</a> instead and you reach the same people.</p>
+      </noscript>
+      ${b.note ? `<p class="form-embed__note">${mdInline(b.note)}</p>` : ''}
+      <script src="https://js-${esc(b.region ?? 'eu1')}.hsforms.net/forms/embed/${esc(b.portalId)}.js" defer></script>
+    </div>`,
+    ]),
+    bandOpts(b)
+  )
+
 export const BLOCKS = {
   heroVideo,
   hero,
@@ -561,6 +593,7 @@ export const BLOCKS = {
   prose,
   closer,
   contact,
+  form,
 }
 
 export function renderBlocks(blocks = [], ctx) {

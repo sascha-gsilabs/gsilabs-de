@@ -1972,6 +1972,57 @@ button {
   gap: var(--s5);
 }
 
+/* --- embedded form -------------------------------------------------------- */
+
+/* HubSpot renders its form into a cross origin iframe, so none of the fields
+   inside can be reached from this stylesheet. Everything below is the frame the
+   form sits in: its column, its width, and the note underneath. The fields
+   themselves are styled in HubSpot, under the form's own style settings, which
+   is where the square corners and the brand colours have to be set to match. */
+.form-embed {
+  grid-column: 7 / 13;
+  align-self: start;
+}
+
+/* The loader sets the frame to height 0 and only grows it once the iframe posts
+   its measured height back. That message does not always arrive: on any origin
+   HubSpot does not recognise, the frame stays at zero and the form is invisible.
+   The min-height is the floor that keeps it on the page regardless, sized to the
+   form as it actually renders, so a working resize message adds nothing visible
+   and a missing one costs nothing either. Remeasure it if fields are added.
+
+   34rem covers the five field layout at every width down to where first and last
+   name stop sharing a row, which is a little under 440px of form. */
+.hs-form-frame {
+  min-height: 34rem;
+}
+
+.hs-form-frame iframe {
+  display: block;
+  width: 100%;
+  border: 0;
+}
+
+.form-embed__note {
+  margin-top: var(--s4);
+  padding-top: var(--s3);
+  border-top: 1px solid var(--line);
+  font-size: var(--step-small);
+  color: var(--on-ground-dim);
+}
+
+.form-embed__note a {
+  color: var(--on-ground);
+  text-decoration: underline;
+  text-underline-offset: 0.2em;
+  text-decoration-color: var(--line);
+  transition: text-decoration-color 0.2s linear;
+}
+
+.form-embed__note a:hover {
+  text-decoration-color: currentColor;
+}
+
 /* --- contact grid --------------------------------------------------------- */
 
 .contact-grid {
@@ -2250,6 +2301,7 @@ button {
 
   .tile-metrics,
   .contact-grid,
+  .form-embed,
   .joblist,
   .statement__points,
   .pillars__note {
@@ -2522,6 +2574,13 @@ button {
   .site-foot__out {
     justify-self: start;
     text-align: left;
+  }
+}
+
+@media (max-width: 480px) {
+  /* First and last name drop onto their own rows below this width. */
+  .hs-form-frame {
+    min-height: 40rem;
   }
 }
 

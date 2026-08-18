@@ -90,11 +90,42 @@ to a renderer in `templates/blocks.mjs`:
 
 `heroVideo` `hero` `statement` `showcase` `definitions` `metrics` `metricTiles`
 `stages` `pillars` `team` `featureTabs` `faq` `pullQuote` `news` `insightIndex`
-`jobList` `prose` `closer` `contact`
+`jobList` `prose` `closer` `contact` `form`
 
 Common options on any block: `tone: void` for a black band, `id` for an anchor,
 `flushTop: true` to read as a continuation of the section above.
 `{ type: include, name: why-partner }` splices in a shared partial.
+
+### Forms
+
+`form` embeds a HubSpot form beside the copy that introduces it. Everything it
+needs comes from the embed code HubSpot gives you:
+
+```yaml
+  - type: form
+    id: enquiry                 # anchor, so a CTA can point at "#enquiry"
+    eyebrow: Send us your project
+    title: A few lines are enough to start
+    body: What the visitor should tell us.
+    note: Small print under the form. Markdown links work.
+    region: eu1                 # data-region
+    portalId: "146150011"       # data-portal-id, quoted so YAML keeps it a string
+    formId: 16241ff4-56ee-42ce-a5b7-9967520290c5   # data-form-id
+```
+
+The loader script is emitted by the block itself, so nothing needs adding to the
+page shell.
+
+HubSpot renders the form inside a cross origin iframe. That means
+`assets/css/site.css` can style the frame and the note around it but cannot
+reach a single field inside. Field colours, fonts and corners are set in
+HubSpot, under the form's own style settings.
+
+It also means the frame's height is whatever HubSpot posts back to the page, and
+it posts zero on any origin it does not recognise. `.hs-form-frame` carries a
+`min-height` as the floor that keeps the form visible either way, measured
+against the form as it actually renders. Add or remove fields and that number
+needs remeasuring.
 
 Two conveniences in the content itself: ` // ` surrounded by spaces becomes the styled
 brand delimiter, and a Markdown image with a title becomes a captioned figure.
