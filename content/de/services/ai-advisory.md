@@ -8,10 +8,10 @@ blocks:
     eyebrow: Leistungen
     title: Klären, was KI Ihnen wirklich wert ist
     lede: >-
-      Wir arbeiten mit Ihrer Führung und Ihren Fachleuten heraus, wo KI sich rechnet, was
-      es kosten würde, dorthin zu kommen, und in welcher Reihenfolge. Am Ende steht eine
-      Entscheidung, die Sie vertreten können, und kein Pilot, der versandet.
-    cta: { label: Kontakt aufnehmen, href: /get-started }
+      Wir arbeiten mit Ihrer Führung und Ihren Fachleuten heraus, wo KI sich rechnet,
+      was es kosten würde, dorthin zu kommen, und in welcher Reihenfolge. Am Ende steht
+      eine Entscheidung, die Sie vertreten können, und kein Pilot, der versandet.
+    cta: { label: Jetzt loslegen, href: /get-started }
     image:
       src: /assets/img/ai-workshop-top.webp
       # TODO: Seminarfoto auf einer Seite, in der es nicht mehr um einen Workshop geht.
@@ -28,10 +28,10 @@ blocks:
     lede: >-
       Die meisten Unternehmen der Bauwirtschaft, die wir treffen, haben schon etwas
       probiert. Einen Chatbot, den niemand nutzt, ein Werkzeug, das ein Lieferant
-      vorgeführt hat, einen Piloten, der nie eine Abteilung verlassen hat. Was fehlt, ist
-      der Blick auf das Ganze: wohin Geld und Stunden tatsächlich fließen, welche dieser
-      Probleme KI bewegen kann und wie das erste funktionierende System aussehen muss.
-      Genau das erarbeiten wir.
+      vorgeführt hat, einen Piloten, der nie eine Abteilung verlassen hat. Was fehlt,
+      ist der Blick auf das Ganze: wohin Geld und Stunden tatsächlich fließen, welche
+      dieser Probleme KI bewegen kann und wie das erste funktionierende System aussehen
+      muss. Genau das erarbeiten wir.
     items:
       - title: Potenzialanalyse
         body: >-
@@ -85,16 +85,16 @@ blocks:
         body: >-
           Beratung, die bei der Empfehlung endet, ist leicht gegeben und schwer
           umzusetzen. Wir bleiben erreichbar, während das erste Projekt entsteht, ob Ihr
-          eigenes Team es baut, ein Dienstleister oder wir. Pläne treffen schnell auf die
-          Wirklichkeit, und dann muss jemand entscheiden.
+          eigenes Team es baut, ein Dienstleister oder wir. Pläne treffen schnell auf
+          die Wirklichkeit, und dann muss jemand entscheiden.
 
   - type: pullQuote
     tone: void
     eyebrow: Kundenstimme
     text: >-
       "Wir kamen mit der vagen Idee, dass KI uns irgendwo helfen könnte. Wir gingen mit
-      fünf konkreten Anwendungsfällen und einem Agenten, der bereits technische Fragen aus
-      unserer Projektdokumentation beantwortet hat."
+      fünf konkreten Anwendungsfällen und einem Agenten, der bereits technische Fragen
+      aus unserer Projektdokumentation beantwortet hat."
     name: Arne Müller
     role: Projektingenieur
 
@@ -103,9 +103,9 @@ blocks:
     body: >-
       Wir sind keine Strategieberatung, die eine Präsentation übergibt und geht. Wir
       entwickeln KI und Software für Bauunternehmen, das ist unser Geschäft. Unsere
-      Empfehlungen tragen also einen Umsetzungspreis, den wir selbst schon gezahlt haben.
-      Wenn wir sagen, ein Anwendungsfall ist schwieriger als er aussieht, dann weil wir
-      genau diesen schon gebaut haben.
+      Empfehlungen tragen also einen Umsetzungspreis, den wir selbst schon gezahlt
+      haben. Wenn wir sagen, ein Anwendungsfall ist schwieriger als er aussieht, dann
+      weil wir genau diesen schon gebaut haben.
     points:
       - Verankert in Ihren Abläufen, Ihren Daten und Ihren Kundenverträgen
       - Jede Empfehlung mit dem Aufwand bewertet, sie zu bauen und zu betreiben
@@ -118,7 +118,7 @@ blocks:
       Erzählen Sie uns, wie Ihre Teams heute arbeiten und welche Prozesse am meisten
       kosten. Wir kommen mit einer ehrlichen Einschätzung zurück, was sich lohnt und was
       nicht.
-    cta: { label: Kontakt aufnehmen, href: /get-started }
+    cta: { label: Jetzt loslegen, href: /get-started }
     secondary: { label: Unser Vorgehen ansehen, href: /our-process }
 
   - type: news

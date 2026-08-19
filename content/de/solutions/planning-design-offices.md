@@ -8,9 +8,9 @@ blocks:
     eyebrow: Für Planungsbüros
     title: Planungsautomatisierung
     lede: >-
-      Intelligente Plugins, die wiederkehrende BIM-Aufgaben zu Ein-Klick-Abläufen machen.
-      Gebaut für Revit, Tekla, Allplan und Archicad.
-    cta: { label: Kontakt aufnehmen, href: /get-started }
+      Intelligente Plugins, die wiederkehrende BIM-Aufgaben zu Ein-Klick-Abläufen
+      machen. Gebaut für Revit, Tekla, Allplan und Archicad.
+    cta: { label: Jetzt loslegen, href: /get-started }
     image:
       ratio: 1 / 1
       src: /assets/img/sol-design-hero.webp
@@ -23,25 +23,26 @@ blocks:
     items:
       - label: Ablaufanalyse
         body: >-
-          Wir bilden die täglichen BIM-Abläufe Ihres Teams ab, um zu finden, wo manueller
-          Aufwand Projekte ausbremst. Von der Bewehrungsdetaillierung über das Setzen von
-          Bauteilen bis zur Planerstellung finden wir die Ansätze mit der größten
-          Wirkung.
+          Wir bilden die täglichen BIM-Abläufe Ihres Teams ab, um zu finden, wo
+          manueller Aufwand Projekte ausbremst. Von der Bewehrungsdetaillierung über das
+          Setzen von Bauteilen bis zur Planerstellung finden wir die Ansätze mit der
+          größten Wirkung.
         points:
           - Schritt für Schritt durch Ihren BIM-Erstellungsprozess
           - Erkennen wiederkehrender, regelbasierter Vorgänge
           - Funktioniert in Revit, Tekla, Allplan und Archicad
         image:
           src: /assets/img/tab-workflow-analysis.webp
-          alt: CAD-Fenster mit einem gekrümmten Schalenmodell neben der Parameterleiste, die dessen Bewehrung steuert
+          alt: CAD-Fenster mit einem gekrümmten Schalenmodell neben der Parameterleiste, die
+            dessen Bewehrung steuert
           width: 1200
           height: 674
       - label: Plugin-Entwicklung
         body: >-
-          Auf Basis der Ablaufanalyse bauen wir maßgeschneiderte Plugins, die sich direkt
-          in Ihre BIM-Umgebung einfügen. Kein Wechsel zwischen Werkzeugen, kein Export und
-          Reimport. Ihr Team bleibt in der Software, die es kennt, während wiederkehrende
-          Aufgaben im Hintergrund automatisch laufen.
+          Auf Basis der Ablaufanalyse bauen wir maßgeschneiderte Plugins, die sich
+          direkt in Ihre BIM-Umgebung einfügen. Kein Wechsel zwischen Werkzeugen, kein
+          Export und Reimport. Ihr Team bleibt in der Software, die es kennt, während
+          wiederkehrende Aufgaben im Hintergrund automatisch laufen.
         points:
           - Native Einbindung in Ihre BIM-Plattform
           - Passend zu Ihren Vorlagen, Standards und Projektanforderungen gebaut
@@ -97,19 +98,20 @@ blocks:
           und bauen dann direkt in die Umgebung, die Ihr Team ohnehin nutzt.
       - q: Wie lange dauert die Entwicklung eines eigenen Plugins?
         a: >-
-          Die meisten Plugins kommen in sechs bis zehn Wochen vom ersten Workshop zu einer
-          lauffähigen Version. Einfachere Automatisierungen wie das standardisierte Setzen
-          von Bauteilen können in vier Wochen fertig sein. Komplexere Abläufe mit mehreren
-          Standards oder plattformübergreifender Logik brauchen bis zu zwölf Wochen. Wir
-          liefern immer früh eine testbare Version, damit Ihr Team vor der finalen
-          Freigabe Rückmeldung geben kann.
+          Die meisten Plugins kommen in sechs bis zehn Wochen vom ersten Workshop zu
+          einer lauffähigen Version. Einfachere Automatisierungen wie das
+          standardisierte Setzen von Bauteilen können in vier Wochen fertig sein.
+          Komplexere Abläufe mit mehreren Standards oder plattformübergreifender Logik
+          brauchen bis zu zwölf Wochen. Wir liefern immer früh eine testbare Version,
+          damit Ihr Team vor der finalen Freigabe Rückmeldung geben kann.
       - q: Funktioniert das Plugin mit unseren bestehenden Vorlagen und Standards?
         a: >-
           Ja. Genau darum geht es. Jedes Plugin wird um Ihre konkreten Vorlagen,
           Benennungsregeln, Layerstrukturen und Planstandards herum gebaut. Wir liefern
-          keine Werkzeuge von der Stange. Wir beginnen damit, Ihr bestehendes Projektsetup
-          zu sichten, und sorgen dafür, dass die Automatisierung Ergebnisse liefert, die
-          sich von der Handarbeit Ihrer Ingenieure nicht unterscheiden lassen.
+          keine Werkzeuge von der Stange. Wir beginnen damit, Ihr bestehendes
+          Projektsetup zu sichten, und sorgen dafür, dass die Automatisierung Ergebnisse
+          liefert, die sich von der Handarbeit Ihrer Ingenieure nicht unterscheiden
+          lassen.
       - q: Was passiert, wenn unsere BIM-Software aktualisiert wird?
         a: >-
           Wir halten die Kompatibilität mit neuen Softwareversionen im Rahmen unserer
@@ -121,26 +123,27 @@ blocks:
         a: >-
           Ja. Plugins lassen sich so einrichten, dass sie sich an unterschiedliche
           Projekttypen, Auftraggeber oder regionale Standards anpassen. Wenn Ihr Büro
-          Wohnungsbau und Gewerbebau mit unterschiedlichen Anforderungen bearbeitet, kann
-          das Plugin den Projekttyp erkennen und automatisch die richtigen Regeln
+          Wohnungsbau und Gewerbebau mit unterschiedlichen Anforderungen bearbeitet,
+          kann das Plugin den Projekttyp erkennen und automatisch die richtigen Regeln
           anwenden. Wir bauen diese Flexibilität von Anfang an ein, damit Sie nicht für
           jeden Fall ein eigenes Werkzeug brauchen.
       - q: Brauchen wir Programmierkenntnisse, um die Plugins zu nutzen?
         a: >-
-          Nein. Die Plugins sind für Ingenieure und Planer gemacht, nicht für Entwickler.
-          Ihr Team bedient sie über Schaltflächen, Menüs und Dialoge innerhalb der
-          BIM-Software, die es ohnehin kennt. Kein Skripting, keine Kommandozeile, keine
-          technische Einrichtung. Wer Revit oder Tekla bedienen kann, kann das Plugin
-          bedienen.
+          Nein. Die Plugins sind für Ingenieure und Planer gemacht, nicht für
+          Entwickler. Ihr Team bedient sie über Schaltflächen, Menüs und Dialoge
+          innerhalb der BIM-Software, die es ohnehin kennt. Kein Skripting, keine
+          Kommandozeile, keine technische Einrichtung. Wer Revit oder Tekla bedienen
+          kann, kann das Plugin bedienen.
 
   - type: metricTiles
     title: >-
       Schnellere Projektabwicklung durch intelligente Automatisierung wiederkehrender
       Planungsaufgaben.
     body: >-
-      Planungsbüros verbringen bis zu 40 % der Projektzeit mit Aufgaben, die klaren Regeln
-      und Mustern folgen. Unsere Plugins übernehmen diese Aufgaben automatisch, damit sich
-      Ihre Ingenieure auf die Arbeit konzentrieren können, die ihr Fachwissen verlangt.
+      Planungsbüros verbringen bis zu 40 % der Projektzeit mit Aufgaben, die klaren
+      Regeln und Mustern folgen. Unsere Plugins übernehmen diese Aufgaben automatisch,
+      damit sich Ihre Ingenieure auf die Arbeit konzentrieren können, die ihr Fachwissen
+      verlangt.
     image:
       src: /assets/img/planning-design-offices-bottom.webp
       alt: Zwei Ingenieure arbeiten gemeinsam an einem farbigen Lageplan
@@ -150,8 +153,8 @@ blocks:
       - { value: 70%, label: Weniger wiederkehrende BIM-Aufgaben }
       - { value: 4x, label: Schnellere Planerstellung bei automatisierten Abläufen }
     note: >-
-      * Zahlen auf Basis simulierter Projektdaten. Die tatsächlichen Ergebnisse können je
-      nach Projektgröße, Kommunikationsaufkommen und Datenqualität abweichen.
+      * Zahlen auf Basis simulierter Projektdaten. Die tatsächlichen Ergebnisse können
+      je nach Projektgröße, Kommunikationsaufkommen und Datenqualität abweichen.
 
   - type: pillars
     tone: void
@@ -160,18 +163,18 @@ blocks:
       - title: Praktische Innovation
         body:
           - >-
-            Wir bauen keine Werkzeuge von der Stange. Jedes Plugin ist darauf zugeschnitten,
-            wie genau Ihr Büro arbeitet. Ihre Vorlagen, Ihre Standards, Ihre
-            Benennungsregeln.
+            Wir bauen keine Werkzeuge von der Stange. Jedes Plugin ist darauf
+            zugeschnitten, wie genau Ihr Büro arbeitet. Ihre Vorlagen, Ihre Standards,
+            Ihre Benennungsregeln.
           - >-
-            Die Automatisierung passt sich Ihrem Prozess an, nicht umgekehrt. Wir testen an
-            Ihren laufenden Projekten und arbeiten nach, bis die Ergebnisse Ihren
+            Die Automatisierung passt sich Ihrem Prozess an, nicht umgekehrt. Wir testen
+            an Ihren laufenden Projekten und arbeiten nach, bis die Ergebnisse Ihren
             Qualitätsansprüchen entsprechen.
       - title: Strategischer Vorsprung
         body:
           - >-
-            Während andere Büros Bewehrung noch Stab für Stab setzen, liefert Ihr Team in
-            einem Bruchteil der Zeit. Bei Automatisierung geht es nicht nur um Tempo.
+            Während andere Büros Bewehrung noch Stab für Stab setzen, liefert Ihr Team
+            in einem Bruchteil der Zeit. Bei Automatisierung geht es nicht nur um Tempo.
           - >-
             Sie verringert Fehler, setzt Standards automatisch durch und macht Ihre
             erfahrenen Ingenieure frei für die Arbeit, die wirklich ihr Urteil verlangt.
@@ -183,8 +186,9 @@ blocks:
             Softwareentwickler, die selbst in Planungsbüros gearbeitet haben.
           - >-
             Wir kennen den Unterschied zwischen einer Revit-Familie und einer
-            Tekla-Komponente. Wir wissen, wie ein Planverzeichnis aussieht. Das heißt: kein
-            langes Onboarding, keine Erklärung Ihrer Branche. Wir bauen ab dem ersten Tag.
+            Tekla-Komponente. Wir wissen, wie ein Planverzeichnis aussieht. Das heißt:
+            kein langes Onboarding, keine Erklärung Ihrer Branche. Wir bauen ab dem
+            ersten Tag.
 
   - type: news
     eyebrow: Aus dem Studio

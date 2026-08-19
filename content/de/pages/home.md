@@ -1,6 +1,6 @@
 ---
 route: /
-title: KI-Engineering für die Bauwirtschaft
+title: KI-Entwicklung für die Bauwirtschaft
 description: >-
   GSI Labs entwickelt KI und Software für die gebaute Umwelt: Automatisierung,
   Ingenieurwerkzeuge und KI-Systeme für Bauunternehmen, Planungsbüros und Hersteller.
@@ -8,7 +8,7 @@ blocks:
   - type: heroVideo
     poster: /assets/img/hero-poster.webp
     video: /assets/video/hero.mp4
-    titleTop: [ KI, Entwicklung ]
+    titleTop: [KI-Entwicklung]
     titleBottom: [ für die, gebaute Welt ]
     lede: >-
       GSI Labs entwickelt Technologie für die gebaute Welt. Entworfen für die Menschen,

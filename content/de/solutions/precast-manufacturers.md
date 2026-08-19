@@ -10,7 +10,7 @@ blocks:
     lede: >-
       Automatisierte Elementierung und Planerstellung, die Bauprojekte vom
       Architekturmodell bis zu maschinenlesbaren Produktionsdateien bringt.
-    cta: { label: Kontakt aufnehmen, href: /get-started }
+    cta: { label: Jetzt loslegen, href: /get-started }
     image:
       ratio: 1 / 1
       src: /assets/img/precast-manufacturers-top.webp
@@ -38,10 +38,10 @@ blocks:
           height: 466
       - label: Planautomatisierung
         body: >-
-          Für jedes Element erzeugt das System detaillierte Fertigungspläne mit Geometrie,
-          Bewehrungsführung, Einbauteilen und Transportankern. Ingenieure prüfen und geben
-          frei, statt von Grund auf zu zeichnen. Die Ausgabe folgt den Planstandards und
-          Beschriftungsregeln Ihres Unternehmens.
+          Für jedes Element erzeugt das System detaillierte Fertigungspläne mit
+          Geometrie, Bewehrungsführung, Einbauteilen und Transportankern. Ingenieure
+          prüfen und geben frei, statt von Grund auf zu zeichnen. Die Ausgabe folgt den
+          Planstandards und Beschriftungsregeln Ihres Unternehmens.
         points:
           - Vollständige Fertigungspläne mit Bewehrung und Einbauteilen
           - Erzeugt passend zu Ihren Vorlagen und Standards
@@ -99,27 +99,28 @@ blocks:
       - q: Wie lange dauert die Bearbeitung eines neuen Bauprojekts?
         a: >-
           Sobald Ihre Fertigungsregeln festgelegt sind, lässt sich ein typisches
-          Wohnbauprojekt mit 200 bis 400 Elementen innerhalb weniger Tage elementieren und
-          mit ersten Plänen versehen. Die Bearbeitung desselben Umfangs von Hand dauert in
-          der Regel drei bis vier Wochen.
+          Wohnbauprojekt mit 200 bis 400 Elementen innerhalb weniger Tage elementieren
+          und mit ersten Plänen versehen. Die Bearbeitung desselben Umfangs von Hand
+          dauert in der Regel drei bis vier Wochen.
       - q: Kommt das System auch mit Sonderelementen zurecht?
         a: >-
           Ja. Die Regellogik ist flexibel genug für Sonderelemente wie Balkonplatten,
-          Treppenläufe, Sandwichelemente und individuelle Fassadenteile. Fällt ein Element
-          aus den Standardregeln heraus, markiert das System es zur manuellen Prüfung,
-          statt eine falsche Ausgabe zu erzeugen.
+          Treppenläufe, Sandwichelemente und individuelle Fassadenteile. Fällt ein
+          Element aus den Standardregeln heraus, markiert das System es zur manuellen
+          Prüfung, statt eine falsche Ausgabe zu erzeugen.
       - q: Funktioniert das mit unseren vorhandenen Produktionsanlagen?
         a: >-
           Das System exportiert Maschinendaten in den Formaten, die Ihre Anlagen
           verlangen. Wir unterstützen Unitechnik und PXML und können herstellereigene
-          Formate ergänzen. Vor dem Rollout testen wir die Ausgabedateien direkt an Ihren
-          Maschinen, damit sie beim ersten Mal laufen.
+          Formate ergänzen. Vor dem Rollout testen wir die Ausgabedateien direkt an
+          Ihren Maschinen, damit sie beim ersten Mal laufen.
       - q: Was passiert, wenn sich das Architekturmodell mitten im Projekt ändert?
         a: >-
           Das System kann ein aktualisiertes Modell erneut verarbeiten und erkennen,
-          welche Elemente sich geändert haben. Nur betroffene Elemente werden neu erzeugt.
-          Unveränderte Elemente behalten ihre bestehenden Pläne und Freigaben, Sie
-          verlieren also keine Arbeit, wenn die Architekten eine Revision herausgeben.
+          welche Elemente sich geändert haben. Nur betroffene Elemente werden neu
+          erzeugt. Unveränderte Elemente behalten ihre bestehenden Pläne und Freigaben,
+          Sie verlieren also keine Arbeit, wenn die Architekten eine Revision
+          herausgeben.
       - q: Wie funktioniert die Qualitätssicherung?
         a: >-
           Jeder erzeugte Plan durchläuft einen Prüfschritt, bevor er für die Produktion
@@ -131,9 +132,9 @@ blocks:
     title: Konkrete Empfehlungen, um Ihren Projektdurchsatz zu erhöhen.
     body: >-
       Jedes Fertigteilprojekt beginnt gleich. Ingenieure bekommen Architektenpläne,
-      zerlegen sie von Hand in produzierbare Elemente und zeichnen anschließend für jedes
-      Teil einen eigenen Plan. Das dauert Wochen und wiederholt sich bei jedem neuen
-      Projekt. Unser System erledigt es in einem Bruchteil der Zeit.
+      zerlegen sie von Hand in produzierbare Elemente und zeichnen anschließend für
+      jedes Teil einen eigenen Plan. Das dauert Wochen und wiederholt sich bei jedem
+      neuen Projekt. Unser System erledigt es in einem Bruchteil der Zeit.
     image:
       src: /assets/img/precast-manufacturers-bottom.webp
       alt: Stapel von Hohldielen in einem Fertigteilwerk, bereit zum Versand
@@ -163,8 +164,8 @@ blocks:
       - title: Strategischer Vorsprung
         body:
           - >-
-            Während Wettbewerber noch jedes Element von Hand zeichnen, bearbeitet Ihr Werk
-            neue Projekte in Tagen statt in Wochen.
+            Während Wettbewerber noch jedes Element von Hand zeichnen, bearbeitet Ihr
+            Werk neue Projekte in Tagen statt in Wochen.
           - >-
             Das heißt schnellere Angebote, kürzere Vorlaufzeiten und die Kapazität, mit
             demselben Team mehr Projekte anzunehmen. Über die Zeit summiert sich das zu
@@ -173,12 +174,13 @@ blocks:
       - title: Branchen-DNA
         body:
           - >-
-            In unserem Team arbeiten Tragwerksplaner und Softwareentwickler, die selbst in
-            Fertigteilwerken gearbeitet haben.
+            In unserem Team arbeiten Tragwerksplaner und Softwareentwickler, die selbst
+            in Fertigteilwerken gearbeitet haben.
           - >-
             Wir kennen den Unterschied zwischen einem Wandelement und einem
-            Sandwichelement. Wir wissen, wie ein Produktionsplan aussieht. Das heißt: kein
-            langes Onboarding, keine Erklärung Ihrer Branche. Wir bauen ab dem ersten Tag.
+            Sandwichelement. Wir wissen, wie ein Produktionsplan aussieht. Das heißt:
+            kein langes Onboarding, keine Erklärung Ihrer Branche. Wir bauen ab dem
+            ersten Tag.
 
   - type: news
     eyebrow: Aus dem Studio

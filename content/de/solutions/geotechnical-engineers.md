@@ -11,16 +11,18 @@ blocks:
       Optimieren Sie Ihre Pfahlgründungen auf Materialeffizienz, CO2-Reduktion und
       Normkonformität, mit statistischer Baugrundmodellierung und automatisierter
       Bewertung.
-    cta: { label: Kontakt aufnehmen, href: /get-started }
+    cta: { label: Jetzt loslegen, href: /get-started }
     image:
       ratio: 1 / 1
       src: /assets/img/geo-engineers-top.webp
-      alt: Luftaufnahme einer Gründungsbaustelle mit dem über das Grundstück abgesteckten Pfahlraster
+      alt: Luftaufnahme einer Gründungsbaustelle mit dem über das Grundstück abgesteckten
+        Pfahlraster
       width: 1024
       height: 576
 
   - type: featureTabs
-    title: Für die Geotechnik entwickelt, nicht aus allgemeinen Optimierungswerkzeugen abgeleitet.
+    title: Für die Geotechnik entwickelt, nicht aus allgemeinen Optimierungswerkzeugen
+      abgeleitet.
     items:
       - label: Baugrundmodellierung
         body: >-
@@ -40,9 +42,9 @@ blocks:
       - label: Bemessungsoptimierung
         body: >-
           Auf Basis des statistischen Baugrundmodells bewertet das System tausende
-          Pfahlkonfigurationen, um die Bemessung zu finden, die Ihre Anforderungen mit dem
-          geringsten Materialeinsatz erfüllt. Pfahllänge, Durchmesser, Abstand und Typ
-          werden gleichzeitig optimiert.
+          Pfahlkonfigurationen, um die Bemessung zu finden, die Ihre Anforderungen mit
+          dem geringsten Materialeinsatz erfüllt. Pfahllänge, Durchmesser, Abstand und
+          Typ werden gleichzeitig optimiert.
         points:
           - Optimierung mehrerer Variablen über Pfahlgeometrie und Anordnung
           - Automatische Prüfung gegen Tragfähigkeit und Setzungsgrenzen
@@ -61,7 +63,8 @@ blocks:
         points:
           - Berechnung des CO2-Fußabdrucks für jede Bemessungsvariante
           - Materialeinsparung beziffert in kg CO2-Äquivalent
-          - Dokumentation, die sich für Nachhaltigkeitsberichte und Zertifizierungen eignet
+          - Dokumentation, die sich für Nachhaltigkeitsberichte und Zertifizierungen
+            eignet
         image:
           src: /assets/img/tab-co2-reduction.webp
           alt: Fahrmischer liefert Beton auf eine innerstädtische Baustelle
@@ -71,8 +74,8 @@ blocks:
         body: >-
           Alle Nachweise folgen der EA Pfähle und dem Eurocode 7 mit den zugehörigen
           nationalen Anhängen. Das System setzt die Teilsicherheitsbeiwerte an, prüft
-          charakteristische Werte und Bemessungswerte und erzeugt eine Dokumentation, die
-          sich beim Prüfingenieur einreichen lässt.
+          charakteristische Werte und Bemessungswerte und erzeugt eine Dokumentation,
+          die sich beim Prüfingenieur einreichen lässt.
         points:
           - Vollständig nach EA Pfähle und Eurocode 7
           - Automatischer Ansatz der Teilsicherheitsbeiwerte je nationalem Anhang
@@ -94,31 +97,31 @@ blocks:
     items:
       - q: Welche Eingangsdaten braucht das System?
         a: >-
-          Übliche Schichtenverzeichnisse und Drucksondierungen in gängigen Formaten. Wenn
-          Ihre Daten als PDF oder Tabelle vorliegen, können wir auch das verarbeiten. Je
-          mehr Aufschlusspunkte Sie haben, desto genauer wird das statistische
-          Baugrundmodell, aber das System arbeitet schon ab drei Bohrungen.
+          Übliche Schichtenverzeichnisse und Drucksondierungen in gängigen Formaten.
+          Wenn Ihre Daten als PDF oder Tabelle vorliegen, können wir auch das
+          verarbeiten. Je mehr Aufschlusspunkte Sie haben, desto genauer wird das
+          statistische Baugrundmodell, aber das System arbeitet schon ab drei Bohrungen.
       - q: Wie viel Material lässt sich realistisch einsparen?
         a: >-
           Das hängt vom Projekt ab, typische Einsparungen liegen aber zwischen 15 % und
-          30 % bei Beton und Stahl der Pfähle im Vergleich zu herkömmlichen konservativen
-          Bemessungen. Die Einsparung kommt daher, dass probabilistische Baugrundmodelle
-          statt Worst-Case-Annahmen verwendet werden, wodurch Sie näher an den
-          tatsächlichen Verhältnissen bemessen können, ohne das Sicherheitsniveau zu
-          verändern.
+          30 % bei Beton und Stahl der Pfähle im Vergleich zu herkömmlichen
+          konservativen Bemessungen. Die Einsparung kommt daher, dass probabilistische
+          Baugrundmodelle statt Worst-Case-Annahmen verwendet werden, wodurch Sie näher
+          an den tatsächlichen Verhältnissen bemessen können, ohne das Sicherheitsniveau
+          zu verändern.
       - q: Ersetzt das den Geotechniker?
         a: >-
           Nein. Das ist ein Werkzeug für Geotechniker, kein Ersatz. Es übernimmt die
           rechenintensive Arbeit, damit sich der Ingenieur auf die Auslegung der
           Ergebnisse, sein fachliches Urteil und die Entscheidungen konzentrieren kann.
-          Die endgültige Bemessung wird immer von einer qualifizierten Person geprüft und
-          freigegeben.
+          Die endgültige Bemessung wird immer von einer qualifizierten Person geprüft
+          und freigegeben.
       - q: Welche Pfahltypen unterstützt das System?
         a: >-
           Bohrpfähle, Rammpfähle, Schneckenbohrpfähle und Mikropfähle. Die Optimierung
-          berücksichtigt typspezifische Herstellungseinflüsse und Widerstandsmodelle. Wenn
-          Sie mit einem hier nicht genannten Pfahltyp arbeiten, sprechen Sie uns an, dann
-          klären wir die Aufnahme.
+          berücksichtigt typspezifische Herstellungseinflüsse und Widerstandsmodelle.
+          Wenn Sie mit einem hier nicht genannten Pfahltyp arbeiten, sprechen Sie uns
+          an, dann klären wir die Aufnahme.
       - q: Wie funktioniert die CO2-Berechnung?
         a: >-
           Wir verwenden etablierte Emissionsfaktoren für Beton, Stahl und
@@ -129,10 +132,10 @@ blocks:
       - q: Können wir das für Projekte außerhalb Deutschlands nutzen?
         a: >-
           Ja. Das Eurocode-Regelwerk gilt europaweit, und die nationalen Anhänge lassen
-          sich für verschiedene Länder einstellen. Derzeit unterstützen wir den deutschen,
-          österreichischen und niederländischen nationalen Anhang, weitere kommen hinzu.
-          Ist Ihr Land noch nicht dabei, können wir den entsprechenden Anhang innerhalb
-          weniger Wochen ergänzen.
+          sich für verschiedene Länder einstellen. Derzeit unterstützen wir den
+          deutschen, österreichischen und niederländischen nationalen Anhang, weitere
+          kommen hinzu. Ist Ihr Land noch nicht dabei, können wir den entsprechenden
+          Anhang innerhalb weniger Wochen ergänzen.
 
   - type: metricTiles
     title: Bessere Gründungen durch Daten statt Annahmen
@@ -162,13 +165,13 @@ blocks:
         body:
           - >-
             Wir bauen keine akademischen Forschungswerkzeuge. Piledesigner ist für
-            Geotechniker in der Praxis gemacht, die Ergebnisse brauchen, die sie bei einer
-            Prüfstelle einreichen können.
+            Geotechniker in der Praxis gemacht, die Ergebnisse brauchen, die sie bei
+            einer Prüfstelle einreichen können.
           - >-
-            Jedes Ergebnis folgt dem Eurocode 7, jede Berechnung ist nachvollziehbar, und
-            jede Bemessung lässt sich dokumentieren und vertreten. Wir testen an echten
-            Projektdaten und arbeiten nach, bis die Ergebnisse fachlichen Maßstäben
-            genügen.
+            Jedes Ergebnis folgt dem Eurocode 7, jede Berechnung ist nachvollziehbar,
+            und jede Bemessung lässt sich dokumentieren und vertreten. Wir testen an
+            echten Projektdaten und arbeiten nach, bis die Ergebnisse fachlichen
+            Maßstäben genügen.
       - title: Strategischer Vorsprung
         body:
           - >-
@@ -176,8 +179,8 @@ blocks:
             Baugrundprofils bemessen, optimiert Ihr Team über die gesamte Streuung des
             Baufelds.
           - >-
-            Das heißt weniger Überdimensionierung, geringere Kosten für Ihre Auftraggeber
-            und ein messbarer Nachhaltigkeitsvorteil, der Ihre Angebote in
+            Das heißt weniger Überdimensionierung, geringere Kosten für Ihre
+            Auftraggeber und ein messbarer Nachhaltigkeitsvorteil, der Ihre Angebote in
             Wettbewerbsvergaben abhebt.
       - title: Branchen-DNA
         body:
@@ -186,7 +189,8 @@ blocks:
             Unterschied zwischen einer Drucksondierung und einer Rammsondierung kennen,
             die wissen, was der Eurocode 7 verlangt, und die selbst Gründungen bemessen
             haben.
-          - Wir sprechen vom ersten Tag an Ihre Sprache. Niemand muss erklären, was eine Pfahlprobebelastung ist.
+          - Wir sprechen vom ersten Tag an Ihre Sprache. Niemand muss erklären, was eine
+            Pfahlprobebelastung ist.
 
   - type: news
     eyebrow: Aus dem Studio

@@ -3,7 +3,7 @@ route: /about
 title: Über uns
 description: >-
   GSI Labs entwickelt KI-Systeme für Planung, Ingenieurwesen und Bau und verbindet
-  Baupraxis mit angewandtem KI-Engineering.
+  Baupraxis mit angewandter KI-Entwicklung.
 blocks:
   - type: hero
     title: Über uns
@@ -22,7 +22,7 @@ blocks:
       wir als Softwarehaus für Tragwerksplaner und Fertigteilwerke. Heute helfen wir
       Unternehmen der Bauwirtschaft in ganz Europa dabei, Abläufe zu automatisieren,
       manuellen Aufwand zu senken und mit ihren Daten bessere Entscheidungen zu treffen.
-      In unserem Team trifft tiefes Bau-Know-how auf angewandtes KI-Engineering, damit
+      In unserem Team trifft tiefes Bau-Know-how auf angewandte KI-Entwicklung, damit
       wir Lösungen liefern, die im Produktivbetrieb funktionieren und nicht nur in der
       Präsentation.
     image:
@@ -47,7 +47,13 @@ blocks:
       - name: Sascha Avermiddig
         role: Geschäftsführer
         email: sascha@gsilabs.de
-        image: { src: /assets/img/team-sascha.webp, alt: Sascha Avermiddig, width: 640, height: 640 }
+        image:
+          {
+            src: /assets/img/team-sascha.webp,
+            alt: Sascha Avermiddig,
+            width: 640,
+            height: 640
+          }
       - name: Daniel Bacon
         role: Technical Director
         email: daniel@gsilabs.de
@@ -66,9 +72,9 @@ blocks:
       - title: Gesündere Arbeitsplätze
         body: >-
           Menschen am Bau arbeiten unter hoher körperlicher Belastung und ständigem
-          Termindruck. Wir entwickeln Lösungen, die wiederkehrende Handarbeit verringern,
-          unnötigen Stress beseitigen und den Menschen die Werkzeuge geben, sich auf das
-          zu konzentrieren, was sie am besten können.
+          Termindruck. Wir entwickeln Lösungen, die wiederkehrende Handarbeit
+          verringern, unnötigen Stress beseitigen und den Menschen die Werkzeuge geben,
+          sich auf das zu konzentrieren, was sie am besten können.
       - title: Nachhaltiges Bauen
         body: >-
           Auf die gebaute Umwelt entfällt ein erheblicher Teil der weltweiten

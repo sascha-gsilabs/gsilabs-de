@@ -11,7 +11,7 @@ blocks:
       Wir bauen die Berechnungs- und Optimierungswerkzeuge, in denen geotechnische Büros
       arbeiten, vom statistischen Baugrundmodell bis zu Ergebnissen, die EA Pfähle und
       Eurocode 7 genügen.
-    cta: { label: Kontakt aufnehmen, href: /get-started }
+    cta: { label: Jetzt loslegen, href: /get-started }
     image:
       src: /assets/img/geo-engineers-top.webp
       alt: Ein Bohrgerät auf einer innerstädtischen Baustelle, Bohrdaten werden aufgenommen
@@ -26,10 +26,11 @@ blocks:
       nicht.
     lede: >-
       Allgemeine Ingenieurwerkzeuge behandeln die Geotechnik als einen Lastfall unter
-      vielen. Heraus kommt Software, die nicht ausdrücken kann, was ein Schichtenverzeichnis
-      wirklich sagt, oder die Zahlen liefert, die ein Ingenieur von Hand nachrechnen muss,
-      bevor er unterschreibt. Wir arbeiten selbst in diesem Feld, also fangen wir bei genau
-      den Details an, die darüber entscheiden, ob ein Werkzeug brauchbar ist.
+      vielen. Heraus kommt Software, die nicht ausdrücken kann, was ein
+      Schichtenverzeichnis wirklich sagt, oder die Zahlen liefert, die ein Ingenieur von
+      Hand nachrechnen muss, bevor er unterschreibt. Wir arbeiten selbst in diesem Feld,
+      also fangen wir bei genau den Details an, die darüber entscheiden, ob ein Werkzeug
+      brauchbar ist.
     items:
       - title: Statistische Baugrundmodelle
         body: >-
@@ -57,32 +58,34 @@ blocks:
       - title: Bei der Berechnung anfangen
         body: >-
           Bevor es eine Oberfläche gibt, arbeiten wir das Ingenieurthema mit Ihrem Team
-          durch: welche Norm gilt, welche Teilsicherheitsbeiwerte greifen, was das Werkzeug
-          niemals ausgeben darf. Hier entscheidet sich, ob geotechnische Software taugt,
-          und das ist der Teil, den ein allgemeines Entwicklungsteam nicht für Sie
-          erledigen kann. Am Ende steht eine Spezifikation, die ein Ingenieur geprüft hat.
+          durch: welche Norm gilt, welche Teilsicherheitsbeiwerte greifen, was das
+          Werkzeug niemals ausgeben darf. Hier entscheidet sich, ob geotechnische
+          Software taugt, und das ist der Teil, den ein allgemeines Entwicklungsteam
+          nicht für Sie erledigen kann. Am Ende steht eine Spezifikation, die ein
+          Ingenieur geprüft hat.
       - title: Dort bauen, wo Ihre Arbeit schon stattfindet
         body: >-
           Das Werkzeug muss zum Büro passen. Also zu den Dateiformaten, in denen Ihre
-          Projekte ankommen, zu der Berichterstattung, die Ihre Auftraggeber erwarten, und
-          zu den Systemen, die Sie ohnehin betreiben, ob als Desktop-Anwendung, als Plugin
-          in einer Planungsumgebung oder als Dienst, den Ihre übrigen Werkzeuge aufrufen.
+          Projekte ankommen, zu der Berichterstattung, die Ihre Auftraggeber erwarten,
+          und zu den Systemen, die Sie ohnehin betreiben, ob als Desktop-Anwendung, als
+          Plugin in einer Planungsumgebung oder als Dienst, den Ihre übrigen Werkzeuge
+          aufrufen.
       - title: An echten Projekten absichern
         body: >-
-          Jeder Rechenweg wird an Projekten getestet, die Sie bereits abgewickelt haben und
-          bei denen die Antwort bekannt ist. Ihre Ingenieure prüfen die Ergebnisse und
-          geben frei, bevor etwas ernsthaft eingesetzt wird. Wir arbeiten nach, bis die
-          Zahlen standhalten, und pflegen sie danach weiter, während sich die Normen
+          Jeder Rechenweg wird an Projekten getestet, die Sie bereits abgewickelt haben
+          und bei denen die Antwort bekannt ist. Ihre Ingenieure prüfen die Ergebnisse
+          und geben frei, bevor etwas ernsthaft eingesetzt wird. Wir arbeiten nach, bis
+          die Zahlen standhalten, und pflegen sie danach weiter, während sich die Normen
           bewegen.
 
   - type: statement
     title: Wir arbeiten selbst in diesem Feld, und die Software verhält sich danach.
     body: >-
       Unser eigenes Büro bemisst Gründungen, und piledesigner.io ist aus dieser Arbeit
-      entstanden. Genau das merken Sie in den Details: was das Werkzeug verweigert, was es
-      bestätigt haben will und was es Ihnen am Ende in die Hand gibt. Keine Vorführung
-      dessen, was geotechnische Software sein könnte, sondern das, womit Ingenieure
-      Projekte aus dem Haus bekommen.
+      entstanden. Genau das merken Sie in den Details: was das Werkzeug verweigert, was
+      es bestätigt haben will und was es Ihnen am Ende in die Hand gibt. Keine
+      Vorführung dessen, was geotechnische Software sein könnte, sondern das, womit
+      Ingenieure Projekte aus dem Haus bekommen.
     points:
       - Erst die Ingenieurentscheidung, dann die Oberfläche darum herum, nie umgekehrt
       - Abgesichert an abgeschlossenen Projekten statt an konstruierten Testfällen
@@ -95,7 +98,7 @@ blocks:
       Sagen Sie uns, was Sie modellieren wollen und wo Ihnen die vorhandene Software im
       Weg steht. Wir kommen mit einer ehrlichen Einschätzung zurück, was sich zu bauen
       lohnt.
-    cta: { label: Kontakt aufnehmen, href: /get-started }
+    cta: { label: Jetzt loslegen, href: /get-started }
     secondary: { label: Unser Vorgehen ansehen, href: /our-process }
 
   - type: news
