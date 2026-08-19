@@ -212,12 +212,12 @@
     else addEventListener('load', load, { once: true })
   }
 
-  /* --- consent, and the two services that wait behind it ------------------ */
+  /* --- consent, and the services that wait behind it --------------------- */
 
-  /* Google Analytics and Apollo both write to the visitor's device, so neither may
-     load before the visitor has said yes. That is the whole point of this block:
-     the ids sit in the markup, the scripts are built here and nowhere else, and
-     nothing in the page head reaches either company on its own.
+  /* Anything that writes to a visitor's device needs their agreement first, so
+     none of these scripts sit in the page head. The ids sit in the markup, the
+     script tags are built here and nowhere else, and each one waits for the switch
+     it belongs to.
 
      The banner is server rendered on every page but starts hidden, so a returning
      visitor never sees it flash. Which means: with this script blocked, no banner
@@ -227,15 +227,18 @@
 
   if (banner) {
     const KEY = 'gsi-consent'
-    /* Bump when the services change. Somebody who agreed to the old set has not
-       agreed to the new one, so their stored answer stops counting and they are
-       asked again. */
-    const VERSION = 1
+    /* Bump when the groups or the services behind them change. Somebody who agreed
+       to the old set has not agreed to the new one, so their stored answer stops
+       counting and they are asked again. */
+    const VERSION = 2
+
+    const boxes = [...banner.querySelectorAll('[data-consent-group]')]
+    const optional = boxes.filter((box) => !box.disabled)
 
     const read = () => {
       try {
         const saved = JSON.parse(localStorage.getItem(KEY) || 'null')
-        return saved && saved.v === VERSION ? saved : null
+        return saved && saved.v === VERSION && saved.groups ? saved.groups : null
       } catch {
         // Private mode, or a hand edited value. Treat it as never asked.
         return null
@@ -244,53 +247,61 @@
 
     const write = (granted) => {
       try {
-        localStorage.setItem(KEY, JSON.stringify({ v: VERSION, granted, at: new Date().toISOString() }))
+        localStorage.setItem(
+          KEY,
+          JSON.stringify({ v: VERSION, groups: granted, at: new Date().toISOString() })
+        )
       } catch {
         /* Nothing to do. Without storage the visitor is asked again next time,
            which is the safe way round. */
       }
     }
 
-    let started = false
+    const started = new Set()
 
-    const start = () => {
-      if (started) return
-      started = true
+    /* Loads whatever the granted groups carry. Runs on every page, and again when
+       somebody agrees mid visit, so it has to be safe to call twice. */
+    const start = (granted) => {
+      for (const box of optional) {
+        const group = box.dataset.consentGroup
+        if (!granted[group] || started.has(group)) continue
+        started.add(group)
 
-      const ga = banner.dataset.ga4
-      if (ga) {
-        window.dataLayer = window.dataLayer || []
-        window.gtag = function () {
-          window.dataLayer.push(arguments)
+        if (box.dataset.ga4) {
+          const id = box.dataset.ga4
+          window.dataLayer = window.dataLayer || []
+          window.gtag = function () {
+            window.dataLayer.push(arguments)
+          }
+          window.gtag('js', new Date())
+          /* The privacy policy says the advertising features are off. This is one
+             of the two places that promise is kept; the other is the account
+             setting, and both have to say the same thing. */
+          window.gtag('config', id, {
+            allow_google_signals: false,
+            allow_ad_personalization_signals: false,
+          })
+
+          const tag = document.createElement('script')
+          tag.src = 'https://www.googletagmanager.com/gtag/js?id=' + encodeURIComponent(id)
+          tag.async = true
+          document.head.appendChild(tag)
         }
-        window.gtag('js', new Date())
-        /* The privacy policy says the advertising features are off. This is one of
-           the two places that promise is kept; the other is the account setting,
-           and both have to say the same thing. */
-        window.gtag('config', ga, {
-          allow_google_signals: false,
-          allow_ad_personalization_signals: false,
-        })
 
-        const tag = document.createElement('script')
-        tag.src = 'https://www.googletagmanager.com/gtag/js?id=' + encodeURIComponent(ga)
-        tag.async = true
-        document.head.appendChild(tag)
-      }
-
-      const apollo = banner.dataset.apollo
-      if (apollo) {
-        const tag = document.createElement('script')
-        /* The random query string is Apollo's own, from the snippet they publish.
-           It defeats caching, which is wasteful, but it is their tracker and not
-           the place to get clever. */
-        tag.src =
-          'https://assets.apollo.io/micro/website-tracker/tracker.iife.js?nocache=' +
-          Math.random().toString(36).substring(7)
-        tag.async = true
-        tag.defer = true
-        tag.onload = () => window.trackingFunctions?.onLoad({ appId: apollo })
-        document.head.appendChild(tag)
+        if (box.dataset.apollo) {
+          const id = box.dataset.apollo
+          const tag = document.createElement('script')
+          /* The random query string is Apollo's own, from the snippet they publish.
+             It defeats caching, which is wasteful, but it is their tracker and not
+             the place to get clever. */
+          tag.src =
+            'https://assets.apollo.io/micro/website-tracker/tracker.iife.js?nocache=' +
+            Math.random().toString(36).substring(7)
+          tag.async = true
+          tag.defer = true
+          tag.onload = () => window.trackingFunctions?.onLoad({ appId: id })
+          document.head.appendChild(tag)
+        }
       }
     }
 
@@ -298,9 +309,9 @@
        reloaded without it. What the services left behind goes first, otherwise the
        next visit is recognised as this same one and the withdrawal is only a word.
 
-       Apollo keeps nothing in a cookie: its identifier is `apolloAnonId` in local
+       Apollo keeps nothing in a cookie: its identifier is apolloAnonId in local
        storage, next to two working entries prefixed with the app id. Google is the
-       other way round and writes `_ga` cookies. Measured against both trackers, and
+       other way round and writes _ga cookies. Measured against both trackers, and
        checked by tools/test-consent.mjs, so a change on their side shows up as a
        failing test rather than as a promise this page quietly stopped keeping. */
     const forget = () => {
@@ -312,10 +323,10 @@
         document.cookie = name + '=; max-age=0; path=/; domain=.' + location.hostname
       })
 
-      const apollo = banner.dataset.apollo
+      const apps = optional.map((box) => box.dataset.apollo).filter(Boolean)
       try {
         Object.keys(localStorage).forEach((key) => {
-          if (key === 'apolloAnonId' || (apollo && key.startsWith(apollo + '_')))
+          if (key === 'apolloAnonId' || apps.some((app) => key.startsWith(app + '_')))
             localStorage.removeItem(key)
         })
       } catch {
@@ -323,29 +334,69 @@
       }
     }
 
+    const setPane = (pane) => {
+      banner.dataset.pane = pane
+      banner
+        .querySelector('[data-consent="open-panel"]')
+        ?.setAttribute('aria-expanded', String(pane === 'panel'))
+    }
+
+    /* One place where a decision is recorded, whichever button made it. Turning a
+       group off that was on means a script is already running, and only a reload
+       gets rid of it. */
+    const decide = (granted) => {
+      const before = read() || {}
+      const revoked = optional.some((box) => {
+        const group = box.dataset.consentGroup
+        return before[group] && !granted[group]
+      })
+
+      write(granted)
+      banner.hidden = true
+      setPane('notice')
+
+      if (revoked) {
+        forget()
+        location.reload()
+        return
+      }
+      start(granted)
+    }
+
+    const all = (value) =>
+      Object.fromEntries(optional.map((box) => [box.dataset.consentGroup, value]))
+
+    const chosen = () =>
+      Object.fromEntries(optional.map((box) => [box.dataset.consentGroup, box.checked]))
+
     banner.querySelectorAll('[data-consent]').forEach((button) => {
       button.addEventListener('click', () => {
-        const granted = button.dataset.consent === 'accept'
-        const had = read()?.granted === true
-        write(granted)
-        banner.hidden = true
-        if (granted) start()
-        else if (had) {
-          forget()
-          location.reload()
-        }
+        const action = button.dataset.consent
+        if (action === 'open-panel') return setPane('panel')
+        if (action === 'all') return decide(all(true))
+        if (action === 'none') return decide(all(false))
+        decide(chosen())
       })
     })
 
+    /* The way back in, from the footer of every page. It opens the panel rather
+       than the notice: somebody who came here on purpose wants the switches, not
+       the summary they have already read once. */
     document.querySelectorAll('[data-consent-open]').forEach((control) => {
       control.addEventListener('click', () => {
+        const granted = read() || {}
+        optional.forEach((box) => (box.checked = granted[box.dataset.consentGroup] === true))
+        setPane('panel')
         banner.hidden = false
-        banner.querySelector('[data-consent]')?.focus()
+        banner.querySelector('.consent-group__box:not([disabled])')?.focus()
       })
     })
 
     const decision = read()
     if (!decision) banner.hidden = false
-    else if (decision.granted) start()
+    else {
+      optional.forEach((box) => (box.checked = decision[box.dataset.consentGroup] === true))
+      start(decision)
+    }
   }
 })()

@@ -71,36 +71,60 @@ ui:
     work on to {email} instead.
   formNoscript: >-
     The form needs JavaScript. Write to {email} instead and you reach the same people.
-  consentTitle: Visitor recognition
-  # Naming the service, what it stores and where the data goes is what makes the
-  # agreement an informed one. A banner that only says "we use cookies" is not,
-  # and on this site it would not even be true: Apollo sets no cookies.
+  # The first layer names no vendor. It says what happens, offers the two answers
+  # and a way into the detail. Who receives what is one click away, in the panel
+  # and in the privacy policy, which is where a reader who wants it goes looking.
+  consentTitle: Your privacy
   consentBody: >-
-    We would like to use Apollo.io, to see which companies take an interest in our
-    work. It stores an identifier in your browser and sends your IP address to the
-    United States. It sets no cookies. Nothing loads until you agree, and you can
-    change your mind at any time.
-  consentAccept: Accept
-  consentDecline: Decline
+    This website stores information on your device. Some of it is needed for the
+    pages to work. The rest runs only if you agree, and sends data to the United
+    States. You choose what to allow, and you can change your mind at any time.
+  consentAcceptAll: Accept all
+  consentRejectAll: Reject all
+  consentCustomise: Choose
+  consentPanelTitle: What you allow
+  consentSave: Save choice
+  consentAlwaysOn: Always on
   consentMore: Privacy policy
-  # Not "cookie settings". There are no cookies to settle, and a label that names
-  # something the site does not do is the wrong place to start a privacy notice.
+  # Not "cookie settings". There are no cookies to settle: nothing on this site
+  # writes one, which was measured rather than assumed. A label naming something
+  # the site does not do is the wrong place to start a privacy notice.
   consentSettings: Tracking settings
 
-# Visitor recognition. Nothing here loads until the visitor agrees in the banner,
-# which is what Section 25(1) TDDDG requires of anything that writes to a visitor's
-# device, cookie or not. An empty value switches that service off; with both empty
-# no banner is rendered at all, because there is then nothing to ask about.
-analytics:
-  # Google Analytics, switched off. The loader, the test and the privacy wording
-  # are built for it; putting a G-XXXXXXXXXX measurement id here is all it takes to
-  # bring it back. The policy has to grow a Google paragraph again at the same time.
-  ga4: ""
-  apollo: "6a3a8cdc1229b300147d5bc7"
-  # Where the banner sends someone who wants the detail before deciding. Named
-  # `href` so the build puts the language prefix in front of it, the same way it
-  # does for every other link in the header and footer.
+  # One entry per switch in the panel. The vendor belongs here rather than on the
+  # first layer, close enough to the switch that turning it on is a decision about
+  # a named company and not about a word like "marketing".
+  consentNecessary: Necessary
+  consentNecessaryBody: >-
+    Delivers the pages and remembers the choice you make here. No third party is
+    involved and none of it identifies you.
+  consentMarketing: Marketing
+  consentMarketingBody: >-
+    Apollo.io, a service of ZenLeads Inc. in the United States, receives your IP
+    address and the pages you open, and matches the address against its own database
+    of company networks. It tells us which companies read our work, not which people.
+    It sets no cookies, but it stores an identifier in your browser.
+  consentAnalytics: Analytics
+  consentAnalyticsBody: >-
+    Google Analytics counts which pages are read and how visitors find us. It sets
+    cookies that last up to two years and shortens your IP address before storing it.
+    We have switched off Google's advertising features.
+
+# The consent banner, and what waits behind each of its switches. A group with no
+# service configured is not offered, and with nothing optional left the banner is
+# not rendered at all: there would be nothing to ask about. Adding a measurement id
+# to the analytics group below is all it takes to bring Google back.
+consent:
+  # Named `href` so the build puts the language prefix in front of it, the same way
+  # it does for every other link in the header and footer.
   href: /privacy
+  groups:
+    - id: necessary
+      required: true
+    - id: marketing
+      apollo: "6a3a8cdc1229b300147d5bc7"
+    - id: analytics
+      ga4: ""
 
 # The HubSpot forms the site embeds, named for the job they do rather than by
 # their id, so a page asks for `enquiry` and never carries a UUID. Region and

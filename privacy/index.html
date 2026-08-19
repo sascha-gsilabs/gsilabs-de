@@ -36,18 +36,51 @@
 <body>
 <a class="skip" href="#main">Skip to content</a>
 <div class="consent" id="consent" role="dialog" aria-labelledby="consent-title"
-     aria-describedby="consent-body" data-consent-banner data-apollo="6a3a8cdc1229b300147d5bc7" hidden>
+     data-consent-banner data-pane="notice" hidden>
   <div class="consent__inner">
-    <div class="consent__text">
-      <h2 class="label" id="consent-title">Visitor recognition</h2>
-      <p class="small" id="consent-body">We would like to use Apollo.io, to see which companies take an interest in our work. It stores an identifier in your browser and sends your IP address to the United States. It sets no cookies. Nothing loads until you agree, and you can change your mind at any time.
-        <a class="link consent__more" href="/privacy">Privacy policy</a>
-      </p>
-    </div>
-    <div class="consent__actions">
-      <button class="btn btn--solid" type="button" data-consent="decline">Decline</button>
-      <button class="btn btn--solid" type="button" data-consent="accept">Accept</button>
-    </div>
+    <section class="consent__notice" aria-labelledby="consent-title">
+      <div class="consent__text">
+        <h2 class="label" id="consent-title">Your privacy</h2>
+        <p class="small">This website stores information on your device. Some of it is needed for the pages to work. The rest runs only if you agree, and sends data to the United States. You choose what to allow, and you can change your mind at any time.
+          <a class="link consent__more" href="/privacy">Privacy policy</a>
+        </p>
+      </div>
+      <div class="consent__actions">
+        <button class="btn btn--outline" type="button" data-consent="open-panel"
+                aria-expanded="false" aria-controls="consent-panel">Choose</button>
+        <button class="btn btn--solid" type="button" data-consent="none">Reject all</button>
+        <button class="btn btn--solid" type="button" data-consent="all">Accept all</button>
+      </div>
+    </section>
+
+    <section class="consent__panel" id="consent-panel" aria-labelledby="consent-panel-title">
+      <h2 class="label" id="consent-panel-title">What you allow</h2>
+      <div class="consent__groups">
+        <div class="consent-group">
+          <label class="consent-group__row">
+            <input class="consent-group__box" type="checkbox" checked disabled
+                   data-consent-group="necessary">
+            <span class="consent-group__name">Necessary</span>
+            <span class="consent-group__always label">Always on</span>
+          </label>
+          <p class="small consent-group__body">Delivers the pages and remembers the choice you make here. No third party is involved and none of it identifies you.</p>
+        </div>
+        <div class="consent-group">
+          <label class="consent-group__row">
+            <input class="consent-group__box" type="checkbox"
+                   data-consent-group="marketing" data-apollo="6a3a8cdc1229b300147d5bc7">
+            <span class="consent-group__name">Marketing</span>
+            
+          </label>
+          <p class="small consent-group__body">Apollo.io, a service of ZenLeads Inc. in the United States, receives your IP address and the pages you open, and matches the address against its own database of company networks. It tells us which companies read our work, not which people. It sets no cookies, but it stores an identifier in your browser.</p>
+        </div>
+      </div>
+      <div class="consent__actions">
+        <button class="btn btn--solid" type="button" data-consent="save">Save choice</button>
+        <button class="btn btn--solid" type="button" data-consent="none">Reject all</button>
+        <button class="btn btn--solid" type="button" data-consent="all">Accept all</button>
+      </div>
+    </section>
   </div>
 </div>
 
@@ -206,8 +239,9 @@ reads it again later, and it runs only if you have agreed to it. We ask when you
 first open the site, and until you agree nothing beyond the technically necessary
 is loaded. The legal basis is your consent under Art. 6(1)(a) GDPR and Section
 25(1) TDDDG.</p>
-<p>You can withdraw your consent at any time with effect for the future, through the
-tracking settings linked in the footer of every page. Withdrawing is as easy as
+<p>What you allow is decided one category at a time, and you can change it at any
+time with effect for the future, through the tracking settings linked in the
+footer of every page. Withdrawing is as easy as
 giving consent and does not affect the lawfulness of anything processed before.
 If you decline, the website works exactly as it does otherwise.</p>
 <p>With your consent we use the visitor recognition service of ZenLeads Inc.,

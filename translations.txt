@@ -203,27 +203,51 @@ Das Formular benötigt JavaScript. Schreiben Sie uns stattdessen an {email}, Sie
 
 [site.yml | ui.consentTitle]
 EN
-Visitor recognition
+Your privacy
 DE
-Besuchererkennung
+Ihre Privatsphäre
 
 [site.yml | ui.consentBody]
 EN
-We would like to use Apollo.io, to see which companies take an interest in our work. It stores an identifier in your browser and sends your IP address to the United States. It sets no cookies. Nothing loads until you agree, and you can change your mind at any time.
+This website stores information on your device. Some of it is needed for the pages to work. The rest runs only if you agree, and sends data to the United States. You choose what to allow, and you can change your mind at any time.
 DE
-Wir würden gern Apollo.io einsetzen, um zu sehen, welche Unternehmen sich für unsere Arbeit interessieren. Der Dienst legt eine Kennung in Ihrem Browser ab und übermittelt Ihre IP-Adresse in die USA. Cookies setzt er nicht. Bis Sie zustimmen, lädt nichts, und Sie können Ihre Entscheidung jederzeit ändern.
+Diese Website speichert Informationen auf Ihrem Endgerät. Ein Teil davon ist nötig, damit die Seiten funktionieren. Der Rest läuft nur, wenn Sie zustimmen, und übermittelt dabei Daten in die USA. Sie entscheiden, was Sie erlauben, und können Ihre Entscheidung jederzeit ändern.
 
-[site.yml | ui.consentAccept]
+[site.yml | ui.consentAcceptAll]
 EN
-Accept
+Accept all
 DE
-Zustimmen
+Alle akzeptieren
 
-[site.yml | ui.consentDecline]
+[site.yml | ui.consentRejectAll]
 EN
-Decline
+Reject all
 DE
-Ablehnen
+Alle ablehnen
+
+[site.yml | ui.consentCustomise]
+EN
+Choose
+DE
+Auswählen
+
+[site.yml | ui.consentPanelTitle]
+EN
+What you allow
+DE
+Was Sie erlauben
+
+[site.yml | ui.consentSave]
+EN
+Save choice
+DE
+Auswahl speichern
+
+[site.yml | ui.consentAlwaysOn]
+EN
+Always on
+DE
+Immer aktiv
 
 [site.yml | ui.consentMore]
 EN
@@ -236,6 +260,42 @@ EN
 Tracking settings
 DE
 Tracking-Einstellungen
+
+[site.yml | ui.consentNecessary]
+EN
+Necessary
+DE
+Notwendig
+
+[site.yml | ui.consentNecessaryBody]
+EN
+Delivers the pages and remembers the choice you make here. No third party is involved and none of it identifies you.
+DE
+Liefert die Seiten aus und merkt sich die Entscheidung, die Sie hier treffen. Kein Dritter ist beteiligt, und nichts davon identifiziert Sie.
+
+[site.yml | ui.consentMarketing]
+EN
+Marketing
+DE
+Marketing
+
+[site.yml | ui.consentMarketingBody]
+EN
+Apollo.io, a service of ZenLeads Inc. in the United States, receives your IP address and the pages you open, and matches the address against its own database of company networks. It tells us which companies read our work, not which people. It sets no cookies, but it stores an identifier in your browser.
+DE
+Apollo.io, ein Dienst der ZenLeads Inc. in den USA, erhält Ihre IP-Adresse und die von Ihnen aufgerufenen Seiten und gleicht die Adresse mit einer eigenen Datenbank von Unternehmensnetzen ab. Wir erfahren dadurch, welche Unternehmen unsere Arbeit lesen, nicht welche Personen. Cookies setzt der Dienst nicht, er legt aber eine Kennung in Ihrem Browser ab.
+
+[site.yml | ui.consentAnalytics]
+EN
+Analytics
+DE
+Analyse
+
+[site.yml | ui.consentAnalyticsBody]
+EN
+Google Analytics counts which pages are read and how visitors find us. It sets cookies that last up to two years and shortens your IP address before storing it. We have switched off Google's advertising features.
+DE
+Google Analytics zählt, welche Seiten gelesen werden und wie Besucher zu uns finden. Der Dienst setzt Cookies mit einer Laufzeit von bis zu zwei Jahren und kürzt Ihre IP-Adresse vor der Speicherung. Die Werbefunktionen von Google haben wir abgeschaltet.
 
 [site.yml | cta.label]
 EN
@@ -3299,8 +3359,9 @@ first open the site, and until you agree nothing beyond the technically necessar
 is loaded. The legal basis is your consent under Art. 6(1)(a) GDPR and Section
 25(1) TDDDG.
 
-You can withdraw your consent at any time with effect for the future, through the
-tracking settings linked in the footer of every page. Withdrawing is as easy as
+What you allow is decided one category at a time, and you can change it at any
+time with effect for the future, through the tracking settings linked in the
+footer of every page. Withdrawing is as easy as
 giving consent and does not affect the lawfulness of anything processed before.
 If you decline, the website works exactly as it does otherwise.
 
@@ -3390,8 +3451,9 @@ bis Sie zustimmen, wird nichts über das technisch Notwendige hinaus geladen.
 Rechtsgrundlage ist Ihre Einwilligung nach Art. 6 Abs. 1 lit. a DSGVO und § 25
 Abs. 1 TDDDG.
 
-Sie können Ihre Einwilligung jederzeit mit Wirkung für die Zukunft widerrufen,
-über die Tracking-Einstellungen im Fußbereich jeder Seite. Der Widerruf ist so
+Was Sie erlauben, entscheiden Sie einzeln je Kategorie, und Sie können es
+jederzeit mit Wirkung für die Zukunft ändern, über die Tracking-Einstellungen
+im Fußbereich jeder Seite. Der Widerruf ist so
 einfach wie die Einwilligung und berührt die Rechtmäßigkeit der bis dahin
 erfolgten Verarbeitung nicht. Wenn Sie ablehnen, funktioniert die Website genauso
 wie sonst auch.

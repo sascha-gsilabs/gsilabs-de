@@ -53,16 +53,38 @@ ui:
   formNoscript: >-
     Das Formular benötigt JavaScript. Schreiben Sie uns stattdessen an {email}, Sie
     erreichen dieselben Leute.
-  consentTitle: Besuchererkennung
+  consentTitle: Ihre Privatsphäre
   consentBody: >-
-    Wir würden gern Apollo.io einsetzen, um zu sehen, welche Unternehmen sich für
-    unsere Arbeit interessieren. Der Dienst legt eine Kennung in Ihrem Browser ab und
-    übermittelt Ihre IP-Adresse in die USA. Cookies setzt er nicht. Bis Sie zustimmen,
-    lädt nichts, und Sie können Ihre Entscheidung jederzeit ändern.
-  consentAccept: Zustimmen
-  consentDecline: Ablehnen
+    Diese Website speichert Informationen auf Ihrem Endgerät. Ein Teil davon ist
+    nötig, damit die Seiten funktionieren. Der Rest läuft nur, wenn Sie zustimmen,
+    und übermittelt dabei Daten in die USA. Sie entscheiden, was Sie erlauben, und
+    können Ihre Entscheidung jederzeit ändern.
+  consentAcceptAll: Alle akzeptieren
+  consentRejectAll: Alle ablehnen
+  consentCustomise: Auswählen
+  consentPanelTitle: Was Sie erlauben
+  consentSave: Auswahl speichern
+  consentAlwaysOn: Immer aktiv
   consentMore: Datenschutzerklärung
   consentSettings: Tracking-Einstellungen
+
+  consentNecessary: Notwendig
+  consentNecessaryBody: >-
+    Liefert die Seiten aus und merkt sich die Entscheidung, die Sie hier treffen.
+    Kein Dritter ist beteiligt, und nichts davon identifiziert Sie.
+  consentMarketing: Marketing
+  consentMarketingBody: >-
+    Apollo.io, ein Dienst der ZenLeads Inc. in den USA, erhält Ihre IP-Adresse und
+    die von Ihnen aufgerufenen Seiten und gleicht die Adresse mit einer eigenen
+    Datenbank von Unternehmensnetzen ab. Wir erfahren dadurch, welche Unternehmen
+    unsere Arbeit lesen, nicht welche Personen. Cookies setzt der Dienst nicht, er
+    legt aber eine Kennung in Ihrem Browser ab.
+  consentAnalytics: Analyse
+  consentAnalyticsBody: >-
+    Google Analytics zählt, welche Seiten gelesen werden und wie Besucher zu uns
+    finden. Der Dienst setzt Cookies mit einer Laufzeit von bis zu zwei Jahren und
+    kürzt Ihre IP-Adresse vor der Speicherung. Die Werbefunktionen von Google haben
+    wir abgeschaltet.
 
 cta:
   label: Jetzt loslegen

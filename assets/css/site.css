@@ -1335,7 +1335,7 @@ button {
 
 /* A black band across the foot of the window, on the same ground as the dark
    sections of the site. It sits above the header, which is the only other fixed
-   thing on the page. */
+   thing on the page. Two panes live inside it and only one is ever shown. */
 .consent {
   position: fixed;
   inset: auto 0 0;
@@ -1367,6 +1367,20 @@ button {
   max-width: var(--measure);
   margin-inline: auto;
   padding: var(--s4) var(--gutter);
+  /* The panel can outgrow a short window, so it scrolls inside the band rather
+     than pushing its own buttons off the bottom of the screen. */
+  max-height: min(80vh, 44rem);
+  overflow-y: auto;
+}
+
+.consent[data-pane='notice'] .consent__panel,
+.consent[data-pane='panel'] .consent__notice {
+  display: none;
+}
+
+/* --- first layer ---------------------------------------------------------- */
+
+.consent__notice {
   display: flex;
   flex-wrap: wrap;
   align-items: center;
@@ -1396,8 +1410,97 @@ button {
   white-space: nowrap;
 }
 
-/* Both answers are the same control at the same size. A refusal that costs more
-   than an agreement is not a decision the visitor made freely. */
+/* --- second layer --------------------------------------------------------- */
+
+.consent__panel {
+  display: flex;
+  flex-direction: column;
+  gap: var(--s3);
+}
+
+.consent__panel > .label {
+  color: var(--on-ground-faint);
+}
+
+/* Two columns where they fit, one where they do not. Each switch stays with the
+   text that explains it either way. */
+.consent__groups {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(19rem, 1fr));
+  gap: var(--s3) var(--s5);
+}
+
+.consent-group {
+  display: flex;
+  flex-direction: column;
+  gap: var(--s1);
+  padding-top: var(--s3);
+  border-top: 1px solid var(--line);
+}
+
+.consent-group__row {
+  display: flex;
+  align-items: center;
+  gap: 0.7rem;
+  cursor: pointer;
+}
+
+.consent-group__row:has(:disabled) {
+  cursor: default;
+}
+
+/* The site has no rounded corners and no second hue, so the switch is a square
+   box that fills in, drawn from the same two colours as everything else. */
+.consent-group__box {
+  appearance: none;
+  flex: none;
+  width: 1.15rem;
+  height: 1.15rem;
+  margin: 0;
+  border: 1px solid var(--on-ground-faint);
+  background: transparent;
+  cursor: inherit;
+  transition: background-color 0.2s linear, border-color 0.2s linear;
+}
+
+.consent-group__box:hover:not(:disabled) {
+  border-color: var(--on-ground);
+}
+
+.consent-group__box:checked {
+  background-color: var(--on-ground);
+  border-color: var(--on-ground);
+  /* The tick is a drawn path rather than a character, so it needs no glyph in the
+     subset and cannot fall back to a system font. Its stroke is the band's own
+     black, which is the ground behind the filled box. */
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 12'%3E%3Cpath d='M2.2 6.3 4.7 8.8 9.8 3.4' fill='none' stroke='%23000' stroke-width='1.7' stroke-linecap='square'/%3E%3C/svg%3E");
+  background-size: 84%;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.consent-group__box:disabled {
+  opacity: 0.55;
+}
+
+.consent-group__name {
+  font-family: var(--font-display);
+  font-weight: 500;
+}
+
+.consent-group__always {
+  color: var(--on-ground-faint);
+}
+
+.consent-group__body {
+  margin: 0;
+  color: var(--on-ground-dim);
+}
+
+/* --- both layers ---------------------------------------------------------- */
+
+/* Accept and reject are the same control at the same size. A refusal that costs
+   more than an agreement is not a decision the visitor made freely. */
 .consent__actions {
   display: flex;
   flex-wrap: wrap;
@@ -1408,6 +1511,16 @@ button {
   flex: 1 1 auto;
   justify-content: center;
   min-width: 9rem;
+}
+
+.consent__panel .consent__actions {
+  justify-content: flex-end;
+}
+
+@media (max-width: 640px) {
+  .consent__actions .btn {
+    flex: 1 1 100%;
+  }
 }
 
 @media (prefers-reduced-motion: reduce) {

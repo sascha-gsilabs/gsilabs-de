@@ -112,8 +112,9 @@ blocks:
       Rechtsgrundlage ist Ihre Einwilligung nach Art. 6 Abs. 1 lit. a DSGVO und § 25
       Abs. 1 TDDDG.
 
-      Sie können Ihre Einwilligung jederzeit mit Wirkung für die Zukunft widerrufen,
-      über die Tracking-Einstellungen im Fußbereich jeder Seite. Der Widerruf ist so
+      Was Sie erlauben, entscheiden Sie einzeln je Kategorie, und Sie können es
+      jederzeit mit Wirkung für die Zukunft ändern, über die Tracking-Einstellungen
+      im Fußbereich jeder Seite. Der Widerruf ist so
       einfach wie die Einwilligung und berührt die Rechtmäßigkeit der bis dahin
       erfolgten Verarbeitung nicht. Wenn Sie ablehnen, funktioniert die Website genauso
       wie sonst auch.

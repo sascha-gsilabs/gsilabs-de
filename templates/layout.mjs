@@ -141,39 +141,94 @@ function langSwitch(site, lang, alternates) {
    cannot simply be written as "/". */
 const homeHref = (site, lang) => (site.languages ?? []).find((l) => l.code === lang)?.prefix || '/'
 
-/* Whether anything on this site needs asking about. With no measurement id and
-   no Apollo app id configured, the page loads no third party script, so there is
-   nothing to consent to and neither the banner nor the footer link is rendered.
-   Adding an id in site.yml is what turns the whole apparatus on. */
-const asksConsent = (site) => Boolean(site.analytics?.ga4 || site.analytics?.apollo)
+/* The switches the banner offers. A group with nothing configured behind it is
+   dropped: an empty "Analytics" toggle that turns nothing on is worse than no
+   toggle at all. `necessary` is declared in site.yml like the rest so that the
+   panel lists it, which is the point of listing it: a visitor should be able to
+   see what runs regardless, not just what they can refuse. */
+const consentGroups = (site) =>
+  (site.consent?.groups ?? []).filter((g) => g.required || g.apollo || g.ga4)
+
+/* With nothing left to refuse there is nothing to ask, so no banner is rendered
+   and no footer link offered. Removing the last service id from site.yml takes
+   the whole apparatus off the site. */
+const asksConsent = (site) => consentGroups(site).some((g) => !g.required)
+
+const cap = (s) => s[0].toUpperCase() + s.slice(1)
+
+/* One row of the panel: a switch, the group's name, and who is behind it. The
+   vendor is named here rather than on the first layer, close enough to the switch
+   that turning it on is a decision about a named company and not about the word
+   "marketing". */
+const consentGroup = (site, group) => {
+  const on = group.required
+  return `        <div class="consent-group">
+          <label class="consent-group__row">
+            <input class="consent-group__box" type="checkbox"${on ? ' checked disabled' : ''}
+                   data-consent-group="${esc(group.id)}"${group.apollo ? ` data-apollo="${esc(group.apollo)}"` : ''}${
+    group.ga4 ? ` data-ga4="${esc(group.ga4)}"` : ''
+  }>
+            <span class="consent-group__name">${esc(t(site, 'consent' + cap(group.id)))}</span>
+            ${on ? `<span class="consent-group__always label">${esc(t(site, 'consentAlwaysOn'))}</span>` : ''}
+          </label>
+          <p class="small consent-group__body">${mdInline(t(site, 'consent' + cap(group.id) + 'Body'))}</p>
+        </div>`
+}
 
 /* The consent notice. Rendered on every page but hidden, and shown by the script
    only when no decision is stored, so a returning visitor never sees it flash.
    With JavaScript off it stays hidden, which is the honest state: the services it
    asks about are loaded by that same script and would not run either.
 
-   Both buttons are the same button. Equal prominence is not a style choice here:
-   a refusal that is harder to give than an agreement is not a free decision, and
-   the German supervisory authorities read it that way. */
+   Two layers. The first names no vendor, says what happens, and offers the two
+   answers plus a way into the detail. The second is the detail. That split is the
+   ordinary shape of these things, and it works here because the second layer is
+   one click away rather than a page away.
+
+   Accept and reject are the same button at the same size on both layers. Equal
+   prominence is not a style choice: a refusal that costs more than an agreement is
+   not a decision anybody made freely, and the German supervisory authorities read
+   it that way. */
 function consent(site) {
   if (!asksConsent(site)) return ''
 
-  const services = site.analytics
+  const groups = consentGroups(site)
+  const accept = `<button class="btn btn--solid" type="button" data-consent="all">${esc(
+    t(site, 'consentAcceptAll')
+  )}</button>`
+  const reject = `<button class="btn btn--solid" type="button" data-consent="none">${esc(
+    t(site, 'consentRejectAll')
+  )}</button>`
+
   return `<div class="consent" id="consent" role="dialog" aria-labelledby="consent-title"
-     aria-describedby="consent-body" data-consent-banner${
-       services.ga4 ? ` data-ga4="${esc(services.ga4)}"` : ''
-     }${services.apollo ? ` data-apollo="${esc(services.apollo)}"` : ''} hidden>
+     data-consent-banner data-pane="notice" hidden>
   <div class="consent__inner">
-    <div class="consent__text">
-      <h2 class="label" id="consent-title">${esc(t(site, 'consentTitle'))}</h2>
-      <p class="small" id="consent-body">${mdInline(t(site, 'consentBody'))}
-        <a class="link consent__more" href="${services.href}">${esc(t(site, 'consentMore'))}</a>
-      </p>
-    </div>
-    <div class="consent__actions">
-      <button class="btn btn--solid" type="button" data-consent="decline">${esc(t(site, 'consentDecline'))}</button>
-      <button class="btn btn--solid" type="button" data-consent="accept">${esc(t(site, 'consentAccept'))}</button>
-    </div>
+    <section class="consent__notice" aria-labelledby="consent-title">
+      <div class="consent__text">
+        <h2 class="label" id="consent-title">${esc(t(site, 'consentTitle'))}</h2>
+        <p class="small">${mdInline(t(site, 'consentBody'))}
+          <a class="link consent__more" href="${site.consent.href}">${esc(t(site, 'consentMore'))}</a>
+        </p>
+      </div>
+      <div class="consent__actions">
+        <button class="btn btn--outline" type="button" data-consent="open-panel"
+                aria-expanded="false" aria-controls="consent-panel">${esc(t(site, 'consentCustomise'))}</button>
+        ${reject}
+        ${accept}
+      </div>
+    </section>
+
+    <section class="consent__panel" id="consent-panel" aria-labelledby="consent-panel-title">
+      <h2 class="label" id="consent-panel-title">${esc(t(site, 'consentPanelTitle'))}</h2>
+      <div class="consent__groups">
+${join(groups.map((group) => consentGroup(site, group)))}
+      </div>
+      <div class="consent__actions">
+        <button class="btn btn--solid" type="button" data-consent="save">${esc(t(site, 'consentSave'))}</button>
+        ${reject}
+        ${accept}
+      </div>
+    </section>
   </div>
 </div>`
 }

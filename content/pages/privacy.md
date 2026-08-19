@@ -100,8 +100,9 @@ blocks:
       is loaded. The legal basis is your consent under Art. 6(1)(a) GDPR and Section
       25(1) TDDDG.
 
-      You can withdraw your consent at any time with effect for the future, through the
-      tracking settings linked in the footer of every page. Withdrawing is as easy as
+      What you allow is decided one category at a time, and you can change it at any
+      time with effect for the future, through the tracking settings linked in the
+      footer of every page. Withdrawing is as easy as
       giving consent and does not affect the lawfulness of anything processed before.
       If you decline, the website works exactly as it does otherwise.
 

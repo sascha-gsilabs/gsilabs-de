@@ -1,7 +1,7 @@
-// Regression test for the consent banner and the two services behind it.
+// Regression test for the consent banner and the services behind its switches.
 //   node tools/test-consent.mjs [http://localhost:3001]
 //
-// The thing being tested is a negative: that nothing reaches Google or Apollo
+// The thing being tested is a negative: that nothing reaches Apollo or Google
 // before a visitor has agreed. A negative is exactly what review misses and what
 // a refactor breaks silently, since the page looks identical either way. So the
 // test watches the network rather than the markup.
@@ -53,21 +53,43 @@ async function open() {
     request.respond({ status: 200, contentType: 'application/javascript', body: '' })
   })
 
-  const visit = async (path) => {
-    await page.goto(BASE + path, { waitUntil: 'networkidle2' })
-  }
+  const visit = (path) => page.goto(BASE + path, { waitUntil: 'networkidle2' })
   const shown = () => page.$eval('[data-consent-banner]', (el) => !el.hidden)
+  const pane = () => page.$eval('[data-consent-banner]', (el) => el.dataset.pane)
   const trackers = () => calls.filter((url) => TRACKERS.test(new URL(url).host))
 
-  /* The band slides up over half a second, and until it has arrived its buttons
+  /* The band slides up over half a second, and until it has arrived its controls
      are below the fold and cannot be clicked. Waiting for it to land is what a
      visitor does without thinking about it. */
-  const reopen = async () => {
-    await page.click('[data-consent-open]')
-    await page.waitForFunction(() => {
+  const settle = () =>
+    page.waitForFunction(() => {
       const el = document.querySelector('[data-consent-banner]')
       return el && !el.hidden && el.getBoundingClientRect().bottom <= innerHeight + 1
     })
+
+  const reopen = async () => {
+    await page.click('[data-consent-open]')
+    await settle()
+  }
+
+  /* "Accept all" and "Reject all" appear on both layers, so a plain selector would
+     find the copy on the hidden one. Only the pane on show can be pressed, which
+     is also true for the visitor. Clicking a button that reloads the page and one
+     that does not look the same from here, so both are awaited the same way. */
+  const press = async (action) => {
+    let target = null
+    for (const handle of await page.$$(`[data-consent="${action}"]`)) {
+      if (await handle.evaluate((el) => el.offsetParent !== null)) {
+        target = handle
+        break
+      }
+    }
+    if (!target) throw new Error(`no visible [data-consent="${action}"] to press`)
+
+    const navigated = page.waitForNavigation({ waitUntil: 'networkidle2', timeout: 3000 }).catch(() => null)
+    await target.click()
+    await navigated
+    await page.waitForNetworkIdle({ idleTime: 400 }).catch(() => {})
   }
 
   return {
@@ -75,7 +97,10 @@ async function open() {
     calls,
     visit,
     shown,
+    pane,
+    settle,
     reopen,
+    press,
     trackers,
     clear: () => calls.splice(0),
     close: () => context.close(),
@@ -83,48 +108,65 @@ async function open() {
 }
 
 try {
-  /* --- someone who has not decided ---------------------------------------- */
+  /* --- somebody who has not decided --------------------------------------- */
   {
     const s = await open()
     await s.visit('/')
+    await s.settle()
     check('first visit shows the banner', await s.shown())
-    check('first visit calls no tracker', s.trackers().length === 0, s.trackers().join(', '))
+    check('and opens on the short notice', (await s.pane()) === 'notice', await s.pane())
+    check('and calls no tracker', s.trackers().length === 0, s.trackers().join(', '))
 
-    /* Declining is the state the site ships in, so it gets the same scrutiny as
-       accepting: no request now, and none after a reload either. */
-    await s.page.click('[data-consent="decline"]')
-    check('declining hides the banner', !(await s.shown()))
-    check('declining calls no tracker', s.trackers().length === 0, s.trackers().join(', '))
+    const named = await s.page.$eval('.consent__notice', (el) => el.textContent)
+    check(
+      'the first layer names no vendor',
+      !/apollo|google|zenleads/i.test(named),
+      named.trim().slice(0, 80)
+    )
+
+    /* Refusing is the state the site ships in, so it gets the same scrutiny as
+       agreeing: no request now, and none after a page change either. */
+    await s.press('none')
+    check('rejecting all hides the banner', !(await s.shown()))
+    check('and calls no tracker', s.trackers().length === 0, s.trackers().join(', '))
 
     s.clear()
     await s.visit('/our-process')
     check('the refusal survives a page change', !(await s.shown()))
     check('and still calls no tracker', s.trackers().length === 0, s.trackers().join(', '))
 
-    /* The way back in. Without it the policy's promise of a withdrawal that is as
-       easy as the agreement is not kept. */
+    /* The way back in. Without it the policy's promise of a withdrawal as easy as
+       the agreement is not kept. */
     await s.reopen()
     check('the footer link reopens the banner', await s.shown())
+    check('straight into the switches', (await s.pane()) === 'panel', await s.pane())
+
+    const locked = await s.page.$eval(
+      '[data-consent-group="necessary"]',
+      (el) => el.checked && el.disabled
+    )
+    check('what runs regardless is listed but locked', locked)
     await s.close()
   }
 
-  /* --- someone who agrees -------------------------------------------------- */
+  /* --- somebody who accepts everything ------------------------------------ */
   {
     const s = await open()
     await s.visit('/')
+    await s.settle()
 
     /* Which services to expect is read off the page rather than written here, so
-       filling in the measurement id in site.yml brings Google Analytics under
-       test without anyone remembering to come back and add it. */
-    const services = await s.page.$eval('[data-consent-banner]', (el) => [
-      ...(el.dataset.apollo ? [['Apollo', 'apollo.io']] : []),
-      ...(el.dataset.ga4 ? [['Google Analytics', 'googletagmanager.com']] : []),
-    ])
-    check('at least one service is configured', services.length > 0, 'site.yml has neither id')
+       filling in a measurement id in site.yml brings Google Analytics under test
+       without anyone remembering to come back and add it. */
+    const services = await s.page.$$eval('[data-consent-group]', (boxes) =>
+      boxes.flatMap((el) => [
+        ...(el.dataset.apollo ? [['Apollo', 'apollo.io']] : []),
+        ...(el.dataset.ga4 ? [['Google Analytics', 'googletagmanager.com']] : []),
+      ])
+    )
+    check('at least one service is configured', services.length > 0, 'site.yml has no id')
 
-    await s.page.click('[data-consent="accept"]')
-    await s.page.waitForNetworkIdle({ idleTime: 500 }).catch(() => {})
-
+    await s.press('all')
     check('accepting hides the banner', !(await s.shown()))
     for (const [name, host] of services)
       check(
@@ -141,24 +183,53 @@ try {
         `and loads ${name} without asking again`,
         s.trackers().some((url) => url.includes(host))
       )
+    await s.close()
+  }
+
+  /* --- somebody who picks ------------------------------------------------- */
+  {
+    const s = await open()
+    await s.visit('/')
+    await s.settle()
+
+    const groups = await s.page.$$eval('[data-consent-group]:not([disabled])', (boxes) =>
+      boxes.map((el) => el.dataset.consentGroup)
+    )
+    check('there is something to pick from', groups.length > 0)
+
+    // Save with every switch left off. Same effect as rejecting, by another route.
+    await s.page.click('[data-consent="open-panel"]')
+    await s.press('save')
+    check('saving an empty selection calls no tracker', s.trackers().length === 0, s.trackers().join(', '))
+
+    // Now turn one on and save again.
+    await s.reopen()
+    await s.page.click(`[data-consent-group="${groups[0]}"]`)
+    await s.press('save')
+    check(
+      `switching on "${groups[0]}" loads its service`,
+      s.trackers().length > 0,
+      'nothing was requested'
+    )
+
+    // Reopening has to show the switch as the visitor left it, not as it started.
+    await s.reopen()
+    const remembered = await s.page.$eval(`[data-consent-group="${groups[0]}"]`, (el) => el.checked)
+    check('and the panel remembers it', remembered)
 
     /* Withdrawing cannot unload a running script, so the page reloads without it.
        What matters is the visit after that one, and what the trackers left behind.
 
-       The identifiers are seeded by hand: the real Apollo script is answered locally
-       in this run and never gets to write them, but the code that clears them is the
+       The identifiers are seeded by hand: the real scripts are answered locally in
+       this run and never get to write them, but the code that clears them is the
        claim the privacy policy makes and so it is the thing worth testing. */
     await s.page.evaluate((app) => {
       localStorage.setItem('apolloAnonId', 'seeded-for-the-test')
       if (app) localStorage.setItem(app + '_eventQueue', '[]')
       document.cookie = '_ga=seeded-for-the-test; path=/'
-    }, await s.page.$eval('[data-consent-banner]', (el) => el.dataset.apollo || ''))
+    }, await s.page.$eval('[data-consent-group]:not([disabled])', (el) => el.dataset.apollo || ''))
 
-    await s.reopen()
-    await Promise.all([
-      s.page.waitForNavigation({ waitUntil: 'networkidle2' }),
-      s.page.click('[data-consent="decline"]'),
-    ])
+    await s.press('none')
     s.clear()
     await s.visit('/')
     check('withdrawing stops the tracker', s.trackers().length === 0, s.trackers().join(', '))
@@ -176,8 +247,13 @@ try {
   {
     const s = await open()
     await s.visit('/de')
+    await s.settle()
     const text = await s.page.$eval('[data-consent-banner]', (el) => el.textContent)
-    check('the German banner is German', text.includes('Zustimmen') && text.includes('Ablehnen'), text.trim().slice(0, 60))
+    check(
+      'the German banner is German',
+      ['Alle akzeptieren', 'Alle ablehnen', 'Notwendig', 'Immer aktiv'].every((w) => text.includes(w)),
+      text.trim().slice(0, 80)
+    )
     const href = await s.page.$eval('.consent__more', (el) => new URL(el.href).pathname)
     check('and points at the German policy', href === '/de/privacy', href)
     await s.close()
