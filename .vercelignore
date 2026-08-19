@@ -17,3 +17,7 @@ package.json
 package-lock.json
 README.md
 CLAUDE-frontend-rules.md
+# Every text on the site in one plain file. Useful in the repo, but on the live
+# site it would be a second, unlinked copy of the whole thing for a crawler to
+# find, in both languages.
+translations.txt
