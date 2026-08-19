@@ -117,12 +117,15 @@ try {
     check('and opens on the short notice', (await s.pane()) === 'notice', await s.pane())
     check('and calls no tracker', s.trackers().length === 0, s.trackers().join(', '))
 
+    /* The short layer is deliberately free of company names and of the country the
+       data goes to. Both belong one click deeper, and both are the kind of detail
+       that creeps back into a summary during a rewrite, so the line is guarded
+       here rather than left to whoever edits site.yml next. */
     const named = await s.page.$eval('.consent__notice', (el) => el.textContent)
-    check(
-      'the first layer names no vendor',
-      !/apollo|google|zenleads/i.test(named),
-      named.trim().slice(0, 80)
-    )
+    const leaks = [/apollo/i, /google/i, /zenleads/i, /\busa\b/i, /united states/i]
+      .filter((pattern) => pattern.test(named))
+      .map(String)
+    check('the first layer names no vendor and no country', leaks.length === 0, leaks.join(', '))
 
     /* Refusing is the state the site ships in, so it gets the same scrutiny as
        agreeing: no request now, and none after a page change either. */

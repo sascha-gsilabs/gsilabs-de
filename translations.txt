@@ -209,9 +209,9 @@ Ihre Privatsphäre
 
 [site.yml | ui.consentBody]
 EN
-This website stores information on your device. Some of it is needed for the pages to work. The rest runs only if you agree, and sends data to the United States. You choose what to allow, and you can change your mind at any time.
+This website stores information on your device. Some of it is needed for the pages to work. The rest runs only if you agree. You choose what to allow, and you can change your mind at any time.
 DE
-Diese Website speichert Informationen auf Ihrem Endgerät. Ein Teil davon ist nötig, damit die Seiten funktionieren. Der Rest läuft nur, wenn Sie zustimmen, und übermittelt dabei Daten in die USA. Sie entscheiden, was Sie erlauben, und können Ihre Entscheidung jederzeit ändern.
+Diese Website speichert Informationen auf Ihrem Endgerät. Ein Teil davon ist nötig, damit die Seiten funktionieren. Der Rest läuft nur, wenn Sie zustimmen. Sie entscheiden, was Sie erlauben, und können Ihre Entscheidung jederzeit ändern.
 
 [site.yml | ui.consentAcceptAll]
 EN

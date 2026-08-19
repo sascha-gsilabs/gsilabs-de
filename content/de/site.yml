@@ -56,9 +56,8 @@ ui:
   consentTitle: Ihre Privatsphäre
   consentBody: >-
     Diese Website speichert Informationen auf Ihrem Endgerät. Ein Teil davon ist
-    nötig, damit die Seiten funktionieren. Der Rest läuft nur, wenn Sie zustimmen,
-    und übermittelt dabei Daten in die USA. Sie entscheiden, was Sie erlauben, und
-    können Ihre Entscheidung jederzeit ändern.
+    nötig, damit die Seiten funktionieren. Der Rest läuft nur, wenn Sie zustimmen.
+    Sie entscheiden, was Sie erlauben, und können Ihre Entscheidung jederzeit ändern.
   consentAcceptAll: Alle akzeptieren
   consentRejectAll: Alle ablehnen
   consentCustomise: Auswählen

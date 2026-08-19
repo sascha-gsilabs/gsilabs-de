@@ -71,14 +71,18 @@ ui:
     work on to {email} instead.
   formNoscript: >-
     The form needs JavaScript. Write to {email} instead and you reach the same people.
-  # The first layer names no vendor. It says what happens, offers the two answers
-  # and a way into the detail. Who receives what is one click away, in the panel
-  # and in the privacy policy, which is where a reader who wants it goes looking.
+  # The first layer names neither the company nor the country. It says what
+  # happens, offers the two answers, and points at the detail. Who receives what,
+  # and where, is one click away in the panel and spelled out in the privacy
+  # policy. That split holds here because the transfer rests on the standard
+  # contractual clauses rather than on the visitor's consent: had it rested on
+  # Art. 49(1)(a), the warning about US authorities would belong in the consent
+  # itself and so on this layer. tools/test-consent.mjs guards the line.
   consentTitle: Your privacy
   consentBody: >-
     This website stores information on your device. Some of it is needed for the
-    pages to work. The rest runs only if you agree, and sends data to the United
-    States. You choose what to allow, and you can change your mind at any time.
+    pages to work. The rest runs only if you agree. You choose what to allow, and
+    you can change your mind at any time.
   consentAcceptAll: Accept all
   consentRejectAll: Reject all
   consentCustomise: Choose
