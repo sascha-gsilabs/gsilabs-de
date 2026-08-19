@@ -300,7 +300,14 @@ function applyFile() {
        folded block in the file, which is harmless but would otherwise put the
        whole German site into the diff for a one word correction. */
     const newFront = doc.toString({ lineWidth: 88 }).trimEnd()
-    const out = hasFront ? `---\n${newFront}\n---\n\n${newBody}\n` : `${newFront}\n`
+    /* A composed page has no body: everything it says is in its blocks. Without
+       this the file would collect a pair of blank lines after the frontmatter on
+       every apply. */
+    const out = !hasFront
+      ? `${newFront}\n`
+      : newBody
+        ? `---\n${newFront}\n---\n\n${newBody}\n`
+        : `---\n${newFront}\n---\n`
     writeFileSync(path, crlf ? out.replace(/\n/g, '\r\n') : out)
     changedFiles++
     changedValues += touched

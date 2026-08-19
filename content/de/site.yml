@@ -10,19 +10,18 @@ company:
   country: Deutschland
   legalLine: >-
     GSI Software GmbH. Eingetragen in Berlin, Deutschland (HRB 193812 B).
-    Geschäftsführer: Sascha Avermiddig. USt-IdNr.: DE316566578.
-    Kontakt: info@gsilabs.de
+    Geschäftsführer: Sascha Avermiddig. USt-IdNr.: DE316566578. Kontakt: info@gsilabs.de
 
 seo:
   defaultDescription: >-
     GSI Labs entwickelt KI-Lösungen für die Bauwirtschaft. Wir automatisieren
-    Arbeitsabläufe für Bauunternehmen, Ingenieurbüros, Hersteller und
-    Projektentwickler in ganz Europa.
+    Arbeitsabläufe für Bauunternehmen, Ingenieurbüros, Hersteller und Projektentwickler
+    in ganz Europa.
   ogLocale: de_DE
   description: >-
-    GSI Labs ist der KI- und Softwarepartner für die gebaute Umwelt. Wir
-    entwickeln Automatisierung, Ingenieursoftware und KI-Systeme für
-    Bauunternehmen, Planungsbüros, Hersteller und Projektentwickler in Europa.
+    GSI Labs ist der KI- und Softwarepartner für die gebaute Welt. Wir entwickeln
+    Automatisierungen, Software und KI-Systeme für Bauunternehmen, Planungsbüros,
+    Hersteller und Projektentwickler in Europa.
 
 ui:
   skipToContent: Zum Inhalt springen
@@ -49,14 +48,14 @@ ui:
   seeAllRoles: Alle Stellen ansehen
   applicationSubject: "Bewerbung"
   applyNoscript: >-
-    Das Formular benötigt JavaScript. Senden Sie uns stattdessen Ihren Lebenslauf
-    und ein paar Zeilen dazu, woran Sie arbeiten möchten, an {email}.
+    Das Formular benötigt JavaScript. Senden Sie uns stattdessen Ihren Lebenslauf und
+    ein paar Zeilen dazu, woran Sie arbeiten möchten, an {email}.
   formNoscript: >-
-    Das Formular benötigt JavaScript. Schreiben Sie uns stattdessen an {email},
-    Sie erreichen dieselben Leute.
+    Das Formular benötigt JavaScript. Schreiben Sie uns stattdessen an {email}, Sie
+    erreichen dieselben Leute.
 
 cta:
-  label: Kontakt aufnehmen
+  label: Jetzt loslegen
   href: /get-started
 
 nav:
@@ -64,7 +63,7 @@ nav:
     label: Lösungen
     items:
       - { label: Für Planungsbüros, href: /solutions/planning-design-offices }
-      - { label: Für Geotechnik, href: /solutions/geotechnical-engineers }
+      - { label: Für Geotechniker, href: /solutions/geotechnical-engineers }
       - { label: Für Fertigteilwerke, href: /solutions/precast-manufacturers }
       - { label: Für Produkthersteller, href: /solutions/product-manufacturers }
       - { label: Für Projektentwickler, href: /solutions/real-estate-developers }
