@@ -216,10 +216,32 @@ export const logos = [
 ]
 
 // Source video for the hero, taken straight from the client's folder.
+//
+// Nine seconds of dark abstract motion behind a scrim that darkens it from 82%
+// to 22% black, with the headline over it. Nobody watches it, so it is encoded
+// for weight, not for a screening. Two outputs, and the browser downloads only
+// the first one it can play.
+//
+// Measured against the source at 1600x900 (SSIM, higher is closer):
+//
+//   2784 KB  0.99497  h264 1600 crf27, what the site shipped until now
+//   1952 KB  0.99344  h264 1600 crf30
+//   1348 KB  0.99086  h264 1280 crf30   <- the fallback
+//   1172 KB  0.99629  av1  1600 crf46
+//    896 KB  0.99577  av1  1600 crf50   <- what most browsers get
+//
+// AV1 is a decade newer than H.264, which is why a third of the bytes comes out
+// closer to the source than the file it replaces. VP9 was measured too and was
+// worse than H.264 at every setting tried, so it is not shipped.
+//
+// The H.264 fallback is for Safari before 17.4 and older Android. It is encoded
+// at 1280 rather than 1600: those are older devices, and the ones that would
+// most notice another 600 KB.
 export const video = {
   from: 'brand assets/website videos/gsilabs intro banner video Rev07.mp4',
-  to: 'assets/video/hero.mp4',
   poster: 'assets/img/hero-poster.webp',
-  width: 1600,
-  crf: 27,
+  outputs: [
+    { to: 'assets/video/hero.webm', codec: 'av1', width: 1600, crf: 50 },
+    { to: 'assets/video/hero.mp4', codec: 'h264', width: 1280, crf: 30 },
+  ],
 }

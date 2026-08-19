@@ -58,6 +58,23 @@ const photo = (img, { className = '', sizes = '' } = {}) =>
       }${sizes ? ` sizes="${sizes}"` : ''} loading="lazy" decoding="async">`
     : ''
 
+/* What a <source> declares itself as. The codecs parameter on the WebM is not
+   decoration: Safari 16 through 17.3 plays WebM but not AV1, and given a bare
+   `video/webm` it would accept the source, download it and then fail with no
+   fallback left. With the parameter it declines and takes the MP4 instead.
+   Level 4.0 is advertised, which is above what 1600x900 at 25fps needs, so the
+   line stays true if the encode is ever rerun at another size. */
+const VIDEO_TYPES = {
+  webm: 'video/webm; codecs=av01.0.08M.08',
+  mp4: 'video/mp4',
+}
+
+const videoType = (src) => {
+  const type = VIDEO_TYPES[src.split('.').pop()]
+  if (!type) throw new Error(`unknown video format: ${src}. Add it to VIDEO_TYPES in blocks.mjs`)
+  return type
+}
+
 /* ---------------------------------------------------------------- heroes --- */
 
 const heroVideo = (b, ctx) => `<section class="band band--void band--flush hero" aria-labelledby="hero-title" data-head-over>
@@ -65,7 +82,7 @@ const heroVideo = (b, ctx) => `<section class="band band--void band--flush hero"
            poster="${b.poster}"
            width="1600" height="900"
            muted loop playsinline preload="none" aria-hidden="true">
-      <source data-src="${b.video}" type="video/mp4">
+${b.video.map((src) => `      <source data-src="${src}" type="${videoType(src)}">`).join('\n')}
     </video>
     <div class="hero__scrim" aria-hidden="true"></div>
 

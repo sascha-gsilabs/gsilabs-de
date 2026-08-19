@@ -7,7 +7,7 @@ description: >-
 blocks:
   - type: heroVideo
     poster: /assets/img/hero-poster.webp
-    video: /assets/video/hero.mp4
+    video: [/assets/video/hero.webm, /assets/video/hero.mp4]
     titleTop: [AI, Engineering]
     titleBottom: [for the, Built World]
     lede: >-

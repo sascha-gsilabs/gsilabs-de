@@ -192,7 +192,13 @@
 
   const video = document.querySelector('[data-hero-video]')
 
-  if (video && !reduced.matches) {
+  /* Someone on a metered or slow connection is the last person who should spend
+     900 KB on wallpaper. Both signals are Chromium only and absent elsewhere,
+     which is why the test is for an explicit yes rather than for a no. */
+  const link = navigator.connection
+  const frugal = link ? link.saveData === true || /^([23]g|slow-2g)$/.test(link.effectiveType || '') : false
+
+  if (video && !reduced.matches && !frugal) {
     const load = () => {
       video.querySelectorAll('source[data-src]').forEach((source) => {
         source.src = source.dataset.src

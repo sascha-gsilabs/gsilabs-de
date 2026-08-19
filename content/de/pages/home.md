@@ -7,7 +7,7 @@ description: >-
 blocks:
   - type: heroVideo
     poster: /assets/img/hero-poster.webp
-    video: /assets/video/hero.mp4
+    video: [/assets/video/hero.webm, /assets/video/hero.mp4]
     titleTop: [KI-Entwicklung]
     titleBottom: [ für die, gebaute Welt ]
     lede: >-

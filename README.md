@@ -320,8 +320,8 @@ npm run build:assets
 ```
 
 runs four steps: stage the brand library into `.staging/` with web safe names, encode
-the shipped images into `assets/img` and `assets/logo`, compress the hero video plus its
-poster, and subset the supplied variable TTFs before converting them to WOFF2.
+the shipped images into `assets/img` and `assets/logo`, encode the hero video twice plus
+its poster, and subset the supplied variable TTFs before converting them to WOFF2.
 
 ### Fonts
 
@@ -353,7 +353,38 @@ colour wordmarks, where lossy WebP fringes the letterforms. `build-images` print
 encoded pixel size of every output so the `width` and `height` in the content can be
 filled in truthfully.
 
-Current total for `assets/`: 8.8 MB across 87 files, of which the hero video is 2.8 MB.
+Current total for `assets/`: 8.3 MB across 88 files, of which the two hero video encodes
+are 2.2 MB together.
+
+### The hero video
+
+Nine seconds of dark abstract motion behind a scrim that darkens it from 82% to 22%
+black, with the headline over it. Nobody watches it, so it is encoded for weight.
+
+Two files ship, and the browser downloads only the first one it can play:
+
+| | | measured against the source |
+| --- | --- | --- |
+| `hero.webm` | AV1, 1600px | 895 KB, SSIM 0.99577 |
+| `hero.mp4` | H.264, 1280px | 1345 KB, SSIM 0.99086 |
+| what shipped before | H.264, 1600px | 2780 KB, SSIM 0.99497 |
+
+The AV1 file is a third of the old one and measures closer to the source, because AV1 is
+a decade newer than H.264. The MP4 is the fallback for Safari before 17.4 and older
+Android. VP9 was measured too and lost to H.264 at every setting, so it is not shipped.
+`tools/assets.config.mjs` carries the full ladder.
+
+Two details that are easy to get wrong:
+
+- The `<source>` for the WebM declares `codecs=av01.0.08M.08`, not a bare `video/webm`.
+  Safari 16 through 17.3 plays WebM but not AV1, and given the bare type it would accept
+  the source, download it and fail with no fallback left.
+- The poster is cut from the source file, not from either encode. It is the one frame a
+  visitor sees before any video loads, and on a slow connection the only one.
+
+`assets/js/site.js` fetches the video only once the page is idle, and not at all under
+`prefers-reduced-motion`, on a connection reporting Save-Data, or on 2G and 3G. Someone
+on a metered connection is the last person who should spend 900 KB on wallpaper.
 
 Page media follows the same rule as the panels below: the client names the file after
 the page it belongs on, plus `top` for the hero and `bottom` for the wide band further
