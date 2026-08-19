@@ -4,24 +4,38 @@ title: Datenschutzerklärung
 description: >-
   Welche Daten GSI Labs beim Besuch dieser Website erhebt, wofür sie verwendet werden
   und welche Rechte Sie haben.
-# HINWEIS FÜR DEN KUNDEN: Dies ist die deutsche Fassung des Textes von der Framer Seite.
-# Wie in der englischen Fassung gilt: zwei Aussagen darin werden mit dem Relaunch
-# unzutreffend und brauchen vor dem Livegang eine juristische Freigabe:
-#   1. Das Hosting liegt nicht mehr bei Framer B.V. Der Absatz muss den neuen Anbieter
-#      nennen.
-#   2. Google Fonts werden nicht mehr geladen. Beide Schriften liegen auf dieser Domain,
-#      es geht also keine Anfrage an Google. Der Satz zu YouTube gilt nur, wenn auf einer
-#      Seite tatsächlich ein Video eingebettet ist, was derzeit nicht der Fall ist.
+# HINWEIS FÜR DEN KUNDEN: Dieser Text stammt von der Framer Seite und ist seither
+# zweimal korrigiert worden. Google Fonts werden nicht mehr geladen, beide Schriften
+# liegen auf dieser Domain, es geht also keine Anfrage an Google. Und der Hosting
+# Absatz nennt jetzt Vercel. Genau das ist die Änderung, die vor dem Livegang noch
+# eine juristische Freigabe braucht:
+#
+#   Framer B.V. sitzt in den Niederlanden, das Hosting war also keine Übermittlung aus
+#   der EU heraus und der alte Text musste keine nennen. Vercel Inc. sitzt in
+#   Kalifornien, also ist es eine, und Art. 13 Abs. 1 lit. f DSGVO verlangt, dass ein
+#   Besucher davon erfährt. Der Absatz unten nennt das Unternehmen, die Übermittlung
+#   und die Garantie.
+#
+#   Als Garantie stehen dort die Standardvertragsklauseln, die Bestandteil des
+#   Auftragsverarbeitungsvertrags von Vercel sind. Vercel gibt zusätzlich an, unter dem
+#   EU-US Data Privacy Framework zertifiziert zu sein, was eine zweite, einfachere
+#   Grundlage wäre. Diese Angabe war über die offizielle Teilnehmerliste nicht
+#   überprüfbar, und eine Zertifizierung kann auslaufen, die Klauseln nicht. Sie fehlt
+#   hier deshalb bewusst. Nur aufnehmen, wenn jemand die Liste geprüft hat.
+#
+#   Zwei Dinge setzt dieser Text voraus und die müssen Sie herstellen: der
+#   Auftragsverarbeitungsvertrag mit Vercel ist tatsächlich geschlossen, und die
+#   Anschrift unten stimmt noch.
 blocks:
   - type: hero
     eyebrow: Rechtliches
     title: Datenschutzerklärung
-    lede: Stand April 2026
+    lede: Stand August 2026
 
   - type: prose
     flushTop: true
     body: |
-      Stand April 2026.
+      Stand August 2026.
 
       Die GSI Software GmbH ("GSI Labs", "wir", "uns") nimmt den Schutz Ihrer
       personenbezogenen Daten ernst. Diese Datenschutzerklärung erläutert, welche Daten
@@ -32,13 +46,23 @@ blocks:
 
       #### Hosting und allgemeine Datenerhebung
 
-      Beim Besuch unserer Website kann unser Hosting-Anbieter Server-Logdateien erfassen,
-      darunter Ihre IP-Adresse, Browsertyp, Betriebssystem, die verweisende URL, den
-      Zeitpunkt des Zugriffs und die aufgerufenen Seiten. Die Verarbeitung erfolgt auf
-      Grundlage unseres berechtigten Interesses an einer sicheren und funktionsfähigen
-      Website (Art. 6 Abs. 1 lit. f DSGVO). Sie können unsere Website besuchen, ohne
-      personenbezogene Daten anzugeben. Wir setzen keine Cookies zu Tracking- oder
-      Werbezwecken ein. Wir verwenden keine Analysewerkzeuge wie Google Analytics.
+      Diese Website wird von der Vercel Inc., 440 N Barranca Ave #4133, Covina, CA 91723,
+      USA, gehostet, die dabei als Auftragsverarbeiter nach Art. 28 DSGVO für uns tätig
+      wird. Beim Aufruf einer Seite erfasst Vercel Server-Logdaten, darunter Ihre
+      IP-Adresse, Browsertyp, Betriebssystem, die verweisende URL, den Zeitpunkt des
+      Zugriffs und die aufgerufenen Seiten. Die Verarbeitung erfolgt auf Grundlage
+      unseres berechtigten Interesses an einer sicheren und funktionsfähigen Website
+      (Art. 6 Abs. 1 lit. f DSGVO).
+
+      Vercel liefert die Website über ein weltweites Servernetz aus. Dabei können Daten
+      in die USA übermittelt werden. Grundlage dieser Übermittlung sind die
+      Standardvertragsklauseln der Europäischen Kommission nach Art. 46 Abs. 2 lit. c
+      DSGVO, die Bestandteil des mit Vercel geschlossenen
+      Auftragsverarbeitungsvertrags sind.
+
+      Sie können unsere Website besuchen, ohne personenbezogene Daten anzugeben. Wir
+      setzen keine Cookies zu Tracking- oder Werbezwecken ein. Wir verwenden keine
+      Analysewerkzeuge wie Google Analytics.
 
       #### Personenbezogene Daten erheben wir nur, wenn Sie sie uns aktiv übermitteln. Wir tracken Sie nicht, erstellen keine Profile und verkaufen Ihre Daten nicht.
 

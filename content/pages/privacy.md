@@ -3,23 +3,35 @@ title: Privacy Policy
 description: >-
   What data GSI Labs collects when you visit this website, how it is used, and what
   rights you have.
-# NOTE FOR THE CLIENT: this text is reproduced from the Framer site. Two statements in
-# it stop being true the moment this rebuild goes live, and both need your legal sign
-# off before launch:
-#   1. Hosting is no longer Framer B.V. Replace that paragraph with the new host.
-#   2. Google Fonts are no longer loaded. Both typefaces are self hosted from this
-#      domain, so no font request reaches Google. The YouTube sentence only applies if
-#      a video is actually embedded on a page, which it currently is not.
+# NOTE FOR THE CLIENT: this text came from the Framer site and has been corrected
+# twice since. Google Fonts are no longer loaded, both typefaces are self hosted from
+# this domain, so no font request reaches Google. And the hosting paragraph now names
+# Vercel, which is the change that still needs your legal sign off before launch:
+#
+#   Framer B.V. sits in the Netherlands, so hosting involved no transfer out of the
+#   EU and the old text did not have to mention one. Vercel Inc. sits in California,
+#   so it does, and Art. 13(1)(f) GDPR requires that a visitor be told. The paragraph
+#   below names the company, the transfer and the safeguard.
+#
+#   The safeguard is written as the Standard Contractual Clauses, which are part of
+#   Vercel's data processing agreement. Vercel also states it is certified under the
+#   EU-US Data Privacy Framework, which would be a second, simpler basis. That claim
+#   was not verifiable from the official participant list, and a certification can
+#   lapse where the clauses cannot, so it is deliberately left out. Add it only if
+#   somebody checks the listing.
+#
+#   Two things this text assumes and you have to make true: the processing agreement
+#   with Vercel is actually concluded, and the address below is still current.
 blocks:
   - type: hero
     eyebrow: Legal
     title: Privacy Policy
-    lede: Last updated April 2026
+    lede: Last updated August 2026
 
   - type: prose
     flushTop: true
     body: |
-      Last updated April 2026.
+      Last updated August 2026.
 
       GSI Software GmbH ("GSI Labs", "we", "us") takes the protection of your personal
       data seriously. This privacy policy explains what data we collect when you visit
@@ -29,13 +41,21 @@ blocks:
 
       #### Hosting and General Data Collection
 
-      When you visit our website, our hosting provider may collect server log files
-      including your IP address, browser type, operating system, referring URL, time of
-      access, and pages visited. This data is processed on the basis of our legitimate
-      interest in providing a secure and functional website (Art. 6(1)(f) GDPR). You can
-      visit our website without providing any personal information. We do not use cookies
-      for tracking or advertising purposes. We do not use analytics tools such as Google
-      Analytics.
+      This website is hosted by Vercel Inc., 440 N Barranca Ave #4133, Covina, CA 91723,
+      USA, which acts as our processor under Art. 28 GDPR. When you open a page, Vercel
+      records server log data including your IP address, browser type, operating system,
+      referring URL, time of access, and the pages visited. This is processed on the
+      basis of our legitimate interest in providing a secure and functional website
+      (Art. 6(1)(f) GDPR).
+
+      Vercel serves the site from a worldwide network of servers, and data may be
+      transferred to the United States in the process. That transfer is covered by the
+      European Commission's Standard Contractual Clauses under Art. 46(2)(c) GDPR, which
+      form part of the data processing agreement we have concluded with Vercel.
+
+      You can visit our website without providing any personal information. We do not use
+      cookies for tracking or advertising purposes. We do not use analytics tools such as
+      Google Analytics.
 
       #### We collect personal data only when you actively provide it. We do not track, profile, or sell your information.
 

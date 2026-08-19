@@ -2028,6 +2028,7 @@ EN
 GSI Labs builds AI systems for the architecture, engineering, and construction industry, combining construction expertise with applied AI engineering.
 DE
 GSI Labs entwickelt KI-Systeme für Planung, Ingenieurwesen und Bau und verbindet Baupraxis mit angewandter KI-Entwicklung.
+
 [pages/about.md | blocks.0.title]
 EN
 About us
@@ -2045,6 +2046,7 @@ EN
 GSI Labs builds AI systems for the architecture, engineering, and construction industry. We started as a software company serving structural engineers and precast manufacturers. Today we help AEC firms across Europe automate workflows, reduce manual effort, and make better decisions with their data. Our team combines deep construction expertise with applied AI engineering so we can deliver solutions that work in production, not just in presentations.
 DE
 GSI Labs entwickelt KI-Systeme für Planung, Ingenieurwesen und Bau. Begonnen haben wir als Softwarehaus für Tragwerksplaner und Fertigteilwerke. Heute helfen wir Unternehmen der Bauwirtschaft in ganz Europa dabei, Abläufe zu automatisieren, manuellen Aufwand zu senken und mit ihren Daten bessere Entscheidungen zu treffen. In unserem Team trifft tiefes Bau-Know-how auf angewandte KI-Entwicklung, damit wir Lösungen liefern, die im Produktivbetrieb funktionieren und nicht nur in der Präsentation.
+
 [pages/about.md | blocks.1.image.alt]
 EN
 An engineer at a workstation, reviewing a model on screen
@@ -2380,6 +2382,7 @@ EN
 Get Started
 DE
 Jetzt loslegen
+
 [pages/get-started.md | description]
 EN
 Tell us what you are working on. We will get back to you within two business days with an honest assessment of how we can help.
@@ -2391,6 +2394,7 @@ EN
 Get Started
 DE
 Jetzt loslegen
+
 [pages/get-started.md | blocks.1.body]
 EN
 Tell us what you are working on. We will get back to you within two business days with an honest assessment of how we can help.
@@ -2435,6 +2439,7 @@ EN
 AI Engineering for Construction
 DE
 KI-Entwicklung für die Bauwirtschaft
+
 [pages/home.md | description]
 EN
 GSI Labs builds AI and software for the built environment: automation, engineering tools and AI systems for contractors, design offices and manufacturers.
@@ -2445,13 +2450,7 @@ GSI Labs entwickelt KI und Software für die gebaute Umwelt: Automatisierung, In
 EN
 AI
 DE
-KI
-
-[pages/home.md | blocks.0.titleTop.1]
-EN
-Engineering
-DE
-Entwicklung
+KI-Entwicklung
 
 [pages/home.md | blocks.0.titleBottom.0]
 EN
@@ -3227,13 +3226,13 @@ Datenschutzerklärung
 
 [pages/privacy.md | blocks.0.lede]
 EN
-Last updated April 2026
+Last updated August 2026
 DE
-Stand April 2026
+Stand August 2026
 
 [pages/privacy.md | blocks.1.body]
 EN
-Last updated April 2026.
+Last updated August 2026.
 
 GSI Software GmbH ("GSI Labs", "we", "us") takes the protection of your personal
 data seriously. This privacy policy explains what data we collect when you visit
@@ -3243,13 +3242,21 @@ info@gsilabs.de. Managing Director: Sascha Avermiddig.
 
 #### Hosting and General Data Collection
 
-When you visit our website, our hosting provider may collect server log files
-including your IP address, browser type, operating system, referring URL, time of
-access, and pages visited. This data is processed on the basis of our legitimate
-interest in providing a secure and functional website (Art. 6(1)(f) GDPR). You can
-visit our website without providing any personal information. We do not use cookies
-for tracking or advertising purposes. We do not use analytics tools such as Google
-Analytics.
+This website is hosted by Vercel Inc., 440 N Barranca Ave #4133, Covina, CA 91723,
+USA, which acts as our processor under Art. 28 GDPR. When you open a page, Vercel
+records server log data including your IP address, browser type, operating system,
+referring URL, time of access, and the pages visited. This is processed on the
+basis of our legitimate interest in providing a secure and functional website
+(Art. 6(1)(f) GDPR).
+
+Vercel serves the site from a worldwide network of servers, and data may be
+transferred to the United States in the process. That transfer is covered by the
+European Commission's Standard Contractual Clauses under Art. 46(2)(c) GDPR, which
+form part of the data processing agreement we have concluded with Vercel.
+
+You can visit our website without providing any personal information. We do not use
+cookies for tracking or advertising purposes. We do not use analytics tools such as
+Google Analytics.
 
 #### We collect personal data only when you actively provide it. We do not track, profile, or sell your information.
 
@@ -3276,7 +3283,7 @@ and the right to object (Art. 21). You may also lodge a complaint with the Berli
 Beauftragte für Datenschutz und Informationsfreiheit, Alt-Moabit 59-61, 10555
 Berlin.
 DE
-Stand April 2026.
+Stand August 2026.
 
 Die GSI Software GmbH ("GSI Labs", "wir", "uns") nimmt den Schutz Ihrer
 personenbezogenen Daten ernst. Diese Datenschutzerklärung erläutert, welche Daten
@@ -3287,13 +3294,23 @@ Geschäftsführer: Sascha Avermiddig.
 
 #### Hosting und allgemeine Datenerhebung
 
-Beim Besuch unserer Website kann unser Hosting-Anbieter Server-Logdateien erfassen,
-darunter Ihre IP-Adresse, Browsertyp, Betriebssystem, die verweisende URL, den
-Zeitpunkt des Zugriffs und die aufgerufenen Seiten. Die Verarbeitung erfolgt auf
-Grundlage unseres berechtigten Interesses an einer sicheren und funktionsfähigen
-Website (Art. 6 Abs. 1 lit. f DSGVO). Sie können unsere Website besuchen, ohne
-personenbezogene Daten anzugeben. Wir setzen keine Cookies zu Tracking- oder
-Werbezwecken ein. Wir verwenden keine Analysewerkzeuge wie Google Analytics.
+Diese Website wird von der Vercel Inc., 440 N Barranca Ave #4133, Covina, CA 91723,
+USA, gehostet, die dabei als Auftragsverarbeiter nach Art. 28 DSGVO für uns tätig
+wird. Beim Aufruf einer Seite erfasst Vercel Server-Logdaten, darunter Ihre
+IP-Adresse, Browsertyp, Betriebssystem, die verweisende URL, den Zeitpunkt des
+Zugriffs und die aufgerufenen Seiten. Die Verarbeitung erfolgt auf Grundlage
+unseres berechtigten Interesses an einer sicheren und funktionsfähigen Website
+(Art. 6 Abs. 1 lit. f DSGVO).
+
+Vercel liefert die Website über ein weltweites Servernetz aus. Dabei können Daten
+in die USA übermittelt werden. Grundlage dieser Übermittlung sind die
+Standardvertragsklauseln der Europäischen Kommission nach Art. 46 Abs. 2 lit. c
+DSGVO, die Bestandteil des mit Vercel geschlossenen
+Auftragsverarbeitungsvertrags sind.
+
+Sie können unsere Website besuchen, ohne personenbezogene Daten anzugeben. Wir
+setzen keine Cookies zu Tracking- oder Werbezwecken ein. Wir verwenden keine
+Analysewerkzeuge wie Google Analytics.
 
 #### Personenbezogene Daten erheben wir nur, wenn Sie sie uns aktiv übermitteln. Wir tracken Sie nicht, erstellen keine Profile und verkaufen Ihre Daten nicht.
 
@@ -3424,6 +3441,7 @@ EN
 Get Started
 DE
 Jetzt loslegen
+
 [services/ai-advisory.md | blocks.0.image.alt]
 EN
 A speaker presenting to a seated room, the audience following on their laptops
@@ -3609,6 +3627,7 @@ EN
 Get Started
 DE
 Jetzt loslegen
+
 [services/ai-advisory.md | blocks.5.secondary.label]
 EN
 See our process
@@ -3665,6 +3684,7 @@ EN
 Get Started
 DE
 Jetzt loslegen
+
 [services/ai-sovereign-infrastructure.md | blocks.0.image.alt]
 EN
 The GSI Labs risk dashboard for a live construction project
@@ -3820,6 +3840,7 @@ EN
 Get Started
 DE
 Jetzt loslegen
+
 [services/ai-sovereign-infrastructure.md | blocks.4.secondary.label]
 EN
 See our process
@@ -3876,6 +3897,7 @@ EN
 Get Started
 DE
 Jetzt loslegen
+
 [services/bim-content-development.md | blocks.0.image.alt]
 EN
 A 3D product configurator showing perforated metal panels
@@ -4031,6 +4053,7 @@ EN
 Get Started
 DE
 Jetzt loslegen
+
 [services/bim-content-development.md | blocks.4.secondary.label]
 EN
 See our process
@@ -4300,6 +4323,7 @@ EN
 Get Started
 DE
 Jetzt loslegen
+
 [services/design-automation.md | blocks.0.image.alt]
 EN
 Two engineers reviewing a structural model on screen
@@ -4455,6 +4479,7 @@ EN
 Get Started
 DE
 Jetzt loslegen
+
 [services/design-automation.md | blocks.4.secondary.label]
 EN
 See our process
@@ -4511,6 +4536,7 @@ EN
 Get Started
 DE
 Jetzt loslegen
+
 [services/geotechnical-engineering-software.md | blocks.0.image.alt]
 EN
 A drilling rig on a city site, borehole data being logged
@@ -4666,6 +4692,7 @@ EN
 Get Started
 DE
 Jetzt loslegen
+
 [services/geotechnical-engineering-software.md | blocks.4.secondary.label]
 EN
 See our process
@@ -4722,6 +4749,7 @@ EN
 Get Started
 DE
 Jetzt loslegen
+
 [solutions/geotechnical-engineers.md | blocks.0.image.alt]
 EN
 Aerial view of a foundation site with the pile grid set out across the plot
@@ -5126,6 +5154,7 @@ EN
 Get Started
 DE
 Jetzt loslegen
+
 [solutions/planning-design-offices.md | blocks.0.image.alt]
 EN
 Two engineers reviewing a structural model on screen
@@ -5530,6 +5559,7 @@ EN
 Get Started
 DE
 Jetzt loslegen
+
 [solutions/precast-manufacturers.md | blocks.0.image.alt]
 EN
 A precast wall panel on the crane hook against a clear sky
@@ -5934,6 +5964,7 @@ EN
 Get Started
 DE
 Jetzt loslegen
+
 [solutions/product-manufacturers.md | blocks.0.image.alt]
 EN
 A 3D product configurator showing perforated metal panels
@@ -6338,6 +6369,7 @@ EN
 Get Started
 DE
 Jetzt loslegen
+
 [solutions/real-estate-developers.md | blocks.0.image.alt]
 EN
 A cost prediction dashboard for a residential development
