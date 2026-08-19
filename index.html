@@ -35,6 +35,21 @@
 
 <body>
 <a class="skip" href="#main">Skip to content</a>
+<div class="consent" id="consent" role="dialog" aria-labelledby="consent-title"
+     aria-describedby="consent-body" data-consent-banner data-apollo="6a3a8cdc1229b300147d5bc7" hidden>
+  <div class="consent__inner">
+    <div class="consent__text">
+      <h2 class="label" id="consent-title">Visitor recognition</h2>
+      <p class="small" id="consent-body">We would like to use Apollo.io, to see which companies take an interest in our work. It stores an identifier in your browser and sends your IP address to the United States. It sets no cookies. Nothing loads until you agree, and you can change your mind at any time.
+        <a class="link consent__more" href="/privacy">Privacy policy</a>
+      </p>
+    </div>
+    <div class="consent__actions">
+      <button class="btn btn--solid" type="button" data-consent="decline">Decline</button>
+      <button class="btn btn--solid" type="button" data-consent="accept">Accept</button>
+    </div>
+  </div>
+</div>
 
 <header class="site-head" data-mode="over">
   <div class="site-head__inner">
@@ -138,7 +153,10 @@
 
     <a class="btn btn--solid head__cta" href="/get-started">Get Started</a>
 
-    <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav">
+    <!-- Both labels travel with the button: the script swaps them on open and
+         close, and reading them from here is what keeps the German site German. -->
+    <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav"
+            data-label-closed="Menu" data-label-open="Close">
       <span data-toggle-label>Menu</span>
     </button>
   </div>
@@ -407,7 +425,10 @@
     </div>
 
     <div class="site-foot__base">
-      <p class="small">© GSI Software GmbH</p>
+      <div class="site-foot__meta">
+        <p class="small">© GSI Software GmbH</p>
+        <button class="link site-foot__consent" type="button" data-consent-open>Tracking settings</button>
+      </div>
 
       <ul class="social">
         <li>

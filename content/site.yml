@@ -71,6 +71,36 @@ ui:
     work on to {email} instead.
   formNoscript: >-
     The form needs JavaScript. Write to {email} instead and you reach the same people.
+  consentTitle: Visitor recognition
+  # Naming the service, what it stores and where the data goes is what makes the
+  # agreement an informed one. A banner that only says "we use cookies" is not,
+  # and on this site it would not even be true: Apollo sets no cookies.
+  consentBody: >-
+    We would like to use Apollo.io, to see which companies take an interest in our
+    work. It stores an identifier in your browser and sends your IP address to the
+    United States. It sets no cookies. Nothing loads until you agree, and you can
+    change your mind at any time.
+  consentAccept: Accept
+  consentDecline: Decline
+  consentMore: Privacy policy
+  # Not "cookie settings". There are no cookies to settle, and a label that names
+  # something the site does not do is the wrong place to start a privacy notice.
+  consentSettings: Tracking settings
+
+# Visitor recognition. Nothing here loads until the visitor agrees in the banner,
+# which is what Section 25(1) TDDDG requires of anything that writes to a visitor's
+# device, cookie or not. An empty value switches that service off; with both empty
+# no banner is rendered at all, because there is then nothing to ask about.
+analytics:
+  # Google Analytics, switched off. The loader, the test and the privacy wording
+  # are built for it; putting a G-XXXXXXXXXX measurement id here is all it takes to
+  # bring it back. The policy has to grow a Google paragraph again at the same time.
+  ga4: ""
+  apollo: "6a3a8cdc1229b300147d5bc7"
+  # Where the banner sends someone who wants the detail before deciding. Named
+  # `href` so the build puts the language prefix in front of it, the same way it
+  # does for every other link in the header and footer.
+  href: /privacy
 
 # The HubSpot forms the site embeds, named for the job they do rather than by
 # their id, so a page asks for `enquiry` and never carries a UUID. Region and

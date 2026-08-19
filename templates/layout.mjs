@@ -141,6 +141,43 @@ function langSwitch(site, lang, alternates) {
    cannot simply be written as "/". */
 const homeHref = (site, lang) => (site.languages ?? []).find((l) => l.code === lang)?.prefix || '/'
 
+/* Whether anything on this site needs asking about. With no measurement id and
+   no Apollo app id configured, the page loads no third party script, so there is
+   nothing to consent to and neither the banner nor the footer link is rendered.
+   Adding an id in site.yml is what turns the whole apparatus on. */
+const asksConsent = (site) => Boolean(site.analytics?.ga4 || site.analytics?.apollo)
+
+/* The consent notice. Rendered on every page but hidden, and shown by the script
+   only when no decision is stored, so a returning visitor never sees it flash.
+   With JavaScript off it stays hidden, which is the honest state: the services it
+   asks about are loaded by that same script and would not run either.
+
+   Both buttons are the same button. Equal prominence is not a style choice here:
+   a refusal that is harder to give than an agreement is not a free decision, and
+   the German supervisory authorities read it that way. */
+function consent(site) {
+  if (!asksConsent(site)) return ''
+
+  const services = site.analytics
+  return `<div class="consent" id="consent" role="dialog" aria-labelledby="consent-title"
+     aria-describedby="consent-body" data-consent-banner${
+       services.ga4 ? ` data-ga4="${esc(services.ga4)}"` : ''
+     }${services.apollo ? ` data-apollo="${esc(services.apollo)}"` : ''} hidden>
+  <div class="consent__inner">
+    <div class="consent__text">
+      <h2 class="label" id="consent-title">${esc(t(site, 'consentTitle'))}</h2>
+      <p class="small" id="consent-body">${mdInline(t(site, 'consentBody'))}
+        <a class="link consent__more" href="${services.href}">${esc(t(site, 'consentMore'))}</a>
+      </p>
+    </div>
+    <div class="consent__actions">
+      <button class="btn btn--solid" type="button" data-consent="decline">${esc(t(site, 'consentDecline'))}</button>
+      <button class="btn btn--solid" type="button" data-consent="accept">${esc(t(site, 'consentAccept'))}</button>
+    </div>
+  </div>
+</div>`
+}
+
 function header(site, path, mode, lang, alternates) {
   const menus = site.nav
     .map((group, i) => {
@@ -193,7 +230,10 @@ ${menus}
 ${langSwitch(site, lang, alternates)}
     <a class="btn btn--solid head__cta" href="${site.cta.href}">${esc(site.cta.label)}</a>
 
-    <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav">
+    <!-- Both labels travel with the button: the script swaps them on open and
+         close, and reading them from here is what keeps the German site German. -->
+    <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav"
+            data-label-closed="${esc(t(site, 'menu'))}" data-label-open="${esc(t(site, 'close'))}">
       <span data-toggle-label>${esc(t(site, 'menu'))}</span>
     </button>
   </div>
@@ -250,7 +290,16 @@ ${columns}
     </div>
 
     <div class="site-foot__base">
-      <p class="small">© ${esc(site.company.legalName)}</p>
+      <div class="site-foot__meta">
+        <p class="small">© ${esc(site.company.legalName)}</p>
+${
+  asksConsent(site)
+    ? `        <button class="link site-foot__consent" type="button" data-consent-open>${esc(
+        t(site, 'consentSettings')
+      )}</button>`
+    : ''
+}
+      </div>
 
       <ul class="social">
 ${social}
@@ -343,6 +392,7 @@ ${hreflang}
 
 <body>
 <a class="skip" href="#main">${esc(t(site, 'skipToContent'))}</a>
+${consent(site)}
 
 ${header(site, path, headMode, lang, alternates)}
 

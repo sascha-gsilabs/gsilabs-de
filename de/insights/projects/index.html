@@ -35,6 +35,21 @@
 
 <body>
 <a class="skip" href="#main">Zum Inhalt springen</a>
+<div class="consent" id="consent" role="dialog" aria-labelledby="consent-title"
+     aria-describedby="consent-body" data-consent-banner data-apollo="6a3a8cdc1229b300147d5bc7" hidden>
+  <div class="consent__inner">
+    <div class="consent__text">
+      <h2 class="label" id="consent-title">Besuchererkennung</h2>
+      <p class="small" id="consent-body">Wir würden gern Apollo.io einsetzen, um zu sehen, welche Unternehmen sich für unsere Arbeit interessieren. Der Dienst legt eine Kennung in Ihrem Browser ab und übermittelt Ihre IP-Adresse in die USA. Cookies setzt er nicht. Bis Sie zustimmen, lädt nichts, und Sie können Ihre Entscheidung jederzeit ändern.
+        <a class="link consent__more" href="/de/privacy">Datenschutzerklärung</a>
+      </p>
+    </div>
+    <div class="consent__actions">
+      <button class="btn btn--solid" type="button" data-consent="decline">Ablehnen</button>
+      <button class="btn btn--solid" type="button" data-consent="accept">Zustimmen</button>
+    </div>
+  </div>
+</div>
 
 <header class="site-head" data-mode="paper">
   <div class="site-head__inner">
@@ -138,7 +153,10 @@
 
     <a class="btn btn--solid head__cta" href="/de/get-started">Jetzt loslegen</a>
 
-    <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav">
+    <!-- Both labels travel with the button: the script swaps them on open and
+         close, and reading them from here is what keeps the German site German. -->
+    <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav"
+            data-label-closed="Menü" data-label-open="Schließen">
       <span data-toggle-label>Menü</span>
     </button>
   </div>
@@ -248,7 +266,10 @@
     </div>
 
     <div class="site-foot__base">
-      <p class="small">© GSI Software GmbH</p>
+      <div class="site-foot__meta">
+        <p class="small">© GSI Software GmbH</p>
+        <button class="link site-foot__consent" type="button" data-consent-open>Tracking-Einstellungen</button>
+      </div>
 
       <ul class="social">
         <li>

@@ -53,6 +53,16 @@ ui:
   formNoscript: >-
     Das Formular benötigt JavaScript. Schreiben Sie uns stattdessen an {email}, Sie
     erreichen dieselben Leute.
+  consentTitle: Besuchererkennung
+  consentBody: >-
+    Wir würden gern Apollo.io einsetzen, um zu sehen, welche Unternehmen sich für
+    unsere Arbeit interessieren. Der Dienst legt eine Kennung in Ihrem Browser ab und
+    übermittelt Ihre IP-Adresse in die USA. Cookies setzt er nicht. Bis Sie zustimmen,
+    lädt nichts, und Sie können Ihre Entscheidung jederzeit ändern.
+  consentAccept: Zustimmen
+  consentDecline: Ablehnen
+  consentMore: Datenschutzerklärung
+  consentSettings: Tracking-Einstellungen
 
 cta:
   label: Jetzt loslegen

@@ -35,6 +35,21 @@
 
 <body>
 <a class="skip" href="#main">Skip to content</a>
+<div class="consent" id="consent" role="dialog" aria-labelledby="consent-title"
+     aria-describedby="consent-body" data-consent-banner data-apollo="6a3a8cdc1229b300147d5bc7" hidden>
+  <div class="consent__inner">
+    <div class="consent__text">
+      <h2 class="label" id="consent-title">Visitor recognition</h2>
+      <p class="small" id="consent-body">We would like to use Apollo.io, to see which companies take an interest in our work. It stores an identifier in your browser and sends your IP address to the United States. It sets no cookies. Nothing loads until you agree, and you can change your mind at any time.
+        <a class="link consent__more" href="/privacy">Privacy policy</a>
+      </p>
+    </div>
+    <div class="consent__actions">
+      <button class="btn btn--solid" type="button" data-consent="decline">Decline</button>
+      <button class="btn btn--solid" type="button" data-consent="accept">Accept</button>
+    </div>
+  </div>
+</div>
 
 <header class="site-head" data-mode="paper">
   <div class="site-head__inner">
@@ -138,7 +153,10 @@
 
     <a class="btn btn--solid head__cta" href="/get-started">Get Started</a>
 
-    <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav">
+    <!-- Both labels travel with the button: the script swaps them on open and
+         close, and reading them from here is what keeps the German site German. -->
+    <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav"
+            data-label-closed="Menu" data-label-open="Close">
       <span data-toggle-label>Menu</span>
     </button>
   </div>
@@ -181,10 +199,41 @@ basis of our legitimate interest in providing a secure and functional website
 transferred to the United States in the process. That transfer is covered by the
 European Commission&#39;s Standard Contractual Clauses under Art. 46(2)(c) GDPR, which
 form part of the data processing agreement we have concluded with Vercel.</p>
-<p>You can visit our website without providing any personal information. We do not use
-cookies for tracking or advertising purposes. We do not use analytics tools such as
-Google Analytics.</p>
-<h4>We collect personal data only when you actively provide it. We do not track, profile, or sell your information.</h4>
+<h4>Visitor Recognition and Your Consent</h4>
+<p>Beyond what is technically necessary to deliver the site, this website uses one
+further service, described just below. It stores information in your browser and
+reads it again later, and it runs only if you have agreed to it. We ask when you
+first open the site, and until you agree nothing beyond the technically necessary
+is loaded. The legal basis is your consent under Art. 6(1)(a) GDPR and Section
+25(1) TDDDG.</p>
+<p>You can withdraw your consent at any time with effect for the future, through the
+tracking settings linked in the footer of every page. Withdrawing is as easy as
+giving consent and does not affect the lawfulness of anything processed before.
+If you decline, the website works exactly as it does otherwise.</p>
+<p>With your consent we use the visitor recognition service of ZenLeads Inc.,
+trading as Apollo.io, 440 N Barranca Ave #4750, Covina, CA 91723-1722, USA. It
+receives your IP address, the pages you open, the
+page that referred you and technical details of your browser, and sends them to
+assets.apollo.io and aplo-evnt.com. It sets no cookies. Instead it keeps an
+identifier called apolloAnonId, a random value with no name attached to it, in
+your browser&#39;s local storage, where it stays until you clear that storage or
+withdraw your consent, which deletes it. Apollo.io compares the IP address with
+its own database of company networks. The purpose is to learn which companies
+take an interest in our services, so that we can approach them. What comes out is
+the name of an organisation rather than your name, but your IP address is
+personal data and is processed to get there. Where no company can be matched,
+nothing is recorded.</p>
+<p>Apollo&#39;s terms of service also allow the company to use the data we send it for
+its own ends: to grow, enrich and verify its own database of business contacts,
+and, once aggregated or stripped of identifiers, to improve its products. For
+that use Apollo decides the purposes itself and is not acting on our
+instructions.</p>
+<p>Apollo.io processes this data in the United States. That transfer is covered by
+the European Commission&#39;s Standard Contractual Clauses under Art. 46(2)(c) GDPR,
+which form part of the data processing addendum that Apollo&#39;s terms of service
+incorporate. Those clauses do not put the data out of reach of US authorities,
+and you should know that before you agree.</p>
+<h4>Nothing beyond the necessary loads until you agree, and you can withdraw that agreement from any page.</h4>
 <h4>Contact, External Services, and Your Rights</h4>
 <p>If you contact us through one of the forms on this website or by email, we store the
 information you provide (name, email address, message content, and for applications
@@ -196,13 +245,13 @@ served from HubSpot&#39;s EU infrastructure, so your entries are stored on serve
 European Union. Loading a page that carries a form causes your browser to contact
 HubSpot, which receives your IP address for that request.</p>
 <p>The typefaces used on this website are hosted on our own servers. No font request
-is made to Google or any other third party, and no data is transferred to them when
-you load a page.</p>
+is made to Google or any other third party.</p>
 <p>Under the GDPR, you have the right of access (Art. 15), rectification (Art. 16),
 erasure (Art. 17), restriction of processing (Art. 18), data portability (Art. 20),
-and the right to object (Art. 21). You may also lodge a complaint with the Berliner
-Beauftragte für Datenschutz und Informationsfreiheit, Alt-Moabit 59-61, 10555
-Berlin.</p>
+and the right to object (Art. 21). Where processing rests on your consent, you may
+withdraw it at any time (Art. 7(3)). You may also lodge a complaint with the
+Berliner Beauftragte für Datenschutz und Informationsfreiheit, Alt-Moabit 59-61,
+10555 Berlin.</p>
 
     </div>
   </div>
@@ -274,7 +323,10 @@ Berlin.</p>
     </div>
 
     <div class="site-foot__base">
-      <p class="small">© GSI Software GmbH</p>
+      <div class="site-foot__meta">
+        <p class="small">© GSI Software GmbH</p>
+        <button class="link site-foot__consent" type="button" data-consent-open>Tracking settings</button>
+      </div>
 
       <ul class="social">
         <li>

@@ -1312,6 +1312,110 @@ button {
   line-height: 1.6;
 }
 
+/* The copyright and the way back into the consent choice share the first cell of
+   the base row, so the three column grid above stays a three column grid. */
+.site-foot__meta {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: var(--s2) var(--s4);
+}
+
+.site-foot__consent {
+  color: var(--on-ground-faint);
+}
+
+.site-foot__consent:hover {
+  color: var(--on-ground);
+}
+
+/* ==========================================================================
+   Consent
+   ========================================================================== */
+
+/* A black band across the foot of the window, on the same ground as the dark
+   sections of the site. It sits above the header, which is the only other fixed
+   thing on the page. */
+.consent {
+  position: fixed;
+  inset: auto 0 0;
+  z-index: 200;
+  --ground: var(--void);
+  --on-ground: var(--paper);
+  --on-ground-dim: color-mix(in srgb, var(--paper) 72%, transparent);
+  --on-ground-faint: color-mix(in srgb, var(--paper) 58%, transparent);
+  --line: color-mix(in srgb, var(--paper) 22%, transparent);
+  background: var(--void);
+  color: var(--paper);
+  border-top: 1px solid var(--line);
+  animation: consent-in 0.5s var(--ease-spring) both;
+}
+
+@keyframes consent-in {
+  from {
+    transform: translateY(100%);
+  }
+}
+
+/* The mobile menu fills the window below the header, so while it is open it has
+   to pass over the consent band rather than under it. */
+.site-head[data-sheet='open'] {
+  z-index: 300;
+}
+
+.consent__inner {
+  max-width: var(--measure);
+  margin-inline: auto;
+  padding: var(--s4) var(--gutter);
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--s3) var(--s5);
+}
+
+.consent__text {
+  flex: 1 1 30rem;
+  display: flex;
+  flex-direction: column;
+  gap: var(--s2);
+}
+
+.consent__text .label {
+  color: var(--on-ground-faint);
+}
+
+.consent__text p {
+  margin: 0;
+  max-width: 68ch;
+  color: var(--on-ground-dim);
+}
+
+.consent__more {
+  color: var(--on-ground);
+  white-space: nowrap;
+}
+
+/* Both answers are the same control at the same size. A refusal that costs more
+   than an agreement is not a decision the visitor made freely. */
+.consent__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--s2);
+}
+
+.consent__actions .btn {
+  flex: 1 1 auto;
+  justify-content: center;
+  min-width: 9rem;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .consent {
+    animation: none;
+  }
+}
+
 /* ==========================================================================
    Blocks used by the generated pages
    ========================================================================== */

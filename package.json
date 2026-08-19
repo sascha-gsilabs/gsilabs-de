@@ -10,6 +10,7 @@
     "dev": "node tools/build-site.mjs && node serve.mjs",
     "audit": "node tools/audit.mjs",
     "test:nav": "node tools/test-nav.mjs",
+    "test:consent": "node tools/test-consent.mjs",
     "translations": "node tools/translations.mjs",
     "translations:apply": "node tools/translations.mjs apply",
     "build:assets": "node tools/stage-assets.mjs && node tools/build-images.mjs && node tools/build-video.mjs && node tools/build-fonts.mjs"

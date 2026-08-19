@@ -35,6 +35,21 @@
 
 <body>
 <a class="skip" href="#main">Zum Inhalt springen</a>
+<div class="consent" id="consent" role="dialog" aria-labelledby="consent-title"
+     aria-describedby="consent-body" data-consent-banner data-apollo="6a3a8cdc1229b300147d5bc7" hidden>
+  <div class="consent__inner">
+    <div class="consent__text">
+      <h2 class="label" id="consent-title">Besuchererkennung</h2>
+      <p class="small" id="consent-body">Wir würden gern Apollo.io einsetzen, um zu sehen, welche Unternehmen sich für unsere Arbeit interessieren. Der Dienst legt eine Kennung in Ihrem Browser ab und übermittelt Ihre IP-Adresse in die USA. Cookies setzt er nicht. Bis Sie zustimmen, lädt nichts, und Sie können Ihre Entscheidung jederzeit ändern.
+        <a class="link consent__more" href="/de/privacy">Datenschutzerklärung</a>
+      </p>
+    </div>
+    <div class="consent__actions">
+      <button class="btn btn--solid" type="button" data-consent="decline">Ablehnen</button>
+      <button class="btn btn--solid" type="button" data-consent="accept">Zustimmen</button>
+    </div>
+  </div>
+</div>
 
 <header class="site-head" data-mode="paper">
   <div class="site-head__inner">
@@ -138,7 +153,10 @@
 
     <a class="btn btn--solid head__cta" href="/de/get-started">Jetzt loslegen</a>
 
-    <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav">
+    <!-- Both labels travel with the button: the script swaps them on open and
+         close, and reading them from here is what keeps the German site German. -->
+    <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav"
+            data-label-closed="Menü" data-label-open="Schließen">
       <span data-toggle-label>Menü</span>
     </button>
   </div>
@@ -184,10 +202,46 @@ in die USA übermittelt werden. Grundlage dieser Übermittlung sind die
 Standardvertragsklauseln der Europäischen Kommission nach Art. 46 Abs. 2 lit. c
 DSGVO, die Bestandteil des mit Vercel geschlossenen
 Auftragsverarbeitungsvertrags sind.</p>
-<p>Sie können unsere Website besuchen, ohne personenbezogene Daten anzugeben. Wir
-setzen keine Cookies zu Tracking- oder Werbezwecken ein. Wir verwenden keine
-Analysewerkzeuge wie Google Analytics.</p>
-<h4>Personenbezogene Daten erheben wir nur, wenn Sie sie uns aktiv übermitteln. Wir tracken Sie nicht, erstellen keine Profile und verkaufen Ihre Daten nicht.</h4>
+<h4>Besuchererkennung und Ihre Einwilligung</h4>
+<p>Neben dem, was zur Auslieferung der Seite technisch notwendig ist, setzen wir
+einen weiteren Dienst ein, der gleich unten beschrieben ist. Er speichert
+Informationen in Ihrem Browser und liest sie später wieder aus, und er läuft nur,
+wenn Sie ihm zugestimmt haben. Wir fragen Sie beim ersten Aufruf der Seite, und
+bis Sie zustimmen, wird nichts über das technisch Notwendige hinaus geladen.
+Rechtsgrundlage ist Ihre Einwilligung nach Art. 6 Abs. 1 lit. a DSGVO und § 25
+Abs. 1 TDDDG.</p>
+<p>Sie können Ihre Einwilligung jederzeit mit Wirkung für die Zukunft widerrufen,
+über die Tracking-Einstellungen im Fußbereich jeder Seite. Der Widerruf ist so
+einfach wie die Einwilligung und berührt die Rechtmäßigkeit der bis dahin
+erfolgten Verarbeitung nicht. Wenn Sie ablehnen, funktioniert die Website genauso
+wie sonst auch.</p>
+<p>Mit Ihrer Einwilligung setzen wir den Besuchererkennungsdienst der ZenLeads Inc.,
+die unter dem Namen Apollo.io auftritt, 440 N Barranca Ave #4750, Covina, CA
+91723-1722, USA, ein. Er erhält Ihre IP-Adresse, die von
+Ihnen aufgerufenen Seiten, die verweisende Seite und technische Angaben zu Ihrem
+Browser und übermittelt sie an assets.apollo.io und aplo-evnt.com. Cookies setzt
+er nicht. Stattdessen hält er im lokalen Speicher Ihres Browsers eine Kennung
+namens apolloAnonId vor, einen Zufallswert ohne Ihren Namen daran, die dort
+bleibt, bis Sie diesen Speicher löschen oder Ihre Einwilligung widerrufen, was
+sie ebenfalls löscht. Apollo.io gleicht die IP-Adresse mit einer eigenen
+Datenbank von Unternehmensnetzen ab. Zweck ist zu erfahren, welche Unternehmen
+sich für unsere Leistungen interessieren, damit wir sie ansprechen können. Heraus
+kommt der Name einer Organisation und nicht Ihr Name, Ihre IP-Adresse ist auf dem
+Weg dorthin aber ein personenbezogenes Datum und wird verarbeitet. Lässt sich
+kein Unternehmen zuordnen, wird nichts festgehalten.</p>
+<p>Die Nutzungsbedingungen von Apollo erlauben dem Unternehmen außerdem, die von
+uns übermittelten Daten für eigene Zwecke zu verwenden: um die eigene Datenbank
+geschäftlicher Kontaktdaten aufzubauen, anzureichern und zu prüfen, und, in
+aggregierter oder von Kennungen befreiter Form, um die eigenen Produkte zu
+verbessern. Für diese Nutzung bestimmt Apollo die Zwecke selbst und handelt
+nicht auf unsere Weisung.</p>
+<p>Apollo.io verarbeitet diese Daten in den USA. Grundlage dieser Übermittlung sind
+die Standardvertragsklauseln der Europäischen Kommission nach Art. 46 Abs. 2
+lit. c DSGVO, die Bestandteil des Data Processing Addendum sind, das die
+Nutzungsbedingungen von Apollo einbeziehen. Diese Klauseln halten die Daten nicht
+vom Zugriff US-amerikanischer Behörden fern, und das sollten Sie wissen, bevor
+Sie zustimmen.</p>
+<h4>Bis Sie zustimmen, lädt nichts über das Notwendige hinaus, und Sie können Ihre Zustimmung von jeder Seite aus widerrufen.</h4>
 <h4>Kontakt, externe Dienste und Ihre Rechte</h4>
 <p>Wenn Sie uns über eines der Formulare auf dieser Website oder per E-Mail
 kontaktieren, speichern wir die von Ihnen übermittelten Angaben (Name,
@@ -202,13 +256,13 @@ der Europäischen Union gespeichert. Beim Aufruf einer Seite mit Formular nimmt 
 Browser Verbindung zu HubSpot auf, wobei HubSpot für diese Anfrage Ihre IP-Adresse
 erhält.</p>
 <p>Die auf dieser Website verwendeten Schriften liegen auf unseren eigenen Servern. Es
-wird keine Schriftanfrage an Google oder einen anderen Dritten gestellt, und beim
-Laden einer Seite werden keine Daten an Dritte übertragen.</p>
+wird keine Schriftanfrage an Google oder einen anderen Dritten gestellt.</p>
 <p>Nach der DSGVO haben Sie das Recht auf Auskunft (Art. 15), Berichtigung (Art. 16),
 Löschung (Art. 17), Einschränkung der Verarbeitung (Art. 18), Datenübertragbarkeit
-(Art. 20) sowie ein Widerspruchsrecht (Art. 21). Ihnen steht außerdem ein
-Beschwerderecht bei der Berliner Beauftragten für Datenschutz und
-Informationsfreiheit zu, Alt-Moabit 59-61, 10555 Berlin.</p>
+(Art. 20) sowie ein Widerspruchsrecht (Art. 21). Soweit die Verarbeitung auf Ihrer
+Einwilligung beruht, können Sie diese jederzeit widerrufen (Art. 7 Abs. 3). Ihnen
+steht außerdem ein Beschwerderecht bei der Berliner Beauftragten für Datenschutz
+und Informationsfreiheit zu, Alt-Moabit 59-61, 10555 Berlin.</p>
 
     </div>
   </div>
@@ -280,7 +334,10 @@ Informationsfreiheit zu, Alt-Moabit 59-61, 10555 Berlin.</p>
     </div>
 
     <div class="site-foot__base">
-      <p class="small">© GSI Software GmbH</p>
+      <div class="site-foot__meta">
+        <p class="small">© GSI Software GmbH</p>
+        <button class="link site-foot__consent" type="button" data-consent-open>Tracking-Einstellungen</button>
+      </div>
 
       <ul class="social">
         <li>
