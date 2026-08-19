@@ -1,7 +1,13 @@
-// Convert the supplied variable TTFs in "brand assets" to WOFF2 in assets/fonts.
+// Cut the supplied variable TTFs in "brand assets" down to the characters this
+// site can show, and write them to assets/fonts as WOFF2.
 //   node tools/build-fonts.mjs
-import { mkdirSync, readFileSync, writeFileSync } from 'node:fs'
-import ttf2woff2 from 'ttf2woff2'
+//
+// Subsetting drops glyphs, not axes: the fonts stay variable afterwards and can
+// still render every weight the design uses. What goes is the scripts nobody
+// here writes in. See tools/fonts.config.mjs for where the cut is made and why.
+import { mkdirSync, readFileSync, statSync, writeFileSync } from 'node:fs'
+import subsetFont from 'subset-font'
+import { characters } from './fonts.config.mjs'
 
 const SRC = 'brand assets/Inter,Space_Grotesk'
 const OUT = 'assets/fonts'
@@ -13,8 +19,22 @@ const jobs = [
 
 mkdirSync(OUT, { recursive: true })
 
+const kb = (n) => `${(n / 1024).toFixed(0)} KB`
+const keep = characters()
+
 for (const [from, to] of jobs) {
-  const woff2 = ttf2woff2(readFileSync(from))
+  let before = 0
+  try {
+    before = statSync(`${OUT}/${to}`).size
+  } catch {
+    /* First run. */
+  }
+
+  const woff2 = await subsetFont(readFileSync(from), keep, { targetFormat: 'woff2' })
   writeFileSync(`${OUT}/${to}`, woff2)
-  console.log(`${to}  ${(woff2.length / 1024).toFixed(0)} KB`)
+
+  console.log(
+    `${to.padEnd(30)} ${kb(woff2.length).padStart(7)}` +
+      (before ? `  (was ${kb(before)})` : '')
+  )
 }

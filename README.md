@@ -321,7 +321,30 @@ npm run build:assets
 
 runs four steps: stage the brand library into `.staging/` with web safe names, encode
 the shipped images into `assets/img` and `assets/logo`, compress the hero video plus its
-poster, and convert the supplied variable TTFs to WOFF2.
+poster, and subset the supplied variable TTFs before converting them to WOFF2.
+
+### Fonts
+
+The two supplied typefaces carry every script their designers drew. Inter alone covers
+2849 characters, of which this site uses 89, and it is preloaded, so a first visit waits
+on it before any text is painted. `tools/build-fonts.mjs` cuts both down to the
+characters this site can write in.
+
+|  | as supplied | shipped |
+| --- | --- | --- |
+| Inter | 352 KB | 107 KB |
+| Space Grotesk | 49 KB | 30 KB |
+
+Subsetting removes glyphs, not axes: both fonts stay variable and render every weight
+the design uses. Five pages in both languages were captured before and after and came
+out pixel for pixel identical.
+
+The cut is at latin plus Latin Extended-A, not at the 89 characters in the content
+today. `tools/fonts.config.mjs` carries the ranges, the measurements behind where the
+line was drawn, and what to add if the site ever needs another script. The build guards
+it: any character in the content the shipped fonts cannot draw is named at the end of
+`npm run build`, because the browser's own answer is to substitute a system font for
+that one letter and say nothing.
 
 `tools/assets.config.mjs` is the single list of what ships and at what width. A `from`
 with no slash is a name in `.staging/img`; a `from` with a slash is a path relative to
@@ -330,7 +353,7 @@ colour wordmarks, where lossy WebP fringes the letterforms. `build-images` print
 encoded pixel size of every output so the `width` and `height` in the content can be
 filled in truthfully.
 
-Current total for `assets/`: about 7.6 MB, of which the hero video is 2.8 MB.
+Current total for `assets/`: 8.8 MB across 87 files, of which the hero video is 2.8 MB.
 
 Page media follows the same rule as the panels below: the client names the file after
 the page it belongs on, plus `top` for the hero and `bottom` for the wide band further
