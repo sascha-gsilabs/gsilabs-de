@@ -147,10 +147,10 @@ for the job they do so no page ever carries a UUID:
 ```yaml
 hubspot:
   region: eu1
-  portalId: "146150011"
+  portalId: "149298045"
   forms:
-    enquiry: 16241ff4-56ee-42ce-a5b7-9967520290c5      # /get-started
-    application: 13146800-d8a8-4ccd-9c2e-f409489abeaf  # the job pages
+    enquiry: 6c2c8d52-a2aa-4096-848d-c77a9e74d748      # /get-started
+    application: 181bf01e-34e9-4095-90f2-ba76207c70e7  # the job pages
 ```
 
 Replacing a form in HubSpot means pasting its new id there, once.
