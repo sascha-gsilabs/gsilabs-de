@@ -14,11 +14,17 @@ blocks:
     cta: { label: Preise ansehen, href: "#pricing" }
     link: { label: So funktioniert es, href: "#how-it-works" }
     video:
-      ratio: 16 / 9
-      label: Platzhalter
-      title: Produktvideo
-      body: >-
-        Hier gehört der Vimeo-Embed hin, in dem Rahmen, in dem er später läuft.
+      id: "1231682189"
+      ratio: 1600 / 834
+      title: Allplan MCP
+      params: badge=0&autopause=0&player_id=0&app_id=58479
+      action: Video abspielen
+      note: Vimeo wird erst geladen, wenn Sie starten.
+      poster:
+        src: /assets/img/allplan-mcp-poster.webp
+        width: 1600
+        height: 834
+        alt: Das erste Bild des Allplan-MCP-Videos.
 
   - type: mcpProblem
     title: Das Problem

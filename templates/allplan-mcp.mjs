@@ -258,35 +258,69 @@ const icon = (name) => {
 
 /* ------------------------------------------------------------ the video --- */
 
+const PLAY = `<svg class="mcp-video__mark" viewBox="0 0 12 12" aria-hidden="true">
+            <path d="M2.5 1.5 10 6l-7.5 4.5z"/>
+          </svg>`
+
 /**
- * The product video, or a marked placeholder while there is no embed yet.
+ * The product video, as a poster frame and a button that loads the player.
  *
- * Only the placeholder is built. An embed loads from Vimeo the moment the page
- * does, which puts a third party in front of a visitor who has not been asked,
- * and this site asks. Wiring the player is a decision about how it is loaded,
- * so it waits for that decision rather than sitting here dormant behind an id
- * whoever pastes it would not know they were deciding anything.
+ * A Vimeo iframe in the markup would call vimeo.com the moment the page does,
+ * which puts a third party in front of every visitor including the ones who
+ * came for the price. So what ships is the first frame, encoded into
+ * `assets/img` from Vimeo's own CDN and served from this origin, and a button
+ * that says what starting it does. The click is the visitor asking for it, and
+ * `assets/js/site.js` builds the player from the attributes below.
  *
- * The frame holds the video's own ratio either way, so nothing on the page
- * moves when the player takes its place.
+ * None of this reaches the consent banner. There is no choice to store, because
+ * nothing runs until someone asks for it.
+ *
+ * The frame carries the video's own ratio, so it holds its place in the layout
+ * before the poster has loaded and keeps it when the player takes over. The
+ * control on top of it is the page's own solid button rather than a play glyph
+ * floating on a scrim: the poster is a busy frame, and a black block is the one
+ * shape that stays legible on any part of it.
  */
-const videoSlot = (v) => `    <div class="mcp-art mcp-slot mcp-slot--media" style="--media-ratio:${esc(
-  v.ratio ?? '16 / 9'
-)}">
-      <svg class="mcp-slot__play" viewBox="0 0 24 24" aria-hidden="true">
-        <path d="M1.5 1.5h21v21h-21z"/>
-        <path d="M9.5 7.5 16.5 12l-7 4.5z"/>
-      </svg>
-      <p class="mcp-label mcp-slot__flag">${esc(v.label)}</p>
-      <p class="mcp-slot__title">${mdInline(v.title)}</p>
-      <p class="mcp-slot__body">${mdInline(v.body)}</p>
-    </div>`
+const video = (v) => `    <figure class="mcp-video">
+      <div class="mcp-video__frame" style="--media-ratio:${esc(v.ratio)}">
+        <button class="mcp-video__start" type="button"
+                data-video="${esc(v.id)}"
+                data-video-title="${esc(v.title)}"
+                data-video-params="${esc(v.params ?? '')}">
+          <img class="mcp-video__poster" src="${v.poster.src}" alt=""
+               width="${v.poster.width}" height="${v.poster.height}" fetchpriority="high" decoding="async">
+          <span class="mcp-video__face">
+            <span class="mcp-video__chip">
+              ${PLAY}
+              ${esc(v.action)}
+            </span>
+          </span>
+        </button>
+
+        <!-- With the script off the button does nothing, because the script is
+             what would have built the player. The poster stays, described this
+             time, and the link goes where the video can be watched. -->
+        <noscript>
+          <img class="mcp-video__poster" src="${v.poster.src}" alt="${esc(v.poster.alt)}"
+               width="${v.poster.width}" height="${v.poster.height}" decoding="async">
+          <span class="mcp-video__face">
+            <a class="mcp-video__chip" href="https://vimeo.com/${esc(v.id)}" rel="noopener">
+              ${PLAY}
+              ${esc(v.action)}
+            </a>
+          </span>
+        </noscript>
+      </div>
+      <figcaption class="mcp-video__note">${esc(v.note)}</figcaption>
+    </figure>`
 
 /* -------------------------------------------------------------- sections --- */
 
 /* 1. The hero. The headline and what it means on the left, the product video on
    the right. The exchange the video shows is not mocked up over it: section 4
-   is where the questions are, in the words they are actually asked in. */
+   is where the questions are, in the words they are actually asked in. The
+   button carries its own accessible name, so the poster behind it is marked
+   decorative rather than read out on top of it. */
 const mcpHero = (b) => `<section class="band mcp-band mcp-band--concrete mcp-hero" aria-labelledby="page-title">
   <div class="wrap grid">
     <div class="mcp-hero__head">
@@ -299,7 +333,7 @@ const mcpHero = (b) => `<section class="band mcp-band mcp-band--concrete mcp-her
     </div>
 
     <div class="mcp-hero__aside">
-${videoSlot(b.video)}
+${video(b.video)}
     </div>
   </div>
 </section>`

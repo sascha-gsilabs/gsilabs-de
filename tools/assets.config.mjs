@@ -18,6 +18,16 @@ export const images = [
   { from: 'logo-schoeck-de-2021-rgb.png', to: 'client-schoeck.webp', w: 340, lossless: true },
   { from: 'logo-allplan-company-negativ.png', to: 'client-allplan.webp', w: 320, lossless: true },
 
+  // The poster frame of the Allplan MCP video, pulled from Vimeo's own CDN so
+  // the hero can show the first frame without calling Vimeo on page load. The
+  // player is embedded only after a visitor asks for it. Its box is 1600 by 834,
+  // which is the ratio the embed code ships with.
+  {
+    from: 'brand assets/website images/allplan-mcp-poster.jpg',
+    to: 'allplan-mcp-poster.webp',
+    w: 1600,
+  },
+
   // Homepage news cards, from the client's article and project folders.
   {
     from: 'articles/260611 Yuyang Peng timber moisture monitoring study/Marketing_GSI_Architectural_interior_of_a_timber_roof_truss_a_d04044f1-8d1d-42ef-a581-629a77ee2b7e_3.png',

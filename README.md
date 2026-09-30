@@ -321,15 +321,29 @@ percentages hold because the frame and the `viewBox` have the same aspect ratio.
 The labels are `aria-hidden`, because the drawing's `aria-label` already
 describes them, in the language of the page.
 
-**The hero video.** The right hand side of the hero is a product video from
-Vimeo, and the page carries a marked placeholder in its frame until the embed
-exists. Only the placeholder is built, deliberately. A Vimeo iframe loads from
-vimeo.com the moment the page does, which puts a third party in front of a
-visitor who has not been asked, and this site asks about every other one. How
-the player is loaded is a decision, so it is not sitting in the code behind an
-id that whoever pastes it would not know they were deciding anything with. The
-frame holds the video's ratio either way, so nothing moves when the player takes
-its place.
+**The hero video** is a Vimeo embed that is not embedded until somebody asks
+for it. What loads with the page is the poster frame, pulled once from Vimeo's
+CDN, encoded into `assets/img` by the asset pipeline like every other picture,
+and served from this origin. Over it sits the page's own solid button. The click
+is the visitor asking, and the handler in `assets/js/site.js` builds the player
+from the `data-video*` attributes on the button and drops it into the frame,
+with `autoplay=1` added so the click that asked for it also starts it.
+
+A Vimeo iframe in the markup would call vimeo.com the moment the page did, which
+puts a third party in front of every visitor including the ones who came for the
+price. None of this touches the consent banner, and that is the point: there is
+no choice to store, because nothing runs unasked. The frame carries the video's
+ratio from the first paint, so it holds its place while the poster loads and
+again when the player replaces the button in it.
+
+Everything about the video is in the content file: the id, the ratio, the query
+string from the embed code, the poster, and the line under the frame saying what
+starting it does. Swapping the video is an id and a poster. The English page
+plays the German video until an English one exists, which is why its poster
+carries German type.
+
+The transfer the click triggers is flagged for the client in the comment at the
+top of both privacy files: the policy still has to name Vimeo.
 
 Two things to know before changing them. The flow diagram is given an explicit
 `width` rather than a `max-width`: a grid item with auto margins and no width
@@ -528,8 +542,10 @@ darkens without being pulled toward olive.
 
 ## Open points for the client
 
-- **Privacy policy.** The text is reproduced from the Framer site and two of its
-  statements stop being true at launch: hosting is no longer Framer, and Google Fonts are
+- **Privacy policy.** It does not mention Vimeo yet, and the Allplan MCP page
+  loads a Vimeo player once a visitor clicks the video. The text is otherwise
+  reproduced from the Framer site and two of its statements stop being true at
+  launch: hosting is no longer Framer, and Google Fonts are
   no longer loaded because both typefaces are self hosted. Both are flagged in a comment
   at the top of `content/pages/privacy.md` and in `content/de/pages/privacy.md`, and need
   legal sign off in both languages. The German version is the one a German visitor will

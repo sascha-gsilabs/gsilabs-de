@@ -65,6 +65,24 @@ description: >-
 #      demselben Grund wie bei Vercel: es wurde nicht gegen die offizielle
 #      Teilnehmerliste geprüft.
 #
+#   4. VIMEO. Die Seite Allplan MCP enthält ein Produktvideo. Es wird erst
+#      eingebettet, wenn ein Besucher den Button darauf anklickt. Mit der Seite
+#      lädt nur das Vorschaubild, das in assets/img liegt und von dieser Domain
+#      ausgeliefert wird. Vimeo.com wird also gar nicht kontaktiert, solange
+#      niemand das Video sehen will. Der Rahmen sagt das vor dem Klick.
+#
+#      Deshalb ist das Video kein Schalter im Consent-Banner. Es gibt keine
+#      Entscheidung zu speichern, weil ungefragt nichts läuft, und der Klick ist
+#      die Aufforderung. Was der Klick dann auslöst, ist eine Übermittlung: die
+#      Vimeo.com LLC sitzt in New York, der Player erhält die IP-Adresse des
+#      Besuchers und setzt eigene Cookies, und es gelten Vimeos eigene
+#      Bedingungen. DIESER TEXT NENNT VIMEO NOCH NICHT. Es fehlt ein Absatz mit
+#      dem Unternehmen, dem, was der Player erhält, und der Grundlage der
+#      Übermittlung, in beiden Sprachen. `assets/js/site.js` und der Kommentar
+#      am Video in `templates/allplan-mcp.mjs` beschreiben genau, was passiert,
+#      der Absatz lässt sich also gegen das Verhalten schreiben statt gegen eine
+#      Anbieterseite.
+#
 #   Zwei Dinge setzt dieser Text voraus und die müssen Sie herstellen: der
 #   Auftragsverarbeitungsvertrag mit Vercel ist tatsächlich geschlossen, und die
 #   Anschrift unten stimmt noch.

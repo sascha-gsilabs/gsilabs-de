@@ -58,6 +58,24 @@ description: >-
 #      Framework. That is left out here for the same reason it is left out for Vercel:
 #      it was not checked against the official participant list.
 #
+#   4. VIMEO. The Allplan MCP page carries a product video. It is not embedded
+#      until a visitor clicks the button on it: what loads with the page is the
+#      poster frame, encoded into assets/img and served from this origin, so
+#      vimeo.com is not contacted at all until someone asks for the video. The
+#      frame says so before the click.
+#
+#      That is why the video is not a switch in the consent banner. There is no
+#      choice to store, because nothing runs unasked, and the click is the
+#      request. What the click does then is a transfer: Vimeo.com LLC sits in
+#      New York, the player reads the visitor's IP address and sets its own
+#      cookies, and Vimeo's own terms are what governs it. THIS TEXT DOES NOT
+#      MENTION VIMEO YET. It needs a paragraph naming the company, what the
+#      player receives, and the basis for the transfer, in both languages.
+#      `assets/js/site.js` and the comment on the video in
+#      `templates/allplan-mcp.mjs` describe exactly what happens, so the
+#      paragraph can be written against the behaviour rather than against a
+#      vendor page.
+#
 #   Two things this text assumes and you have to make true: the processing agreement
 #   with Vercel is actually concluded, and the address below is still current.
 blocks:

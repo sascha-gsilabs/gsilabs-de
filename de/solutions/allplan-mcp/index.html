@@ -209,15 +209,42 @@
     </div>
 
     <div class="mcp-hero__aside">
-    <div class="mcp-art mcp-slot mcp-slot--media" style="--media-ratio:16 / 9">
-      <svg class="mcp-slot__play" viewBox="0 0 24 24" aria-hidden="true">
-        <path d="M1.5 1.5h21v21h-21z"/>
-        <path d="M9.5 7.5 16.5 12l-7 4.5z"/>
-      </svg>
-      <p class="mcp-label mcp-slot__flag">Platzhalter</p>
-      <p class="mcp-slot__title">Produktvideo</p>
-      <p class="mcp-slot__body">Hier gehört der Vimeo-Embed hin, in dem Rahmen, in dem er später läuft.</p>
-    </div>
+    <figure class="mcp-video">
+      <div class="mcp-video__frame" style="--media-ratio:1600 / 834">
+        <button class="mcp-video__start" type="button"
+                data-video="1231682189"
+                data-video-title="Allplan MCP"
+                data-video-params="badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479">
+          <img class="mcp-video__poster" src="/assets/img/allplan-mcp-poster.webp" alt=""
+               width="1600" height="834" fetchpriority="high" decoding="async">
+          <span class="mcp-video__face">
+            <span class="mcp-video__chip">
+              <svg class="mcp-video__mark" viewBox="0 0 12 12" aria-hidden="true">
+            <path d="M2.5 1.5 10 6l-7.5 4.5z"/>
+          </svg>
+              Video abspielen
+            </span>
+          </span>
+        </button>
+
+        <!-- With the script off the button does nothing, because the script is
+             what would have built the player. The poster stays, described this
+             time, and the link goes where the video can be watched. -->
+        <noscript>
+          <img class="mcp-video__poster" src="/assets/img/allplan-mcp-poster.webp" alt="Das erste Bild des Allplan-MCP-Videos."
+               width="1600" height="834" decoding="async">
+          <span class="mcp-video__face">
+            <a class="mcp-video__chip" href="https://vimeo.com/1231682189" rel="noopener">
+              <svg class="mcp-video__mark" viewBox="0 0 12 12" aria-hidden="true">
+            <path d="M2.5 1.5 10 6l-7.5 4.5z"/>
+          </svg>
+              Video abspielen
+            </a>
+          </span>
+        </noscript>
+      </div>
+      <figcaption class="mcp-video__note">Vimeo wird erst geladen, wenn Sie starten.</figcaption>
+    </figure>
     </div>
   </div>
 </section>

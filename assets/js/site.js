@@ -212,6 +212,42 @@
     else addEventListener('load', load, { once: true })
   }
 
+  /* --- the product video ------------------------------------------------- */
+
+  /* The video is not embedded until someone asks for it. A Vimeo iframe in the
+     markup would call vimeo.com the moment the page loads, which puts a third
+     party in front of every visitor including the ones who came to read the
+     price. What ships instead is the poster frame, served from this origin, and
+     a button that says what starting it does. The click is the visitor asking,
+     so the player loads with autoplay and takes over the frame it was standing
+     in. Nothing about this touches the consent banner: there is no choice to
+     store, because nothing runs until it is asked for.
+
+     Without JavaScript the button is not rendered at all. The markup carries a
+     plain link to the video instead, which is the honest fallback: this is the
+     same script that would have built the player. */
+
+  document.querySelectorAll('[data-video]').forEach((start) => {
+    start.addEventListener('click', () => {
+      const frame = document.createElement('iframe')
+      const params = new URLSearchParams(start.dataset.videoParams || '')
+      params.set('autoplay', '1')
+      frame.src = `https://player.vimeo.com/video/${start.dataset.video}?${params}`
+      frame.title = start.dataset.videoTitle || ''
+      frame.allow = 'autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share'
+      frame.referrerPolicy = 'strict-origin-when-cross-origin'
+      frame.setAttribute('frameborder', '0')
+      frame.tabIndex = -1
+
+      const figure = start.closest('.mcp-video')
+      start.replaceWith(frame)
+      /* The note says Vimeo loads only once you start it, which stops being true
+         the moment you do. It has done its job by then. */
+      figure?.querySelector('.mcp-video__note')?.remove()
+      frame.focus()
+    })
+  })
+
   /* --- consent, and the services that wait behind it --------------------- */
 
   /* Anything that writes to a visitor's device needs their agreement first, so

@@ -3745,28 +3745,92 @@ main.mcp {
   min-height: 38rem;
 }
 
-/* The video frame keeps the ratio the player will have, so the page does not
-   move when the embed replaces the placeholder in it. */
-.mcp-slot--media {
+/* --- the product video ---------------------------------------------------- */
+
+/* The frame holds the video's ratio from the first paint, so it keeps its place
+   while the poster loads and again when the player replaces the button in it. */
+.mcp-video__frame {
+  position: relative;
+  aspect-ratio: var(--media-ratio, 16 / 9);
+  background: var(--sand);
+}
+
+.mcp-video__frame > * {
+  position: absolute;
+  inset: 0;
+}
+
+.mcp-video__frame iframe {
+  width: 100%;
+  height: 100%;
+  border: 0;
+}
+
+.mcp-video__start {
+  display: block;
+  width: 100%;
+  height: 100%;
+  padding: 0;
+}
+
+.mcp-video__poster {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* A light veil over the poster, lifted on hover. It is there to settle a busy
+   frame under the control, not to darken the picture. */
+.mcp-video__face {
+  position: absolute;
+  inset: 0;
   display: flex;
-  flex-direction: column;
   align-items: center;
   justify-content: center;
-  text-align: center;
-  aspect-ratio: var(--media-ratio, 16 / 9);
+  background: color-mix(in srgb, var(--concrete) 24%, transparent);
+  transition: background-color 0.3s var(--ease-out);
 }
 
-.mcp-slot--media .mcp-slot__body {
-  max-width: 34ch;
+.mcp-video__start:hover .mcp-video__face {
+  background: color-mix(in srgb, var(--concrete) 8%, transparent);
 }
 
-.mcp-slot__play {
-  width: 32px;
-  height: 32px;
-  margin-bottom: var(--s4);
-  fill: none;
-  stroke: var(--forest);
-  stroke-width: 1.2;
+/* The page's own solid button rather than a play glyph on a scrim: the poster
+   is a dense frame, and a black block is the one shape that stays legible over
+   any part of it. */
+.mcp-video__chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  padding: 0.9rem 1.5rem;
+  background: var(--black);
+  color: var(--concrete);
+  font-size: var(--step-small);
+  font-weight: 500;
+  transition: background-color 0.2s linear, transform 0.35s var(--ease-spring);
+}
+
+.mcp-video__start:hover .mcp-video__chip {
+  background: color-mix(in srgb, var(--black) 86%, var(--concrete));
+}
+
+.mcp-video__start:active .mcp-video__chip {
+  transform: translateY(1px) scale(0.985);
+}
+
+.mcp-video__mark {
+  width: 0.85em;
+  height: 0.85em;
+  flex: none;
+  fill: currentColor;
+}
+
+/* What starting it does, said before it is started rather than in a policy. */
+.mcp-video__note {
+  margin-top: var(--s3);
+  font-size: var(--step-small);
+  line-height: 1.6;
+  color: var(--mcp-dim);
 }
 
 .mcp-slot {
