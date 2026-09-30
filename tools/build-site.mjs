@@ -375,6 +375,9 @@ for (const locale of built) {
           description: doc.description,
           path: page.route,
           headMode,
+          /* A page that carries its own palette and type scopes them under a
+             class on <main>, so the shell around it is untouched. */
+          pageClass: doc.pageClass,
           content: localizeHtml(content, prefix),
           site: ctx.site,
           lang: locale.code,

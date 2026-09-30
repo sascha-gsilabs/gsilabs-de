@@ -3162,3 +3162,758 @@ button {
     grid-column: 1;
   }
 }
+
+/* ==========================================================================
+   Allplan MCP  /solutions/allplan-mcp
+   ==========================================================================
+
+   The product page carries its own palette and sets everything in Inter, so it
+   is scoped under `main.mcp` and nothing here can reach another page.
+   `pageClass: mcp` in the content file is what puts the class on <main>. The
+   header, footer, navigation and consent banner sit outside <main> and keep the
+   site palette exactly as it is.
+
+   Concrete and Sand are the two values the client replaced site wide with pure
+   white and light grey. They are back on this page only, by the brief for it,
+   which is why they are declared here rather than as site tokens. Forest is the
+   one accent. Steel blue appears in the two drawings and nowhere else: it marks
+   what an answer highlights, which is a meaning the page needs a second hue for.
+
+   Measured on Concrete #F8F6F2: Ink 14.3:1, Forest 9.5:1, Steel 6.2:1, and the
+   dimmed body colour 5.9:1. On Sand #EAE3D7: Ink 12.1:1, Forest 8.0:1. Every one
+   of those clears WCAG AA for the size it is used at.
+   ========================================================================== */
+
+main.mcp {
+  --concrete: #f8f6f2;
+  --sand: #eae3d7;
+  --forest: #384438;
+  --black: #000000;
+  --steel: #2b57a8;
+
+  background: var(--concrete);
+}
+
+/* Per band, so a tile or a panel never needs to know which ground it sits on. */
+.mcp .mcp-band--concrete {
+  --ground: var(--concrete);
+  --on-ground: var(--ink);
+  --mcp-dim: color-mix(in srgb, var(--ink) 72%, var(--concrete));
+  --mcp-rule: color-mix(in srgb, var(--forest) 24%, transparent);
+  --mcp-inset: var(--sand);
+}
+
+.mcp .mcp-band--sand {
+  --ground: var(--sand);
+  --on-ground: var(--ink);
+  --mcp-dim: color-mix(in srgb, var(--ink) 74%, var(--sand));
+  --mcp-rule: color-mix(in srgb, var(--forest) 28%, transparent);
+  --mcp-inset: var(--concrete);
+}
+
+/* --- type ----------------------------------------------------------------- */
+
+/* Inter throughout, including on the controls and the utility labels, which the
+   rest of the site sets in Space Grotesk. Headings are tracked in by three
+   percent, which is what keeps a short line at this size from reading as loose. */
+.mcp .mcp-h1,
+.mcp .mcp-h2,
+.mcp .mcp-h3,
+.mcp .btn,
+.mcp .link,
+.mcp .mcp-label {
+  font-family: var(--font-body);
+}
+
+.mcp .mcp-h1 {
+  font-size: clamp(2.6rem, 6.2vw, 5rem);
+  font-weight: 600;
+  line-height: 1.01;
+  letter-spacing: -0.03em;
+  text-wrap: balance;
+}
+
+.mcp .mcp-h2 {
+  font-size: clamp(1.75rem, 3.2vw, 2.85rem);
+  font-weight: 600;
+  line-height: 1.08;
+  letter-spacing: -0.03em;
+  text-wrap: balance;
+}
+
+.mcp .mcp-h2--lead {
+  font-size: clamp(2rem, 3.7vw, 3.2rem);
+}
+
+.mcp .mcp-h3 {
+  font-size: 1.0625rem;
+  font-weight: 600;
+  line-height: 1.3;
+  letter-spacing: -0.015em;
+}
+
+.mcp .mcp-label {
+  margin-bottom: var(--s4);
+  font-size: 0.6875rem;
+  font-weight: 600;
+  line-height: 1;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--forest);
+}
+
+/* --- controls ------------------------------------------------------------- */
+
+.mcp .btn {
+  padding: 0.9rem 1.5rem;
+  font-weight: 500;
+  letter-spacing: 0;
+}
+
+/* Black rather than ink, and the same on both grounds: the buttons and the
+   question bubbles are the two places this page uses pure black. */
+.mcp .btn--solid {
+  background: var(--black);
+  color: var(--concrete);
+}
+
+.mcp .btn--solid:hover {
+  background: color-mix(in srgb, var(--black) 86%, var(--concrete));
+}
+
+.mcp .mcp-link {
+  font-weight: 500;
+  color: var(--forest);
+}
+
+/* --- 1. hero -------------------------------------------------------------- */
+
+.mcp-hero {
+  padding-top: calc(var(--head-h) + clamp(2.5rem, 6vw, 5rem));
+}
+
+.mcp-hero__head {
+  grid-column: 1 / 7;
+  align-self: center;
+}
+
+.mcp-hero__lede {
+  margin-top: var(--s4);
+  max-width: 44ch;
+  font-size: var(--step-lede);
+  line-height: 1.6;
+  color: var(--mcp-dim);
+  text-wrap: pretty;
+}
+
+.mcp-hero__actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--s4) var(--s5);
+  margin-top: var(--s5);
+}
+
+.mcp-hero__aside {
+  grid-column: 7 / 13;
+  align-self: center;
+}
+
+/* --- the exchange --------------------------------------------------------- */
+
+/* Question in black, answer on sand, one under the other. Both chats on this
+   page sit on a Concrete band, which is what keeps the sand bubble visible. */
+.mcp-chat {
+  display: grid;
+  max-width: 30rem;
+  gap: var(--s2);
+  justify-items: start;
+}
+
+.mcp-chat__ask,
+.mcp-chat__reply {
+  padding: 0.75rem 1.1rem;
+  max-width: 40ch;
+  line-height: 1.55;
+  font-variant-numeric: tabular-nums;
+}
+
+.mcp-chat__ask {
+  background: var(--black);
+  color: var(--concrete);
+  font-weight: 500;
+}
+
+.mcp-chat__reply {
+  justify-self: end;
+  background: var(--sand);
+  color: var(--ink);
+}
+
+/* --- the drawings --------------------------------------------------------- */
+
+/* The labels are HTML over the drawing, placed by percentage, so they keep their
+   size when the drawing shrinks and a longer German word has room to run. The
+   drawing itself carries the whole description in its aria-label, which is why
+   the labels are hidden from assistive technology rather than read twice. */
+.mcp-art {
+  position: relative;
+  margin-top: var(--s5);
+}
+
+.mcp-art .iso {
+  width: 100%;
+  height: auto;
+}
+
+/* The label knocks the drawing out behind it, the way a dimension label does on
+   a setting out drawing. It is what keeps a tag legible where the drawing is
+   dense, and it is the whole reason a leader line is allowed to be short. */
+.mcp-art__tag,
+.mcp-art__note {
+  position: absolute;
+  transform: translate(-50%, -50%);
+  padding: 0.1rem 0.3rem;
+  background: var(--ground);
+  white-space: nowrap;
+  font-weight: 600;
+}
+
+.mcp-art__tag {
+  font-size: 0.75rem;
+  letter-spacing: 0.01em;
+  color: var(--steel);
+  font-variant-numeric: tabular-nums;
+}
+
+.mcp-art__tag--plain {
+  color: var(--ink);
+}
+
+.mcp-art__note {
+  font-size: 0.625rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--forest);
+}
+
+/* Hairlines stay hairlines at every size, which is the whole point of drawing
+   the arrangement rather than photographing it. */
+.mcp .iso polygon,
+.mcp .iso line {
+  stroke-width: 1;
+  stroke-linejoin: round;
+  vector-effect: non-scaling-stroke;
+}
+
+/* Three shading steps on every solid, so a green panel and a blue one read as
+   the same kind of object seen under the same light. */
+.mcp .iso--mass {
+  stroke: color-mix(in srgb, var(--forest) 72%, transparent);
+}
+
+.mcp .iso__side.iso--mass {
+  fill: color-mix(in srgb, var(--forest) 26%, var(--concrete));
+}
+
+.mcp .iso__top.iso--mass {
+  fill: color-mix(in srgb, var(--forest) 42%, var(--concrete));
+}
+
+.mcp .iso__end.iso--mass {
+  fill: color-mix(in srgb, var(--forest) 62%, var(--concrete));
+}
+
+.mcp .iso--hot {
+  stroke: var(--steel);
+}
+
+.mcp .iso__side.iso--hot {
+  fill: color-mix(in srgb, var(--steel) 15%, var(--concrete));
+}
+
+.mcp .iso__top.iso--hot {
+  fill: color-mix(in srgb, var(--steel) 29%, var(--concrete));
+}
+
+.mcp .iso__end.iso--hot {
+  fill: color-mix(in srgb, var(--steel) 46%, var(--concrete));
+}
+
+.mcp .iso--plate {
+  stroke: color-mix(in srgb, var(--forest) 40%, transparent);
+}
+
+.mcp .iso__side.iso--plate {
+  fill: color-mix(in srgb, var(--forest) 12%, var(--concrete));
+}
+
+.mcp .iso__top.iso--plate {
+  fill: color-mix(in srgb, var(--forest) 6%, var(--concrete));
+}
+
+.mcp .iso__end.iso--plate {
+  fill: color-mix(in srgb, var(--forest) 17%, var(--concrete));
+}
+
+.mcp .iso__fence {
+  fill: none;
+  stroke: color-mix(in srgb, var(--forest) 58%, transparent);
+  stroke-dasharray: 5 4;
+}
+
+.mcp .iso__setout {
+  stroke: color-mix(in srgb, var(--forest) 32%, transparent);
+  stroke-dasharray: 3 5;
+}
+
+.mcp .iso__leader {
+  stroke: var(--steel);
+}
+
+.mcp .iso__arrow {
+  stroke-width: 1.6;
+}
+
+.mcp .iso__arrow--mass {
+  stroke: var(--forest);
+  marker-end: url(#mcp-head-mass);
+}
+
+.mcp .iso__arrow--hot {
+  stroke: var(--steel);
+  marker-end: url(#mcp-head-hot);
+}
+
+.mcp .iso__arrow--both {
+  marker-start: url(#mcp-tail-mass);
+}
+
+.mcp .iso__head {
+  stroke: none;
+}
+
+.mcp .iso__head--mass {
+  fill: var(--forest);
+}
+
+.mcp .iso__head--hot {
+  fill: var(--steel);
+}
+
+/* --- 2. the problem ------------------------------------------------------- */
+
+.mcp-problem__head {
+  grid-column: 1 / 5;
+}
+
+/* Three statements, one per row, each with the rule above it. They are a descent
+   rather than a list of features, and the rules are what carry that. */
+.mcp-problem__lines {
+  grid-column: 5 / 13;
+}
+
+.mcp-problem__lines li {
+  padding-block: var(--s4);
+  border-top: 1px solid var(--mcp-rule);
+  font-size: clamp(1.2rem, 2vw, 1.85rem);
+  font-weight: 500;
+  line-height: 1.32;
+  letter-spacing: -0.02em;
+  text-wrap: pretty;
+}
+
+.mcp-problem__lines li:last-child {
+  border-bottom: 1px solid var(--mcp-rule);
+}
+
+/* --- 3. how it works ------------------------------------------------------ */
+
+.mcp-steps__head {
+  grid-column: 1 / 13;
+}
+
+.mcp-steps__list {
+  grid-column: 1 / 13;
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: var(--col-gap);
+  margin-top: var(--s6);
+}
+
+.mcp-step {
+  border-top: 1px solid var(--mcp-rule);
+  padding-top: var(--s3);
+}
+
+.mcp-step__n {
+  display: block;
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  color: var(--forest);
+  font-variant-numeric: tabular-nums;
+}
+
+.mcp-step__body {
+  margin-top: var(--s2);
+  max-width: 26ch;
+  font-size: 1.0625rem;
+  line-height: 1.55;
+}
+
+/* A schematic has a size it stops growing at, so it is given an explicit width
+   rather than a max-width: a grid item with auto margins and no width falls back
+   to the 300px an SVG claims as its intrinsic size, which is a tenth of the band. */
+.mcp-art--flow {
+  grid-column: 1 / 13;
+  width: min(44rem, 100%);
+  margin-top: var(--s6);
+  margin-inline: auto;
+}
+
+/* The one claim the rest of the page rests on, so it gets the accent rule and
+   sits on its own rather than closing the paragraph above it. */
+.mcp-steps__note {
+  grid-column: 4 / 11;
+  margin-top: var(--s6);
+  padding-left: var(--s3);
+  border-left: 2px solid var(--forest);
+  font-size: var(--step-lede);
+  line-height: 1.6;
+}
+
+/* --- 4. what you can ask -------------------------------------------------- */
+
+.mcp-examples__head {
+  grid-column: 1 / 5;
+}
+
+.mcp-examples__list {
+  grid-column: 5 / 12;
+  display: grid;
+  gap: var(--s5);
+}
+
+/* --- 5. the six operations ------------------------------------------------ */
+
+.mcp-ops__head {
+  grid-column: 1 / 13;
+}
+
+/* A hairline grid: one rule between tiles rather than a border around each, so
+   the six read as one table of what the product does. */
+.mcp-ops {
+  grid-column: 1 / 13;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1px;
+  margin-top: var(--s6);
+  background: var(--mcp-rule);
+  border: 1px solid var(--mcp-rule);
+}
+
+.mcp-op {
+  background: var(--mcp-inset);
+  padding: var(--s4);
+}
+
+.mcp-op__icon {
+  width: 22px;
+  height: 22px;
+  fill: none;
+  stroke: var(--forest);
+  stroke-width: 1.3;
+  stroke-linecap: square;
+}
+
+.mcp-op .mcp-h3 {
+  margin-top: var(--s4);
+}
+
+.mcp-op__body {
+  margin-top: var(--s2);
+  color: var(--mcp-dim);
+  line-height: 1.6;
+}
+
+.mcp-ops__note {
+  grid-column: 1 / 9;
+  margin-top: var(--s4);
+  font-size: var(--step-small);
+  line-height: 1.7;
+  color: var(--mcp-dim);
+}
+
+/* --- 6. pricing ----------------------------------------------------------- */
+
+.mcp-price__head {
+  grid-column: 1 / 13;
+}
+
+.mcp-tiers {
+  grid-column: 1 / 13;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: var(--col-gap);
+  margin-top: var(--s6);
+}
+
+/* Lite carries the accent rule because it is the tier that can be bought today.
+   The emphasis is a fact about the product rather than a recommendation. */
+.mcp-tier {
+  display: flex;
+  flex-direction: column;
+  padding-top: var(--s4);
+  border-top: 1px solid var(--mcp-rule);
+}
+
+.mcp-tier--lead {
+  border-top: 2px solid var(--forest);
+}
+
+.mcp-tier__name {
+  font-size: 1.0625rem;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+}
+
+/* Pro and Custom have no price yet. The two lines keep their height so the three
+   cards still line up across the row. */
+.mcp-tier__price {
+  margin-top: var(--s5);
+  min-height: 1.1em;
+  font-size: clamp(1.9rem, 2.9vw, 2.6rem);
+  font-weight: 600;
+  line-height: 1.1;
+  letter-spacing: -0.03em;
+  font-variant-numeric: tabular-nums;
+}
+
+.mcp-tier__unit {
+  min-height: 1.6em;
+  font-size: var(--step-small);
+  line-height: 1.6;
+  color: var(--mcp-dim);
+}
+
+.mcp-tier__body {
+  margin-top: var(--s4);
+  margin-bottom: var(--s5);
+  color: var(--mcp-dim);
+  line-height: 1.6;
+}
+
+.mcp-tier .btn {
+  margin-top: auto;
+  align-self: start;
+}
+
+.mcp-waitlist {
+  grid-column: 1 / 13;
+  margin-top: var(--s6);
+}
+
+.mcp-price__note {
+  grid-column: 1 / 9;
+  margin-top: var(--s5);
+  font-size: var(--step-small);
+  line-height: 1.7;
+  color: var(--mcp-dim);
+}
+
+/* --- 7. request a licence ------------------------------------------------- */
+
+.mcp-cta__head {
+  grid-column: 1 / 6;
+}
+
+.mcp-cta__line {
+  margin-top: var(--s4);
+  max-width: 40ch;
+  font-size: var(--step-lede);
+  line-height: 1.6;
+  color: var(--mcp-dim);
+}
+
+.mcp-cta__note {
+  margin-top: var(--s5);
+  font-size: var(--step-small);
+  color: var(--mcp-dim);
+}
+
+.mcp-cta__form {
+  grid-column: 7 / 13;
+}
+
+/* --- the two forms -------------------------------------------------------- */
+
+/* Both are HubSpot embeds that do not exist yet, so what ships is the marked
+   placeholder below. The floor on the frame is a first estimate for five fields
+   in this column and wants remeasuring against the real form: the iframe carries
+   scrolling="no", so anything past the floor is cropped away silently. */
+.mcp .hs-form-frame {
+  min-height: 38rem;
+}
+
+.mcp-slot {
+  padding: var(--s4);
+  background: var(--mcp-inset);
+  border: 1px dashed color-mix(in srgb, var(--forest) 55%, transparent);
+}
+
+.mcp-slot__flag {
+  margin-bottom: 0;
+  color: var(--forest);
+}
+
+.mcp-slot__title {
+  margin-top: var(--s3);
+  font-size: 1.0625rem;
+  font-weight: 600;
+  letter-spacing: -0.015em;
+}
+
+.mcp-slot__body {
+  margin-top: var(--s2);
+  max-width: 54ch;
+  line-height: 1.6;
+  color: var(--mcp-dim);
+}
+
+.mcp-slot__body a {
+  color: var(--ink);
+  text-decoration: underline;
+  text-underline-offset: 0.2em;
+  text-decoration-color: var(--mcp-rule);
+  transition: text-decoration-color 0.2s linear;
+}
+
+.mcp-slot__body a:hover {
+  text-decoration-color: currentColor;
+}
+
+.mcp-slot__fields {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--s2);
+  margin-top: var(--s4);
+}
+
+.mcp-slot__fields li {
+  padding: 0.35rem 0.7rem;
+  border: 1px solid var(--mcp-rule);
+  font-size: var(--step-small);
+  color: var(--mcp-dim);
+}
+
+/* --- responsive ----------------------------------------------------------- */
+
+@media (max-width: 1180px) {
+  .mcp-hero__head,
+  .mcp-hero__aside {
+    grid-column: 1 / 13;
+  }
+
+  .mcp-hero__aside {
+    margin-top: var(--s6);
+  }
+
+  .mcp-examples__head,
+  .mcp-examples__list {
+    grid-column: 1 / 13;
+  }
+
+  .mcp-examples__list {
+    margin-top: var(--s5);
+  }
+
+  .mcp-steps__note {
+    grid-column: 1 / 11;
+  }
+
+  .mcp-cta__head,
+  .mcp-cta__form {
+    grid-column: 1 / 13;
+  }
+
+  .mcp-cta__form {
+    margin-top: var(--s6);
+  }
+}
+
+@media (max-width: 900px) {
+  .mcp-problem__head,
+  .mcp-problem__lines {
+    grid-column: 1 / 13;
+  }
+
+  .mcp-steps__list {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    row-gap: var(--s5);
+  }
+
+  .mcp-ops {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .mcp-tiers {
+    grid-template-columns: minmax(0, 1fr);
+    row-gap: var(--s5);
+  }
+
+  /* Stacked, each card ends where the next begins, so nothing has to hold a row
+     together any more: the button stops being pushed down, and the price lines
+     Pro and Custom do not have leave no gap behind. */
+  .mcp-tier__price:empty,
+  .mcp-tier__unit:empty {
+    display: none;
+  }
+
+  .mcp-tier__price,
+  .mcp-tier__unit {
+    min-height: 0;
+  }
+
+  .mcp-tier__body {
+    margin-bottom: var(--s4);
+  }
+
+  .mcp-ops__note,
+  .mcp-price__note {
+    grid-column: 1 / 13;
+  }
+}
+
+@media (max-width: 640px) {
+  .mcp-steps__list {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .mcp-ops {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .mcp-step__body {
+    max-width: none;
+  }
+
+  .mcp-chat__ask,
+  .mcp-chat__reply {
+    max-width: 100%;
+  }
+
+  .mcp-chat__reply {
+    justify-self: stretch;
+  }
+
+  /* The tags stay legible when the drawing is a third of its desktop width, and
+     the drawing is the one thing on the page that cannot simply reflow. */
+  .mcp-art__tag {
+    font-size: 0.6875rem;
+  }
+
+  .mcp-art__note {
+    font-size: 0.5625rem;
+  }
+}

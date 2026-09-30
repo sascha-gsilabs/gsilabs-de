@@ -33,8 +33,35 @@ deliberate:
   grey on the tiles, so it is now `#EBEBEB`. Sand is no longer used anywhere.
 - Paper was the warm off white `#F8F6F2`. The client asked for pure white as the
   light page ground, so `--paper` is `#FFFFFF`. Because paper doubles as the type
-  color inside black bands, that type is now pure white as well. `#F8F6F2` is no
-  longer used anywhere.
+  color inside black bands, that type is now pure white as well.
+
+## The Allplan MCP page
+
+One page is an exception, by the brief written for it:
+`/solutions/allplan-mcp` and its German counterpart. It brings back the two
+values that were replaced above and adds the brand green as an accent.
+
+| Role                  | Hex       | Notes                                              |
+| --------------------- | --------- | -------------------------------------------------- |
+| Page ground           | `#F8F6F2` | Concrete, the original warm off white.             |
+| Body copy             | `#1F271B` | Ink, unchanged from the rest of the site.          |
+| Section surface       | `#EAE3D7` | Sand, also the answer bubbles.                     |
+| Accent                | `#384438` | Forest. Eyebrows, hairlines, icons, the model.     |
+| Buttons and questions | `#000000` | Black, unchanged.                                  |
+| Highlight, drawings   | `#2B57A8` | Steel blue. See below.                             |
+
+Steel blue is the one value on the site that is not in the palette above it. It
+exists because the drawings on that page have to say two different things: green
+is the model, blue is the element an answer highlights. It appears inside the
+two SVGs and nowhere else, never as a link colour, a button or a surface. It
+measures 6.2:1 on Concrete.
+
+Everything on that page is set in Inter, weights 400, 500 and 600, with headings
+tracked in by three percent. Space Grotesk does not appear on it.
+
+The page scopes all of this under `main.mcp`, so none of it reaches the header,
+the footer, the navigation, the consent banner or any other page. The rules
+below are unchanged everywhere else.
 
 ## Rules
 

@@ -377,6 +377,7 @@ ${social}
  * @param {string} o.path        canonical path, used for nav highlighting
  * @param {string} o.content     page body
  * @param {'over'|'paper'} o.headMode  header starts transparent over a dark hero
+ * @param {string} o.pageClass  class on <main>, for a page that carries its own theme
  * @param {object} o.site        parsed site.yml for this language
  * @param {string} o.lang        language code of this page
  * @param {Record<string,string>} o.alternates  this page's path in each language
@@ -388,6 +389,7 @@ export function layout({
   path,
   content,
   headMode = 'paper',
+  pageClass = '',
   site,
   lang = 'en',
   alternates = {},
@@ -451,7 +453,7 @@ ${consent(site)}
 
 ${header(site, path, headMode, lang, alternates)}
 
-<main id="main">
+<main id="main"${pageClass ? ` class="${esc(pageClass)}"` : ''}>
 ${content}
 </main>
 

@@ -311,29 +311,35 @@ Lösungen
 
 [site.yml | nav.0.items.0.label]
 EN
+Allplan MCP
+DE
+Allplan MCP
+
+[site.yml | nav.0.items.1.label]
+EN
 For Design Offices
 DE
 Für Planungsbüros
 
-[site.yml | nav.0.items.1.label]
+[site.yml | nav.0.items.2.label]
 EN
 For Geo Engineers
 DE
 Für Geotechniker
 
-[site.yml | nav.0.items.2.label]
+[site.yml | nav.0.items.3.label]
 EN
 For Precast Manufacturers
 DE
 Für Fertigteilwerke
 
-[site.yml | nav.0.items.3.label]
+[site.yml | nav.0.items.4.label]
 EN
 For Product Manufacturers
 DE
 Für Produkthersteller
 
-[site.yml | nav.0.items.4.label]
+[site.yml | nav.0.items.5.label]
 EN
 For Real Estate Developers
 DE
@@ -4885,6 +4891,471 @@ EN
 Latest News
 DE
 Aktuelles
+
+
+=== DATEI: solutions/allplan-mcp.md ===
+
+[solutions/allplan-mcp.md | title]
+EN
+Allplan MCP
+DE
+Allplan MCP
+
+[solutions/allplan-mcp.md | description]
+EN
+Allplan MCP connects Allplan to an MCP capable AI assistant. Ask about the model you have open, read and write attributes. The model stays on your workstation.
+DE
+Allplan MCP verbindet Allplan mit einem MCP-fähigen KI-Assistenten. Fragen Sie das geöffnete Modell, lesen und schreiben Sie Attribute. Es bleibt auf Ihrem Rechner.
+
+[solutions/allplan-mcp.md | blocks.0.eyebrow]
+EN
+Allplan MCP
+DE
+Allplan MCP
+
+[solutions/allplan-mcp.md | blocks.0.title]
+EN
+Ask the model.
+DE
+Fragen Sie das Modell.
+
+[solutions/allplan-mcp.md | blocks.0.lede]
+EN
+Talk to Allplan in your own words. It reads the model you have open, provides answers, highlights elements and adjusts attributes where necessary.
+DE
+Sprechen Sie mit Allplan in Ihren eigenen Worten. Es liest das geöffnete Modell, beantwortet Ihre Fragen, hebt Elemente hervor und passt Attribute an, wo es nötig ist.
+
+[solutions/allplan-mcp.md | blocks.0.cta.label]
+EN
+See pricing
+DE
+Preise ansehen
+
+[solutions/allplan-mcp.md | blocks.0.link.label]
+EN
+See how it works
+DE
+So funktioniert es
+
+[solutions/allplan-mcp.md | blocks.0.chat.question]
+EN
+Which panel is the heaviest?
+DE
+Welches Element ist das schwerste?
+
+[solutions/allplan-mcp.md | blocks.0.chat.answer]
+EN
+Panel 04. 4.84 m³, about 12.1 t.
+DE
+Element 04. 4,84 m³, rund 12,1 t.
+
+[solutions/allplan-mcp.md | blocks.0.art.marker]
+EN
+Panel 04
+DE
+Element 04
+
+[solutions/allplan-mcp.md | blocks.0.art.alt]
+EN
+Isometric drawing of seven precast wall panels set out in an L. Six are drawn in green, the fourth panel in the long row is drawn in blue and labelled panel 04, which is the answer to the question above the drawing.
+DE
+Isometrische Zeichnung von sieben Fertigteilwänden, in einem L aufgestellt. Sechs sind grün gezeichnet, das vierte Element in der langen Reihe ist blau und mit Element 04 beschriftet. Es ist die Antwort auf die Frage über der Zeichnung.
+
+[solutions/allplan-mcp.md | blocks.1.title]
+EN
+The problem
+DE
+Das Problem
+
+[solutions/allplan-mcp.md | blocks.1.eyebrow]
+EN
+Attribute maintenance
+DE
+Attributpflege
+
+[solutions/allplan-mcp.md | blocks.1.lines.0]
+EN
+A panel can look finished in the viewport and still be missing the field production reads.
+DE
+Ein Element kann im Modell fertig aussehen und trotzdem das Feld leer lassen, das die Produktion ausliest.
+
+[solutions/allplan-mcp.md | blocks.1.lines.1]
+EN
+Nothing is broken, so nothing warns you.
+DE
+Nichts ist kaputt, also warnt Sie auch nichts.
+
+[solutions/allplan-mcp.md | blocks.1.lines.2]
+EN
+At ten thousand elements, checking that by hand is not a task anyone finishes.
+DE
+Bei zehntausend Elementen wird diese Prüfung von Hand nie fertig.
+
+[solutions/allplan-mcp.md | blocks.2.title]
+EN
+How it works
+DE
+So funktioniert es
+
+[solutions/allplan-mcp.md | blocks.2.eyebrow]
+EN
+Four steps
+DE
+Vier Schritte
+
+[solutions/allplan-mcp.md | blocks.2.steps.0]
+EN
+You ask in plain language.
+DE
+Sie fragen in normaler Sprache.
+
+[solutions/allplan-mcp.md | blocks.2.steps.1]
+EN
+The assistant decides what to look up.
+DE
+Der Assistent entscheidet, was er nachschlagen muss.
+
+[solutions/allplan-mcp.md | blocks.2.steps.2]
+EN
+Allplan MCP reads or writes in the open model.
+DE
+Allplan MCP liest oder schreibt im geöffneten Modell.
+
+[solutions/allplan-mcp.md | blocks.2.steps.3]
+EN
+You see the answer and the elements it means, highlighted in the drawing.
+DE
+Sie sehen die Antwort und die betroffenen Elemente, hervorgehoben in der Zeichnung.
+
+[solutions/allplan-mcp.md | blocks.2.note]
+EN
+The model stays on your workstation. Nothing is exported and no second copy is created.
+DE
+Das Modell bleibt auf Ihrem Rechner. Nichts wird exportiert, und es entsteht keine zweite Kopie.
+
+[solutions/allplan-mcp.md | blocks.2.art.assistant]
+EN
+AI assistant
+DE
+KI-Assistent
+
+[solutions/allplan-mcp.md | blocks.2.art.bridge]
+EN
+Allplan MCP
+DE
+Allplan MCP
+
+[solutions/allplan-mcp.md | blocks.2.art.model]
+EN
+Open model
+DE
+Geöffnetes Modell
+
+[solutions/allplan-mcp.md | blocks.2.art.boundary]
+EN
+Your workstation
+DE
+Ihr Rechner
+
+[solutions/allplan-mcp.md | blocks.2.art.alt]
+EN
+Isometric diagram of three plinths. The AI assistant stands on the left, outside a dashed outline. Allplan MCP and the open model stand inside it, on your workstation. A double headed arrow runs between the assistant and Allplan MCP, and a second one between Allplan MCP and the model, where one of three elements is highlighted in blue.
+DE
+Isometrisches Schema mit drei Sockeln. Links steht der KI-Assistent, außerhalb einer gestrichelten Umgrenzung. Allplan MCP und das geöffnete Modell stehen innerhalb, auf Ihrem Rechner. Ein Doppelpfeil verbindet den Assistenten mit Allplan MCP, ein zweiter Allplan MCP mit dem Modell, in dem eines von drei Elementen blau hervorgehoben ist.
+
+[solutions/allplan-mcp.md | blocks.3.title]
+EN
+What you can ask
+DE
+Was Sie fragen können
+
+[solutions/allplan-mcp.md | blocks.3.eyebrow]
+EN
+Three examples
+DE
+Drei Beispiele
+
+[solutions/allplan-mcp.md | blocks.3.items.0.q]
+EN
+Which panels are missing a concrete grade?
+DE
+Welchen Elementen fehlt die Betongüte?
+
+[solutions/allplan-mcp.md | blocks.3.items.0.a]
+EN
+Nine of thirty-six. Highlighted in the drawing.
+DE
+Neun von sechsunddreißig. In der Zeichnung hervorgehoben.
+
+[solutions/allplan-mcp.md | blocks.3.items.1.q]
+EN
+Are all the concrete grades valid?
+DE
+Sind alle Betongüten gültig?
+
+[solutions/allplan-mcp.md | blocks.3.items.1.a]
+EN
+Two panels read C34/45, which is not a grade in EN 1992.
+DE
+Zwei Elemente haben C34/45. Diese Güte gibt es in EN 1992 nicht.
+
+[solutions/allplan-mcp.md | blocks.3.items.2.q]
+EN
+Which of these panels is the heaviest?
+DE
+Welches dieser Elemente ist das schwerste?
+
+[solutions/allplan-mcp.md | blocks.3.items.2.a]
+EN
+4.84 m³, about 12.1 t. The lightest panel with the same outside dimensions weighs 7.5 t.
+DE
+4,84 m³, rund 12,1 t. Das leichteste Element mit denselben Außenmaßen wiegt 7,5 t.
+
+[solutions/allplan-mcp.md | blocks.4.title]
+EN
+The six operations
+DE
+Die sechs Funktionen
+
+[solutions/allplan-mcp.md | blocks.4.eyebrow]
+EN
+What is in Lite
+DE
+Was in Lite enthalten ist
+
+[solutions/allplan-mcp.md | blocks.4.items.0.title]
+EN
+Find elements
+DE
+Elemente finden
+
+[solutions/allplan-mcp.md | blocks.4.items.0.body]
+EN
+Search by position number, layer, attribute value or element type.
+DE
+Suche nach Positionsnummer, Layer, Attributwert oder Elementtyp.
+
+[solutions/allplan-mcp.md | blocks.4.items.1.title]
+EN
+Read attributes
+DE
+Attribute lesen
+
+[solutions/allplan-mcp.md | blocks.4.items.1.body]
+EN
+Every value held on an element.
+DE
+Alle Werte, die an einem Element hinterlegt sind.
+
+[solutions/allplan-mcp.md | blocks.4.items.2.title]
+EN
+Write attributes
+DE
+Attribute schreiben
+
+[solutions/allplan-mcp.md | blocks.4.items.2.body]
+EN
+Set, change or clear values.
+DE
+Werte setzen, ändern oder löschen.
+
+[solutions/allplan-mcp.md | blocks.4.items.3.title]
+EN
+Read geometry
+DE
+Geometrie lesen
+
+[solutions/allplan-mcp.md | blocks.4.items.3.body]
+EN
+Dimensions, volume, surface area, center of gravity.
+DE
+Abmessungen, Volumen, Oberfläche, Schwerpunkt.
+
+[solutions/allplan-mcp.md | blocks.4.items.4.title]
+EN
+Zoom to element
+DE
+Auf Element zoomen
+
+[solutions/allplan-mcp.md | blocks.4.items.4.body]
+EN
+Bring elements into view in every open window.
+DE
+Elemente in allen offenen Fenstern in den Blick holen.
+
+[solutions/allplan-mcp.md | blocks.4.items.5.title]
+EN
+Highlight
+DE
+Hervorheben
+
+[solutions/allplan-mcp.md | blocks.4.items.5.body]
+EN
+Mark elements in the drawing so the selection is visible.
+DE
+Elemente in der Zeichnung markieren, damit die Auswahl sichtbar ist.
+
+[solutions/allplan-mcp.md | blocks.4.note]
+EN
+Connection and session tools come with it. Check the connection, list what a session did and undo it.
+DE
+Dazu kommen Verbindungs- und Sitzungswerkzeuge. Verbindung prüfen, den Ablauf einer Sitzung auflisten und ihn rückgängig machen.
+
+[solutions/allplan-mcp.md | blocks.5.title]
+EN
+Pricing
+DE
+Preise
+
+[solutions/allplan-mcp.md | blocks.5.eyebrow]
+EN
+Three tiers
+DE
+Drei Stufen
+
+[solutions/allplan-mcp.md | blocks.5.tiers.0.price]
+EN
+EUR 99
+DE
+99 EUR
+
+[solutions/allplan-mcp.md | blocks.5.tiers.0.unit]
+EN
+per user per year, excluding VAT
+DE
+pro Nutzer und Jahr, zzgl. MwSt.
+
+[solutions/allplan-mcp.md | blocks.5.tiers.0.body]
+EN
+The six operations above.
+DE
+Die sechs Funktionen oben.
+
+[solutions/allplan-mcp.md | blocks.5.tiers.0.cta.label]
+EN
+Request a licence
+DE
+Lizenz anfragen
+
+[solutions/allplan-mcp.md | blocks.5.tiers.1.body]
+EN
+Everything in Lite, plus drawing generation, 3D modeling and reinforcement as they become available.
+DE
+Alles aus Lite, dazu Zeichnungserstellung, 3D-Modellierung und Bewehrung, sobald sie verfügbar sind.
+
+[solutions/allplan-mcp.md | blocks.5.tiers.1.cta.label]
+EN
+Join the waitlist
+DE
+Auf die Warteliste
+
+[solutions/allplan-mcp.md | blocks.5.tiers.2.body]
+EN
+Tailored to your workflows and standards.
+DE
+Zugeschnitten auf Ihre Abläufe und Standards.
+
+[solutions/allplan-mcp.md | blocks.5.tiers.2.cta.label]
+EN
+Contact sales
+DE
+Vertrieb kontaktieren
+
+[solutions/allplan-mcp.md | blocks.5.waitlist.label]
+EN
+Placeholder
+DE
+Platzhalter
+
+[solutions/allplan-mcp.md | blocks.5.waitlist.title]
+EN
+Join the waitlist
+DE
+Auf die Warteliste
+
+[solutions/allplan-mcp.md | blocks.5.waitlist.body]
+EN
+The waitlist form belongs here. Until it is connected, write to {email} and we put you on the list.
+DE
+Hier gehört das Wartelisten-Formular hin. Solange es noch nicht angebunden ist, schreiben Sie an {email}, und wir nehmen Sie auf die Liste.
+
+[solutions/allplan-mcp.md | blocks.5.note]
+EN
+Allplan 2025 or 2026, and a subscription with any MCP capable AI assistant, for example Claude or ChatGPT. Delivery is an installer plus a licence key. Setup takes a few minutes and needs no server.
+DE
+Allplan 2025 oder 2026 und ein Abo bei einem beliebigen MCP-fähigen KI-Assistenten, zum Beispiel Claude oder ChatGPT. Ausgeliefert wird ein Installer plus Lizenzschlüssel. Die Einrichtung dauert wenige Minuten und braucht keinen Server.
+
+[solutions/allplan-mcp.md | blocks.6.eyebrow]
+EN
+Request a licence
+DE
+Lizenz anfragen
+
+[solutions/allplan-mcp.md | blocks.6.title]
+EN
+Try it on your own model.
+DE
+Testen Sie es an Ihrem eigenen Modell.
+
+[solutions/allplan-mcp.md | blocks.6.body.0]
+EN
+Send us the version of Allplan you run and how many people would use it. We reply with a licence key and the installer.
+DE
+Schreiben Sie uns, welche Allplan-Version Sie einsetzen und wie viele Personen damit arbeiten würden. Sie erhalten Lizenzschlüssel und Installer zurück.
+
+[solutions/allplan-mcp.md | blocks.6.note]
+EN
+We reply within one working day.
+DE
+Wir antworten innerhalb eines Werktags.
+
+[solutions/allplan-mcp.md | blocks.6.slot.label]
+EN
+Placeholder
+DE
+Platzhalter
+
+[solutions/allplan-mcp.md | blocks.6.slot.title]
+EN
+Request a licence
+DE
+Lizenz anfragen
+
+[solutions/allplan-mcp.md | blocks.6.slot.body]
+EN
+The licence form belongs here, with the five fields listed below. Until it is connected, write to {email}.
+DE
+Hier gehört das Lizenzformular hin, mit den fünf Feldern darunter. Solange es noch nicht angebunden ist, schreiben Sie an {email}.
+
+[solutions/allplan-mcp.md | blocks.6.slot.fields.0]
+EN
+Name
+DE
+Name
+
+[solutions/allplan-mcp.md | blocks.6.slot.fields.1]
+EN
+Company
+DE
+Firma
+
+[solutions/allplan-mcp.md | blocks.6.slot.fields.2]
+EN
+Email
+DE
+E-Mail
+
+[solutions/allplan-mcp.md | blocks.6.slot.fields.3]
+EN
+Allplan version
+DE
+Allplan-Version
+
+[solutions/allplan-mcp.md | blocks.6.slot.fields.4]
+EN
+Number of users
+DE
+Anzahl Nutzer
 
 
 === DATEI: solutions/geotechnical-engineers.md ===

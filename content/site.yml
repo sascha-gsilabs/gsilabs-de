@@ -140,6 +140,12 @@ hubspot:
   forms:
     enquiry: 6c2c8d52-a2aa-4096-848d-c77a9e74d748
     application: 181bf01e-34e9-4095-90f2-ba76207c70e7
+    # The two forms on /solutions/allplan-mcp. Both are still to be created in
+    # HubSpot, so they are named here with no id. The page renders a marked
+    # placeholder in each slot until one is pasted in, and requests nothing from
+    # HubSpot in the meantime. Pasting an id is the whole change.
+    licence: ""
+    waitlist: ""
 
 cta:
   label: Get Started
@@ -159,6 +165,9 @@ nav:
   - id: solutions
     label: Solutions
     items:
+      # A named product among audience pages, so it leads the group rather than
+      # sitting between two "For ..." entries.
+      - { label: Allplan MCP, href: /solutions/allplan-mcp }
       - { label: For Design Offices, href: /solutions/planning-design-offices }
       - { label: For Geo Engineers, href: /solutions/geotechnical-engineers }
       - { label: For Precast Manufacturers, href: /solutions/precast-manufacturers }

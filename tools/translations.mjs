@@ -29,7 +29,7 @@ const SKIP_KEYS = new Set([
   // Layout and behaviour
   'src', 'href', 'width', 'height', 'ratio', 'focus', 'type', 'id', 'route', 'form',
   'limit', 'tone', 'layout', 'kind', 'self', 'flushTop', 'split', 'mediaLeft', 'plain',
-  'banner', 'draft', 'allHref', 'icon', 'logo', 'video', 'poster', 'headMode',
+  'banner', 'draft', 'allHref', 'icon', 'logo', 'video', 'poster', 'headMode', 'pageClass',
   // Facts about a page that are not prose
   'date', 'posted', 'employmentType', 'author', 'name', 'slug', 'file',
   // site.yml: identity, addresses and account ids, the same in every language

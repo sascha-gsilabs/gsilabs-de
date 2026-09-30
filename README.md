@@ -170,6 +170,14 @@ the form on the right, split by a rule down the middle.
 
 `eyebrow` and `title` are available too, and `id` gives the band an anchor.
 
+**A form that does not exist yet.** A key under `hubspot.forms` with an empty
+value is a form that has been designed into a page but not created in HubSpot.
+`hasForm()` in `templates/blocks.mjs` is what a block asks, and the Allplan MCP
+page renders a marked placeholder in the slot instead. Nothing is requested from
+HubSpot until an id is there, so the page costs the visitor nothing in the
+meantime. Pasting the id into `site.yml` is the whole change. Two keys are in
+that state today: `licence` and `waitlist`.
+
 The application form is not a block: every job page ends with it, so `jobPage`
 in `templates/pages.mjs` emits it directly. The button in the job header is an
 anchor down to it rather than a link away from the page.
@@ -194,6 +202,7 @@ renders:
 | --- | --- | --- |
 | enquiry, 5 fields | 34rem | 40rem |
 | application, 5 fields, all required | 36rem | 40rem |
+| licence, 5 fields, not built yet | 38rem, an estimate | 38rem |
 
 Add or remove a field and the matching number needs remeasuring, or the form
 gets cropped: the iframe carries `scrolling="no"`, so whatever overflows is
@@ -276,6 +285,48 @@ into the diff for a one word correction.
 3. Build. Pages you have not translated simply do not exist in that language: the build
    lists them at the end, and the switcher sends a visitor to that language's homepage
    rather than to a 404.
+
+### The Allplan MCP page
+
+`/solutions/allplan-mcp` and `/de/solutions/allplan-mcp` are one product page
+rather than an audience page, and they look it: their own palette, everything in
+Inter, seven sections in a fixed order, no tabs.
+
+Two things make that possible without a second code path:
+
+- **`pageClass: mcp`** in the frontmatter puts a class on `<main>`. Everything
+  the page restyles is scoped under `main.mcp` in `assets/css/site.css`, so the
+  header, the footer, the navigation and the consent banner keep the site
+  palette exactly as they are, and no other page can be reached from there.
+- **`templates/allplan-mcp.mjs`** holds the seven section types, `mcpHero`
+  through `mcpLicence`. They are spread into `BLOCKS` at the bottom of
+  `blocks.mjs`, so `renderBlocks` treats them like any other type, and they stay
+  out of the vocabulary the rest of the site composes from.
+
+The palette is Concrete `#F8F6F2`, Ink `#1F271B`, Sand `#EAE3D7`, Forest
+`#384438` and black. Concrete and Sand are the two values the client replaced
+site wide with pure white and light grey, back on this page only. Forest is the
+accent. One further hue, steel blue `#2B57A8`, appears in the two drawings and
+nowhere else: it marks what an answer highlights, which is a meaning the page
+needs a second colour for. Contrast on Concrete runs from 14.3:1 for ink down to
+6.2:1 for the blue, so every one of them clears WCAG AA.
+
+**The drawings.** Both come out of one isometric projection in that module, and
+both are measured rather than drawn by hand: every point a drawing puts down is
+collected, and the `viewBox` is the box around them. Their labels are HTML
+positioned over the drawing by percentage, not `<text>` inside it. A label in
+the SVG scales with the `viewBox`, so it would be seven pixels tall on a phone,
+and the German word is longer than the English one it replaces and would run out
+of the frame. The percentages hold because the frame and the `viewBox` have the
+same aspect ratio. The labels are `aria-hidden`, because the drawing's
+`aria-label` already describes them, in the language of the page.
+
+Two things to know before changing them. The flow diagram is given an explicit
+`width` rather than a `max-width`: a grid item with auto margins and no width
+falls back to the 300px an SVG claims as its intrinsic size, which is a tenth of
+the band. And `.mcp .hs-form-frame` carries a `min-height` like the other two
+forms, but it is an estimate rather than a measurement, because neither form
+exists yet. Measure it against the real one when it does.
 
 ## Search engines
 

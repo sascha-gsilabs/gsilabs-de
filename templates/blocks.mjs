@@ -2,13 +2,20 @@
 // with a `type` that maps to one function here, so pages are composed from data
 // rather than hand written markup.
 import { ARROW, esc, join, md, mdInline, paras, t, withEmail } from './layout.mjs'
+/* The Allplan MCP page brings its own seven section types. They live in their own
+   module because that page is the only thing that uses them, and they are spread
+   into BLOCKS at the bottom of this file so `renderBlocks` finds them like any
+   other type. The import is circular: that module takes `revealChildren`,
+   `formFrame` and `hasForm` from here. It holds because neither side reads the
+   other at module level, only inside functions the build calls later. */
+import { MCP_BLOCKS } from './allplan-mcp.mjs'
 
 /**
  * Every direct child of a band's grid gets the scroll reveal class and a small
  * stagger. Children are always emitted at four spaces of indentation, which is
  * what distinguishes them from nested markup.
  */
-function revealChildren(inner) {
+export function revealChildren(inner) {
   let n = 0
   return inner.replace(/^( {4}<[a-z]+ )(class="|)/gm, (_, open, cls) => {
     const delay = n++ * 90
@@ -652,6 +659,12 @@ const contact = (b, ctx) =>
  * harmless: the second request is served from cache, and the loader picks up
  * every frame div on the page rather than only the first.
  */
+/* Whether a named form has an id yet. A key left empty in site.yml is a form
+   that has been designed into a page but not created in HubSpot, which is a
+   state a page has to be able to render: the Allplan MCP page shows a marked
+   placeholder in its place until the id is pasted in. */
+export const hasForm = (name, site) => Boolean(site.hubspot?.forms?.[name])
+
 export function formFrame(name, site) {
   const hs = site.hubspot ?? {}
   const id = hs.forms?.[name]
@@ -713,6 +726,7 @@ export const BLOCKS = {
   closer,
   contact,
   form,
+  ...MCP_BLOCKS,
 }
 
 export function renderBlocks(blocks = [], ctx) {

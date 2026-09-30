@@ -167,6 +167,12 @@
     <xhtml:link rel="alternate" hreflang="x-default" href="https://www.gsilabs.de/services/geotechnical-engineering-software"/>
   </url>
   <url>
+    <loc>https://www.gsilabs.de/de/solutions/allplan-mcp</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.gsilabs.de/solutions/allplan-mcp"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://www.gsilabs.de/de/solutions/allplan-mcp"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.gsilabs.de/solutions/allplan-mcp"/>
+  </url>
+  <url>
     <loc>https://www.gsilabs.de/de/solutions/geotechnical-engineers</loc>
     <xhtml:link rel="alternate" hreflang="en" href="https://www.gsilabs.de/solutions/geotechnical-engineers"/>
     <xhtml:link rel="alternate" hreflang="de" href="https://www.gsilabs.de/de/solutions/geotechnical-engineers"/>
@@ -301,6 +307,12 @@
     <xhtml:link rel="alternate" hreflang="en" href="https://www.gsilabs.de/services/geotechnical-engineering-software"/>
     <xhtml:link rel="alternate" hreflang="de" href="https://www.gsilabs.de/de/services/geotechnical-engineering-software"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://www.gsilabs.de/services/geotechnical-engineering-software"/>
+  </url>
+  <url>
+    <loc>https://www.gsilabs.de/solutions/allplan-mcp</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.gsilabs.de/solutions/allplan-mcp"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://www.gsilabs.de/de/solutions/allplan-mcp"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.gsilabs.de/solutions/allplan-mcp"/>
   </url>
   <url>
     <loc>https://www.gsilabs.de/solutions/geotechnical-engineers</loc>

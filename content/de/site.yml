@@ -93,6 +93,7 @@ nav:
   - id: solutions
     label: Lösungen
     items:
+      - { label: Allplan MCP, href: /solutions/allplan-mcp }
       - { label: Für Planungsbüros, href: /solutions/planning-design-offices }
       - { label: Für Geotechniker, href: /solutions/geotechnical-engineers }
       - { label: Für Fertigteilwerke, href: /solutions/precast-manufacturers }
