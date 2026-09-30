@@ -30,8 +30,6 @@ ${revealChildren(inner)}
   </div>
 </section>`
 
-const eyebrow = (text) => (text ? `<p class="mcp-label">${esc(text)}</p>` : '')
-
 const heading = (text, id, className = 'mcp-h2') =>
   `<h2 class="${className}" id="${id}">${mdInline(text)}</h2>`
 
@@ -315,7 +313,6 @@ const icon = (name) => {
 const mcpHero = (b) => `<section class="band mcp-band mcp-band--concrete mcp-hero" aria-labelledby="page-title">
   <div class="wrap grid">
     <div class="mcp-hero__head">
-      ${eyebrow(b.eyebrow)}
       <h1 class="mcp-h1" id="page-title">${mdInline(b.title)}</h1>
       <p class="mcp-hero__lede">${mdInline(b.lede)}</p>
       <div class="mcp-hero__actions">
@@ -342,7 +339,6 @@ const mcpProblem = (b) =>
   band(
     join([
       `    <div class="mcp-problem__head">
-      ${eyebrow(b.eyebrow)}
       ${heading(b.title, 'mcp-problem-title')}
     </div>`,
       `    <ol class="mcp-problem__lines">
@@ -359,7 +355,6 @@ const mcpSteps = (b) =>
   band(
     join([
       `    <div class="mcp-steps__head">
-      ${eyebrow(b.eyebrow)}
       ${heading(b.title, 'mcp-steps-title')}
     </div>`,
       `    <ol class="mcp-steps__list">
@@ -385,7 +380,6 @@ const mcpExamples = (b) =>
   band(
     join([
       `    <div class="mcp-examples__head">
-      ${eyebrow(b.eyebrow)}
       ${heading(b.title, 'mcp-examples-title')}
     </div>`,
       `    <div class="mcp-examples__list">
@@ -407,7 +401,6 @@ const mcpOperations = (b) =>
   band(
     join([
       `    <div class="mcp-ops__head">
-      ${eyebrow(b.eyebrow)}
       ${heading(b.title, 'mcp-ops-title')}
     </div>`,
       `    <ul class="mcp-ops">
@@ -435,7 +428,6 @@ const mcpPricing = (b) =>
   band(
     join([
       `    <div class="mcp-price__head">
-      ${eyebrow(b.eyebrow)}
       ${heading(b.title, 'mcp-price-title')}
     </div>`,
       `    <ul class="mcp-tiers">
@@ -459,14 +451,13 @@ ${formSlot(b.waitlist, b.site)}
     { ground: 'concrete', id: b.id, label: 'mcp-price-title' }
   )
 
-/* 7. The licence request. The heading and what happens after you send it on the
+/* 7. The license request. The heading and what happens after you send it on the
    left, the form on the right, which is the shape the enquiry band on Get
    Started uses: a visitor who has filled one recognises the other. */
-const mcpLicence = (b) =>
+const mcpLicense = (b) =>
   band(
     join([
       `    <div class="mcp-cta__head">
-      ${eyebrow(b.eyebrow)}
       ${heading(b.title, 'mcp-cta-title', 'mcp-h2 mcp-h2--lead')}
       ${b.body ? `<div class="mcp-cta__body">${paras(b.body, 'mcp-cta__line')}</div>` : ''}
       <p class="mcp-cta__note">${mdInline(b.note)}</p>
@@ -490,5 +481,5 @@ export const MCP_BLOCKS = {
   mcpExamples,
   mcpOperations,
   mcpPricing: withSite(mcpPricing),
-  mcpLicence: withSite(mcpLicence),
+  mcpLicense: withSite(mcpLicense),
 }

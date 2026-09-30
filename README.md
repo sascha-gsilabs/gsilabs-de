@@ -176,7 +176,7 @@ value is a form that has been designed into a page but not created in HubSpot.
 page renders a marked placeholder in the slot instead. Nothing is requested from
 HubSpot until an id is there, so the page costs the visitor nothing in the
 meantime. Pasting the id into `site.yml` is the whole change. Two keys are in
-that state today: `licence` and `waitlist`.
+that state today: `license` and `waitlist`.
 
 The application form is not a block: every job page ends with it, so `jobPage`
 in `templates/pages.mjs` emits it directly. The button in the job header is an
@@ -202,7 +202,7 @@ renders:
 | --- | --- | --- |
 | enquiry, 5 fields | 34rem | 40rem |
 | application, 5 fields, all required | 36rem | 40rem |
-| licence, 5 fields, not built yet | 38rem, an estimate | 38rem |
+| license, 5 fields, not built yet | 38rem, an estimate | 38rem |
 
 Add or remove a field and the matching number needs remeasuring, or the form
 gets cropped: the iframe carries `scrolling="no"`, so whatever overflows is
@@ -299,7 +299,7 @@ Two things make that possible without a second code path:
   header, the footer, the navigation and the consent banner keep the site
   palette exactly as they are, and no other page can be reached from there.
 - **`templates/allplan-mcp.mjs`** holds the seven section types, `mcpHero`
-  through `mcpLicence`. They are spread into `BLOCKS` at the bottom of
+  through `mcpLicense`. They are spread into `BLOCKS` at the bottom of
   `blocks.mjs`, so `renderBlocks` treats them like any other type, and they stay
   out of the vocabulary the rest of the site composes from.
 

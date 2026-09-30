@@ -46,7 +46,7 @@ values that were replaced above and adds the brand green as an accent.
 | Page ground           | `#F8F6F2` | Concrete, the original warm off white.             |
 | Body copy             | `#1F271B` | Ink, unchanged from the rest of the site.          |
 | Section surface       | `#EAE3D7` | Sand, also the answer bubbles.                     |
-| Accent                | `#384438` | Forest. Eyebrows, hairlines, icons, the model.     |
+| Accent                | `#384438` | Forest. Hairlines, icons, placeholder flag, model. |
 | Buttons and questions | `#000000` | Black, unchanged.                                  |
 | Highlight, drawings   | `#2B57A8` | Steel blue. See below.                             |
 

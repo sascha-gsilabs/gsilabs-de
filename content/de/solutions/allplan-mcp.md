@@ -6,7 +6,6 @@ description: >-
 pageClass: mcp
 blocks:
   - type: mcpHero
-    eyebrow: Allplan MCP
     title: Fragen Sie das Modell.
     lede: >-
       Sprechen Sie mit Allplan in Ihren eigenen Worten. Es liest das geöffnete Modell,
@@ -26,7 +25,6 @@ blocks:
 
   - type: mcpProblem
     title: Das Problem
-    eyebrow: Attributpflege
     lines:
       - >-
         Ein Element kann im Modell fertig aussehen und trotzdem das Feld leer lassen, das
@@ -38,7 +36,6 @@ blocks:
   - type: mcpSteps
     id: how-it-works
     title: So funktioniert es
-    eyebrow: Vier Schritte
     steps:
       - Sie fragen in normaler Sprache.
       - Der Assistent entscheidet, was er nachschlagen muss.
@@ -62,7 +59,6 @@ blocks:
 
   - type: mcpExamples
     title: Was Sie fragen können
-    eyebrow: Drei Beispiele
     items:
       - q: Welchen Elementen fehlt die Betongüte?
         a: Neun von sechsunddreißig. In der Zeichnung hervorgehoben.
@@ -75,7 +71,6 @@ blocks:
 
   - type: mcpOperations
     title: Die sechs Funktionen
-    eyebrow: Was in Lite enthalten ist
     items:
       - icon: find
         title: Elemente finden
@@ -102,14 +97,13 @@ blocks:
   - type: mcpPricing
     id: pricing
     title: Preise
-    eyebrow: Drei Stufen
     tiers:
       - name: Lite
         lead: true
         price: 99 EUR
         unit: pro Nutzer und Jahr, zzgl. MwSt.
         body: Die sechs Funktionen oben.
-        cta: { label: Lizenz anfragen, href: "#licence" }
+        cta: { label: Lizenz anfragen, href: "#license" }
       - name: Pro
         body: >-
           Alles aus Lite, dazu Zeichnungserstellung, 3D-Modellierung und Bewehrung, sobald
@@ -131,9 +125,8 @@ blocks:
       zum Beispiel Claude oder ChatGPT. Ausgeliefert wird ein Installer plus
       Lizenzschlüssel. Die Einrichtung dauert wenige Minuten und braucht keinen Server.
 
-  - type: mcpLicence
-    id: licence
-    eyebrow: Lizenz anfragen
+  - type: mcpLicense
+    id: license
     title: Testen Sie es an Ihrem eigenen Modell.
     body:
       - >-
@@ -141,7 +134,7 @@ blocks:
         damit arbeiten würden. Sie erhalten Lizenzschlüssel und Installer zurück.
     note: Wir antworten innerhalb eines Werktags.
     slot:
-      form: licence
+      form: license
       label: Platzhalter
       title: Lizenz anfragen
       body: >-

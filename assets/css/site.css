@@ -3213,9 +3213,11 @@ main.mcp {
 
 /* --- type ----------------------------------------------------------------- */
 
-/* Inter throughout, including on the controls and the utility labels, which the
-   rest of the site sets in Space Grotesk. Headings are tracked in by three
-   percent, which is what keeps a short line at this size from reading as loose. */
+/* Inter throughout, including on the controls and the one utility label left on
+   the page, which the rest of the site sets in Space Grotesk. Headings are
+   tracked in by three percent, which is what keeps a short line at this size
+   from reading as loose. Sections open on their heading: there are no eyebrows
+   over them, so nothing announces a section before the section says it. */
 .mcp .mcp-h1,
 .mcp .mcp-h2,
 .mcp .mcp-h3,

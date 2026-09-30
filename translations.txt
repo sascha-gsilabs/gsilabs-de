@@ -4907,12 +4907,6 @@ Allplan MCP connects Allplan to an MCP capable AI assistant. Ask about the model
 DE
 Allplan MCP verbindet Allplan mit einem MCP-fähigen KI-Assistenten. Fragen Sie das geöffnete Modell, lesen und schreiben Sie Attribute. Es bleibt auf Ihrem Rechner.
 
-[solutions/allplan-mcp.md | blocks.0.eyebrow]
-EN
-Allplan MCP
-DE
-Allplan MCP
-
 [solutions/allplan-mcp.md | blocks.0.title]
 EN
 Ask the model.
@@ -4967,12 +4961,6 @@ The problem
 DE
 Das Problem
 
-[solutions/allplan-mcp.md | blocks.1.eyebrow]
-EN
-Attribute maintenance
-DE
-Attributpflege
-
 [solutions/allplan-mcp.md | blocks.1.lines.0]
 EN
 A panel can look finished in the viewport and still be missing the field production reads.
@@ -4996,12 +4984,6 @@ EN
 How it works
 DE
 So funktioniert es
-
-[solutions/allplan-mcp.md | blocks.2.eyebrow]
-EN
-Four steps
-DE
-Vier Schritte
 
 [solutions/allplan-mcp.md | blocks.2.steps.0]
 EN
@@ -5069,12 +5051,6 @@ What you can ask
 DE
 Was Sie fragen können
 
-[solutions/allplan-mcp.md | blocks.3.eyebrow]
-EN
-Three examples
-DE
-Drei Beispiele
-
 [solutions/allplan-mcp.md | blocks.3.items.0.q]
 EN
 Which panels are missing a concrete grade?
@@ -5117,12 +5093,6 @@ The six operations
 DE
 Die sechs Funktionen
 
-[solutions/allplan-mcp.md | blocks.4.eyebrow]
-EN
-What is in Lite
-DE
-Was in Lite enthalten ist
-
 [solutions/allplan-mcp.md | blocks.4.items.0.title]
 EN
 Find elements
@@ -5131,7 +5101,7 @@ Elemente finden
 
 [solutions/allplan-mcp.md | blocks.4.items.0.body]
 EN
-Search by position number, layer, attribute value or element type.
+Search by position number, layer, attribute value, or element type.
 DE
 Suche nach Positionsnummer, Layer, Attributwert oder Elementtyp.
 
@@ -5155,7 +5125,7 @@ Attribute schreiben
 
 [solutions/allplan-mcp.md | blocks.4.items.2.body]
 EN
-Set, change or clear values.
+Set, change, or clear values.
 DE
 Werte setzen, ändern oder löschen.
 
@@ -5197,7 +5167,7 @@ Elemente in der Zeichnung markieren, damit die Auswahl sichtbar ist.
 
 [solutions/allplan-mcp.md | blocks.4.note]
 EN
-Connection and session tools come with it. Check the connection, list what a session did and undo it.
+Connection and session tools come with it. Check the connection, list what a session did, and undo it.
 DE
 Dazu kommen Verbindungs- und Sitzungswerkzeuge. Verbindung prüfen, den Ablauf einer Sitzung auflisten und ihn rückgängig machen.
 
@@ -5206,12 +5176,6 @@ EN
 Pricing
 DE
 Preise
-
-[solutions/allplan-mcp.md | blocks.5.eyebrow]
-EN
-Three tiers
-DE
-Drei Stufen
 
 [solutions/allplan-mcp.md | blocks.5.tiers.0.price]
 EN
@@ -5233,7 +5197,7 @@ Die sechs Funktionen oben.
 
 [solutions/allplan-mcp.md | blocks.5.tiers.0.cta.label]
 EN
-Request a licence
+Request a license
 DE
 Lizenz anfragen
 
@@ -5281,15 +5245,9 @@ Hier gehört das Wartelisten-Formular hin. Solange es noch nicht angebunden ist,
 
 [solutions/allplan-mcp.md | blocks.5.note]
 EN
-Allplan 2025 or 2026, and a subscription with any MCP capable AI assistant, for example Claude or ChatGPT. Delivery is an installer plus a licence key. Setup takes a few minutes and needs no server.
+Allplan 2025 or 2026, and a subscription with any MCP capable AI assistant, for example Claude or ChatGPT. Delivery is an installer plus a license key. Setup takes a few minutes and needs no server.
 DE
 Allplan 2025 oder 2026 und ein Abo bei einem beliebigen MCP-fähigen KI-Assistenten, zum Beispiel Claude oder ChatGPT. Ausgeliefert wird ein Installer plus Lizenzschlüssel. Die Einrichtung dauert wenige Minuten und braucht keinen Server.
-
-[solutions/allplan-mcp.md | blocks.6.eyebrow]
-EN
-Request a licence
-DE
-Lizenz anfragen
 
 [solutions/allplan-mcp.md | blocks.6.title]
 EN
@@ -5299,7 +5257,7 @@ Testen Sie es an Ihrem eigenen Modell.
 
 [solutions/allplan-mcp.md | blocks.6.body.0]
 EN
-Send us the version of Allplan you run and how many people would use it. We reply with a licence key and the installer.
+Send us the version of Allplan you run and how many people would use it. We reply with a license key and the installer.
 DE
 Schreiben Sie uns, welche Allplan-Version Sie einsetzen und wie viele Personen damit arbeiten würden. Sie erhalten Lizenzschlüssel und Installer zurück.
 
@@ -5317,13 +5275,13 @@ Platzhalter
 
 [solutions/allplan-mcp.md | blocks.6.slot.title]
 EN
-Request a licence
+Request a license
 DE
 Lizenz anfragen
 
 [solutions/allplan-mcp.md | blocks.6.slot.body]
 EN
-The licence form belongs here, with the five fields listed below. Until it is connected, write to {email}.
+The license form belongs here, with the five fields listed below. Until it is connected, write to {email}.
 DE
 Hier gehört das Lizenzformular hin, mit den fünf Feldern darunter. Solange es noch nicht angebunden ist, schreiben Sie an {email}.
 

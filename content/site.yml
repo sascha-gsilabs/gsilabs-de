@@ -144,7 +144,7 @@ hubspot:
     # HubSpot, so they are named here with no id. The page renders a marked
     # placeholder in each slot until one is pasted in, and requests nothing from
     # HubSpot in the meantime. Pasting an id is the whole change.
-    licence: ""
+    license: ""
     waitlist: ""
 
 cta:
