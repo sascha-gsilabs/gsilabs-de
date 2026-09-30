@@ -18,12 +18,12 @@ blocks:
     chat:
       question: Which panel is the heaviest?
       answer: Panel 04. 4.84 m³, about 12.1 t.
-    art:
-      marker: Panel 04
-      alt: >-
-        Isometric drawing of seven precast wall panels set out in an L. Six are drawn in
-        green, the fourth panel in the long row is drawn in blue and labelled panel 04,
-        which is the answer to the question above the drawing.
+    video:
+      ratio: 16 / 9
+      label: Placeholder
+      title: Product video
+      body: >-
+        The Vimeo embed goes here, in the frame it will play in.
 
   - type: mcpProblem
     title: The problem

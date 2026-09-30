@@ -16,12 +16,12 @@ blocks:
     chat:
       question: Welches Element ist das schwerste?
       answer: Element 04. 4,84 m³, rund 12,1 t.
-    art:
-      marker: Element 04
-      alt: >-
-        Isometrische Zeichnung von sieben Fertigteilwänden, in einem L aufgestellt. Sechs
-        sind grün gezeichnet, das vierte Element in der langen Reihe ist blau und mit
-        Element 04 beschriftet. Es ist die Antwort auf die Frage über der Zeichnung.
+    video:
+      ratio: 16 / 9
+      label: Platzhalter
+      title: Produktvideo
+      body: >-
+        Hier gehört der Vimeo-Embed hin, in dem Rahmen, in dem er später läuft.
 
   - type: mcpProblem
     title: Das Problem

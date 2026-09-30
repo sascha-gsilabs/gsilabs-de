@@ -140,55 +140,6 @@ function solidBox(f, [x0, x1], [y0, y1], [z0, z1], tone) {
   ].join('\n        ')
 }
 
-/* ------------------------------------------------------ the wall drawing --- */
-
-/* Seven precast panels set out in an L, the way a floor comes off a plan, with
-   the one the answer is about in blue and the rest in the green that stands for
-   the model everywhere on this page. Painters order: in this projection a box
-   with a larger x plus y is in front, so the list is drawn in that order. */
-const WALL = { l: 64, t: 16, h: 58, gap: 12 }
-
-function wallDrawing(art) {
-  const f = frame()
-  const step = WALL.l + WALL.gap
-  const hot = 3
-
-  const panels = []
-  for (let i = 0; i < 5; i++)
-    panels.push({ x: [i * step, i * step + WALL.l], y: [0, WALL.t], hot: i === hot })
-  for (let j = 0; j < 2; j++)
-    panels.push({ x: [0, WALL.t], y: [34 + j * step, 34 + j * step + WALL.l], hot: false })
-
-  panels.sort((a, b) => a.x[0] + a.y[0] - (b.x[0] + b.y[0]))
-
-  const setout = [
-    f.line(P(-14, WALL.t), P(5 * step - WALL.gap + 14, WALL.t), 'iso__setout'),
-    f.line(P(WALL.t, 20), P(WALL.t, 34 + step + WALL.l + 14), 'iso__setout'),
-  ].join('\n        ')
-
-  const solids = panels
-    .map((p) => solidBox(f, p.x, p.y, [0, WALL.h], p.hot ? 'hot' : 'mass'))
-    .join('\n        ')
-
-  /* The leader runs up from the middle of the highlighted panel's top face. The
-     tag itself is HTML, so only the room it needs is reserved here. */
-  const centre = P(hot * step + WALL.l / 2, WALL.t / 2, WALL.h)
-  const tag = [centre[0], centre[1] - 46]
-  const leader = f.line(centre, tag, 'iso__leader')
-  f.room(tag, 52, 16)
-
-  const view = f.box(16)
-
-  return `    <div class="mcp-art">
-      <svg class="iso" viewBox="${view.viewBox}" role="img" aria-label="${esc(art.alt)}">
-        ${setout}
-        ${solids}
-        ${leader}
-      </svg>
-      <p class="mcp-art__tag" style="${view.at(tag)}" aria-hidden="true">${esc(art.marker)}</p>
-    </div>`
-}
-
 /* ------------------------------------------------------ the flow drawing --- */
 
 /* Three plinths in a row: the assistant, Allplan MCP, and the model that is
@@ -272,7 +223,7 @@ function flowDrawing(art) {
 ${labels
   .map(
     (label, i) =>
-      `      <p class="mcp-art__tag mcp-art__tag--plain" style="${view.at(
+      `      <p class="mcp-art__tag" style="${view.at(
         tags[i]
       )}" aria-hidden="true">${esc(label)}</p>`
   )
@@ -305,11 +256,37 @@ const icon = (name) => {
   return `<svg class="mcp-op__icon" viewBox="0 0 24 24" aria-hidden="true">${paths}</svg>`
 }
 
+/* ------------------------------------------------------------ the video --- */
+
+/**
+ * The product video, or a marked placeholder while there is no embed yet.
+ *
+ * Only the placeholder is built. An embed loads from Vimeo the moment the page
+ * does, which puts a third party in front of a visitor who has not been asked,
+ * and this site asks. Wiring the player is a decision about how it is loaded,
+ * so it waits for that decision rather than sitting here dormant behind an id
+ * whoever pastes it would not know they were deciding anything.
+ *
+ * The frame holds the video's own ratio either way, so nothing on the page
+ * moves when the player takes its place.
+ */
+const videoSlot = (v) => `    <div class="mcp-art mcp-slot mcp-slot--media" style="--media-ratio:${esc(
+  v.ratio ?? '16 / 9'
+)}">
+      <svg class="mcp-slot__play" viewBox="0 0 24 24" aria-hidden="true">
+        <path d="M1.5 1.5h21v21h-21z"/>
+        <path d="M9.5 7.5 16.5 12l-7 4.5z"/>
+      </svg>
+      <p class="mcp-label mcp-slot__flag">${esc(v.label)}</p>
+      <p class="mcp-slot__title">${mdInline(v.title)}</p>
+      <p class="mcp-slot__body">${mdInline(v.body)}</p>
+    </div>`
+
 /* -------------------------------------------------------------- sections --- */
 
-/* 1. The hero. The headline and what it means on the left, the drawing on the
-   right with a short exchange above it. The blue panel in the drawing is the
-   answer to the question in the bubble: the page shows what it does by doing it. */
+/* 1. The hero. The headline and what it means on the left, the product video on
+   the right with a short exchange above it: the question the video answers, and
+   the answer it gives. */
 const mcpHero = (b) => `<section class="band mcp-band mcp-band--concrete mcp-hero" aria-labelledby="page-title">
   <div class="wrap grid">
     <div class="mcp-hero__head">
@@ -326,7 +303,7 @@ const mcpHero = (b) => `<section class="band mcp-band mcp-band--concrete mcp-her
         <p class="mcp-chat__ask">${mdInline(b.chat.question)}</p>
         <p class="mcp-chat__reply">${mdInline(b.chat.answer)}</p>
       </div>
-${wallDrawing(b.art)}
+${videoSlot(b.video)}
     </div>
   </div>
 </section>`

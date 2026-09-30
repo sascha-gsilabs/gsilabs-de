@@ -51,9 +51,9 @@ values that were replaced above and adds the brand green as an accent.
 | Highlight, drawings   | `#2B57A8` | Steel blue. See below.                             |
 
 Steel blue is the one value on the site that is not in the palette above it. It
-exists because the drawings on that page have to say two different things: green
-is the model, blue is the element an answer highlights. It appears inside the
-two SVGs and nowhere else, never as a link colour, a button or a surface. It
+exists because the diagram on that page has to say two different things: green
+is the model, blue is the element an answer highlights. It appears inside that
+one SVG and nowhere else, never as a link colour, a button or a surface. It
 measures 6.2:1 on Concrete.
 
 Everything on that page is set in Inter, weights 400, 500 and 600, with headings

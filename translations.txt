@@ -4943,18 +4943,6 @@ Panel 04. 4.84 m³, about 12.1 t.
 DE
 Element 04. 4,84 m³, rund 12,1 t.
 
-[solutions/allplan-mcp.md | blocks.0.art.marker]
-EN
-Panel 04
-DE
-Element 04
-
-[solutions/allplan-mcp.md | blocks.0.art.alt]
-EN
-Isometric drawing of seven precast wall panels set out in an L. Six are drawn in green, the fourth panel in the long row is drawn in blue and labelled panel 04, which is the answer to the question above the drawing.
-DE
-Isometrische Zeichnung von sieben Fertigteilwänden, in einem L aufgestellt. Sechs sind grün gezeichnet, das vierte Element in der langen Reihe ist blau und mit Element 04 beschriftet. Es ist die Antwort auf die Frage über der Zeichnung.
-
 [solutions/allplan-mcp.md | blocks.1.title]
 EN
 The problem

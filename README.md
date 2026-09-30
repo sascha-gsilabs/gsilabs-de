@@ -311,15 +311,25 @@ nowhere else: it marks what an answer highlights, which is a meaning the page
 needs a second colour for. Contrast on Concrete runs from 14.3:1 for ink down to
 6.2:1 for the blue, so every one of them clears WCAG AA.
 
-**The drawings.** Both come out of one isometric projection in that module, and
-both are measured rather than drawn by hand: every point a drawing puts down is
-collected, and the `viewBox` is the box around them. Their labels are HTML
-positioned over the drawing by percentage, not `<text>` inside it. A label in
-the SVG scales with the `viewBox`, so it would be seven pixels tall on a phone,
-and the German word is longer than the English one it replaces and would run out
-of the frame. The percentages hold because the frame and the `viewBox` have the
-same aspect ratio. The labels are `aria-hidden`, because the drawing's
-`aria-label` already describes them, in the language of the page.
+**The drawing.** The isometric diagram in "How it works" is measured rather
+than drawn by hand: every point it puts down is collected, and the `viewBox` is
+the box around them. Its labels are HTML positioned over the drawing by
+percentage, not `<text>` inside it. A label in the SVG scales with the
+`viewBox`, so it would be seven pixels tall on a phone, and the German word is
+longer than the English one it replaces and would run out of the frame. The
+percentages hold because the frame and the `viewBox` have the same aspect ratio.
+The labels are `aria-hidden`, because the drawing's `aria-label` already
+describes them, in the language of the page.
+
+**The hero video.** The right hand side of the hero is a product video from
+Vimeo, and the page carries a marked placeholder in its frame until the embed
+exists. Only the placeholder is built, deliberately. A Vimeo iframe loads from
+vimeo.com the moment the page does, which puts a third party in front of a
+visitor who has not been asked, and this site asks about every other one. How
+the player is loaded is a decision, so it is not sitting in the code behind an
+id that whoever pastes it would not know they were deciding anything with. The
+frame holds the video's ratio either way, so nothing moves when the player takes
+its place.
 
 Two things to know before changing them. The flow diagram is given an explicit
 `width` rather than a `max-width`: a grid item with auto margins and no width

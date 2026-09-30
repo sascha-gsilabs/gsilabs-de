@@ -3352,6 +3352,12 @@ main.mcp {
   color: var(--ink);
 }
 
+/* In the hero the exchange runs the width of the video under it, so the question
+   starts where the frame starts and the answer ends where it ends. */
+.mcp-chat--hero {
+  max-width: none;
+}
+
 /* --- the drawings --------------------------------------------------------- */
 
 /* The labels are HTML over the drawing, placed by percentage, so they keep their
@@ -3384,11 +3390,6 @@ main.mcp {
 .mcp-art__tag {
   font-size: 0.75rem;
   letter-spacing: 0.01em;
-  color: var(--steel);
-  font-variant-numeric: tabular-nums;
-}
-
-.mcp-art__tag--plain {
   color: var(--ink);
 }
 
@@ -3462,15 +3463,6 @@ main.mcp {
   fill: none;
   stroke: color-mix(in srgb, var(--forest) 58%, transparent);
   stroke-dasharray: 5 4;
-}
-
-.mcp .iso__setout {
-  stroke: color-mix(in srgb, var(--forest) 32%, transparent);
-  stroke-dasharray: 3 5;
-}
-
-.mcp .iso__leader {
-  stroke: var(--steel);
 }
 
 .mcp .iso__arrow {
@@ -3756,6 +3748,30 @@ main.mcp {
    scrolling="no", so anything past the floor is cropped away silently. */
 .mcp .hs-form-frame {
   min-height: 38rem;
+}
+
+/* The video frame keeps the ratio the player will have, so the page does not
+   move when the embed replaces the placeholder in it. */
+.mcp-slot--media {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  aspect-ratio: var(--media-ratio, 16 / 9);
+}
+
+.mcp-slot--media .mcp-slot__body {
+  max-width: 34ch;
+}
+
+.mcp-slot__play {
+  width: 32px;
+  height: 32px;
+  margin-bottom: var(--s4);
+  fill: none;
+  stroke: var(--forest);
+  stroke-width: 1.2;
 }
 
 .mcp-slot {
