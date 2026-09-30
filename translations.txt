@@ -4931,18 +4931,6 @@ See how it works
 DE
 So funktioniert es
 
-[solutions/allplan-mcp.md | blocks.0.chat.question]
-EN
-Which panel is the heaviest?
-DE
-Welches Element ist das schwerste?
-
-[solutions/allplan-mcp.md | blocks.0.chat.answer]
-EN
-Panel 04. 4.84 m³, about 12.1 t.
-DE
-Element 04. 4,84 m³, rund 12,1 t.
-
 [solutions/allplan-mcp.md | blocks.1.title]
 EN
 The problem

@@ -285,8 +285,8 @@ const videoSlot = (v) => `    <div class="mcp-art mcp-slot mcp-slot--media" styl
 /* -------------------------------------------------------------- sections --- */
 
 /* 1. The hero. The headline and what it means on the left, the product video on
-   the right with a short exchange above it: the question the video answers, and
-   the answer it gives. */
+   the right. The exchange the video shows is not mocked up over it: section 4
+   is where the questions are, in the words they are actually asked in. */
 const mcpHero = (b) => `<section class="band mcp-band mcp-band--concrete mcp-hero" aria-labelledby="page-title">
   <div class="wrap grid">
     <div class="mcp-hero__head">
@@ -299,10 +299,6 @@ const mcpHero = (b) => `<section class="band mcp-band mcp-band--concrete mcp-her
     </div>
 
     <div class="mcp-hero__aside">
-      <div class="mcp-chat mcp-chat--hero">
-        <p class="mcp-chat__ask">${mdInline(b.chat.question)}</p>
-        <p class="mcp-chat__reply">${mdInline(b.chat.answer)}</p>
-      </div>
 ${videoSlot(b.video)}
     </div>
   </div>

@@ -15,9 +15,6 @@ blocks:
       answers, highlights elements and adjusts attributes where necessary.
     cta: { label: See pricing, href: "#pricing" }
     link: { label: See how it works, href: "#how-it-works" }
-    chat:
-      question: Which panel is the heaviest?
-      answer: Panel 04. 4.84 m³, about 12.1 t.
     video:
       ratio: 16 / 9
       label: Placeholder

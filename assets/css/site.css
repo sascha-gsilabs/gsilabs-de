@@ -3323,8 +3323,8 @@ main.mcp {
 
 /* --- the exchange --------------------------------------------------------- */
 
-/* Question in black, answer on sand, one under the other. Both chats on this
-   page sit on a Concrete band, which is what keeps the sand bubble visible. */
+/* Question in black, answer on sand, one under the other. The exchange sits on
+   a Concrete band, which is what keeps the sand bubble visible. */
 .mcp-chat {
   display: grid;
   max-width: 30rem;
@@ -3352,21 +3352,16 @@ main.mcp {
   color: var(--ink);
 }
 
-/* In the hero the exchange runs the width of the video under it, so the question
-   starts where the frame starts and the answer ends where it ends. */
-.mcp-chat--hero {
-  max-width: none;
-}
-
 /* --- the drawings --------------------------------------------------------- */
 
 /* The labels are HTML over the drawing, placed by percentage, so they keep their
    size when the drawing shrinks and a longer German word has room to run. The
    drawing itself carries the whole description in its aria-label, which is why
    the labels are hidden from assistive technology rather than read twice. */
+/* Only the positioning context for the labels over a drawing. What sits above a
+   given frame is that section's business, so the spacing is set there. */
 .mcp-art {
   position: relative;
-  margin-top: var(--s5);
 }
 
 .mcp-art .iso {

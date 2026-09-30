@@ -13,9 +13,6 @@ blocks:
       ist.
     cta: { label: Preise ansehen, href: "#pricing" }
     link: { label: So funktioniert es, href: "#how-it-works" }
-    chat:
-      question: Welches Element ist das schwerste?
-      answer: Element 04. 4,84 m³, rund 12,1 t.
     video:
       ratio: 16 / 9
       label: Platzhalter
