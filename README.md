@@ -155,7 +155,7 @@ hubspot:
   # Opened on HubSpot's own page, by a button that links to it.
   shared:
     license: https://2gvz3x.share-eu1.hsforms.com/…    # /solutions/allplan-mcp
-    waitlist: ""                                       # not shared yet
+    waitlist: https://2gvz3x.share-eu1.hsforms.com/…   # /solutions/allplan-mcp
 ```
 
 Replacing a form in HubSpot means pasting its new id or link there, once.
@@ -168,9 +168,9 @@ because filling the form is what those pages are for. The Allplan MCP page
 links, because it is a page somebody reads first and only sometimes acts on, and
 it already keeps its video behind the same kind of click.
 
-A shared name with no link behind it renders no button at all. `waitlist` is in
-that state, so the Pro tier on the Allplan MCP page carries none: a control that
-goes nowhere is worse than no control.
+A shared name with no link behind it renders no button at all, which is how the
+Pro tier stood while its form was being made: a control that goes nowhere is
+worse than no control.
 
 `form` is the enquiry band on Get Started: what we need from you on the left,
 the form on the right, split by a rule down the middle.

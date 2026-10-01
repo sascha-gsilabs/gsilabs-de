@@ -122,7 +122,6 @@ blocks:
         body: >-
           Everything in Lite, plus drawing generation, 3D modeling and reinforcement as
           they become available.
-        # No button until hubspot.shared.waitlist has a link behind it.
         cta: { label: Join the waitlist, form: waitlist }
       - name: Custom
         body: Tailored to your workflows and standards.

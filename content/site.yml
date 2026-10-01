@@ -152,7 +152,7 @@ hubspot:
   # worse than no control.
   shared:
     license: https://2gvz3x.share-eu1.hsforms.com/2bCyNUqKqQJaEjcd6nnTXSA
-    waitlist: ""
+    waitlist: https://2gvz3x.share-eu1.hsforms.com/2CzPfU_EjTzK3Mj9kAYqt-w
 
 cta:
   label: Get Started
