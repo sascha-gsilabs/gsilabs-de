@@ -13,7 +13,7 @@
 // would run out of the frame. Percentages hold because the frame and the viewBox
 // have the same aspect ratio.
 import { ARROW, esc, join, mdInline, paras, t } from './layout.mjs'
-import { formFrame, hasForm, revealChildren } from './blocks.mjs'
+import { revealChildren } from './blocks.mjs'
 
 /* ------------------------------------------------------------ scaffolding --- */
 
@@ -33,11 +33,35 @@ ${revealChildren(inner)}
 const heading = (text, id, className = 'mcp-h2') =>
   `<h2 class="${className}" id="${id}">${mdInline(text)}</h2>`
 
-const solid = (cta) =>
-  cta ? `<a class="btn btn--solid mcp-btn" href="${cta.href}">${esc(cta.label)}</a>` : ''
+/**
+ * Where a call to action points.
+ *
+ * `href` is an ordinary link. `form` names one of the shared HubSpot forms in
+ * site.yml, which are whole forms hosted on HubSpot's own page rather than
+ * embedded here: the page requests nothing from them until somebody follows the
+ * link. A name with no link behind it yet resolves to nothing, and the button
+ * is not rendered at all, because a control that goes nowhere is worse than no
+ * control.
+ */
+const target = (cta, site) => (cta?.form ? site.hubspot?.shared?.[cta.form] || '' : cta?.href || '')
 
-const quiet = (cta) =>
-  cta ? `<a class="link mcp-link" href="${cta.href}">${esc(cta.label)}${ARROW}</a>` : ''
+/* A shared form opens in its own tab. It is a different site, and it ends on a
+   thank you page there, so the page the visitor was reading should still be
+   behind it when they are done. */
+const away = (href) =>
+  /^https?:/.test(href) ? ' target="_blank" rel="noopener"' : ''
+
+const solid = (cta, site) => {
+  const href = target(cta, site)
+  return href ? `<a class="btn btn--solid mcp-btn" href="${href}"${away(href)}>${esc(cta.label)}</a>` : ''
+}
+
+const quiet = (cta, site) => {
+  const href = target(cta, site)
+  return href
+    ? `<a class="link mcp-link" href="${href}"${away(href)}>${esc(cta.label)}${ARROW}</a>`
+    : ''
+}
 
 /* `{email}` in a content string becomes the address from site.yml. The slot is
    written into the sentence rather than the sentence cut in two, because German
@@ -47,23 +71,6 @@ const withEmail = (text, site) =>
     '{email}',
     `<a href="mailto:${site.company.email}">${esc(site.company.email)}</a>`
   )
-
-/**
- * A HubSpot form, if it exists yet.
- *
- * Both forms on this page are named in site.yml with an empty id, because they
- * are still to be created in HubSpot. Until an id is there this renders
- * nothing, and the two sections that carry a form say so in their own way: the
- * Pro tier simply has no button, and the request band drops to one column and
- * offers the address instead. Pasting an id in is the whole change, and no
- * loader script reaches the page before then.
- */
-const formEmbed = (name, site) =>
-  hasForm(name, site)
-    ? `      <div class="mcp-form">
-        ${formFrame(name, site)}
-      </div>`
-    : ''
 
 /* ------------------------------------------------------------------- iso --- */
 
@@ -313,8 +320,8 @@ const mcpHero = (b) => `<section class="band mcp-band mcp-band--concrete mcp-her
       <h1 class="mcp-h1" id="page-title">${mdInline(b.title)}</h1>
       <p class="mcp-hero__lede">${mdInline(b.lede)}</p>
       <div class="mcp-hero__actions">
-        ${solid(b.cta)}
-        ${quiet(b.link)}
+        ${solid(b.cta, b.site)}
+        ${quiet(b.link, b.site)}
       </div>
     </div>
 
@@ -416,14 +423,12 @@ ${b.items
    because it is the one that can be bought today, so the emphasis is a fact
    about the product rather than a recommendation.
 
-   The waitlist is a HubSpot form that does not exist yet. Until it does, the
-   band carries neither the form nor a button pointing at it: a tier that cannot
-   be joined says so by having nothing to press. Giving the Pro tier a `cta` in
-   the content file is what brings both back. */
-const mcpPricing = (b) => {
-  const waitlist = b.waitlist && hasForm(b.waitlist.form, b.site)
-
-  return band(
+   The forms are not on this page. Each button opens the one that belongs to it,
+   hosted by HubSpot on its own page, so the pricing band asks nothing of a
+   visitor who came to read the price. A tier whose form has no link yet carries
+   no button: a control that goes nowhere is worse than no control. */
+const mcpPricing = (b) =>
+  band(
     join([
       `    <div class="mcp-price__head">
       ${heading(b.title, 'mcp-price-title')}
@@ -436,61 +441,46 @@ ${b.tiers
         <p class="mcp-tier__price">${tier.price ? mdInline(tier.price) : ''}</p>
         <p class="mcp-tier__unit">${tier.unit ? mdInline(tier.unit) : ''}</p>
         <p class="mcp-tier__body">${mdInline(tier.body)}</p>
-        ${solid(tier.cta)}
+        ${solid(tier.cta, b.site)}
       </li>`
   )
   .join('\n')}
     </ul>`,
-      waitlist
-        ? `    <div class="mcp-waitlist" id="${esc(b.waitlist.id)}">
-      <h3 class="mcp-h3 mcp-waitlist__title">${mdInline(b.waitlist.title)}</h3>
-${formEmbed(b.waitlist.form, b.site)}
-      <noscript>
-        <p class="mcp-waitlist__note">${withEmail(t(b.site, 'formNoscript'), b.site)}</p>
-      </noscript>
-    </div>`
-        : '',
       `    <p class="mcp-price__note">${mdInline(b.note)}</p>`,
     ]),
     { ground: 'concrete', id: b.id, label: 'mcp-price-title' }
   )
-}
 
-/* 7. The license request. The heading and what happens after you send it on the
-   left, the form on the right, which is the shape the enquiry band on Get
-   Started uses: a visitor who has filled one recognises the other.
+/* 7. The license request, which is a button rather than a form. The form opens
+   on HubSpot's own page, so the band is what it says and nothing else: the
+   heading, what happens after you send it, the way to start, and how long the
+   answer takes.
 
-   Without the form there is no right hand side, so the band drops to one column
-   and the copy offers the address instead. A closing section that asks for
-   something has to leave a way to answer. */
+   If the link is ever missing the button is not rendered, and the copy offers
+   the address instead. A closing section that asks for something has to leave a
+   way to answer. */
 const mcpLicense = (b) => {
-  const live = hasForm(b.form, b.site)
+  const button = solid(b.cta, b.site)
 
   return band(
-    join([
-      `    <div class="mcp-cta__head${live ? '' : ' mcp-cta__head--wide'}">
+    `    <div class="mcp-cta__head">
       ${heading(b.title, 'mcp-cta-title', 'mcp-h2 mcp-h2--lead')}
       ${b.body ? `<div class="mcp-cta__body">${paras(b.body, 'mcp-cta__line')}</div>` : ''}
-      ${live ? '' : `<p class="mcp-cta__line">${withEmail(b.fallback, b.site)}</p>`}
+      ${button ? '' : `<p class="mcp-cta__line">${withEmail(b.fallback, b.site)}</p>`}
+      ${button ? `<div class="mcp-cta__actions">${button}</div>` : ''}
       <p class="mcp-cta__note">${mdInline(b.note)}</p>
     </div>`,
-      live
-        ? `    <div class="mcp-cta__form">
-${formEmbed(b.form, b.site)}
-    </div>`
-        : '',
-    ]),
     { ground: 'sand', id: b.id, label: 'mcp-cta-title' }
   )
 }
 
-/* The block signature is (block, ctx), and the two with a form in them need
-   site.yml for the HubSpot ids and the contact address, so they take it off ctx
-   here rather than each reading a second argument. */
+/* The block signature is (block, ctx), and every block with a button in it needs
+   site.yml to resolve where that button points, so they take it off ctx here
+   rather than each reading a second argument. */
 const withSite = (fn) => (b, ctx) => fn({ ...b, site: ctx.site })
 
 export const MCP_BLOCKS = {
-  mcpHero,
+  mcpHero: withSite(mcpHero),
   mcpProblem,
   mcpSteps,
   mcpExamples,

@@ -140,11 +140,19 @@ hubspot:
   forms:
     enquiry: 6c2c8d52-a2aa-4096-848d-c77a9e74d748
     application: 181bf01e-34e9-4095-90f2-ba76207c70e7
-    # The waitlist on /solutions/allplan-mcp. The licence request on that same
-    # page is the `enquiry` form above: it is one form in HubSpot, so it is one
-    # id here, asked for by two pages. Giving it a second name would mean
-    # replacing it twice and finding out the hard way when only one was done.
-    waitlist: 0b33df53-f123-4f32-b732-3f64018aadfb
+
+  # Forms that open on HubSpot's own page instead of being embedded in one of
+  # ours. A share link is the whole form, hosted there, so a page that links to
+  # it asks nothing of a visitor who never presses the button: no loader script,
+  # no iframe, nothing from HubSpot at all until the link is followed.
+  #
+  # Named here for the same reason the embedded ones are, so no content file
+  # carries a URL twice and the two language versions cannot drift apart. A name
+  # with no link behind it yet renders no button: a control that goes nowhere is
+  # worse than no control.
+  shared:
+    license: https://2gvz3x.share-eu1.hsforms.com/2bCyNUqKqQJaEjcd6nnTXSA
+    waitlist: ""
 
 cta:
   label: Get Started

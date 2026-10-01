@@ -141,26 +141,36 @@ Common options on any block: `tone: void` for a black band, `id` for an anchor,
 
 ### Forms
 
-The site embeds three HubSpot forms. Each is declared once in `site.yml`, named
-for the job it does so no page ever carries a UUID:
+The site uses HubSpot forms two ways, and both are declared once in `site.yml`,
+named for the job they do so no page ever carries a UUID or a URL twice:
 
 ```yaml
 hubspot:
   region: eu1
   portalId: "149298045"
+  # Embedded in one of our pages, inside a cross origin iframe.
   forms:
-    enquiry: 6c2c8d52-a2aa-4096-848d-c77a9e74d748      # /get-started, and the
-                                                       # licence request on
-                                                       # /solutions/allplan-mcp
+    enquiry: 6c2c8d52-a2aa-4096-848d-c77a9e74d748      # /get-started
     application: 181bf01e-34e9-4095-90f2-ba76207c70e7  # the job pages
-    waitlist: 0b33df53-f123-4f32-b732-3f64018aadfb     # /solutions/allplan-mcp
+  # Opened on HubSpot's own page, by a button that links to it.
+  shared:
+    license: https://2gvz3x.share-eu1.hsforms.com/…    # /solutions/allplan-mcp
+    waitlist: ""                                       # not shared yet
 ```
 
-Replacing a form in HubSpot means pasting its new id there, once. Three forms
-and four places that embed one, because the enquiry form does two jobs: it is
-one form in HubSpot, so it is one id here, asked for by both pages. A second
-name for it would mean replacing it twice and finding out the hard way when
-only one was done.
+Replacing a form in HubSpot means pasting its new id or link there, once.
+
+**Embedded or shared.** An embedded form is on the page, and the loader calls
+HubSpot as soon as the page opens, for every visitor. A shared one is a link:
+nothing is requested until somebody presses the button, and the form then opens
+on HubSpot's own page in its own tab. Get Started and the job pages embed,
+because filling the form is what those pages are for. The Allplan MCP page
+links, because it is a page somebody reads first and only sometimes acts on, and
+it already keeps its video behind the same kind of click.
+
+A shared name with no link behind it renders no button at all. `waitlist` is in
+that state, so the Pro tier on the Allplan MCP page carries none: a control that
+goes nowhere is worse than no control.
 
 `form` is the enquiry band on Get Started: what we need from you on the left,
 the form on the right, split by a rule down the middle.
@@ -181,12 +191,10 @@ the form on the right, split by a rule down the middle.
 value is a form that has been designed into a page but not created in HubSpot.
 `hasForm()` in `templates/blocks.mjs` is what a block asks before rendering one,
 and nothing is requested from HubSpot until an id is there. Pasting the id into
-`site.yml` is the whole change. No key is in that state today, but the Allplan
-MCP page is written to survive one being emptied rather than to render a broken
-band: its request band drops to a single column and gives the address instead,
-because a closing section that asks for something has to leave a way to answer.
-The Pro tier is the same idea done in content: its `cta` is what points at the
-waitlist form, so a tier with no form to join simply carries no button.
+`site.yml` is the whole change. No embedded form is in that state today. The
+same idea covers the shared links: the Allplan MCP page offers the address
+instead of a button if its license link ever goes missing, because a closing
+section that asks for something has to leave a way to answer.
 
 The application form is not a block: every job page ends with it, so `jobPage`
 in `templates/pages.mjs` emits it directly. The button in the job header is an
@@ -208,20 +216,13 @@ leave the form invisible. `.hs-form-frame` carries a `min-height` as the floor
 that keeps it on the page either way, measured against each form as it actually
 renders:
 
-| | wide | narrow |
+| | beside the copy | stacked, under 480px |
 | --- | --- | --- |
-| enquiry, 5 fields | 34rem beside the copy | 40rem stacked, under 480px |
-| application, 5 fields, all required | 36rem | 40rem stacked, under 480px |
-| waitlist, 4 fields | 27rem stacked and full width | 32rem under the Pro column, and under 480px |
-| enquiry again, beside the Allplan MCP copy | 33rem | 39rem under 480px |
+| enquiry, 5 fields | 34rem | 40rem |
+| application, 5 fields, all required | 36rem | 40rem |
 
-Both forms on the Allplan MCP page lay their fields out in two columns above
-440px of frame width and in one below it, which is why each has two floors. The
-taller one applies wherever the frame can be narrow, in the column under the Pro
-tier and again on a phone. The shorter one applies only in the band between,
-where the form is stacked and runs the full width. The figures behind them,
-measured against the live forms: the waitlist is 406px wide and 494px narrow,
-the request 516px and 604px.
+Only the embedded forms need a floor. A shared one is HubSpot's own page and
+sizes itself.
 
 Add or remove a field and the matching number needs remeasuring, or the form
 gets cropped: the iframe carries `scrolling="no"`, so whatever overflows is

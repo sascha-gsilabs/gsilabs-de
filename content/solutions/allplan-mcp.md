@@ -117,19 +117,16 @@ blocks:
         price: EUR 99
         unit: per user per year, excluding VAT
         body: The six operations above.
-        cta: { label: Request a license, href: "#license" }
+        cta: { label: Request a license, form: license }
       - name: Pro
         body: >-
           Everything in Lite, plus drawing generation, 3D modeling and reinforcement as
           they become available.
-        cta: { label: Join the waitlist, href: "#waitlist" }
+        # No button until hubspot.shared.waitlist has a link behind it.
+        cta: { label: Join the waitlist, form: waitlist }
       - name: Custom
         body: Tailored to your workflows and standards.
         cta: { label: Contact sales, href: /get-started }
-    waitlist:
-      id: waitlist
-      form: waitlist
-      title: Join the waitlist
     note: >-
       Allplan 2025 or 2026, and a subscription with any MCP capable AI assistant, for
       example Claude or ChatGPT. Delivery is an installer plus a license key. Setup takes
@@ -143,10 +140,8 @@ blocks:
         Send us the version of Allplan you run and how many people would use it. We
         reply with a license key and the installer.
     note: We reply within one working day.
-    # The same form as Get Started, by the same name: one form in HubSpot, one
-    # id in site.yml, asked for by two pages.
-    form: enquiry
-    # Shown in place of the form if that key is ever emptied, so the closing
+    cta: { label: Request a license, form: license }
+    # Shown in place of the button if that link is ever missing, so the closing
     # band still leaves a way to answer.
     fallback: Write to {email} and you reach the same people.
 ---

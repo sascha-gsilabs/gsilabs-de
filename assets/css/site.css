@@ -3122,16 +3122,6 @@ button {
     min-height: 40rem;
   }
 
-  /* Both frames are back under 440px here, so both are back to the taller of
-     their two layouts. */
-  .mcp-waitlist .hs-form-frame {
-    min-height: 32rem;
-  }
-
-  .mcp-cta__form .hs-form-frame {
-    min-height: 39rem;
-  }
-
   .job-apply .hs-form-frame {
     min-height: 40rem;
   }
@@ -3701,24 +3691,6 @@ main.mcp {
   align-self: start;
 }
 
-/* Under the Pro column, because that is the tier it belongs to. The three
-   cards are four columns each, so 5 to 9 puts the form directly below the one
-   whose button points at it. */
-.mcp-waitlist {
-  grid-column: 5 / 9;
-  margin-top: var(--s6);
-}
-
-.mcp-waitlist__title {
-  margin-bottom: var(--s3);
-}
-
-.mcp-waitlist__note {
-  font-size: var(--step-small);
-  line-height: 1.6;
-  color: var(--mcp-dim);
-}
-
 .mcp-price__note {
   grid-column: 1 / 9;
   margin-top: var(--s5);
@@ -3729,8 +3701,10 @@ main.mcp {
 
 /* --- 7. request a licence ------------------------------------------------- */
 
+/* One column: the form it asks for opens on HubSpot's own page, so there is no
+   second half to balance against. */
 .mcp-cta__head {
-  grid-column: 1 / 6;
+  grid-column: 1 / 8;
 }
 
 .mcp-cta__line {
@@ -3755,41 +3729,14 @@ main.mcp {
   text-decoration-color: currentColor;
 }
 
-.mcp-cta__note {
+.mcp-cta__actions {
   margin-top: var(--s5);
+}
+
+.mcp-cta__note {
+  margin-top: var(--s4);
   font-size: var(--step-small);
   color: var(--mcp-dim);
-}
-
-.mcp-cta__form {
-  grid-column: 7 / 13;
-}
-
-/* No form yet, so no second column to balance against. */
-.mcp-cta__head--wide {
-  grid-column: 1 / 9;
-}
-
-/* --- the two forms -------------------------------------------------------- */
-
-/* HubSpot posts the measured height back to the page and the frame grows to it,
-   but it posts zero on any origin it does not recognise, which would leave the
-   form invisible. These are the floors that keep it on the page either way, and
-   each one belongs to the column its form actually stands in. The iframe carries
-   scrolling="no", so anything past the floor is cropped away silently.
-
-   Both floors are measured against the real forms. Each lays its fields out in
-   two columns above 440px of frame width and in one below it, so each has two
-   heights: the waitlist 406px wide and 494px narrow, the request 516px and
-   604px. The floor is the taller figure wherever the frame can be narrow, and
-   the shorter one only where it is stacked and runs the full width. Both are
-   rounded up for the error state a bad address adds. */
-.mcp-waitlist .hs-form-frame {
-  min-height: 32rem;
-}
-
-.mcp-cta__form .hs-form-frame {
-  min-height: 33rem;
 }
 
 /* --- the product video ---------------------------------------------------- */
@@ -3905,14 +3852,6 @@ main.mcp {
     grid-column: 1 / 11;
   }
 
-  .mcp-cta__head,
-  .mcp-cta__form {
-    grid-column: 1 / 13;
-  }
-
-  .mcp-cta__form {
-    margin-top: var(--s6);
-  }
 }
 
 @media (max-width: 900px) {
@@ -3953,14 +3892,8 @@ main.mcp {
   }
 
   .mcp-ops__note,
-  .mcp-price__note,
-  .mcp-waitlist {
+  .mcp-price__note {
     grid-column: 1 / 13;
-  }
-
-  /* Full width now, so the form is wide enough for its two column layout. */
-  .mcp-waitlist .hs-form-frame {
-    min-height: 27rem;
   }
 }
 

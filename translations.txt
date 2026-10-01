@@ -5213,12 +5213,6 @@ Contact sales
 DE
 Vertrieb kontaktieren
 
-[solutions/allplan-mcp.md | blocks.5.waitlist.title]
-EN
-Join the waitlist
-DE
-Auf die Warteliste
-
 [solutions/allplan-mcp.md | blocks.5.note]
 EN
 Allplan 2025 or 2026, and a subscription with any MCP capable AI assistant, for example Claude or ChatGPT. Delivery is an installer plus a license key. Setup takes a few minutes and needs no server.
@@ -5242,6 +5236,12 @@ EN
 We reply within one working day.
 DE
 Wir antworten innerhalb eines Werktags.
+
+[solutions/allplan-mcp.md | blocks.6.cta.label]
+EN
+Request a license
+DE
+Lizenz anfragen
 
 [solutions/allplan-mcp.md | blocks.6.fallback]
 EN

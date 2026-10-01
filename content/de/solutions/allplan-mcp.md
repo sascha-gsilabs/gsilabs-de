@@ -112,19 +112,15 @@ blocks:
         price: 99 EUR
         unit: pro Nutzer und Jahr, zzgl. MwSt.
         body: Die sechs Funktionen oben.
-        cta: { label: Lizenz anfragen, href: "#license" }
+        cta: { label: Lizenz anfragen, form: license }
       - name: Pro
         body: >-
           Alles aus Lite, dazu Zeichnungserstellung, 3D-Modellierung und Bewehrung, sobald
           sie verfügbar sind.
-        cta: { label: Auf die Warteliste, href: "#waitlist" }
+        cta: { label: Auf die Warteliste, form: waitlist }
       - name: Custom
         body: Zugeschnitten auf Ihre Abläufe und Standards.
         cta: { label: Vertrieb kontaktieren, href: /get-started }
-    waitlist:
-      id: waitlist
-      form: waitlist
-      title: Auf die Warteliste
     note: >-
       Allplan 2025 oder 2026 und ein Abo bei einem beliebigen MCP-fähigen KI-Assistenten,
       zum Beispiel Claude oder ChatGPT. Ausgeliefert wird ein Installer plus
@@ -138,6 +134,6 @@ blocks:
         Schreiben Sie uns, welche Allplan-Version Sie einsetzen und wie viele Personen
         damit arbeiten würden. Sie erhalten Lizenzschlüssel und Installer zurück.
     note: Wir antworten innerhalb eines Werktags.
-    form: enquiry
+    cta: { label: Lizenz anfragen, form: license }
     fallback: Schreiben Sie an {email}, Sie erreichen dieselben Leute.
 ---
