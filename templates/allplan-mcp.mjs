@@ -332,18 +332,18 @@ ${video(b.video)}
 </section>`
 
 /* 2. The problem, as three statements under one another rather than a paragraph.
-   They are a descent: the panel looks right, nothing warns you, and by the time
-   it matters the check is too big to finish. The rules between them are that
-   descent, which is why each line gets its own row. */
+   Each is one job done the long way round, and they are three of a kind rather
+   than a sequence, so the list is unordered and the rules between them are what
+   separates them. */
 const mcpProblem = (b) =>
   band(
     join([
       `    <div class="mcp-problem__head">
       ${heading(b.title, 'mcp-problem-title')}
     </div>`,
-      `    <ol class="mcp-problem__lines">
+      `    <ul class="mcp-problem__lines">
 ${b.lines.map((line) => `      <li>${mdInline(line)}</li>`).join('\n')}
-    </ol>`,
+    </ul>`,
     ]),
     { ground: 'sand', id: b.id, label: 'mcp-problem-title' }
   )

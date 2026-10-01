@@ -58,23 +58,32 @@ description: >-
 #      Framework. That is left out here for the same reason it is left out for Vercel:
 #      it was not checked against the official participant list.
 #
-#   4. VIMEO. The Allplan MCP page carries a product video. It is not embedded
-#      until a visitor clicks the button on it: what loads with the page is the
-#      poster frame, encoded into assets/img and served from this origin, so
-#      vimeo.com is not contacted at all until someone asks for the video. The
-#      frame says so before the click.
+#   4. VIMEO. The video on the Allplan MCP page is not embedded. What loads with
+#      the page is a poster frame served from this origin, and vimeo.com is not
+#      contacted at all until a visitor presses the button. The Video section
+#      below says so, and the line above the button on that page says it too.
 #
-#      That is why the video is not a switch in the consent banner. There is no
-#      choice to store, because nothing runs unasked, and the click is the
-#      request. What the click does then is a transfer: Vimeo.com LLC sits in
-#      New York, the player reads the visitor's IP address and sets its own
-#      cookies, and Vimeo's own terms are what governs it. THIS TEXT DOES NOT
-#      MENTION VIMEO YET. It needs a paragraph naming the company, what the
-#      player receives, and the basis for the transfer, in both languages.
-#      `assets/js/site.js` and the comment on the video in
-#      `templates/allplan-mcp.mjs` describe exactly what happens, so the
-#      paragraph can be written against the behaviour rather than against a
-#      vendor page.
+#      Because the click is what triggers the transfer, the basis written here is
+#      Art. 6(1)(a): the consent is the click. That is also why the line above the
+#      button names Vimeo, the United States and the IP address rather than only
+#      saying the video loads on click. A consent has to be informed at the moment
+#      it is given, and this one is given on the product page rather than in the
+#      banner.
+#
+#      THREE THINGS FOR THE LAWYER. First, the entity and address were read off
+#      Vimeo's own privacy policy on 2026-10-01: Vimeo.com, Inc., 330 West 34th
+#      Street, 10th Floor, New York, New York 10001. Check they are still current
+#      at sign off. Second, Vimeo names both the standard contractual clauses and
+#      the EU-US Data Privacy Framework. Only the clauses are written here, and
+#      the DPF is left out for the same reason it is left out for Vercel and
+#      Apollo: it was not checked against the official participant list. Third,
+#      whether those clauses actually govern this transfer depends on the
+#      agreement GSI has with Vimeo, which is a question about a contract rather
+#      than about this page.
+#
+#      Vimeo also names an EU representative, EDPO, Avenue Huart Hamoir 71, 1030
+#      Brussels. It is not in the text below, in keeping with the Apollo
+#      paragraph, which does not name one either. Add it if you want it.
 #
 #   Two things this text assumes and you have to make true: the processing agreement
 #   with Vercel is actually concluded, and the address below is still current.
@@ -152,6 +161,27 @@ blocks:
 
       #### Nothing beyond the necessary loads until you agree, and you can withdraw that agreement from any page.
 
+      #### Video
+
+      The Allplan MCP page carries a product video hosted by Vimeo.com, Inc., 330 West
+      34th Street, 10th Floor, New York, New York 10001, USA. It does not load on its own.
+      What loads with the page is a poster frame served from our own server. Your browser
+      contacts Vimeo only once you press the button, and the page says what that does
+      above the button.
+
+      With that click, Vimeo receives your IP address and which video you opened on which
+      page. It stores information on your device, cookies among it, and processes that
+      data for its own purposes as well, which we have no control over.
+
+      The legal basis is your consent under Art. 6(1)(a) GDPR, given by the click. That is
+      why the video is not a switch in the consent banner: there is nothing to store,
+      because nothing loads unasked. Leave the button alone and nothing is sent to Vimeo
+      from any page.
+
+      The click transfers data to the United States. Vimeo names the European Commission's
+      Standard Contractual Clauses for those transfers. Those clauses do not put the data
+      out of reach of US authorities, and you should know that before you start the video.
+
       #### Contact, External Services, and Your Rights
 
       If you contact us through one of the forms on this website or by email, we store the
@@ -162,8 +192,12 @@ blocks:
       The forms on this website are provided by HubSpot Ireland Limited, which processes
       the data you submit on our behalf as a processor under Art. 28 GDPR. The form is
       served from HubSpot's EU infrastructure, so your entries are stored on servers in the
-      European Union. Loading a page that carries a form causes your browser to contact
+      European Union. Loading a page with an embedded form causes your browser to contact
       HubSpot, which receives your IP address for that request.
+
+      On the Allplan MCP page the forms are linked rather than embedded. The buttons there
+      open the form on a page HubSpot runs. Until you press one, that page does not
+      contact HubSpot at all.
 
       The typefaces used on this website are hosted on our own servers. No font request
       is made to Google or any other third party.

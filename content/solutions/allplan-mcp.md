@@ -24,7 +24,11 @@ blocks:
       title: Allplan MCP
       params: badge=0&autopause=0&player_id=0&app_id=58479
       action: Play the video
-      note: Vimeo loads only once you start it.
+      # The click is what transfers the data, so this is where the consent is
+      # given and where it has to be informed. The privacy policy says the rest.
+      note: >-
+        Vimeo loads only once you start it. Vimeo, in the United States, then receives
+        your IP address.
       poster:
         src: /assets/img/allplan-mcp-poster-en.webp
         width: 1600
@@ -35,13 +39,14 @@ blocks:
     title: Common challenges
     lines:
       - >-
-        A panel can look finished in the viewport and still be missing the field
-        production reads.
+        Laborious attribute checks, because the model has to be exported, searched column
+        by column in a spreadsheet for outliers, and then written back.
       - >-
-        No check reports it. The element is geometrically complete and it plots cleanly.
-        The gap surfaces downstream, in production.
+        Awkward element lookup, because finding one particular element in the model means
+        a detour through export lists or manual searching.
       - >-
-        At ten thousand elements, checking that by hand is not a task anyone finishes.
+        Checks by eye alone, because some of them cannot be done any other way today,
+        room by room.
 
   - type: mcpSteps
     id: how-it-works

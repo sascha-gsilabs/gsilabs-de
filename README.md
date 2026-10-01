@@ -366,8 +366,11 @@ take `thumbnail_url` from
 `brand assets/website images/`, list it in `tools/assets.config.mjs` and run
 `node tools/build-images.mjs`.
 
-The transfer the click triggers is flagged for the client in the comment at the
-top of both privacy files: the policy still has to name Vimeo.
+The transfer the click triggers is covered by the Video section of the privacy
+policy, and the line under the frame names Vimeo, the United States and the IP
+address rather than only saying the video loads on click. The consent is given
+by that click, on the product page rather than in the banner, so that is where
+it has to be informed.
 
 Two things to know before changing them. The flow diagram is given an explicit
 `width` rather than a `max-width`: a grid item with auto margins and no width
@@ -566,10 +569,10 @@ darkens without being pulled toward olive.
 
 ## Open points for the client
 
-- **Privacy policy.** It does not mention Vimeo yet, and the Allplan MCP page
-  loads a Vimeo player once a visitor clicks the video. The text is otherwise
-  reproduced from the Framer site and two of its statements stop being true at
-  launch: hosting is no longer Framer, and Google Fonts are
+- **Privacy policy.** It now has a Video section covering the Vimeo player on
+  the Allplan MCP page, with three things in the comment at the top of both
+  files for whoever signs it off. The rest is reproduced from the Framer site and
+  two of its statements stop being true at launch: hosting is no longer Framer, and Google Fonts are
   no longer loaded because both typefaces are self hosted. Both are flagged in a comment
   at the top of `content/pages/privacy.md` and in `content/de/pages/privacy.md`, and need
   legal sign off in both languages. The German version is the one a German visitor will

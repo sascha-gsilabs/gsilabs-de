@@ -3399,6 +3399,27 @@ and you should know that before you agree.
 
 #### Nothing beyond the necessary loads until you agree, and you can withdraw that agreement from any page.
 
+#### Video
+
+The Allplan MCP page carries a product video hosted by Vimeo.com, Inc., 330 West
+34th Street, 10th Floor, New York, New York 10001, USA. It does not load on its own.
+What loads with the page is a poster frame served from our own server. Your browser
+contacts Vimeo only once you press the button, and the page says what that does
+above the button.
+
+With that click, Vimeo receives your IP address and which video you opened on which
+page. It stores information on your device, cookies among it, and processes that
+data for its own purposes as well, which we have no control over.
+
+The legal basis is your consent under Art. 6(1)(a) GDPR, given by the click. That is
+why the video is not a switch in the consent banner: there is nothing to store,
+because nothing loads unasked. Leave the button alone and nothing is sent to Vimeo
+from any page.
+
+The click transfers data to the United States. Vimeo names the European Commission's
+Standard Contractual Clauses for those transfers. Those clauses do not put the data
+out of reach of US authorities, and you should know that before you start the video.
+
 #### Contact, External Services, and Your Rights
 
 If you contact us through one of the forms on this website or by email, we store the
@@ -3409,8 +3430,12 @@ basis is Art. 6(1)(b) and Art. 6(1)(f) GDPR.
 The forms on this website are provided by HubSpot Ireland Limited, which processes
 the data you submit on our behalf as a processor under Art. 28 GDPR. The form is
 served from HubSpot's EU infrastructure, so your entries are stored on servers in the
-European Union. Loading a page that carries a form causes your browser to contact
+European Union. Loading a page with an embedded form causes your browser to contact
 HubSpot, which receives your IP address for that request.
+
+On the Allplan MCP page the forms are linked rather than embedded. The buttons there
+open the form on a page HubSpot runs. Until you press one, that page does not
+contact HubSpot at all.
 
 The typefaces used on this website are hosted on our own servers. No font request
 is made to Google or any other third party.
@@ -3495,6 +3520,30 @@ Sie zustimmen.
 
 #### Bis Sie zustimmen, lädt nichts über das Notwendige hinaus, und Sie können Ihre Zustimmung von jeder Seite aus widerrufen.
 
+#### Video
+
+Auf der Seite Allplan MCP steht ein Produktvideo, das bei der Vimeo.com, Inc., 330
+West 34th Street, 10th Floor, New York, New York 10001, USA, liegt. Es wird nicht
+von selbst geladen. Mit der Seite lädt nur ein Vorschaubild, das auf unserem eigenen
+Server liegt. Erst wenn Sie die Schaltfläche anklicken, nimmt Ihr Browser Verbindung
+zu Vimeo auf. Was der Klick auslöst, steht auf der Seite über der Schaltfläche.
+
+Mit dem Klick erhält Vimeo Ihre IP-Adresse und die Information, welches Video Sie
+auf welcher Seite geöffnet haben. Vimeo speichert dabei Informationen auf Ihrem
+Endgerät, darunter Cookies, und verarbeitet diese Daten auch zu eigenen Zwecken, auf
+die wir keinen Einfluss haben.
+
+Rechtsgrundlage ist Ihre Einwilligung nach Art. 6 Abs. 1 lit. a DSGVO, die Sie mit
+dem Klick erteilen. Das Video erscheint deshalb nicht als Schalter im
+Einwilligungsbanner: Es gibt nichts zu speichern, weil ungefragt nichts geladen
+wird. Klicken Sie die Schaltfläche nicht an, wird auf keiner Seite etwas an Vimeo
+übermittelt.
+
+Der Klick übermittelt Daten in die Vereinigten Staaten. Vimeo nennt dafür die
+Standardvertragsklauseln der Europäischen Kommission. Diese Klauseln halten die
+Daten nicht vom Zugriff US-amerikanischer Behörden fern, und das sollten Sie wissen,
+bevor Sie das Video starten.
+
 #### Kontakt, externe Dienste und Ihre Rechte
 
 Wenn Sie uns über eines der Formulare auf dieser Website oder per E-Mail
@@ -3507,9 +3556,14 @@ Die Formulare auf dieser Website werden von der HubSpot Ireland Limited
 bereitgestellt, die die von Ihnen übermittelten Daten in unserem Auftrag als
 Auftragsverarbeiter nach Art. 28 DSGVO verarbeitet. Das Formular wird über die
 EU-Infrastruktur von HubSpot ausgeliefert, Ihre Eingaben werden also auf Servern in
-der Europäischen Union gespeichert. Beim Aufruf einer Seite mit Formular nimmt Ihr
-Browser Verbindung zu HubSpot auf, wobei HubSpot für diese Anfrage Ihre IP-Adresse
-erhält.
+der Europäischen Union gespeichert. Beim Aufruf einer Seite mit eingebettetem
+Formular nimmt Ihr Browser Verbindung zu HubSpot auf, wobei HubSpot für diese
+Anfrage Ihre IP-Adresse erhält.
+
+Auf der Seite Allplan MCP sind die Formulare verlinkt statt eingebettet. Die
+Schaltflächen dort öffnen das Formular auf einer von HubSpot betriebenen Seite.
+Solange Sie keine davon anklicken, nimmt Ihr Browser von dieser Seite aus zu HubSpot
+keine Verbindung auf.
 
 Die auf dieser Website verwendeten Schriften liegen auf unseren eigenen Servern. Es
 wird keine Schriftanfrage an Google oder einen anderen Dritten gestellt.
@@ -4939,21 +4993,21 @@ Typische Herausforderungen
 
 [solutions/allplan-mcp.md | blocks.1.lines.0]
 EN
-A panel can look finished in the viewport and still be missing the field production reads.
+Laborious attribute checks, because the model has to be exported, searched column by column in a spreadsheet for outliers, and then written back.
 DE
-Ein Element kann im Modell fertig aussehen und trotzdem das Feld leer lassen, das die Produktion ausliest.
+Mühsame Qualitätsprüfung von Attributen, weil das Modell exportiert, in einer Tabelle Spalte für Spalte nach Ausreißern durchsucht und dann wieder zurückgespielt werden muss.
 
 [solutions/allplan-mcp.md | blocks.1.lines.1]
 EN
-No check reports it. The element is geometrically complete and it plots cleanly. The gap surfaces downstream, in production.
+Awkward element lookup, because finding one particular element in the model means a detour through export lists or manual searching.
 DE
-Keine Prüfung meldet das. Das Element ist geometrisch vollständig und plottet sauber. Die Lücke zeigt sich erst später, in der Produktion.
+Umständliches Auffinden von Bauteilen, weil ein bestimmtes Element im Modell nur über Umwege wie Exportlisten oder manuelles Suchen zu finden ist.
 
 [solutions/allplan-mcp.md | blocks.1.lines.2]
 EN
-At ten thousand elements, checking that by hand is not a task anyone finishes.
+Checks by eye alone, because some of them cannot be done any other way today, room by room.
 DE
-Bei zehntausend Elementen wird diese Prüfung von Hand nie fertig.
+Rein visuelle Kontrollen, weil sich manche Prüfungen aktuell nur von Auge durchführen lassen, Raum für Raum.
 
 [solutions/allplan-mcp.md | blocks.2.title]
 EN

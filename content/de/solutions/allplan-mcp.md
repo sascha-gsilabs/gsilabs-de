@@ -19,7 +19,9 @@ blocks:
       title: Allplan MCP
       params: badge=0&autopause=0&player_id=0&app_id=58479
       action: Video abspielen
-      note: Vimeo wird erst geladen, wenn Sie starten.
+      note: >-
+        Vimeo wird erst geladen, wenn Sie starten. Vimeo in den USA erhält dabei Ihre
+        IP-Adresse.
       poster:
         src: /assets/img/allplan-mcp-poster-de.webp
         width: 1600
@@ -30,13 +32,15 @@ blocks:
     title: Typische Herausforderungen
     lines:
       - >-
-        Ein Element kann im Modell fertig aussehen und trotzdem das Feld leer lassen, das
-        die Produktion ausliest.
+        Mühsame Qualitätsprüfung von Attributen, weil das Modell exportiert, in einer
+        Tabelle Spalte für Spalte nach Ausreißern durchsucht und dann wieder zurückgespielt
+        werden muss.
       - >-
-        Keine Prüfung meldet das. Das Element ist geometrisch vollständig und plottet
-        sauber. Die Lücke zeigt sich erst später, in der Produktion.
+        Umständliches Auffinden von Bauteilen, weil ein bestimmtes Element im Modell nur
+        über Umwege wie Exportlisten oder manuelles Suchen zu finden ist.
       - >-
-        Bei zehntausend Elementen wird diese Prüfung von Hand nie fertig.
+        Rein visuelle Kontrollen, weil sich manche Prüfungen aktuell nur von Auge
+        durchführen lassen, Raum für Raum.
 
   - type: mcpSteps
     id: how-it-works

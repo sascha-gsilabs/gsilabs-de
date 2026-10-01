@@ -65,23 +65,33 @@ description: >-
 #      demselben Grund wie bei Vercel: es wurde nicht gegen die offizielle
 #      Teilnehmerliste geprüft.
 #
-#   4. VIMEO. Die Seite Allplan MCP enthält ein Produktvideo. Es wird erst
-#      eingebettet, wenn ein Besucher den Button darauf anklickt. Mit der Seite
-#      lädt nur das Vorschaubild, das in assets/img liegt und von dieser Domain
-#      ausgeliefert wird. Vimeo.com wird also gar nicht kontaktiert, solange
-#      niemand das Video sehen will. Der Rahmen sagt das vor dem Klick.
+#   4. VIMEO. Das Video auf der Seite Allplan MCP ist nicht eingebettet. Mit der
+#      Seite lädt nur ein Vorschaubild von dieser Domain, und vimeo.com wird gar
+#      nicht kontaktiert, bis ein Besucher die Schaltfläche anklickt. Der
+#      Abschnitt Video unten sagt das, und die Zeile über der Schaltfläche auf
+#      jener Seite sagt es auch.
 #
-#      Deshalb ist das Video kein Schalter im Consent-Banner. Es gibt keine
-#      Entscheidung zu speichern, weil ungefragt nichts läuft, und der Klick ist
-#      die Aufforderung. Was der Klick dann auslöst, ist eine Übermittlung: die
-#      Vimeo.com LLC sitzt in New York, der Player erhält die IP-Adresse des
-#      Besuchers und setzt eigene Cookies, und es gelten Vimeos eigene
-#      Bedingungen. DIESER TEXT NENNT VIMEO NOCH NICHT. Es fehlt ein Absatz mit
-#      dem Unternehmen, dem, was der Player erhält, und der Grundlage der
-#      Übermittlung, in beiden Sprachen. `assets/js/site.js` und der Kommentar
-#      am Video in `templates/allplan-mcp.mjs` beschreiben genau, was passiert,
-#      der Absatz lässt sich also gegen das Verhalten schreiben statt gegen eine
-#      Anbieterseite.
+#      Weil erst der Klick die Übermittlung auslöst, steht hier Art. 6 Abs. 1
+#      lit. a als Grundlage: die Einwilligung ist der Klick. Deshalb nennt die
+#      Zeile über der Schaltfläche auch Vimeo, die USA und die IP-Adresse, statt
+#      nur zu sagen, dass das Video auf Klick lädt. Eine Einwilligung muss in dem
+#      Moment informiert sein, in dem sie erteilt wird, und dieser Moment liegt
+#      auf der Produktseite, nicht im Banner.
+#
+#      DREI DINGE FÜR DIE JURISTIN ODER DEN JURISTEN. Erstens: Firma und
+#      Anschrift stammen aus Vimeos eigener Datenschutzerklärung, abgerufen am
+#      01.10.2026: Vimeo.com, Inc., 330 West 34th Street, 10th Floor, New York,
+#      New York 10001. Vor der Freigabe prüfen, ob das noch stimmt. Zweitens:
+#      Vimeo nennt sowohl die Standardvertragsklauseln als auch das EU-US Data
+#      Privacy Framework. Hier stehen nur die Klauseln. Das Framework fehlt aus
+#      demselben Grund wie bei Vercel und Apollo: es wurde nicht gegen die
+#      offizielle Teilnehmerliste geprüft. Drittens: ob diese Klauseln diese
+#      Übermittlung tatsächlich tragen, hängt vom Vertrag ab, den GSI mit Vimeo
+#      hat. Das ist eine Frage an den Vertrag, nicht an diese Seite.
+#
+#      Vimeo nennt außerdem einen EU-Vertreter, EDPO, Avenue Huart Hamoir 71,
+#      1030 Brüssel. Er steht unten nicht im Text, passend zum Apollo-Absatz, der
+#      auch keinen nennt. Bei Bedarf aufnehmen.
 #
 #   Zwei Dinge setzt dieser Text voraus und die müssen Sie herstellen: der
 #   Auftragsverarbeitungsvertrag mit Vercel ist tatsächlich geschlossen, und die
@@ -168,6 +178,30 @@ blocks:
 
       #### Bis Sie zustimmen, lädt nichts über das Notwendige hinaus, und Sie können Ihre Zustimmung von jeder Seite aus widerrufen.
 
+      #### Video
+
+      Auf der Seite Allplan MCP steht ein Produktvideo, das bei der Vimeo.com, Inc., 330
+      West 34th Street, 10th Floor, New York, New York 10001, USA, liegt. Es wird nicht
+      von selbst geladen. Mit der Seite lädt nur ein Vorschaubild, das auf unserem eigenen
+      Server liegt. Erst wenn Sie die Schaltfläche anklicken, nimmt Ihr Browser Verbindung
+      zu Vimeo auf. Was der Klick auslöst, steht auf der Seite über der Schaltfläche.
+
+      Mit dem Klick erhält Vimeo Ihre IP-Adresse und die Information, welches Video Sie
+      auf welcher Seite geöffnet haben. Vimeo speichert dabei Informationen auf Ihrem
+      Endgerät, darunter Cookies, und verarbeitet diese Daten auch zu eigenen Zwecken, auf
+      die wir keinen Einfluss haben.
+
+      Rechtsgrundlage ist Ihre Einwilligung nach Art. 6 Abs. 1 lit. a DSGVO, die Sie mit
+      dem Klick erteilen. Das Video erscheint deshalb nicht als Schalter im
+      Einwilligungsbanner: Es gibt nichts zu speichern, weil ungefragt nichts geladen
+      wird. Klicken Sie die Schaltfläche nicht an, wird auf keiner Seite etwas an Vimeo
+      übermittelt.
+
+      Der Klick übermittelt Daten in die Vereinigten Staaten. Vimeo nennt dafür die
+      Standardvertragsklauseln der Europäischen Kommission. Diese Klauseln halten die
+      Daten nicht vom Zugriff US-amerikanischer Behörden fern, und das sollten Sie wissen,
+      bevor Sie das Video starten.
+
       #### Kontakt, externe Dienste und Ihre Rechte
 
       Wenn Sie uns über eines der Formulare auf dieser Website oder per E-Mail
@@ -180,9 +214,14 @@ blocks:
       bereitgestellt, die die von Ihnen übermittelten Daten in unserem Auftrag als
       Auftragsverarbeiter nach Art. 28 DSGVO verarbeitet. Das Formular wird über die
       EU-Infrastruktur von HubSpot ausgeliefert, Ihre Eingaben werden also auf Servern in
-      der Europäischen Union gespeichert. Beim Aufruf einer Seite mit Formular nimmt Ihr
-      Browser Verbindung zu HubSpot auf, wobei HubSpot für diese Anfrage Ihre IP-Adresse
-      erhält.
+      der Europäischen Union gespeichert. Beim Aufruf einer Seite mit eingebettetem
+      Formular nimmt Ihr Browser Verbindung zu HubSpot auf, wobei HubSpot für diese
+      Anfrage Ihre IP-Adresse erhält.
+
+      Auf der Seite Allplan MCP sind die Formulare verlinkt statt eingebettet. Die
+      Schaltflächen dort öffnen das Formular auf einer von HubSpot betriebenen Seite.
+      Solange Sie keine davon anklicken, nimmt Ihr Browser von dieser Seite aus zu HubSpot
+      keine Verbindung auf.
 
       Die auf dieser Website verwendeten Schriften liegen auf unseren eigenen Servern. Es
       wird keine Schriftanfrage an Google oder einen anderen Dritten gestellt.
