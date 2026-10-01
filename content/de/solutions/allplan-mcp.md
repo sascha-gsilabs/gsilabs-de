@@ -117,10 +117,14 @@ blocks:
         body: >-
           Alles aus Lite, dazu Zeichnungserstellung, 3D-Modellierung und Bewehrung, sobald
           sie verfügbar sind.
+        cta: { label: Auf die Warteliste, href: "#waitlist" }
       - name: Custom
         body: Zugeschnitten auf Ihre Abläufe und Standards.
         cta: { label: Vertrieb kontaktieren, href: /get-started }
-    waitlist: { id: waitlist, form: waitlist }
+    waitlist:
+      id: waitlist
+      form: waitlist
+      title: Auf die Warteliste
     note: >-
       Allplan 2025 oder 2026 und ein Abo bei einem beliebigen MCP-fähigen KI-Assistenten,
       zum Beispiel Claude oder ChatGPT. Ausgeliefert wird ein Installer plus

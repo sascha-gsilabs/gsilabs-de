@@ -3122,6 +3122,11 @@ button {
     min-height: 40rem;
   }
 
+  /* And the waitlist form is back under 440px, so back to its taller layout. */
+  .mcp-waitlist .hs-form-frame {
+    min-height: 32rem;
+  }
+
   .job-apply .hs-form-frame {
     min-height: 40rem;
   }
@@ -3691,9 +3696,22 @@ main.mcp {
   align-self: start;
 }
 
+/* Under the Pro column, because that is the tier it belongs to. The three
+   cards are four columns each, so 5 to 9 puts the form directly below the one
+   whose button points at it. */
 .mcp-waitlist {
-  grid-column: 1 / 13;
+  grid-column: 5 / 9;
   margin-top: var(--s6);
+}
+
+.mcp-waitlist__title {
+  margin-bottom: var(--s3);
+}
+
+.mcp-waitlist__note {
+  font-size: var(--step-small);
+  line-height: 1.6;
+  color: var(--mcp-dim);
 }
 
 .mcp-price__note {
@@ -3749,11 +3767,26 @@ main.mcp {
 
 /* --- the two forms -------------------------------------------------------- */
 
-/* Both are HubSpot embeds that do not exist yet, so what ships is the marked
-   placeholder below. The floor on the frame is a first estimate for five fields
-   in this column and wants remeasuring against the real form: the iframe carries
-   scrolling="no", so anything past the floor is cropped away silently. */
-.mcp .hs-form-frame {
+/* HubSpot posts the measured height back to the page and the frame grows to it,
+   but it posts zero on any origin it does not recognise, which would leave the
+   form invisible. These are the floors that keep it on the page either way, and
+   each one belongs to the column its form actually stands in. The iframe carries
+   scrolling="no", so anything past the floor is cropped away silently.
+
+   The waitlist floors are measured against the real form, which lays its fields
+   out in one column below 440px and in two above it: 494px narrow, 406px wide.
+   So the floor is the taller of the two wherever the frame can be narrow, and
+   the shorter one only in the band between, where it is stacked and full width.
+   Both are rounded up for the error state a bad address adds.
+
+   The license form does not exist yet, so its floor is the application form's,
+   which has the same five fields. Remeasure it when there is something to
+   measure. */
+.mcp-waitlist .hs-form-frame {
+  min-height: 32rem;
+}
+
+.mcp-cta__form .hs-form-frame {
   min-height: 38rem;
 }
 
@@ -3918,8 +3951,14 @@ main.mcp {
   }
 
   .mcp-ops__note,
-  .mcp-price__note {
+  .mcp-price__note,
+  .mcp-waitlist {
     grid-column: 1 / 13;
+  }
+
+  /* Full width now, so the form is wide enough for its two column layout. */
+  .mcp-waitlist .hs-form-frame {
+    min-height: 27rem;
   }
 }
 

@@ -140,12 +140,12 @@ hubspot:
   forms:
     enquiry: 6c2c8d52-a2aa-4096-848d-c77a9e74d748
     application: 181bf01e-34e9-4095-90f2-ba76207c70e7
-    # The two forms on /solutions/allplan-mcp. Both are still to be created in
-    # HubSpot, so they are named here with no id. The page renders a marked
-    # placeholder in each slot until one is pasted in, and requests nothing from
-    # HubSpot in the meantime. Pasting an id is the whole change.
+    # The two forms on /solutions/allplan-mcp. `license` is still to be created
+    # in HubSpot, so it is named here with no id: the page leaves that slot out
+    # and requests nothing from HubSpot until an id is pasted in. The request
+    # band reads as one column and offers the address while that is the case.
     license: ""
-    waitlist: ""
+    waitlist: 0b33df53-f123-4f32-b732-3f64018aadfb
 
 cta:
   label: Get Started

@@ -5195,6 +5195,12 @@ Everything in Lite, plus drawing generation, 3D modeling and reinforcement as th
 DE
 Alles aus Lite, dazu Zeichnungserstellung, 3D-Modellierung und Bewehrung, sobald sie verfügbar sind.
 
+[solutions/allplan-mcp.md | blocks.5.tiers.1.cta.label]
+EN
+Join the waitlist
+DE
+Auf die Warteliste
+
 [solutions/allplan-mcp.md | blocks.5.tiers.2.body]
 EN
 Tailored to your workflows and standards.
@@ -5206,6 +5212,12 @@ EN
 Contact sales
 DE
 Vertrieb kontaktieren
+
+[solutions/allplan-mcp.md | blocks.5.waitlist.title]
+EN
+Join the waitlist
+DE
+Auf die Warteliste
 
 [solutions/allplan-mcp.md | blocks.5.note]
 EN

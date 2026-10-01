@@ -119,16 +119,17 @@ blocks:
         body: The six operations above.
         cta: { label: Request a license, href: "#license" }
       - name: Pro
-        # No button until the waitlist form exists in HubSpot. Give this tier a
-        # `cta` of { label: Join the waitlist, href: "#waitlist" } and the button
-        # and the form both come back.
         body: >-
           Everything in Lite, plus drawing generation, 3D modeling and reinforcement as
           they become available.
+        cta: { label: Join the waitlist, href: "#waitlist" }
       - name: Custom
         body: Tailored to your workflows and standards.
         cta: { label: Contact sales, href: /get-started }
-    waitlist: { id: waitlist, form: waitlist }
+    waitlist:
+      id: waitlist
+      form: waitlist
+      title: Join the waitlist
     note: >-
       Allplan 2025 or 2026, and a subscription with any MCP capable AI assistant, for
       example Claude or ChatGPT. Delivery is an installer plus a license key. Setup takes

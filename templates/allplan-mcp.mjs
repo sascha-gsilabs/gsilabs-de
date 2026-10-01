@@ -12,7 +12,7 @@
 // a phone, and a German word is longer than the English one it replaces and
 // would run out of the frame. Percentages hold because the frame and the viewBox
 // have the same aspect ratio.
-import { ARROW, esc, join, mdInline, paras } from './layout.mjs'
+import { ARROW, esc, join, mdInline, paras, t } from './layout.mjs'
 import { formFrame, hasForm, revealChildren } from './blocks.mjs'
 
 /* ------------------------------------------------------------ scaffolding --- */
@@ -443,7 +443,11 @@ ${b.tiers
     </ul>`,
       waitlist
         ? `    <div class="mcp-waitlist" id="${esc(b.waitlist.id)}">
+      <h3 class="mcp-h3 mcp-waitlist__title">${mdInline(b.waitlist.title)}</h3>
 ${formEmbed(b.waitlist.form, b.site)}
+      <noscript>
+        <p class="mcp-waitlist__note">${withEmail(t(b.site, 'formNoscript'), b.site)}</p>
+      </noscript>
     </div>`
         : '',
       `    <p class="mcp-price__note">${mdInline(b.note)}</p>`,
