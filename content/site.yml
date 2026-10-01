@@ -140,11 +140,10 @@ hubspot:
   forms:
     enquiry: 6c2c8d52-a2aa-4096-848d-c77a9e74d748
     application: 181bf01e-34e9-4095-90f2-ba76207c70e7
-    # The two forms on /solutions/allplan-mcp. `license` is still to be created
-    # in HubSpot, so it is named here with no id: the page leaves that slot out
-    # and requests nothing from HubSpot until an id is pasted in. The request
-    # band reads as one column and offers the address while that is the case.
-    license: ""
+    # The waitlist on /solutions/allplan-mcp. The licence request on that same
+    # page is the `enquiry` form above: it is one form in HubSpot, so it is one
+    # id here, asked for by two pages. Giving it a second name would mean
+    # replacing it twice and finding out the hard way when only one was done.
     waitlist: 0b33df53-f123-4f32-b732-3f64018aadfb
 
 cta:

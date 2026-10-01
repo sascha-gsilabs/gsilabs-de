@@ -3122,9 +3122,14 @@ button {
     min-height: 40rem;
   }
 
-  /* And the waitlist form is back under 440px, so back to its taller layout. */
+  /* Both frames are back under 440px here, so both are back to the taller of
+     their two layouts. */
   .mcp-waitlist .hs-form-frame {
     min-height: 32rem;
+  }
+
+  .mcp-cta__form .hs-form-frame {
+    min-height: 39rem;
   }
 
   .job-apply .hs-form-frame {
@@ -3773,21 +3778,18 @@ main.mcp {
    each one belongs to the column its form actually stands in. The iframe carries
    scrolling="no", so anything past the floor is cropped away silently.
 
-   The waitlist floors are measured against the real form, which lays its fields
-   out in one column below 440px and in two above it: 494px narrow, 406px wide.
-   So the floor is the taller of the two wherever the frame can be narrow, and
-   the shorter one only in the band between, where it is stacked and full width.
-   Both are rounded up for the error state a bad address adds.
-
-   The license form does not exist yet, so its floor is the application form's,
-   which has the same five fields. Remeasure it when there is something to
-   measure. */
+   Both floors are measured against the real forms. Each lays its fields out in
+   two columns above 440px of frame width and in one below it, so each has two
+   heights: the waitlist 406px wide and 494px narrow, the request 516px and
+   604px. The floor is the taller figure wherever the frame can be narrow, and
+   the shorter one only where it is stacked and runs the full width. Both are
+   rounded up for the error state a bad address adds. */
 .mcp-waitlist .hs-form-frame {
   min-height: 32rem;
 }
 
 .mcp-cta__form .hs-form-frame {
-  min-height: 38rem;
+  min-height: 33rem;
 }
 
 /* --- the product video ---------------------------------------------------- */

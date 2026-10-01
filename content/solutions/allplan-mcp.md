@@ -143,7 +143,10 @@ blocks:
         Send us the version of Allplan you run and how many people would use it. We
         reply with a license key and the installer.
     note: We reply within one working day.
-    form: license
-    # Shown in place of the form while hubspot.forms.license has no id.
+    # The same form as Get Started, by the same name: one form in HubSpot, one
+    # id in site.yml, asked for by two pages.
+    form: enquiry
+    # Shown in place of the form if that key is ever emptied, so the closing
+    # band still leaves a way to answer.
     fallback: Write to {email} and you reach the same people.
 ---

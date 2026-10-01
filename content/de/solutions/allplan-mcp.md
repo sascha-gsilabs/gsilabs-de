@@ -138,6 +138,6 @@ blocks:
         Schreiben Sie uns, welche Allplan-Version Sie einsetzen und wie viele Personen
         damit arbeiten würden. Sie erhalten Lizenzschlüssel und Installer zurück.
     note: Wir antworten innerhalb eines Werktags.
-    form: license
+    form: enquiry
     fallback: Schreiben Sie an {email}, Sie erreichen dieselben Leute.
 ---

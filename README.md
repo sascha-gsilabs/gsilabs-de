@@ -141,19 +141,26 @@ Common options on any block: `tone: void` for a black band, `id` for an anchor,
 
 ### Forms
 
-The site embeds two HubSpot forms. Both are declared once in `site.yml`, named
-for the job they do so no page ever carries a UUID:
+The site embeds three HubSpot forms. Each is declared once in `site.yml`, named
+for the job it does so no page ever carries a UUID:
 
 ```yaml
 hubspot:
   region: eu1
   portalId: "149298045"
   forms:
-    enquiry: 6c2c8d52-a2aa-4096-848d-c77a9e74d748      # /get-started
+    enquiry: 6c2c8d52-a2aa-4096-848d-c77a9e74d748      # /get-started, and the
+                                                       # licence request on
+                                                       # /solutions/allplan-mcp
     application: 181bf01e-34e9-4095-90f2-ba76207c70e7  # the job pages
+    waitlist: 0b33df53-f123-4f32-b732-3f64018aadfb     # /solutions/allplan-mcp
 ```
 
-Replacing a form in HubSpot means pasting its new id there, once.
+Replacing a form in HubSpot means pasting its new id there, once. Three forms
+and four places that embed one, because the enquiry form does two jobs: it is
+one form in HubSpot, so it is one id here, asked for by both pages. A second
+name for it would mean replacing it twice and finding out the hard way when
+only one was done.
 
 `form` is the enquiry band on Get Started: what we need from you on the left,
 the form on the right, split by a rule down the middle.
@@ -174,17 +181,12 @@ the form on the right, split by a rule down the middle.
 value is a form that has been designed into a page but not created in HubSpot.
 `hasForm()` in `templates/blocks.mjs` is what a block asks before rendering one,
 and nothing is requested from HubSpot until an id is there. Pasting the id into
-`site.yml` is the whole change. One key is in that state today, `license` on
-the Allplan MCP page, and that page is written to read properly without it
-rather than to advertise that something is missing: the request band drops to a
-single column and gives the address instead, because a closing section that asks
-for something has to leave a way to answer. It goes back to two columns with the
-form.
-
-The waitlist form on the same page works the same way and is now live. While it
-was missing, the Pro tier carried no button either, because a waitlist you
-cannot join should not offer one. That is a content change rather than a
-template one: the tier's `cta` is what points at the form.
+`site.yml` is the whole change. No key is in that state today, but the Allplan
+MCP page is written to survive one being emptied rather than to render a broken
+band: its request band drops to a single column and gives the address instead,
+because a closing section that asks for something has to leave a way to answer.
+The Pro tier is the same idea done in content: its `cta` is what points at the
+waitlist form, so a tier with no form to join simply carries no button.
 
 The application form is not a block: every job page ends with it, so `jobPage`
 in `templates/pages.mjs` emits it directly. The button in the job header is an
@@ -211,12 +213,15 @@ renders:
 | enquiry, 5 fields | 34rem beside the copy | 40rem stacked, under 480px |
 | application, 5 fields, all required | 36rem | 40rem stacked, under 480px |
 | waitlist, 4 fields | 27rem stacked and full width | 32rem under the Pro column, and under 480px |
-| license, 5 fields, not built yet | 38rem, an estimate | 38rem |
+| enquiry again, beside the Allplan MCP copy | 33rem | 39rem under 480px |
 
-The waitlist form lays its fields out in two columns above 440px of frame width
-and in one below it, which is why its taller floor is the one that applies in
-the narrow column under the Pro tier and again on a phone, and the shorter one
-only in the band between, where the form is stacked and runs the full width.
+Both forms on the Allplan MCP page lay their fields out in two columns above
+440px of frame width and in one below it, which is why each has two floors. The
+taller one applies wherever the frame can be narrow, in the column under the Pro
+tier and again on a phone. The shorter one applies only in the band between,
+where the form is stacked and runs the full width. The figures behind them,
+measured against the live forms: the waitlist is 406px wide and 494px narrow,
+the request 516px and 604px.
 
 Add or remove a field and the matching number needs remeasuring, or the form
 gets cropped: the iframe carries `scrolling="no"`, so whatever overflows is
