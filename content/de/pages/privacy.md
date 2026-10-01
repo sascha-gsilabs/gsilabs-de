@@ -72,11 +72,16 @@ description: >-
 #      jener Seite sagt es auch.
 #
 #      Weil erst der Klick die Übermittlung auslöst, steht hier Art. 6 Abs. 1
-#      lit. a als Grundlage: die Einwilligung ist der Klick. Deshalb nennt die
-#      Zeile über der Schaltfläche auch Vimeo, die USA und die IP-Adresse, statt
-#      nur zu sagen, dass das Video auf Klick lädt. Eine Einwilligung muss in dem
-#      Moment informiert sein, in dem sie erteilt wird, und dieser Moment liegt
-#      auf der Produktseite, nicht im Banner.
+#      lit. a als Grundlage: die Einwilligung ist der Klick, und sie wird auf der
+#      Produktseite erteilt, nicht im Banner.
+#
+#      DARAUS FOLGT EIN VIERTER PUNKT FÜR DIE PRÜFUNG. Die Zeile über der
+#      Schaltfläche sagt nur, dass Vimeo erst beim Starten geladen wird. Sie nannte
+#      eine Zeit lang auch Vimeo, die USA und die IP-Adresse; der Kunde hat das am
+#      01.10.2026 wieder herausgenommen. Zu entscheiden ist also, ob die kurze
+#      Zeile im Moment der Einwilligung genug Information ist, wenn die Einzelheiten
+#      einen Klick entfernt in diesem Abschnitt stehen statt auf der Seite selbst.
+#      Die längere Fassung liegt in der Historie.
 #
 #      DREI DINGE FÜR DIE JURISTIN ODER DEN JURISTEN. Erstens: Firma und
 #      Anschrift stammen aus Vimeos eigener Datenschutzerklärung, abgerufen am

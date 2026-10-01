@@ -64,11 +64,16 @@ description: >-
 #      below says so, and the line above the button on that page says it too.
 #
 #      Because the click is what triggers the transfer, the basis written here is
-#      Art. 6(1)(a): the consent is the click. That is also why the line above the
-#      button names Vimeo, the United States and the IP address rather than only
-#      saying the video loads on click. A consent has to be informed at the moment
-#      it is given, and this one is given on the product page rather than in the
-#      banner.
+#      Art. 6(1)(a): the consent is the click, and it is given on the product page
+#      rather than in the banner.
+#
+#      A FOURTH THING FOR THE LAWYER follows from that. The line above the button
+#      says only that Vimeo loads once you start it. It named Vimeo, the United
+#      States and the IP address for a while, and the client asked for that back
+#      out on 2026-10-01. So decide whether the short line is enough information
+#      at the moment the consent is given, given that the detail is a click away
+#      in this section rather than on the page itself. The longer wording is in
+#      the history if it is wanted back.
 #
 #      THREE THINGS FOR THE LAWYER. First, the entity and address were read off
 #      Vimeo's own privacy policy on 2026-10-01: Vimeo.com, Inc., 330 West 34th

@@ -19,9 +19,7 @@ blocks:
       title: Allplan MCP
       params: badge=0&autopause=0&player_id=0&app_id=58479
       action: Video abspielen
-      note: >-
-        Vimeo wird erst geladen, wenn Sie starten. Vimeo in den USA erhält dabei Ihre
-        IP-Adresse.
+      note: Vimeo wird erst geladen, wenn Sie starten.
       poster:
         src: /assets/img/allplan-mcp-poster-de.webp
         width: 1600

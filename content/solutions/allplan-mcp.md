@@ -24,11 +24,7 @@ blocks:
       title: Allplan MCP
       params: badge=0&autopause=0&player_id=0&app_id=58479
       action: Play the video
-      # The click is what transfers the data, so this is where the consent is
-      # given and where it has to be informed. The privacy policy says the rest.
-      note: >-
-        Vimeo loads only once you start it. Vimeo, in the United States, then receives
-        your IP address.
+      note: Vimeo loads only once you start it.
       poster:
         src: /assets/img/allplan-mcp-poster-en.webp
         width: 1600

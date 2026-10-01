@@ -367,10 +367,9 @@ take `thumbnail_url` from
 `node tools/build-images.mjs`.
 
 The transfer the click triggers is covered by the Video section of the privacy
-policy, and the line under the frame names Vimeo, the United States and the IP
-address rather than only saying the video loads on click. The consent is given
-by that click, on the product page rather than in the banner, so that is where
-it has to be informed.
+policy. The consent is given by that click, on the product page rather than in
+the banner, which is a question the comment at the top of both privacy files
+puts to whoever signs the policy off.
 
 Two things to know before changing them. The flow diagram is given an explicit
 `width` rather than a `max-width`: a grid item with auto margins and no width
