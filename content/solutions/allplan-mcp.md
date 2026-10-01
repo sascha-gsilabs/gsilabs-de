@@ -9,7 +9,7 @@ description: >-
 pageClass: mcp
 blocks:
   - type: mcpHero
-    title: Ask the model.
+    title: ALLPLAN MCP
     lede: >-
       Talk to Allplan in your own words. It reads the model you have open, provides
       answers, highlights elements and adjusts attributes where necessary.
@@ -32,12 +32,14 @@ blocks:
         alt: The opening frame of the Allplan MCP video.
 
   - type: mcpProblem
-    title: The problem
+    title: Common challenges
     lines:
       - >-
         A panel can look finished in the viewport and still be missing the field
         production reads.
-      - Nothing is broken, so nothing warns you.
+      - >-
+        No check reports it. The element is geometrically complete and it plots cleanly.
+        The gap surfaces downstream, in production.
       - >-
         At ten thousand elements, checking that by hand is not a task anyone finishes.
 
@@ -76,6 +78,10 @@ blocks:
         a: >-
           4.84 m³, about 12.1 t. The lightest panel with the same outside dimensions
           weighs 7.5 t.
+      - q: Set the concrete grade on those nine panels to C30/37.
+        a: >-
+          Nine elements updated. The field was empty before. You can undo it in the same
+          session.
 
   - type: mcpOperations
     title: The six operations
@@ -113,21 +119,16 @@ blocks:
         body: The six operations above.
         cta: { label: Request a license, href: "#license" }
       - name: Pro
+        # No button until the waitlist form exists in HubSpot. Give this tier a
+        # `cta` of { label: Join the waitlist, href: "#waitlist" } and the button
+        # and the form both come back.
         body: >-
           Everything in Lite, plus drawing generation, 3D modeling and reinforcement as
           they become available.
-        cta: { label: Join the waitlist, href: "#waitlist" }
       - name: Custom
         body: Tailored to your workflows and standards.
         cta: { label: Contact sales, href: /get-started }
-    waitlist:
-      id: waitlist
-      form: waitlist
-      label: Placeholder
-      title: Join the waitlist
-      body: >-
-        The waitlist form belongs here. Until it is connected, write to {email} and we
-        put you on the list.
+    waitlist: { id: waitlist, form: waitlist }
     note: >-
       Allplan 2025 or 2026, and a subscription with any MCP capable AI assistant, for
       example Claude or ChatGPT. Delivery is an installer plus a license key. Setup takes
@@ -141,17 +142,7 @@ blocks:
         Send us the version of Allplan you run and how many people would use it. We
         reply with a license key and the installer.
     note: We reply within one working day.
-    slot:
-      form: license
-      label: Placeholder
-      title: Request a license
-      body: >-
-        The license form belongs here, with the five fields listed below. Until it is
-        connected, write to {email}.
-      fields:
-        - Name
-        - Company
-        - Email
-        - Allplan version
-        - Number of users
+    form: license
+    # Shown in place of the form while hubspot.forms.license has no id.
+    fallback: Write to {email} and you reach the same people.
 ---

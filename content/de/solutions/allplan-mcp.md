@@ -6,7 +6,7 @@ description: >-
 pageClass: mcp
 blocks:
   - type: mcpHero
-    title: Fragen Sie das Modell.
+    title: ALLPLAN MCP
     lede: >-
       Sprechen Sie mit Allplan in Ihren eigenen Worten. Es liest das geöffnete Modell,
       beantwortet Ihre Fragen, hebt Elemente hervor und passt Attribute an, wo es nötig
@@ -27,12 +27,14 @@ blocks:
         alt: Das erste Bild des Allplan-MCP-Videos.
 
   - type: mcpProblem
-    title: Das Problem
+    title: Typische Herausforderungen
     lines:
       - >-
         Ein Element kann im Modell fertig aussehen und trotzdem das Feld leer lassen, das
         die Produktion ausliest.
-      - Nichts ist kaputt, also warnt Sie auch nichts.
+      - >-
+        Keine Prüfung meldet das. Das Element ist geometrisch vollständig und plottet
+        sauber. Die Lücke zeigt sich erst später, in der Produktion.
       - >-
         Bei zehntausend Elementen wird diese Prüfung von Hand nie fertig.
 
@@ -71,6 +73,10 @@ blocks:
         a: >-
           4,84 m³, rund 12,1 t. Das leichteste Element mit denselben Außenmaßen wiegt
           7,5 t.
+      - q: Setze bei diesen neun Elementen die Betongüte auf C30/37.
+        a: >-
+          Neun Elemente geändert. Vorher war das Feld leer. Rückgängig machen können Sie
+          das in derselben Sitzung.
 
   - type: mcpOperations
     title: Die sechs Funktionen
@@ -111,18 +117,10 @@ blocks:
         body: >-
           Alles aus Lite, dazu Zeichnungserstellung, 3D-Modellierung und Bewehrung, sobald
           sie verfügbar sind.
-        cta: { label: Auf die Warteliste, href: "#waitlist" }
       - name: Custom
         body: Zugeschnitten auf Ihre Abläufe und Standards.
         cta: { label: Vertrieb kontaktieren, href: /get-started }
-    waitlist:
-      id: waitlist
-      form: waitlist
-      label: Platzhalter
-      title: Auf die Warteliste
-      body: >-
-        Hier gehört das Wartelisten-Formular hin. Solange es noch nicht angebunden ist,
-        schreiben Sie an {email}, und wir nehmen Sie auf die Liste.
+    waitlist: { id: waitlist, form: waitlist }
     note: >-
       Allplan 2025 oder 2026 und ein Abo bei einem beliebigen MCP-fähigen KI-Assistenten,
       zum Beispiel Claude oder ChatGPT. Ausgeliefert wird ein Installer plus
@@ -136,17 +134,6 @@ blocks:
         Schreiben Sie uns, welche Allplan-Version Sie einsetzen und wie viele Personen
         damit arbeiten würden. Sie erhalten Lizenzschlüssel und Installer zurück.
     note: Wir antworten innerhalb eines Werktags.
-    slot:
-      form: license
-      label: Platzhalter
-      title: Lizenz anfragen
-      body: >-
-        Hier gehört das Lizenzformular hin, mit den fünf Feldern darunter. Solange es noch
-        nicht angebunden ist, schreiben Sie an {email}.
-      fields:
-        - Name
-        - Firma
-        - E-Mail
-        - Allplan-Version
-        - Anzahl Nutzer
+    form: license
+    fallback: Schreiben Sie an {email}, Sie erreichen dieselben Leute.
 ---

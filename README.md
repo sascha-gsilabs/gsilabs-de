@@ -172,11 +172,15 @@ the form on the right, split by a rule down the middle.
 
 **A form that does not exist yet.** A key under `hubspot.forms` with an empty
 value is a form that has been designed into a page but not created in HubSpot.
-`hasForm()` in `templates/blocks.mjs` is what a block asks, and the Allplan MCP
-page renders a marked placeholder in the slot instead. Nothing is requested from
-HubSpot until an id is there, so the page costs the visitor nothing in the
-meantime. Pasting the id into `site.yml` is the whole change. Two keys are in
-that state today: `license` and `waitlist`.
+`hasForm()` in `templates/blocks.mjs` is what a block asks before rendering one,
+and nothing is requested from HubSpot until an id is there. Pasting the id into
+`site.yml` is the whole change. Two keys are in that state today, `license` and
+`waitlist`, both on the Allplan MCP page, and that page is written to read
+properly without them rather than to advertise that something is missing: the
+Pro tier has no button, because a waitlist you cannot join should not offer one,
+and the request band drops to a single column and gives the address instead,
+because a closing section that asks for something has to leave a way to answer.
+Each comes back with its form.
 
 The application form is not a block: every job page ends with it, so `jobPage`
 in `templates/pages.mjs` emits it directly. The button in the job header is an

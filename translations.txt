@@ -4909,9 +4909,9 @@ Allplan MCP verbindet Allplan mit einem MCP-fähigen KI-Assistenten. Fragen Sie 
 
 [solutions/allplan-mcp.md | blocks.0.title]
 EN
-Ask the model.
+ALLPLAN MCP
 DE
-Fragen Sie das Modell.
+ALLPLAN MCP
 
 [solutions/allplan-mcp.md | blocks.0.lede]
 EN
@@ -4933,9 +4933,9 @@ So funktioniert es
 
 [solutions/allplan-mcp.md | blocks.1.title]
 EN
-The problem
+Common challenges
 DE
-Das Problem
+Typische Herausforderungen
 
 [solutions/allplan-mcp.md | blocks.1.lines.0]
 EN
@@ -4945,9 +4945,9 @@ Ein Element kann im Modell fertig aussehen und trotzdem das Feld leer lassen, da
 
 [solutions/allplan-mcp.md | blocks.1.lines.1]
 EN
-Nothing is broken, so nothing warns you.
+No check reports it. The element is geometrically complete and it plots cleanly. The gap surfaces downstream, in production.
 DE
-Nichts ist kaputt, also warnt Sie auch nichts.
+Keine Prüfung meldet das. Das Element ist geometrisch vollständig und plottet sauber. Die Lücke zeigt sich erst später, in der Produktion.
 
 [solutions/allplan-mcp.md | blocks.1.lines.2]
 EN
@@ -5062,6 +5062,18 @@ EN
 4.84 m³, about 12.1 t. The lightest panel with the same outside dimensions weighs 7.5 t.
 DE
 4,84 m³, rund 12,1 t. Das leichteste Element mit denselben Außenmaßen wiegt 7,5 t.
+
+[solutions/allplan-mcp.md | blocks.3.items.3.q]
+EN
+Set the concrete grade on those nine panels to C30/37.
+DE
+Setze bei diesen neun Elementen die Betongüte auf C30/37.
+
+[solutions/allplan-mcp.md | blocks.3.items.3.a]
+EN
+Nine elements updated. The field was empty before. You can undo it in the same session.
+DE
+Neun Elemente geändert. Vorher war das Feld leer. Rückgängig machen können Sie das in derselben Sitzung.
 
 [solutions/allplan-mcp.md | blocks.4.title]
 EN
@@ -5183,12 +5195,6 @@ Everything in Lite, plus drawing generation, 3D modeling and reinforcement as th
 DE
 Alles aus Lite, dazu Zeichnungserstellung, 3D-Modellierung und Bewehrung, sobald sie verfügbar sind.
 
-[solutions/allplan-mcp.md | blocks.5.tiers.1.cta.label]
-EN
-Join the waitlist
-DE
-Auf die Warteliste
-
 [solutions/allplan-mcp.md | blocks.5.tiers.2.body]
 EN
 Tailored to your workflows and standards.
@@ -5200,24 +5206,6 @@ EN
 Contact sales
 DE
 Vertrieb kontaktieren
-
-[solutions/allplan-mcp.md | blocks.5.waitlist.label]
-EN
-Placeholder
-DE
-Platzhalter
-
-[solutions/allplan-mcp.md | blocks.5.waitlist.title]
-EN
-Join the waitlist
-DE
-Auf die Warteliste
-
-[solutions/allplan-mcp.md | blocks.5.waitlist.body]
-EN
-The waitlist form belongs here. Until it is connected, write to {email} and we put you on the list.
-DE
-Hier gehört das Wartelisten-Formular hin. Solange es noch nicht angebunden ist, schreiben Sie an {email}, und wir nehmen Sie auf die Liste.
 
 [solutions/allplan-mcp.md | blocks.5.note]
 EN
@@ -5243,53 +5231,11 @@ We reply within one working day.
 DE
 Wir antworten innerhalb eines Werktags.
 
-[solutions/allplan-mcp.md | blocks.6.slot.label]
+[solutions/allplan-mcp.md | blocks.6.fallback]
 EN
-Placeholder
+Write to {email} and you reach the same people.
 DE
-Platzhalter
-
-[solutions/allplan-mcp.md | blocks.6.slot.title]
-EN
-Request a license
-DE
-Lizenz anfragen
-
-[solutions/allplan-mcp.md | blocks.6.slot.body]
-EN
-The license form belongs here, with the five fields listed below. Until it is connected, write to {email}.
-DE
-Hier gehört das Lizenzformular hin, mit den fünf Feldern darunter. Solange es noch nicht angebunden ist, schreiben Sie an {email}.
-
-[solutions/allplan-mcp.md | blocks.6.slot.fields.0]
-EN
-Name
-DE
-Name
-
-[solutions/allplan-mcp.md | blocks.6.slot.fields.1]
-EN
-Company
-DE
-Firma
-
-[solutions/allplan-mcp.md | blocks.6.slot.fields.2]
-EN
-Email
-DE
-E-Mail
-
-[solutions/allplan-mcp.md | blocks.6.slot.fields.3]
-EN
-Allplan version
-DE
-Allplan-Version
-
-[solutions/allplan-mcp.md | blocks.6.slot.fields.4]
-EN
-Number of users
-DE
-Anzahl Nutzer
+Schreiben Sie an {email}, Sie erreichen dieselben Leute.
 
 
 === DATEI: solutions/geotechnical-engineers.md ===

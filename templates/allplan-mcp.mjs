@@ -49,35 +49,21 @@ const withEmail = (text, site) =>
   )
 
 /**
- * A HubSpot form, or a marked placeholder while its id is still missing.
+ * A HubSpot form, if it exists yet.
  *
- * Both forms on this page are HubSpot embeds that do not exist yet. Naming them
- * in site.yml with an empty id is what lets the page render either way: the
- * placeholder says what belongs there and offers the address in the meantime,
- * and pasting the id under `hubspot.forms` swaps in the real form with no other
- * change. The loader script only reaches the page once a form is real, so this
- * page requests nothing from HubSpot until then.
+ * Both forms on this page are named in site.yml with an empty id, because they
+ * are still to be created in HubSpot. Until an id is there this renders
+ * nothing, and the two sections that carry a form say so in their own way: the
+ * Pro tier simply has no button, and the request band drops to one column and
+ * offers the address instead. Pasting an id in is the whole change, and no
+ * loader script reaches the page before then.
  */
-const formSlot = (slot, site) =>
-  hasForm(slot.form, site)
+const formEmbed = (name, site) =>
+  hasForm(name, site)
     ? `      <div class="mcp-form">
-        ${formFrame(slot.form, site)}
+        ${formFrame(name, site)}
       </div>`
-    : `      <!-- Placeholder. Paste the form id under hubspot.forms.${esc(
-        slot.form
-      )} in content/site.yml and the embed replaces this. -->
-      <div class="mcp-slot">
-        <p class="mcp-label mcp-slot__flag">${esc(slot.label)}</p>
-        <p class="mcp-slot__title">${mdInline(slot.title)}</p>
-        <p class="mcp-slot__body">${withEmail(slot.body, site)}</p>
-${
-  slot.fields
-    ? `        <ul class="mcp-slot__fields">
-${slot.fields.map((f) => `          <li>${esc(f)}</li>`).join('\n')}
-        </ul>`
     : ''
-}
-      </div>`
 
 /* ------------------------------------------------------------------- iso --- */
 
@@ -428,11 +414,16 @@ ${b.items
 
 /* 6. Three tiers side by side, stacked on a phone. Lite carries the accent rule
    because it is the one that can be bought today, so the emphasis is a fact
-   about the product rather than a recommendation. The waitlist form is a HubSpot
-   embed that does not exist yet, so the Pro button points at the marked
-   placeholder below the cards instead of at a form this page built itself. */
-const mcpPricing = (b) =>
-  band(
+   about the product rather than a recommendation.
+
+   The waitlist is a HubSpot form that does not exist yet. Until it does, the
+   band carries neither the form nor a button pointing at it: a tier that cannot
+   be joined says so by having nothing to press. Giving the Pro tier a `cta` in
+   the content file is what brings both back. */
+const mcpPricing = (b) => {
+  const waitlist = b.waitlist && hasForm(b.waitlist.form, b.site)
+
+  return band(
     join([
       `    <div class="mcp-price__head">
       ${heading(b.title, 'mcp-price-title')}
@@ -450,31 +441,44 @@ ${b.tiers
   )
   .join('\n')}
     </ul>`,
-      `    <div class="mcp-waitlist" id="${esc(b.waitlist.id)}">
-${formSlot(b.waitlist, b.site)}
-    </div>`,
+      waitlist
+        ? `    <div class="mcp-waitlist" id="${esc(b.waitlist.id)}">
+${formEmbed(b.waitlist.form, b.site)}
+    </div>`
+        : '',
       `    <p class="mcp-price__note">${mdInline(b.note)}</p>`,
     ]),
     { ground: 'concrete', id: b.id, label: 'mcp-price-title' }
   )
+}
 
 /* 7. The license request. The heading and what happens after you send it on the
    left, the form on the right, which is the shape the enquiry band on Get
-   Started uses: a visitor who has filled one recognises the other. */
-const mcpLicense = (b) =>
-  band(
+   Started uses: a visitor who has filled one recognises the other.
+
+   Without the form there is no right hand side, so the band drops to one column
+   and the copy offers the address instead. A closing section that asks for
+   something has to leave a way to answer. */
+const mcpLicense = (b) => {
+  const live = hasForm(b.form, b.site)
+
+  return band(
     join([
-      `    <div class="mcp-cta__head">
+      `    <div class="mcp-cta__head${live ? '' : ' mcp-cta__head--wide'}">
       ${heading(b.title, 'mcp-cta-title', 'mcp-h2 mcp-h2--lead')}
       ${b.body ? `<div class="mcp-cta__body">${paras(b.body, 'mcp-cta__line')}</div>` : ''}
+      ${live ? '' : `<p class="mcp-cta__line">${withEmail(b.fallback, b.site)}</p>`}
       <p class="mcp-cta__note">${mdInline(b.note)}</p>
     </div>`,
-      `    <div class="mcp-cta__form">
-${formSlot(b.slot, b.site)}
-    </div>`,
+      live
+        ? `    <div class="mcp-cta__form">
+${formEmbed(b.form, b.site)}
+    </div>`
+        : '',
     ]),
     { ground: 'sand', id: b.id, label: 'mcp-cta-title' }
   )
+}
 
 /* The block signature is (block, ctx), and the two with a form in them need
    site.yml for the HubSpot ids and the contact address, so they take it off ctx

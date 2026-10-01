@@ -3213,25 +3213,28 @@ main.mcp {
 
 /* --- type ----------------------------------------------------------------- */
 
-/* Inter throughout, including on the controls and the one utility label left on
-   the page, which the rest of the site sets in Space Grotesk. Headings are
-   tracked in by three percent, which is what keeps a short line at this size
-   from reading as loose. Sections open on their heading: there are no eyebrows
-   over them, so nothing announces a section before the section says it. */
+/* Inter throughout, including on the controls, which the rest of the site sets
+   in Space Grotesk. Headings are tracked in by three percent, which is what
+   keeps a short line at this size from reading as loose. Sections open on their
+   heading: there are no eyebrows over them, so nothing announces a section
+   before the section says it. */
 .mcp .mcp-h1,
 .mcp .mcp-h2,
 .mcp .mcp-h3,
 .mcp .btn,
-.mcp .link,
-.mcp .mcp-label {
+.mcp .link {
   font-family: var(--font-body);
 }
 
+/* The one all caps heading on the site. Minus three percent is the figure for
+   the sentence case headings below it; caps have no ascenders and descenders to
+   interlock, so at this size they want most of that back or the letters close
+   up on each other. */
 .mcp .mcp-h1 {
   font-size: clamp(2.6rem, 6.2vw, 5rem);
   font-weight: 600;
   line-height: 1.01;
-  letter-spacing: -0.03em;
+  letter-spacing: -0.008em;
   text-wrap: balance;
 }
 
@@ -3252,16 +3255,6 @@ main.mcp {
   font-weight: 600;
   line-height: 1.3;
   letter-spacing: -0.015em;
-}
-
-.mcp .mcp-label {
-  margin-bottom: var(--s4);
-  font-size: 0.6875rem;
-  font-weight: 600;
-  line-height: 1;
-  letter-spacing: 0.15em;
-  text-transform: uppercase;
-  color: var(--forest);
 }
 
 /* --- controls ------------------------------------------------------------- */
@@ -3725,6 +3718,20 @@ main.mcp {
   color: var(--mcp-dim);
 }
 
+/* While there is no form, this line is the only way to act on the section, so
+   the address has to look like something you can press. */
+.mcp-cta__line a {
+  color: var(--ink);
+  text-decoration: underline;
+  text-underline-offset: 0.2em;
+  text-decoration-color: var(--mcp-rule);
+  transition: text-decoration-color 0.2s linear;
+}
+
+.mcp-cta__line a:hover {
+  text-decoration-color: currentColor;
+}
+
 .mcp-cta__note {
   margin-top: var(--s5);
   font-size: var(--step-small);
@@ -3733,6 +3740,11 @@ main.mcp {
 
 .mcp-cta__form {
   grid-column: 7 / 13;
+}
+
+/* No form yet, so no second column to balance against. */
+.mcp-cta__head--wide {
+  grid-column: 1 / 9;
 }
 
 /* --- the two forms -------------------------------------------------------- */
@@ -3830,57 +3842,6 @@ main.mcp {
   margin-top: var(--s3);
   font-size: var(--step-small);
   line-height: 1.6;
-  color: var(--mcp-dim);
-}
-
-.mcp-slot {
-  padding: var(--s4);
-  background: var(--mcp-inset);
-  border: 1px dashed color-mix(in srgb, var(--forest) 55%, transparent);
-}
-
-.mcp-slot__flag {
-  margin-bottom: 0;
-  color: var(--forest);
-}
-
-.mcp-slot__title {
-  margin-top: var(--s3);
-  font-size: 1.0625rem;
-  font-weight: 600;
-  letter-spacing: -0.015em;
-}
-
-.mcp-slot__body {
-  margin-top: var(--s2);
-  max-width: 54ch;
-  line-height: 1.6;
-  color: var(--mcp-dim);
-}
-
-.mcp-slot__body a {
-  color: var(--ink);
-  text-decoration: underline;
-  text-underline-offset: 0.2em;
-  text-decoration-color: var(--mcp-rule);
-  transition: text-decoration-color 0.2s linear;
-}
-
-.mcp-slot__body a:hover {
-  text-decoration-color: currentColor;
-}
-
-.mcp-slot__fields {
-  display: flex;
-  flex-wrap: wrap;
-  gap: var(--s2);
-  margin-top: var(--s4);
-}
-
-.mcp-slot__fields li {
-  padding: 0.35rem 0.7rem;
-  border: 1px solid var(--mcp-rule);
-  font-size: var(--step-small);
   color: var(--mcp-dim);
 }
 

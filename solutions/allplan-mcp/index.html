@@ -200,7 +200,7 @@
 <section class="band mcp-band mcp-band--concrete mcp-hero" aria-labelledby="page-title">
   <div class="wrap grid">
     <div class="mcp-hero__head">
-      <h1 class="mcp-h1" id="page-title">Ask the model.</h1>
+      <h1 class="mcp-h1" id="page-title">ALLPLAN MCP</h1>
       <p class="mcp-hero__lede">Talk to Allplan in your own words. It reads the model you have open, provides answers, highlights elements and adjusts attributes where necessary.</p>
       <div class="mcp-hero__actions">
         <a class="btn btn--solid mcp-btn" href="#pricing">See pricing</a>
@@ -252,11 +252,11 @@
 <section class="band mcp-band mcp-band--sand" aria-labelledby="mcp-problem-title">
   <div class="wrap grid">
     <div class="reveal mcp-problem__head">
-      <h2 class="mcp-h2" id="mcp-problem-title">The problem</h2>
+      <h2 class="mcp-h2" id="mcp-problem-title">Common challenges</h2>
     </div>
     <ol style="--reveal-delay:90ms" class="reveal mcp-problem__lines">
       <li>A panel can look finished in the viewport and still be missing the field production reads.</li>
-      <li>Nothing is broken, so nothing warns you.</li>
+      <li>No check reports it. The element is geometrically complete and it plots cleanly. The gap surfaces downstream, in production.</li>
       <li>At ten thousand elements, checking that by hand is not a task anyone finishes.</li>
     </ol>
   </div>
@@ -353,6 +353,10 @@
         <p class="mcp-chat__ask">Which of these panels is the heaviest?</p>
         <p class="mcp-chat__reply">4.84 m³, about 12.1 t. The lightest panel with the same outside dimensions weighs 7.5 t.</p>
       </div>
+      <div class="mcp-chat">
+        <p class="mcp-chat__ask">Set the concrete grade on those nine panels to C30/37.</p>
+        <p class="mcp-chat__reply">Nine elements updated. The field was empty before. You can undo it in the same session.</p>
+      </div>
     </div>
   </div>
 </section>
@@ -416,7 +420,7 @@
         <p class="mcp-tier__price"></p>
         <p class="mcp-tier__unit"></p>
         <p class="mcp-tier__body">Everything in Lite, plus drawing generation, 3D modeling and reinforcement as they become available.</p>
-        <a class="btn btn--solid mcp-btn" href="#waitlist">Join the waitlist</a>
+        
       </li>
       <li class="mcp-tier">
         <h3 class="mcp-tier__name">Custom</h3>
@@ -426,40 +430,17 @@
         <a class="btn btn--solid mcp-btn" href="/get-started">Contact sales</a>
       </li>
     </ul>
-    <div style="--reveal-delay:180ms" class="reveal mcp-waitlist" id="waitlist">
-      <!-- Placeholder. Paste the form id under hubspot.forms.waitlist in content/site.yml and the embed replaces this. -->
-      <div class="mcp-slot">
-        <p class="mcp-label mcp-slot__flag">Placeholder</p>
-        <p class="mcp-slot__title">Join the waitlist</p>
-        <p class="mcp-slot__body">The waitlist form belongs here. Until it is connected, write to <a href="mailto:info@gsilabs.de">info@gsilabs.de</a> and we put you on the list.</p>
-
-      </div>
-    </div>
-    <p style="--reveal-delay:270ms" class="reveal mcp-price__note">Allplan 2025 or 2026, and a subscription with any MCP capable AI assistant, for example Claude or ChatGPT. Delivery is an installer plus a license key. Setup takes a few minutes and needs no server.</p>
+    <p style="--reveal-delay:180ms" class="reveal mcp-price__note">Allplan 2025 or 2026, and a subscription with any MCP capable AI assistant, for example Claude or ChatGPT. Delivery is an installer plus a license key. Setup takes a few minutes and needs no server.</p>
   </div>
 </section>
 
 <section class="band mcp-band mcp-band--sand" id="license" aria-labelledby="mcp-cta-title">
   <div class="wrap grid">
-    <div class="reveal mcp-cta__head">
+    <div class="reveal mcp-cta__head mcp-cta__head--wide">
       <h2 class="mcp-h2 mcp-h2--lead" id="mcp-cta-title">Try it on your own model.</h2>
       <div class="mcp-cta__body"><p class="mcp-cta__line">Send us the version of Allplan you run and how many people would use it. We reply with a license key and the installer.</p></div>
+      <p class="mcp-cta__line">Write to <a href="mailto:info@gsilabs.de">info@gsilabs.de</a> and you reach the same people.</p>
       <p class="mcp-cta__note">We reply within one working day.</p>
-    </div>
-    <div style="--reveal-delay:90ms" class="reveal mcp-cta__form">
-      <!-- Placeholder. Paste the form id under hubspot.forms.license in content/site.yml and the embed replaces this. -->
-      <div class="mcp-slot">
-        <p class="mcp-label mcp-slot__flag">Placeholder</p>
-        <p class="mcp-slot__title">Request a license</p>
-        <p class="mcp-slot__body">The license form belongs here, with the five fields listed below. Until it is connected, write to <a href="mailto:info@gsilabs.de">info@gsilabs.de</a>.</p>
-        <ul class="mcp-slot__fields">
-          <li>Name</li>
-          <li>Company</li>
-          <li>Email</li>
-          <li>Allplan version</li>
-          <li>Number of users</li>
-        </ul>
-      </div>
     </div>
   </div>
 </section>
