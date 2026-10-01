@@ -35,11 +35,11 @@ blocks:
     title: Common challenges
     lines:
       - >-
-        Laborious attribute checks, because the model has to be exported, searched column
-        by column in a spreadsheet for outliers, and then written back.
+        Slow attribute checks, because the model has to be exported, searched column by
+        column in a spreadsheet for outliers, and then written back.
       - >-
-        Awkward element lookup, because finding one particular element in the model means
-        a detour through export lists or manual searching.
+        Hard element searches, because finding a particular one means going through export
+        lists or looking by hand.
       - >-
         Checks by eye alone, because some of them cannot be done any other way today,
         room by room.

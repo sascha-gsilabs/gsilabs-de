@@ -4993,13 +4993,13 @@ Typische Herausforderungen
 
 [solutions/allplan-mcp.md | blocks.1.lines.0]
 EN
-Laborious attribute checks, because the model has to be exported, searched column by column in a spreadsheet for outliers, and then written back.
+Slow attribute checks, because the model has to be exported, searched column by column in a spreadsheet for outliers, and then written back.
 DE
 Mühsame Qualitätsprüfung von Attributen, weil das Modell exportiert, in einer Tabelle Spalte für Spalte nach Ausreißern durchsucht und dann wieder zurückgespielt werden muss.
 
 [solutions/allplan-mcp.md | blocks.1.lines.1]
 EN
-Awkward element lookup, because finding one particular element in the model means a detour through export lists or manual searching.
+Hard element searches, because finding a particular one means going through export lists or looking by hand.
 DE
 Umständliches Auffinden von Bauteilen, weil ein bestimmtes Element im Modell nur über Umwege wie Exportlisten oder manuelles Suchen zu finden ist.
 
