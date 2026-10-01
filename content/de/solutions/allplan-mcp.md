@@ -21,7 +21,7 @@ blocks:
       action: Video abspielen
       note: Vimeo wird erst geladen, wenn Sie starten.
       poster:
-        src: /assets/img/allplan-mcp-poster.webp
+        src: /assets/img/allplan-mcp-poster-de.webp
         width: 1600
         height: 834
         alt: Das erste Bild des Allplan-MCP-Videos.

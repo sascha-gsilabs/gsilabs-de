@@ -16,7 +16,7 @@ blocks:
     cta: { label: See pricing, href: "#pricing" }
     link: { label: See how it works, href: "#how-it-works" }
     video:
-      id: "1231682189"
+      id: "1231988991"
       # The ratio the embed code ships with, 52.24% padding, so the frame holds
       # its place before the poster has loaded and keeps it when the player
       # takes over.
@@ -26,7 +26,7 @@ blocks:
       action: Play the video
       note: Vimeo loads only once you start it.
       poster:
-        src: /assets/img/allplan-mcp-poster.webp
+        src: /assets/img/allplan-mcp-poster-en.webp
         width: 1600
         height: 834
         alt: The opening frame of the Allplan MCP video.

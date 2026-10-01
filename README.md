@@ -338,9 +338,13 @@ again when the player replaces the button in it.
 
 Everything about the video is in the content file: the id, the ratio, the query
 string from the embed code, the poster, and the line under the frame saying what
-starting it does. Swapping the video is an id and a poster. The English page
-plays the German video until an English one exists, which is why its poster
-carries German type.
+starting it does. Each language has its own recording and so its own poster,
+because the type is burned into the frame. Swapping one is an id and a poster:
+take `thumbnail_url` from
+`https://vimeo.com/api/oembed.json?url=https://vimeo.com/<id>`, widen the
+`-d_295x166` on the end of it to `-d_1600x834`, save it into
+`brand assets/website images/`, list it in `tools/assets.config.mjs` and run
+`node tools/build-images.mjs`.
 
 The transfer the click triggers is flagged for the client in the comment at the
 top of both privacy files: the policy still has to name Vimeo.

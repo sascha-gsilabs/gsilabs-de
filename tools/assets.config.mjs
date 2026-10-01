@@ -18,13 +18,19 @@ export const images = [
   { from: 'logo-schoeck-de-2021-rgb.png', to: 'client-schoeck.webp', w: 340, lossless: true },
   { from: 'logo-allplan-company-negativ.png', to: 'client-allplan.webp', w: 320, lossless: true },
 
-  // The poster frame of the Allplan MCP video, pulled from Vimeo's own CDN so
-  // the hero can show the first frame without calling Vimeo on page load. The
-  // player is embedded only after a visitor asks for it. Its box is 1600 by 834,
-  // which is the ratio the embed code ships with.
+  // The poster frames of the Allplan MCP video, one per language, pulled from
+  // Vimeo's own CDN so the hero can show the first frame without calling Vimeo
+  // on page load. The player is embedded only after a visitor asks for it. Both
+  // boxes are 1600 by 834, which is the ratio the embed code ships with, and
+  // both frames carry type in their own language, which is why there are two.
   {
-    from: 'brand assets/website images/allplan-mcp-poster.jpg',
-    to: 'allplan-mcp-poster.webp',
+    from: 'brand assets/website images/allplan-mcp-poster-en.jpg',
+    to: 'allplan-mcp-poster-en.webp',
+    w: 1600,
+  },
+  {
+    from: 'brand assets/website images/allplan-mcp-poster-de.jpg',
+    to: 'allplan-mcp-poster-de.webp',
     w: 1600,
   },
 
