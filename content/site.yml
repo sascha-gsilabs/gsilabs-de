@@ -180,14 +180,6 @@ nav:
       - { label: Baukosten KI, href: /solutions/baukosten-ki }
       - { label: Piledesigner, href: /solutions/piledesigner }
       - { label: StructureOS, href: /solutions/structure-os }
-  - id: company
-    label: Company
-    items:
-      - { label: About, href: /about }
-      - { label: Our Process, href: /our-process }
-      - { label: Careers, href: /careers }
-      - { label: Imprint, href: /imprint }
-      - { label: Privacy, href: /privacy }
   - id: services
     label: Services
     items:
@@ -196,6 +188,14 @@ nav:
       - { label: Design Automation, href: /services/design-automation }
       - { label: BIM Software Development, href: /services/bim-software-development }
       - { label: BIM Content Development, href: /services/bim-content-development }
+  - id: company
+    label: Company
+    items:
+      - { label: About, href: /about }
+      - { label: Our Process, href: /our-process }
+      - { label: Careers, href: /careers }
+      - { label: Imprint, href: /imprint }
+      - { label: Privacy, href: /privacy }
   - id: insights
     label: Insights
     items:

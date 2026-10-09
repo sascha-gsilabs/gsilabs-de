@@ -97,14 +97,6 @@ nav:
       - { label: Baukosten KI, href: /solutions/baukosten-ki }
       - { label: Piledesigner, href: /solutions/piledesigner }
       - { label: StructureOS, href: /solutions/structure-os }
-  - id: company
-    label: Unternehmen
-    items:
-      - { label: Über uns, href: /about }
-      - { label: Unser Vorgehen, href: /our-process }
-      - { label: Karriere, href: /careers }
-      - { label: Impressum, href: /imprint }
-      - { label: Datenschutz, href: /privacy }
   - id: services
     label: Leistungen
     items:
@@ -113,6 +105,14 @@ nav:
       - { label: Planungsautomatisierung, href: /services/design-automation }
       - { label: BIM-Softwareentwicklung, href: /services/bim-software-development }
       - { label: BIM-Content-Entwicklung, href: /services/bim-content-development }
+  - id: company
+    label: Unternehmen
+    items:
+      - { label: Über uns, href: /about }
+      - { label: Unser Vorgehen, href: /our-process }
+      - { label: Karriere, href: /careers }
+      - { label: Impressum, href: /imprint }
+      - { label: Datenschutz, href: /privacy }
   - id: insights
     label: Insights
     items:
