@@ -5637,7 +5637,7 @@ StructureOS führt Ihre Projekte, Bürostandards und Baurichtlinien in einem Sys
 EN
 Let's Talk
 DE
-Sprechen wir darüber
+Jetzt loslegen
 
 [solutions/structure-os.md | blocks.0.image.alt]
 EN
@@ -5913,7 +5913,7 @@ Sagen Sie uns, was Ihr Büro bereits erstellt hat und wo Ihre Ingenieure Zeit mi
 EN
 Let's Talk
 DE
-Sprechen wir darüber
+Jetzt loslegen
 
 [solutions/structure-os.md | blocks.6.secondary.label]
 EN

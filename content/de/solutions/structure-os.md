@@ -41,7 +41,7 @@ blocks:
     lede: >-
       StructureOS führt Ihre Projekte, Bürostandards und Baurichtlinien in einem System
       zusammen, das Ihre Ingenieure in normaler Sprache fragen können.
-    cta: { label: Sprechen wir darüber, href: /get-started }
+    cta: { label: Jetzt loslegen, href: /get-started }
     image:
       src: /assets/img/sol-design-hero.webp
       alt: Zwei Ingenieure am Schreibtisch im Gespräch über ein Tragwerksmodell am Bildschirm
@@ -157,6 +157,6 @@ blocks:
       Sagen Sie uns, was Ihr Büro bereits erstellt hat und wo Ihre Ingenieure Zeit mit
       Suchen verlieren. Wir kommen mit einer ehrlichen Einschätzung zurück, was sich zu
       bauen lohnt.
-    cta: { label: Sprechen wir darüber, href: /get-started }
+    cta: { label: Jetzt loslegen, href: /get-started }
     secondary: { label: Unser Vorgehen ansehen, href: /our-process }
 ---

@@ -451,6 +451,10 @@ published in one language. It now holds it against the number of versions the
 sitemap has for that page, so one language and two links passes while a
 translated page still needs three.
 
+The German call to action is "Jetzt loslegen", the same words the header button
+and `site.yml` already use for `/get-started`. The briefing's "Let's Talk" was
+written for an English page and stays on the English one.
+
 The German headline carries a `&shy;` inside "Tragwerksplanungsbüros". Without
 it the word runs out of the six column heading and under the hero image. A
 soft hyphen is used only when the line needs it, which is why it beats
