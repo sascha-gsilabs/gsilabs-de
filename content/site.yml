@@ -172,9 +172,12 @@ nav:
   - id: solutions
     label: Solutions
     items:
-      # A named product among audience pages, so it leads the group rather than
-      # sitting between two "For ..." entries.
+      # Named products lead the group rather than sitting between two "For ..."
+      # entries. "Baukosten KI" keeps its German name in English too, which is a
+      # brand rule rather than an oversight: see the comment at the top of
+      # content/solutions/baukosten-ki.md.
       - { label: Allplan MCP, href: /solutions/allplan-mcp }
+      - { label: Baukosten KI, href: /solutions/baukosten-ki }
       - { label: For Design Offices, href: /solutions/planning-design-offices }
       - { label: For Geo Engineers, href: /solutions/geotechnical-engineers }
       - { label: For Precast Manufacturers, href: /solutions/precast-manufacturers }

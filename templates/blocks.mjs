@@ -222,7 +222,7 @@ const showcase = (b) =>
 const definitions = (b) =>
   band(
     join([
-      `    <div class="deflist">
+      `    <div class="deflist${b.image ? '' : ' deflist--wide'}">
       ${eyebrow(b.eyebrow)}
       ${b.title ? `<h2 class="statement__title deflist__title">${mdInline(b.title)}</h2>` : ''}
       ${b.lede ? `<p class="lede deflist__lede">${mdInline(b.lede)}</p>` : ''}

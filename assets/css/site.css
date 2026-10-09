@@ -813,6 +813,19 @@ button {
   gap: var(--s5);
 }
 
+/* No picture beside it, so the list has the band to itself. The rows run the
+   wider measure while the copy keeps its own: a definition list reads down the
+   left edge, and a line of body text three times the label's width stops being
+   one. */
+.deflist--wide {
+  grid-column: 1 / 10;
+  padding-right: 0;
+}
+
+.deflist--wide .cap__row {
+  grid-template-columns: 10rem minmax(0, 54ch);
+}
+
 .deflist__lede {
   max-width: 46ch;
 }
@@ -3128,7 +3141,12 @@ button {
 }
 
 @media (max-width: 640px) {
-  .cap__row {
+  /* The wide variant is repeated rather than left to the rule above it, which
+     is less specific than .deflist--wide .cap__row and so would lose to it here
+     and leave the label and the copy sharing 375 pixels. Same trap as the
+     form frames further up. */
+  .cap__row,
+  .deflist--wide .cap__row {
     grid-template-columns: minmax(0, 1fr);
     gap: var(--s2);
   }

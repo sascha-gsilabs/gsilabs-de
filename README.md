@@ -12,6 +12,7 @@ npm run build     # content/ -> HTML at the project root
 npm run serve     # http://localhost:3001
 npm run dev       # build, then serve
 npm run audit     # crawl every page for broken links, errors, metadata, overflow
+npm run test:briefing   # the word and claim rules for the Baukosten KI page
 
 npm run translations        # write translations.txt, every text EN beside DE
 npm run translations:apply  # read the edited file back into content/de/
@@ -377,6 +378,48 @@ falls back to the 300px an SVG claims as its intrinsic size, which is a tenth of
 the band. And `.mcp .hs-form-frame` carries a `min-height` like the other two
 forms, but it is an estimate rather than a measurement, because neither form
 exists yet. Measure it against the real one when it does.
+
+### The Baukosten KI page
+
+`/solutions/baukosten-ki` and `/de/solutions/baukosten-ki` advertise a separate
+product with its own domain. Unlike the Allplan MCP page it brings no design
+system of its own: that was decided, and the briefing is explicit that the two
+must not be mixed. So the page is composed from the shared blocks, `hero`,
+`statement`, `definitions`, `stages`, `metricTiles` and `closer`, and adds no
+CSS beyond a wide variant of the definition list described below.
+
+Three rules from
+`assets/briefings/261009_Briefing Landingpage gsilabs_V00.md` outlive the
+briefing and are repeated in a comment at the top of both content files:
+
+- **The name is "Baukosten KI", with a space, in English too.** The hyphen
+  belongs to the domain and nowhere else, and "BK" must never appear: it sits
+  too close to BKI, the competitor, and the word mark is not registered yet.
+- **The claim "Die Zahl, die trägt." goes on the closing band only.** There is
+  no English claim and none may be invented, so the English page carries the
+  German one with `lang="de"` on it.
+- **What the application cannot do is binding through the terms.** The page says
+  where it stops in a band of its own, and nothing elsewhere may promise past
+  it: no breakdown below the first level of DIN 276, no service profile other
+  than buildings, no regional factors below state level, no teams, no work on
+  existing stock.
+
+`npm run test:briefing` reads the built pages and fails on the briefing's
+forbidden vocabulary, on a hyphenated name outside an address, on a bare "BK"
+and on any percentage of accuracy. It runs against the HTML rather than the
+content files on purpose: `translations.txt` writes German copy back into
+`content/de/`, so a word can arrive without anyone opening the page file.
+
+**A note on the link.** Both calls to action point at `www.baukosten-ki.de`,
+which answers 401 behind a preview password and carries `X-Robots-Tag: noindex`
+at the time of writing. That is known and was the client's decision: the page
+goes live with the link in it. When the site opens, nothing here has to change.
+
+**`deflist--wide`.** A `definitions` block without an image used to leave the
+right half of its band empty, because the picture it was designed around takes
+six columns. Without one it now spans nine and caps its copy at 54 characters,
+so the rules run the width while the text keeps a measure. The two homepage
+uses carry an image and are untouched.
 
 ## Search engines
 
