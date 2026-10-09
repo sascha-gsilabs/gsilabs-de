@@ -63,6 +63,14 @@ blocks:
       - Bemessung je Pfahl statt je Gruppe
       - Vertikal- und Horizontalkräfte in einer Rechnung
       - Vollständig im Browser, nichts zu installieren
+    split: true
+    image:
+      src: /assets/img/geo-engineers-top.webp
+      alt: >-
+        Luftbild einer Baustelle mit einem Feld freigelegter Pfahlköpfe, daneben
+        Bewehrungskörbe und ein Bohrgerät
+      width: 1024
+      height: 576
 
   - type: definitions
     title: Was die Software rechnet
@@ -81,6 +89,13 @@ blocks:
         body: >-
           Erforderliche Längs- und Querkraftbewehrung je Pfahl, aus dessen eigener
           Belastung.
+    image:
+      src: /assets/img/geo-engineers-bottom.webp
+      alt: >-
+        Luftbild einer innerstädtischen Baustelle mit einem Bohrgerät beim Herstellen
+        der Bohrpfähle
+      width: 1024
+      height: 576
 
   - type: stages
     title: Vom Bodenprofil zum Nachweis

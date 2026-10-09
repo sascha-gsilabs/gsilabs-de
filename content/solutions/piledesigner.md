@@ -61,6 +61,14 @@ blocks:
       - Designed per pile rather than per group
       - Vertical and horizontal forces in one calculation
       - Entirely in the browser, nothing to install
+    split: true
+    image:
+      src: /assets/img/geo-engineers-top.webp
+      alt: >-
+        An aerial view of a site with a field of exposed pile heads, reinforcement cages
+        and a drilling rig beside them
+      width: 1024
+      height: 576
 
   - type: definitions
     title: What the software calculates
@@ -79,6 +87,12 @@ blocks:
         body: >-
           The longitudinal and shear reinforcement each pile needs, from the load that
           pile actually carries.
+    image:
+      src: /assets/img/geo-engineers-bottom.webp
+      alt: >-
+        An aerial view of an inner city site with a drilling rig forming the bored piles
+      width: 1024
+      height: 576
 
   - type: stages
     title: From the soil profile to the verification

@@ -96,11 +96,6 @@ nav:
       - { label: Allplan MCP, href: /solutions/allplan-mcp }
       - { label: Baukosten KI, href: /solutions/baukosten-ki }
       - { label: Piledesigner, href: /solutions/piledesigner }
-      - { label: Für Planungsbüros, href: /solutions/planning-design-offices }
-      - { label: Für Geotechniker, href: /solutions/geotechnical-engineers }
-      - { label: Für Fertigteilwerke, href: /solutions/precast-manufacturers }
-      - { label: Für Produkthersteller, href: /solutions/product-manufacturers }
-      - { label: Für Projektentwickler, href: /solutions/real-estate-developers }
   - id: company
     label: Unternehmen
     items:

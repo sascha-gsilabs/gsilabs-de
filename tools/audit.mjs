@@ -2,6 +2,10 @@
 // headings, horizontal overflow, dead internal links and the metadata a search
 // engine reads: title and description length, duplicates across pages, the
 // canonical, and whether the hreflang set on a page agrees with the sitemap.
+//
+// A page that exists in one language only is not an error here: its hreflang set
+// is held against the number of versions the sitemap has for it, not against the
+// number of languages the site publishes.
 //   node tools/audit.mjs [http://localhost:3001]
 import { existsSync, readFileSync } from 'node:fs'
 import puppeteer from 'puppeteer-core'
@@ -18,6 +22,22 @@ const routes = [...readFileSync('sitemap.xml', 'utf8').matchAll(/<loc>(.*?)<\/lo
   .map((r) => (r === '/' ? '/' : r.replace(/\/$/, '')))
 
 const known = new Set(routes)
+
+/* Which language routes exist for each logical page, worked out from the sitemap
+   the same way the build works it out from the content files. A page translated
+   into every language and a page that exists in one language only both carry a
+   correct hreflang set; they just carry sets of different sizes, so the size has
+   to be compared against what exists rather than against a fixed number. */
+const PREFIXES = ['/de']
+const logical = (route) => {
+  const prefix = PREFIXES.find((p) => route === p || route.startsWith(p + '/'))
+  return prefix ? route.slice(prefix.length) || '/' : route
+}
+const versions = new Map()
+for (const route of routes) {
+  const key = logical(route)
+  versions.set(key, (versions.get(key) ?? 0) + 1)
+}
 const problems = []
 const seen = []
 
@@ -93,11 +113,16 @@ try {
         found.push(`JSON-LD does not parse: ${e.message}`)
       }
     }
-    /* hreflang has to be reciprocal, so a translated page lists the whole set
-       including itself, plus x-default. Fewer than that means a counterpart went
-       missing without anyone noticing. */
-    if (info.alternates.length && info.alternates.length < 3)
-      found.push(`only ${info.alternates.length} hreflang link(s): ${info.alternates.join(', ')}`)
+    /* hreflang has to be reciprocal, so a page lists every language it exists in,
+       itself included, plus x-default. Fewer than that means a counterpart went
+       missing without anyone noticing. The figure it is held against is how many
+       versions the sitemap actually has, so a page published in one language
+       only passes with its two links while a translated one still needs three. */
+    const wanted = versions.get(logical(route)) + 1
+    if (info.alternates.length && info.alternates.length < wanted)
+      found.push(
+        `only ${info.alternates.length} hreflang link(s), wanted ${wanted}: ${info.alternates.join(', ')}`
+      )
 
     seen.push({ route, lang: info.lang, title: info.title, description: info.description })
 

@@ -173,40 +173,10 @@
     <xhtml:link rel="alternate" hreflang="x-default" href="https://www.gsilabs.de/solutions/baukosten-ki"/>
   </url>
   <url>
-    <loc>https://www.gsilabs.de/de/solutions/geotechnical-engineers</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://www.gsilabs.de/solutions/geotechnical-engineers"/>
-    <xhtml:link rel="alternate" hreflang="de" href="https://www.gsilabs.de/de/solutions/geotechnical-engineers"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.gsilabs.de/solutions/geotechnical-engineers"/>
-  </url>
-  <url>
     <loc>https://www.gsilabs.de/de/solutions/piledesigner</loc>
     <xhtml:link rel="alternate" hreflang="en" href="https://www.gsilabs.de/solutions/piledesigner"/>
     <xhtml:link rel="alternate" hreflang="de" href="https://www.gsilabs.de/de/solutions/piledesigner"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://www.gsilabs.de/solutions/piledesigner"/>
-  </url>
-  <url>
-    <loc>https://www.gsilabs.de/de/solutions/planning-design-offices</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://www.gsilabs.de/solutions/planning-design-offices"/>
-    <xhtml:link rel="alternate" hreflang="de" href="https://www.gsilabs.de/de/solutions/planning-design-offices"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.gsilabs.de/solutions/planning-design-offices"/>
-  </url>
-  <url>
-    <loc>https://www.gsilabs.de/de/solutions/precast-manufacturers</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://www.gsilabs.de/solutions/precast-manufacturers"/>
-    <xhtml:link rel="alternate" hreflang="de" href="https://www.gsilabs.de/de/solutions/precast-manufacturers"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.gsilabs.de/solutions/precast-manufacturers"/>
-  </url>
-  <url>
-    <loc>https://www.gsilabs.de/de/solutions/product-manufacturers</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://www.gsilabs.de/solutions/product-manufacturers"/>
-    <xhtml:link rel="alternate" hreflang="de" href="https://www.gsilabs.de/de/solutions/product-manufacturers"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.gsilabs.de/solutions/product-manufacturers"/>
-  </url>
-  <url>
-    <loc>https://www.gsilabs.de/de/solutions/real-estate-developers</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://www.gsilabs.de/solutions/real-estate-developers"/>
-    <xhtml:link rel="alternate" hreflang="de" href="https://www.gsilabs.de/de/solutions/real-estate-developers"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.gsilabs.de/solutions/real-estate-developers"/>
   </url>
   <url>
     <loc>https://www.gsilabs.de/get-started</loc>
@@ -321,39 +291,14 @@
     <xhtml:link rel="alternate" hreflang="x-default" href="https://www.gsilabs.de/solutions/baukosten-ki"/>
   </url>
   <url>
-    <loc>https://www.gsilabs.de/solutions/geotechnical-engineers</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://www.gsilabs.de/solutions/geotechnical-engineers"/>
-    <xhtml:link rel="alternate" hreflang="de" href="https://www.gsilabs.de/de/solutions/geotechnical-engineers"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.gsilabs.de/solutions/geotechnical-engineers"/>
-  </url>
-  <url>
     <loc>https://www.gsilabs.de/solutions/piledesigner</loc>
     <xhtml:link rel="alternate" hreflang="en" href="https://www.gsilabs.de/solutions/piledesigner"/>
     <xhtml:link rel="alternate" hreflang="de" href="https://www.gsilabs.de/de/solutions/piledesigner"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://www.gsilabs.de/solutions/piledesigner"/>
   </url>
   <url>
-    <loc>https://www.gsilabs.de/solutions/planning-design-offices</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://www.gsilabs.de/solutions/planning-design-offices"/>
-    <xhtml:link rel="alternate" hreflang="de" href="https://www.gsilabs.de/de/solutions/planning-design-offices"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.gsilabs.de/solutions/planning-design-offices"/>
-  </url>
-  <url>
-    <loc>https://www.gsilabs.de/solutions/precast-manufacturers</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://www.gsilabs.de/solutions/precast-manufacturers"/>
-    <xhtml:link rel="alternate" hreflang="de" href="https://www.gsilabs.de/de/solutions/precast-manufacturers"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.gsilabs.de/solutions/precast-manufacturers"/>
-  </url>
-  <url>
-    <loc>https://www.gsilabs.de/solutions/product-manufacturers</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://www.gsilabs.de/solutions/product-manufacturers"/>
-    <xhtml:link rel="alternate" hreflang="de" href="https://www.gsilabs.de/de/solutions/product-manufacturers"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.gsilabs.de/solutions/product-manufacturers"/>
-  </url>
-  <url>
-    <loc>https://www.gsilabs.de/solutions/real-estate-developers</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://www.gsilabs.de/solutions/real-estate-developers"/>
-    <xhtml:link rel="alternate" hreflang="de" href="https://www.gsilabs.de/de/solutions/real-estate-developers"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.gsilabs.de/solutions/real-estate-developers"/>
+    <loc>https://www.gsilabs.de/solutions/structure-os</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.gsilabs.de/solutions/structure-os"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.gsilabs.de/solutions/structure-os"/>
   </url>
 </urlset>

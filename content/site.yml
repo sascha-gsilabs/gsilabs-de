@@ -179,11 +179,9 @@ nav:
       - { label: Allplan MCP, href: /solutions/allplan-mcp }
       - { label: Baukosten KI, href: /solutions/baukosten-ki }
       - { label: Piledesigner, href: /solutions/piledesigner }
-      - { label: For Design Offices, href: /solutions/planning-design-offices }
-      - { label: For Geo Engineers, href: /solutions/geotechnical-engineers }
-      - { label: For Precast Manufacturers, href: /solutions/precast-manufacturers }
-      - { label: For Product Manufacturers, href: /solutions/product-manufacturers }
-      - { label: For Real Estate Developers, href: /solutions/real-estate-developers }
+      # English only for now, so it is deliberately absent from the German
+      # nav: the briefing has the German version following later.
+      - { label: StructureOS, href: /solutions/structure-os }
   - id: company
     label: Company
     items:

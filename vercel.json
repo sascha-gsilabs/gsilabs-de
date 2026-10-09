@@ -35,6 +35,56 @@
       "source": "/de/services/geotechnical-engineering-software",
       "destination": "/de/solutions/piledesigner",
       "permanent": true
+    },
+    {
+      "source": "/solutions/planning-design-offices",
+      "destination": "/services/design-automation",
+      "permanent": true
+    },
+    {
+      "source": "/de/solutions/planning-design-offices",
+      "destination": "/de/services/design-automation",
+      "permanent": true
+    },
+    {
+      "source": "/solutions/geotechnical-engineers",
+      "destination": "/solutions/piledesigner",
+      "permanent": true
+    },
+    {
+      "source": "/de/solutions/geotechnical-engineers",
+      "destination": "/de/solutions/piledesigner",
+      "permanent": true
+    },
+    {
+      "source": "/solutions/precast-manufacturers",
+      "destination": "/solutions/allplan-mcp",
+      "permanent": true
+    },
+    {
+      "source": "/de/solutions/precast-manufacturers",
+      "destination": "/de/solutions/allplan-mcp",
+      "permanent": true
+    },
+    {
+      "source": "/solutions/product-manufacturers",
+      "destination": "/services/bim-content-development",
+      "permanent": true
+    },
+    {
+      "source": "/de/solutions/product-manufacturers",
+      "destination": "/de/services/bim-content-development",
+      "permanent": true
+    },
+    {
+      "source": "/solutions/real-estate-developers",
+      "destination": "/solutions/baukosten-ki",
+      "permanent": true
+    },
+    {
+      "source": "/de/solutions/real-estate-developers",
+      "destination": "/de/solutions/baukosten-ki",
+      "permanent": true
     }
   ],
   "headers": [

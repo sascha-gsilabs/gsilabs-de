@@ -54,7 +54,7 @@ copies of one thing rather than two separate pages.
 | --- | --- |
 | `pages/home.md` | `/` |
 | `pages/about.md` | `/about` |
-| `solutions/precast-manufacturers.md` | `/solutions/precast-manufacturers` |
+| `solutions/piledesigner.md` | `/solutions/piledesigner` |
 | `services/ai-advisory.md` | `/services/ai-advisory` |
 | `insights/articles/<slug>.md` | `/insights/<slug>` |
 | `insights/projects/<slug>.md` | `/insights/<slug>` |
@@ -131,10 +131,12 @@ to a renderer in `templates/blocks.mjs`:
 `stages` `pillars` `team` `featureTabs` `faq` `pullQuote` `news` `insightIndex`
 `jobList` `prose` `closer` `contact` `form`
 
-The six solution pages share one shape, taken from the pages they replace: hero,
-`featureTabs`, the FAQ on a black band, `metricTiles` with a square image beside
-the numbers, why partner, news. The FAQ carries the band's headline rather than a
-question about questions, which is where the original puts it.
+Solutions used to hold six audience pages, "For Design Offices" and the rest,
+which all shared one shape: hero, `featureTabs`, an FAQ on a black band,
+`metricTiles` with a square image beside the numbers, why partner, news. Five of
+them were replaced by the product pages on 2026-10-09 and the sixth is a draft,
+so that shape survives only in `solutions/general-contractors.md`. The product
+pages compose from the same block vocabulary without following it.
 
 Common options on any block: `tone: void` for a black band, `id` for an anchor,
 `flushTop: true` to read as a continuation of the section above.
@@ -430,6 +432,37 @@ six columns. Without one it now spans nine and caps its copy at 54 characters,
 so the rules run the width while the text keeps a measure. The two homepage
 uses carry an image and are untouched.
 
+### The StructureOS page
+
+`/solutions/structure-os` replaced the five audience pages, "For Design
+Offices", "For Geo Engineers", "For Precast Manufacturers", "For Product
+Manufacturers" and "For Real Estate Developers". Each of those ten URLs, five
+per language, answers a 301 to the page that now covers its subject, which is
+listed in `vercel.json`.
+
+It is **English only** for the moment:
+`assets/briefings/structureos-briefing.md` has the German version following
+later. So there is no file under `content/de/`, the German navigation does not
+list it, and `npm run build` names it at the end of every run as a page in one
+language only. That is the expected state, not a fault, and `tools/audit.mjs`
+was taught the same thing: a page's hreflang set is now held against the number
+of versions the sitemap has for it rather than against a fixed three, so one
+language and two links passes while a translated page still needs three.
+
+Only four features of the product are confirmed, and the comment at the top of
+the content file lists them. Nothing else may be stated: no figures, no customer
+names, no hosting or data protection claims, no named integrations, no prices.
+The briefing asks for `[TBD]` in place of anything unconfirmed; the page avoids
+needing one by not raising those questions, and the integrations band names
+functions rather than products.
+
+Its photographs come from the pages it replaced. The ones showing engineers at
+work were kept; the screenshots on those pages belonged to other products and
+were left behind. Twenty eight images in `assets/img` now ship without being
+referenced by anything, 2.24 MB of the total, most of them from the five
+deleted pages. They are still listed in `tools/assets.config.mjs`, so removing
+the entries and the files is a one step cleanup whenever it is wanted.
+
 ### The Piledesigner page
 
 `/solutions/piledesigner` and `/de/solutions/piledesigner` took the place of
@@ -573,7 +606,7 @@ down, and the shipped name repeats it. So `about-us-top.webp` is the hero on /ab
 nothing has to be remembered to check it. Pages the client has not renamed a file for
 still carry names of mine, `sol-` and `svc-` prefixed.
 
-The click through panels on the six solution pages are named after their tab, both in
+The click through panels on the audience pages were named after their tab, both in
 `brand assets/website images/` and as `tab-<tab slug>.webp` in `assets/img`, so a new
 image for a tab needs no lookup: drop it in under the tab's name and encode. They arrive
 in every orientation, so the panel frame is a fixed 3 by 2 that each image fills, which

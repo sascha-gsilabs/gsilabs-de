@@ -1,8 +1,9 @@
-// The word and claim rules for the Baukosten KI landing page, as a check.
+// The word, claim and punctuation rules the product page briefings set, as a
+// check.
 //
 //   node tools/test-briefing.mjs        (or: npm run test:briefing)
 //
-// assets/briefings/261009_Briefing Landingpage gsilabs_V00.md lists a forbidden
+// assets/briefings/261009_Briefing Landingpage baukosten ki gsilabs_V00.md lists a forbidden
 // vocabulary and a set of statements that must not appear, and some of them are
 // legal rather than editorial: "HOAI-konforme Honorare" is a claim about the law
 // that the HOAI 2021 does not support, and a percentage of accuracy without a
@@ -18,7 +19,20 @@
 // briefing governs what this page says, not what the site is called.
 import { readFileSync } from 'node:fs'
 
+/* The Baukosten KI pages carry the full word and claim list. */
 const PAGES = ['solutions/baukosten-ki/index.html', 'de/solutions/baukosten-ki/index.html']
+
+/* Every product page under Solutions carries the punctuation rule. Two of the
+   three briefings put it in writing, the Allplan MCP one included, and the
+   StructureOS briefing makes a search for it an acceptance criterion. An em or
+   en dash is also the single clearest tell that copy was written somewhere else
+   and pasted in. */
+const NO_DASH = [
+  ...PAGES,
+  'solutions/piledesigner/index.html', 'de/solutions/piledesigner/index.html',
+  'solutions/structure-os/index.html',
+  'solutions/allplan-mcp/index.html', 'de/solutions/allplan-mcp/index.html',
+]
 
 /* Section 2 of the briefing, "Verbotener Wortschatz", plus the forbidden
    statements from the same section. */
@@ -67,9 +81,22 @@ for (const page of PAGES) {
   }
 }
 
+/* Dashes used as punctuation. A hyphen inside a compound is fine, so only the
+   em dash, the en dash and a lone hyphen between spaces are hunted. */
+for (const page of NO_DASH) {
+  const body = (/<main[^>]*>([\s\S]*?)<\/main>/.exec(readFileSync(page, 'utf8')) ?? ['', ''])[1]
+  const text = body.replace(/<[^>]+>/g, ' ').replace(/&[a-z]+;/g, ' ')
+  const dashes = text.match(/[\u2013\u2014]| - /g)
+  if (dashes) {
+    failed++
+    console.log(`FAIL ${page}`)
+    console.log(`       ${dashes.length} dash(es) used as punctuation`)
+  }
+}
+
 console.log(
   failed
-    ? `\nbriefing: ${failed} page(s) with findings`
-    : '\nbriefing: both pages keep to the word and claim rules'
+    ? `\nbriefing: ${failed} finding(s)`
+    : `\nbriefing: word and claim rules kept, and no dashes across ${NO_DASH.length} pages`
 )
 process.exitCode = failed ? 1 : 0
