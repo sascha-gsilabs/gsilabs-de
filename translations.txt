@@ -5131,9 +5131,9 @@ Eine Kostenaussage, bevor der Entwurf steht, mit nachvollziehbarer Herleitung. F
 
 [solutions/baukosten-ki.md | blocks.1.cta.label]
 EN
-Try it free
+Go to baukosten-ki.de
 DE
-Kostenfrei testen
+Zu baukosten-ki.de
 
 [solutions/baukosten-ki.md | blocks.2.title]
 EN
@@ -5341,9 +5341,9 @@ Sieben Tage mit allem, was oben steht. Die Testphase beginnt mit der Registrieru
 
 [solutions/baukosten-ki.md | blocks.5.cta.label]
 EN
-Try it free
+Go to baukosten-ki.de
 DE
-Kostenfrei testen
+Zu baukosten-ki.de
 
 [solutions/baukosten-ki.md | blocks.5.secondary.label]
 EN

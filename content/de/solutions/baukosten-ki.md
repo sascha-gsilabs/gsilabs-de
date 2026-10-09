@@ -14,7 +14,12 @@ description: >-
 #      in der Kopfzeile und nicht neben dem Namen. Einen englischen Claim gibt es
 #      nicht, er darf auch nicht erfunden werden, deshalb steht er auf der
 #      englischen Seite unübersetzt.
-#   3. Die Grenzen aus Abschnitt "Wo die Anwendung aufhört" sind über die AGB
+#   3. Die Schaltflächen übergeben, sie verkaufen nicht. Das Briefing verlangt
+#      die Handlungsaufforderung "kostenfrei testen" statt "jetzt kaufen",
+#      solange der Bestellweg auf einem Testpreis läuft. "Zu baukosten-ki.de"
+#      erfüllt das ebenso und sagt ehrlicher, wohin der Klick führt. Was es dort
+#      gibt, steht im Abschnitt darüber. Nicht auf "jetzt kaufen" ändern.
+#   4. Die Grenzen aus Abschnitt "Wo die Anwendung aufhört" sind über die AGB
 #      vertraglich bindend. Nichts versprechen, was darüber hinausgeht: keine
 #      Untergliederung der DIN 276, kein anderes Leistungsbild als Gebäude, keine
 #      Regionalfaktoren unter Bundeslandebene, kein Team, kein Bestandsbau.
@@ -37,7 +42,7 @@ blocks:
     body: >-
       Eine Kostenaussage, bevor der Entwurf steht, mit nachvollziehbarer Herleitung. Für
       Planungsbüros, Architektinnen und Architekten, Ingenieurbüros.
-    cta: { label: Kostenfrei testen, href: "https://www.baukosten-ki.de/" }
+    cta: { label: Zu baukosten-ki.de, href: "https://www.baukosten-ki.de/" }
 
   - type: definitions
     title: Was die Anwendung macht
@@ -115,6 +120,6 @@ blocks:
       Sieben Tage mit allem, was oben steht. Die Testphase beginnt mit der Registrierung,
       verlangt keine Zahlungsdaten und endet von selbst. Sie geht nicht in einen
       entgeltlichen Vertrag über.
-    cta: { label: Kostenfrei testen, href: "https://www.baukosten-ki.de/" }
+    cta: { label: Zu baukosten-ki.de, href: "https://www.baukosten-ki.de/" }
     secondary: { label: support@baukosten-ki.de, href: "mailto:support@baukosten-ki.de" }
 ---

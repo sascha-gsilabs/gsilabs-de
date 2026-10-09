@@ -13,7 +13,12 @@ description: >-
 #      beside the name and never in the header. There is no English claim and
 #      none may be invented, so it stays in German here and carries lang="de" so
 #      a screen reader pronounces it.
-#   3. The limits in "Where the application stops" are contractually binding
+#   3. The buttons hand over, they do not sell. The briefing asks for "try it
+#      free" rather than "buy now" while the order route runs on a test price.
+#      "Go to baukosten-ki.de" meets that just as well and is honest about where
+#      the click goes. What is waiting there is in the band above it. Do not
+#      change it to "buy now".
+#   4. The limits in "Where the application stops" are contractually binding
 #      through the terms. Promise nothing beyond them: no breakdown below the
 #      first level of DIN 276, no service profile other than buildings, no
 #      regional factors below state level, no teams, no work on existing stock.
@@ -31,7 +36,7 @@ blocks:
     body: >-
       A cost figure before the design is settled, with a derivation you can follow. For
       design offices, architects and engineering practices.
-    cta: { label: Try it free, href: "https://www.baukosten-ki.de/" }
+    cta: { label: Go to baukosten-ki.de, href: "https://www.baukosten-ki.de/" }
 
   - type: definitions
     title: What the application does
@@ -109,6 +114,6 @@ blocks:
     body: >-
       Seven days with everything above. The trial starts when you register, asks for no
       payment details and ends by itself. It does not roll into a paid contract.
-    cta: { label: Try it free, href: "https://www.baukosten-ki.de/" }
+    cta: { label: Go to baukosten-ki.de, href: "https://www.baukosten-ki.de/" }
     secondary: { label: support@baukosten-ki.de, href: "mailto:support@baukosten-ki.de" }
 ---

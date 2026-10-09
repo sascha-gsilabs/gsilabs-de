@@ -388,8 +388,11 @@ must not be mixed. So the page is composed from the shared blocks, `hero`,
 `statement`, `definitions`, `stages` and `closer`, and adds no CSS beyond a wide
 variant of the definition list described below.
 
-It carries no prices. The page leads to the trial rather than to the order
-route, and the comment at the top of each content file says what to watch for if
+It carries no prices, and both buttons hand over rather than sell: "Zu
+baukosten-ki.de" says where the click goes, which is what the briefing is after
+when it asks for "kostenfrei testen" rather than "jetzt kaufen" while the order
+route still runs on a test price. What is waiting there is in the band above
+each button. The page leads to the trial rather than to the order route, and the comment at the top of each content file says what to watch for if
 they are ever put back: the amounts take a non breaking space before the euro
 sign, and the month is what the price is measured in rather than the billing
 period, which this project has had wrong once before.
