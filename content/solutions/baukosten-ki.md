@@ -3,8 +3,8 @@ title: Baukosten KI
 description: >-
   Baukosten KI estimates construction costs to DIN 276 and works out fees to HOAI.
   With a range and the derivation per item. Free to try for seven days.
-# This page follows the briefing 261009_Briefing Landingpage gsilabs_V00 under
-# assets/briefings/. Three rules from it that are easy to lose when editing:
+# This page follows the briefing 261009_Briefing Landingpage baukosten ki
+# gsilabs_V00 under assets/briefings/. Three rules from it that are easy to lose when editing:
 #
 #   1. The name is always "Baukosten KI", with a space, in English too. The
 #      hyphen exists only in the domain. Never shorten it to "BK": that sits too

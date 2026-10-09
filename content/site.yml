@@ -178,6 +178,7 @@ nav:
       # content/solutions/baukosten-ki.md.
       - { label: Allplan MCP, href: /solutions/allplan-mcp }
       - { label: Baukosten KI, href: /solutions/baukosten-ki }
+      - { label: Piledesigner, href: /solutions/piledesigner }
       - { label: For Design Offices, href: /solutions/planning-design-offices }
       - { label: For Geo Engineers, href: /solutions/geotechnical-engineers }
       - { label: For Precast Manufacturers, href: /solutions/precast-manufacturers }
@@ -196,7 +197,6 @@ nav:
     items:
       - { label: AI Advisory, href: /services/ai-advisory }
       - { label: AI Sovereign Infrastructure, href: /services/ai-sovereign-infrastructure }
-      - { label: Geotechnical Engineering Software, href: /services/geotechnical-engineering-software }
       - { label: Design Automation, href: /services/design-automation }
       - { label: BIM Software Development, href: /services/bim-software-development }
       - { label: BIM Content Development, href: /services/bim-content-development }

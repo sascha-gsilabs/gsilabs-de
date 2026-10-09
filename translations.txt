@@ -323,29 +323,35 @@ Baukosten KI
 
 [site.yml | nav.0.items.2.label]
 EN
+Piledesigner
+DE
+Piledesigner
+
+[site.yml | nav.0.items.3.label]
+EN
 For Design Offices
 DE
 Für Planungsbüros
 
-[site.yml | nav.0.items.3.label]
+[site.yml | nav.0.items.4.label]
 EN
 For Geo Engineers
 DE
 Für Geotechniker
 
-[site.yml | nav.0.items.4.label]
+[site.yml | nav.0.items.5.label]
 EN
 For Precast Manufacturers
 DE
 Für Fertigteilwerke
 
-[site.yml | nav.0.items.5.label]
+[site.yml | nav.0.items.6.label]
 EN
 For Product Manufacturers
 DE
 Für Produkthersteller
 
-[site.yml | nav.0.items.6.label]
+[site.yml | nav.0.items.7.label]
 EN
 For Real Estate Developers
 DE
@@ -407,23 +413,17 @@ Souveräne KI-Infrastruktur
 
 [site.yml | nav.2.items.2.label]
 EN
-Geotechnical Engineering Software
-DE
-Software für Geotechnik
-
-[site.yml | nav.2.items.3.label]
-EN
 Design Automation
 DE
 Planungsautomatisierung
 
-[site.yml | nav.2.items.4.label]
+[site.yml | nav.2.items.3.label]
 EN
 BIM Software Development
 DE
 BIM-Softwareentwicklung
 
-[site.yml | nav.2.items.5.label]
+[site.yml | nav.2.items.4.label]
 EN
 BIM Content Development
 DE
@@ -4740,219 +4740,6 @@ DE
 Aktuelles
 
 
-=== DATEI: services/geotechnical-engineering-software.md ===
-
-[services/geotechnical-engineering-software.md | title]
-EN
-Geotechnical Engineering Software
-DE
-Software für Geotechnik
-
-[services/geotechnical-engineering-software.md | description]
-EN
-We build the calculation and optimization software geotechnical practices run on, from statistical soil models to code compliant pile design.
-DE
-Wir bauen die Berechnungs- und Optimierungssoftware, mit der geotechnische Büros arbeiten, vom statistischen Baugrundmodell bis zur normkonformen Pfahlbemessung.
-
-[services/geotechnical-engineering-software.md | blocks.0.eyebrow]
-EN
-Services
-DE
-Leistungen
-
-[services/geotechnical-engineering-software.md | blocks.0.title]
-EN
-Software That Knows What a Pile Does
-DE
-Software, die weiß, was ein Pfahl tut
-
-[services/geotechnical-engineering-software.md | blocks.0.lede]
-EN
-We build the calculation and optimization tools geotechnical practices work in, from statistical soil models through to design output that satisfies EA Pfähle and Eurocode 7.
-DE
-Wir bauen die Berechnungs- und Optimierungswerkzeuge, in denen geotechnische Büros arbeiten, vom statistischen Baugrundmodell bis zu Ergebnissen, die EA Pfähle und Eurocode 7 genügen.
-
-[services/geotechnical-engineering-software.md | blocks.0.cta.label]
-EN
-Get Started
-DE
-Jetzt loslegen
-
-[services/geotechnical-engineering-software.md | blocks.0.image.alt]
-EN
-A drilling rig on a city site, borehole data being logged
-DE
-Ein Bohrgerät auf einer innerstädtischen Baustelle, Bohrdaten werden aufgenommen
-
-[services/geotechnical-engineering-software.md | blocks.1.eyebrow]
-EN
-What we build
-DE
-Was wir bauen
-
-[services/geotechnical-engineering-software.md | blocks.1.title]
-EN
-Geotechnical software fails on the details. The soil model, the partial factors, the annex that applies in one country and not the next.
-DE
-Geotechnische Software scheitert an den Details. Am Baugrundmodell, an den Teilsicherheitsbeiwerten, an dem Anhang, der in einem Land gilt und im nächsten nicht.
-
-[services/geotechnical-engineering-software.md | blocks.1.lede]
-EN
-Generic engineering tools treat geotechnics as one more load case. The result is software that cannot express what a borehole log actually says, or that produces numbers an engineer has to redo by hand before signing anything. We build in this field, so the details that decide whether a tool is usable are the ones we start from.
-DE
-Allgemeine Ingenieurwerkzeuge behandeln die Geotechnik als einen Lastfall unter vielen. Heraus kommt Software, die nicht ausdrücken kann, was ein Schichtenverzeichnis wirklich sagt, oder die Zahlen liefert, die ein Ingenieur von Hand nachrechnen muss, bevor er unterschreibt. Wir arbeiten selbst in diesem Feld, also fangen wir bei genau den Details an, die darüber entscheiden, ob ein Werkzeug brauchbar ist.
-
-[services/geotechnical-engineering-software.md | blocks.1.items.0.title]
-EN
-Statistical Soil Modelling
-DE
-Statistische Baugrundmodelle
-
-[services/geotechnical-engineering-software.md | blocks.1.items.0.body]
-EN
-Borehole data turned into probabilistic layer models rather than one conservative profile, so a design can be evaluated against the ground as it was actually measured.
-DE
-Bohrdaten werden zu probabilistischen Schichtmodellen statt zu einem einzigen konservativen Profil, damit eine Bemessung gegen den Baugrund geprüft werden kann, wie er tatsächlich gemessen wurde.
-
-[services/geotechnical-engineering-software.md | blocks.1.items.1.title]
-EN
-Design Optimization
-DE
-Bemessungsoptimierung
-
-[services/geotechnical-engineering-software.md | blocks.1.items.1.body]
-EN
-Engines that evaluate thousands of configurations against structural requirements and return the leanest one that holds, with the reasoning attached.
-DE
-Rechenkerne, die tausende Konfigurationen gegen die Tragwerksanforderungen prüfen und die schlankste zurückgeben, die trägt, mitsamt der Begründung.
-
-[services/geotechnical-engineering-software.md | blocks.1.items.2.title]
-EN
-Code Compliant Output
-DE
-Normkonforme Ergebnisse
-
-[services/geotechnical-engineering-software.md | blocks.1.items.2.body]
-EN
-Calculations that follow EA Pfähle and Eurocode 7 with the relevant national annexes, and documentation an engineer can put their name to.
-DE
-Berechnungen nach EA Pfähle und Eurocode 7 mit den zugehörigen nationalen Anhängen, und eine Dokumentation, unter die ein Ingenieur seinen Namen setzen kann.
-
-[services/geotechnical-engineering-software.md | blocks.1.note]
-EN
-* On pilot projects in Germany, optimized designs have come in around 25 percent lighter on material. What a given project achieves depends on ground conditions and design constraints.
-DE
-* In Pilotprojekten in Deutschland lagen optimierte Bemessungen rund 25 Prozent leichter im Material. Was ein konkretes Projekt erreicht, hängt von den Baugrundverhältnissen und den Randbedingungen der Bemessung ab.
-
-[services/geotechnical-engineering-software.md | blocks.2.title]
-EN
-How we work on it
-DE
-Wie wir daran arbeiten
-
-[services/geotechnical-engineering-software.md | blocks.2.items.0.title]
-EN
-Start From the Calculation
-DE
-Bei der Berechnung anfangen
-
-[services/geotechnical-engineering-software.md | blocks.2.items.0.body]
-EN
-Before any interface exists we work through the engineering with your team: which standard governs, which partial factors apply, what the tool must never be allowed to output. This is where geotechnical software is won or lost, and it is the part a generic development team cannot do for you. We come out of it with a specification an engineer has checked.
-DE
-Bevor es eine Oberfläche gibt, arbeiten wir das Ingenieurthema mit Ihrem Team durch: welche Norm gilt, welche Teilsicherheitsbeiwerte greifen, was das Werkzeug niemals ausgeben darf. Hier entscheidet sich, ob geotechnische Software taugt, und das ist der Teil, den ein allgemeines Entwicklungsteam nicht für Sie erledigen kann. Am Ende steht eine Spezifikation, die ein Ingenieur geprüft hat.
-
-[services/geotechnical-engineering-software.md | blocks.2.items.1.title]
-EN
-Build It Where Your Work Already Is
-DE
-Dort bauen, wo Ihre Arbeit schon stattfindet
-
-[services/geotechnical-engineering-software.md | blocks.2.items.1.body]
-EN
-The tool has to fit the practice. That means the file formats your projects arrive in, the reporting your clients expect, and the systems you already run, whether that is a desktop application, a plugin inside an authoring environment, or a service your other tools call.
-DE
-Das Werkzeug muss zum Büro passen. Also zu den Dateiformaten, in denen Ihre Projekte ankommen, zu der Berichterstattung, die Ihre Auftraggeber erwarten, und zu den Systemen, die Sie ohnehin betreiben, ob als Desktop-Anwendung, als Plugin in einer Planungsumgebung oder als Dienst, den Ihre übrigen Werkzeuge aufrufen.
-
-[services/geotechnical-engineering-software.md | blocks.2.items.2.title]
-EN
-Validate Against Real Projects
-DE
-An echten Projekten absichern
-
-[services/geotechnical-engineering-software.md | blocks.2.items.2.body]
-EN
-Every calculation path is tested against projects you have already delivered, where the answer is known. Your engineers review the output and sign it off before anything is used in anger. We iterate until the numbers hold up, then we keep maintaining them as the standards move.
-DE
-Jeder Rechenweg wird an Projekten getestet, die Sie bereits abgewickelt haben und bei denen die Antwort bekannt ist. Ihre Ingenieure prüfen die Ergebnisse und geben frei, bevor etwas ernsthaft eingesetzt wird. Wir arbeiten nach, bis die Zahlen standhalten, und pflegen sie danach weiter, während sich die Normen bewegen.
-
-[services/geotechnical-engineering-software.md | blocks.3.title]
-EN
-We work in this field, which is why the software behaves like it.
-DE
-Wir arbeiten selbst in diesem Feld, und die Software verhält sich danach.
-
-[services/geotechnical-engineering-software.md | blocks.3.body]
-EN
-Our own practice designs foundations, and piledesigner.io came out of that work. That is the difference you feel in the details: what the tool refuses to do, what it asks you to confirm, and what it hands you at the end. Not a demo of what geotechnical software could be, but the thing engineers use to get projects out.
-DE
-Unser eigenes Büro bemisst Gründungen, und piledesigner.io ist aus dieser Arbeit entstanden. Genau das merken Sie in den Details: was das Werkzeug verweigert, was es bestätigt haben will und was es Ihnen am Ende in die Hand gibt. Keine Vorführung dessen, was geotechnische Software sein könnte, sondern das, womit Ingenieure Projekte aus dem Haus bekommen.
-
-[services/geotechnical-engineering-software.md | blocks.3.points.0]
-EN
-Engineering decided first and the interface built around it, never the reverse
-DE
-Erst die Ingenieurentscheidung, dann die Oberfläche darum herum, nie umgekehrt
-
-[services/geotechnical-engineering-software.md | blocks.3.points.1]
-EN
-Validated against completed projects, not against synthetic test cases
-DE
-Abgesichert an abgeschlossenen Projekten statt an konstruierten Testfällen
-
-[services/geotechnical-engineering-software.md | blocks.3.points.2]
-EN
-Maintained as the standards and national annexes change
-DE
-Gepflegt, während sich Normen und nationale Anhänge ändern
-
-[services/geotechnical-engineering-software.md | blocks.4.title]
-EN
-Have a calculation your current tools cannot express?
-DE
-Eine Berechnung, die Ihre heutigen Werkzeuge nicht abbilden können?
-
-[services/geotechnical-engineering-software.md | blocks.4.body]
-EN
-Tell us what you are trying to model and where the software you have gets in the way. We will come back with an honest read on what is worth building.
-DE
-Sagen Sie uns, was Sie modellieren wollen und wo Ihnen die vorhandene Software im Weg steht. Wir kommen mit einer ehrlichen Einschätzung zurück, was sich zu bauen lohnt.
-
-[services/geotechnical-engineering-software.md | blocks.4.cta.label]
-EN
-Get Started
-DE
-Jetzt loslegen
-
-[services/geotechnical-engineering-software.md | blocks.4.secondary.label]
-EN
-See our process
-DE
-Unser Vorgehen ansehen
-
-[services/geotechnical-engineering-software.md | blocks.5.eyebrow]
-EN
-From the studio
-DE
-Aus dem Studio
-
-[services/geotechnical-engineering-software.md | blocks.5.title]
-EN
-Latest News
-DE
-Aktuelles
-
-
 === DATEI: solutions/allplan-mcp.md ===
 
 [solutions/allplan-mcp.md | title]
@@ -5968,6 +5755,273 @@ EN
 Latest News
 DE
 Aktuelles
+
+
+=== DATEI: solutions/piledesigner.md ===
+
+[solutions/piledesigner.md | title]
+EN
+Piledesigner
+DE
+Piledesigner
+
+[solutions/piledesigner.md | description]
+EN
+Piledesigner is software we built. This page shows what is behind it and the projects it has calculated. The software itself runs on piledesigner.io.
+DE
+Piledesigner ist eine Software aus unserem Haus. Diese Seite zeigt, was dahintersteht und für welche Projekte sie gerechnet hat.
+
+[solutions/piledesigner.md | blocks.0.title]
+EN
+Piledesigner
+DE
+Piledesigner
+
+[solutions/piledesigner.md | blocks.0.lede]
+EN
+Pile design software that runs in the browser. It calculates to EA-Pfähle and DIN 1054 and produces documentation as a PDF, ready for review.
+DE
+Software für die Pfahlbemessung, die im Browser läuft. Sie rechnet nach EA-Pfähle und DIN 1054 und gibt eine prüffähige Dokumentation als PDF aus.
+
+[solutions/piledesigner.md | blocks.0.cta.label]
+EN
+Go to piledesigner.io
+DE
+Zu piledesigner.io
+
+[solutions/piledesigner.md | blocks.0.image.alt]
+EN
+A building model on its pile foundation, beside a soil profile with the resistance diagram and the table of pile resistances over depth
+DE
+Ein Gebäudemodell auf seiner Pfahlgründung, daneben ein Bodenprofil mit dem Widerstandsdiagramm und der Tabelle der Pfahlwiderstände über die Tiefe
+
+[solutions/piledesigner.md | blocks.1.title]
+EN
+Design a group, and every pile is built as strong as the one carrying the most.
+DE
+Wer gruppiert bemisst, baut jeden Pfahl so stark wie den am stärksten belasteten.
+
+[solutions/piledesigner.md | blocks.1.body.0]
+EN
+Conventional software designs to the governing load of a whole group. It holds, and it costs: every pile with less to carry goes into the ground with surplus concrete, steel, drilling metres and CO₂.
+DE
+Herkömmliche Software bemisst nach der maßgebenden Last einer ganzen Gruppe. Das trägt, und es kostet: an jedem Pfahl, der weniger abzutragen hat, stehen Beton, Stahl, Bohrmeter und CO₂ zu viel im Boden.
+
+[solutions/piledesigner.md | blocks.1.body.1]
+EN
+Piledesigner calculates each pile on its own vertical and horizontal loads, automatically, across several thousand piles in a project. The method and the calculation core come from the engineering practice of Dr.-Ing. Ingo Hylla, a foundation engineer working in specialist foundation design.
+DE
+Piledesigner rechnet jeden einzelnen Pfahl nach seinen eigenen vertikalen und horizontalen Lasten, vollautomatisiert, auch bei mehreren tausend Pfählen im Projekt. Das Verfahren und der Rechenkern stammen aus dem Ingenieurbüro von Dr.-Ing. Ingo Hylla, Grundbaustatiker mit Schwerpunkt Spezialtiefbau.
+
+[solutions/piledesigner.md | blocks.1.points.0]
+EN
+Designed per pile rather than per group
+DE
+Bemessung je Pfahl statt je Gruppe
+
+[solutions/piledesigner.md | blocks.1.points.1]
+EN
+Vertical and horizontal forces in one calculation
+DE
+Vertikal- und Horizontalkräfte in einer Rechnung
+
+[solutions/piledesigner.md | blocks.1.points.2]
+EN
+Entirely in the browser, nothing to install
+DE
+Vollständig im Browser, nichts zu installieren
+
+[solutions/piledesigner.md | blocks.2.title]
+EN
+What the software calculates
+DE
+Was die Software rechnet
+
+[solutions/piledesigner.md | blocks.2.items.0.label]
+EN
+Load cases
+DE
+Lastfälle
+
+[solutions/piledesigner.md | blocks.2.items.0.body]
+EN
+Several load cases held and calculated at once.
+DE
+Mehrere Lastfälle gleichzeitig verwalten und rechnen.
+
+[solutions/piledesigner.md | blocks.2.items.1.label]
+EN
+Soil profiles
+DE
+Bodenprofile
+
+[solutions/piledesigner.md | blocks.2.items.1.body]
+EN
+Layers, groundwater level and friction angle per project, in the browser.
+DE
+Schichten, Grundwasserstand und Reibungswinkel je Projekt, direkt im Browser.
+
+[solutions/piledesigner.md | blocks.2.items.2.label]
+EN
+Capacity
+DE
+Tragfähigkeit
+
+[solutions/piledesigner.md | blocks.2.items.2.body]
+EN
+External and internal capacity under every relevant load, with skin friction, base resistance and settlement. The pile length is optimised along the way.
+DE
+Äußere und innere Tragfähigkeit unter allen relevanten Lasten, mit Mantelreibung, Spitzendruck und Setzung. Die Pfahllänge wird dabei optimiert.
+
+[solutions/piledesigner.md | blocks.2.items.3.label]
+EN
+Reinforcement
+DE
+Bewehrung
+
+[solutions/piledesigner.md | blocks.2.items.3.body]
+EN
+The longitudinal and shear reinforcement each pile needs, from the load that pile actually carries.
+DE
+Erforderliche Längs- und Querkraftbewehrung je Pfahl, aus dessen eigener Belastung.
+
+[solutions/piledesigner.md | blocks.3.title]
+EN
+From the soil profile to the verification
+DE
+Vom Bodenprofil zum Nachweis
+
+[solutions/piledesigner.md | blocks.3.items.0.title]
+EN
+Set the calculation up
+DE
+Berechnungs-Einstellungen definieren
+
+[solutions/piledesigner.md | blocks.3.items.0.body]
+EN
+Choose the standard, EA-Pfähle or DIN 1054, and fix the partial safety factors.
+DE
+Norm wählen, EA-Pfähle oder DIN 1054, und die Sicherheitsbeiwerte festlegen.
+
+[solutions/piledesigner.md | blocks.3.items.1.title]
+EN
+Enter the soil profiles
+DE
+Bodenprofile anlegen
+
+[solutions/piledesigner.md | blocks.3.items.1.body]
+EN
+Layers, groundwater level and friction angle.
+DE
+Schichten, Grundwasserstand und Reibungswinkel eintragen.
+
+[solutions/piledesigner.md | blocks.3.items.2.title]
+EN
+Determine the external capacity
+DE
+Äußere Tragfähigkeit bestimmen
+
+[solutions/piledesigner.md | blocks.3.items.2.body]
+EN
+Place piles under the load points and choose type, spacing and diameter. Skin friction, base resistance and settlement are calculated for you.
+DE
+Pfähle unter die Lastpunkte setzen und Typ, Abstand und Durchmesser wählen. Mantelreibung, Spitzendruck und Setzung rechnet die Software selbst.
+
+[solutions/piledesigner.md | blocks.3.items.3.title]
+EN
+Check the internal capacity
+DE
+Innere Tragfähigkeit prüfen
+
+[solutions/piledesigner.md | blocks.3.items.3.body]
+EN
+Optional, with the reinforcement each pile needs.
+DE
+Optional, mit der erforderlichen Bewehrung je Pfahl.
+
+[solutions/piledesigner.md | blocks.4.title]
+EN
+Calculated for these projects
+DE
+Gerechnet für diese Projekte
+
+[solutions/piledesigner.md | blocks.4.items.0.title]
+EN
+Nuremberg Airport
+DE
+Flughafen Nürnberg
+
+[solutions/piledesigner.md | blocks.4.items.0.body.0]
+EN
+A new multi storey car park, built by JACBO Pfahlgründungen.
+DE
+Neubau eines Parkhauses, ausgeführt von JACBO Pfahlgründungen.
+
+[solutions/piledesigner.md | blocks.4.items.0.body.1]
+EN
+565 bored piles, Ø 60 cm, up to 10 m long. Vertical load up to 2,5 MN per column, 1,7 MN on average. About five weeks on site, up to 25 piles per day per rig.
+DE
+565 Bohrpfähle, Ø 60 cm, bis 10 m Länge. Vertikallast bis 2,5 MN je Stütze, im Mittel 1,7 MN. Rund fünf Wochen Bauzeit, bis zu 25 Pfähle pro Tag und Maschine.
+
+[solutions/piledesigner.md | blocks.4.items.1.title]
+EN
+MOJO solar project
+DE
+Solarprojekt MOJO
+
+[solutions/piledesigner.md | blocks.4.items.1.body.0]
+EN
+Flevoland, the Netherlands, 2021, built by Aarsleff Grundbau.
+DE
+Flevoland, Niederlande, 2021, ausgeführt von Aarsleff Grundbau.
+
+[solutions/piledesigner.md | blocks.4.items.1.body.1]
+EN
+Around 2.800 precast piles, 45 × 45 cm, 45 × 67 cm at the head, 5 m long. The piles are foundation and mounting base at once, for a photovoltaic carport system.
+DE
+Rund 2.800 Fertigpfähle, 45 × 45 cm, im Kopfbereich 45 × 67 cm, 5 m Länge. Die Pfähle sind Fundament und Montagefuß zugleich, für ein Photovoltaik-Carport-System.
+
+[solutions/piledesigner.md | blocks.4.items.2.title]
+EN
+Koelnmesse, Hall 1plus
+DE
+Kölnmesse, Halle 1plus
+
+[solutions/piledesigner.md | blocks.4.items.2.body.0]
+EN
+Cologne, 2018 to 2019. Client Kölnmesse GmbH, built by JACBO Pfahlgründungen.
+DE
+Köln, 2018 bis 2019. Bauherr Kölnmesse GmbH, ausgeführt von JACBO Pfahlgründungen.
+
+[solutions/piledesigner.md | blocks.4.items.2.body.1]
+EN
+400 bored piles, 241 at Ø 70 cm and 159 at Ø 80 cm, down to 17,5 m. Vertical load 2,7 MN on average, 3,6 MN at most.
+DE
+400 Bohrpfähle, 241 mit Ø 70 cm und 159 mit Ø 80 cm, bis 17,5 m Tiefe. Vertikallast im Mittel 2,7 MN, maximal 3,6 MN.
+
+[solutions/piledesigner.md | blocks.5.title]
+EN
+Thirty days free, no credit card.
+DE
+Dreißig Tage kostenlos, ohne Kreditkarte.
+
+[solutions/piledesigner.md | blocks.5.body]
+EN
+Piledesigner runs in the browser, with nothing to install. Prices, references and registration are on piledesigner.io.
+DE
+Piledesigner läuft im Browser, es gibt nichts zu installieren. Preise, Referenzen und die Anmeldung stehen auf piledesigner.io.
+
+[solutions/piledesigner.md | blocks.5.cta.label]
+EN
+Go to piledesigner.io
+DE
+Zu piledesigner.io
+
+[solutions/piledesigner.md | blocks.5.secondary.label]
+EN
+Book a demo
+DE
+Demo buchen
 
 
 === DATEI: solutions/planning-design-offices.md ===

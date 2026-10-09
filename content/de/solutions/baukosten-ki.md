@@ -3,8 +3,8 @@ title: Baukosten KI
 description: >-
   Baukosten KI schätzt Kosten nach DIN 276 und ermittelt Honorare nach HOAI. Mit
   Bandbreite und Herleitung je Position. Sieben Tage kostenfrei testen.
-# Diese Seite folgt dem Briefing 261009_Briefing Landingpage gsilabs_V00 unter
-# assets/briefings/. Drei Regeln daraus, die beim Bearbeiten leicht verloren
+# Diese Seite folgt dem Briefing 261009_Briefing Landingpage baukosten ki
+# gsilabs_V00 unter assets/briefings/. Drei Regeln daraus, die beim Bearbeiten leicht verloren
 # gehen:
 #
 #   1. Der Name ist immer "Baukosten KI", mit Leerzeichen, auch im englischen

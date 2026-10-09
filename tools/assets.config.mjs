@@ -18,6 +18,17 @@ export const images = [
   { from: 'logo-schoeck-de-2021-rgb.png', to: 'client-schoeck.webp', w: 340, lossless: true },
   { from: 'logo-allplan-company-negativ.png', to: 'client-allplan.webp', w: 320, lossless: true },
 
+  // The hero illustration from piledesigner.io: a 3D building model with its
+  // pile foundation, the soil profile and the resistance diagram. It is GSI's
+  // own product asset, taken from that site's repository rather than rebuilt.
+  // Lossy despite the transparency: it is a shaded render with gradients, not a
+  // flat colour wordmark, and lossless costs 319 KB against 60.
+  {
+    from: 'brand assets/website images/piledesigner-hero.png',
+    to: 'piledesigner-hero.webp',
+    w: 1296,
+  },
+
   // The poster frames of the Allplan MCP video, one per language, pulled from
   // Vimeo's own CDN so the hero can show the first frame without calling Vimeo
   // on page load. The player is embedded only after a visitor asks for it. Both

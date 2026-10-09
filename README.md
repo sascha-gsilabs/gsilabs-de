@@ -395,7 +395,7 @@ sign, and the month is what the price is measured in rather than the billing
 period, which this project has had wrong once before.
 
 Three rules from
-`assets/briefings/261009_Briefing Landingpage gsilabs_V00.md` outlive the
+`assets/briefings/261009_Briefing Landingpage baukosten ki gsilabs_V00.md` outlive the
 briefing and are repeated in a comment at the top of both content files:
 
 - **The name is "Baukosten KI", with a space, in English too.** The hyphen
@@ -426,6 +426,34 @@ right half of its band empty, because the picture it was designed around takes
 six columns. Without one it now spans nine and caps its copy at 54 characters,
 so the rules run the width while the text keeps a measure. The two homepage
 uses carry an image and are untouched.
+
+### The Piledesigner page
+
+`/solutions/piledesigner` and `/de/solutions/piledesigner` took the place of
+`/services/geotechnical-engineering-software`, which sold geotechnical software
+development as a service. That offering is gone from the site with it; the text
+is in the history, and both old URLs answer a 301 from `vercel.json`, one per
+language.
+
+It is a portfolio page, not a second product site. The purchase happens on
+piledesigner.io, and `assets/briefings/briefing-piledesigner-fuer-gsilabs.md`
+is the source for every figure on it. Three things worth keeping in view:
+
+- **It must not outrank piledesigner.io.** That site already ranks for the
+  product terms and is the one that should. So the title and description aim at
+  the portfolio intent, there is no canonical pointing away, the link to
+  piledesigner.io carries no `nofollow`, and no passage is copied from there.
+- **The name is spelled "Piledesigner" against the briefing**, which asks for
+  lower case "piledesigner.io" everywhere. The client decided otherwise on
+  2026-10-09. The comment at the top of both content files says so, so nobody
+  corrects it back by accident. Where the website rather than the product is
+  meant, it stays piledesigner.io.
+- **Four things are deliberately absent**, and the same comment lists them: the
+  reference photographs, which belong to JACBO, Aarsleff and Kölnmesse; Daniel
+  Bacon's quote and portrait, not cleared for this context; the year of the
+  Nuremberg project, which is not on record; and the claim about piles designed
+  per year, which nobody has rechecked. Prices are on piledesigner.io, where
+  they do not go stale.
 
 ## Search engines
 
@@ -645,6 +673,12 @@ darkens without being pulled toward olive.
   appear in German on the German site. They are translations of the English wording, not
   something the named people said in German. Worth a sign off from them, or swap in their
   own words if they gave them.
+- **Piledesigner, before it goes out.** The briefing lists what is unconfirmed:
+  the year of the Nuremberg project, whether "several tens of thousands of piles
+  a year" still holds, the picture rights for the three reference projects, and
+  clearance for Daniel Bacon's quote and portrait in this new place. None of it
+  is on the page today. Each one that clears is a block to add.
+
 - **Some imagery is a semantic match, not a confirmed one.** The solution and service
   page photography was picked from the brand library by subject. Where you have the
   intended image, send it and it is a one line change in `tools/assets.config.mjs`.

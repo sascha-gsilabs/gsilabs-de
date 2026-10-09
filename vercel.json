@@ -25,6 +25,16 @@
       "source": "/services/robotics-feasibility-study",
       "destination": "/services/ai-advisory",
       "permanent": true
+    },
+    {
+      "source": "/services/geotechnical-engineering-software",
+      "destination": "/solutions/piledesigner",
+      "permanent": true
+    },
+    {
+      "source": "/de/services/geotechnical-engineering-software",
+      "destination": "/de/solutions/piledesigner",
+      "permanent": true
     }
   ],
   "headers": [
