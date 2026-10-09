@@ -179,6 +179,12 @@
     <xhtml:link rel="alternate" hreflang="x-default" href="https://www.gsilabs.de/solutions/piledesigner"/>
   </url>
   <url>
+    <loc>https://www.gsilabs.de/de/solutions/structure-os</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.gsilabs.de/solutions/structure-os"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://www.gsilabs.de/de/solutions/structure-os"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.gsilabs.de/solutions/structure-os"/>
+  </url>
+  <url>
     <loc>https://www.gsilabs.de/get-started</loc>
     <xhtml:link rel="alternate" hreflang="en" href="https://www.gsilabs.de/get-started"/>
     <xhtml:link rel="alternate" hreflang="de" href="https://www.gsilabs.de/de/get-started"/>
@@ -299,6 +305,7 @@
   <url>
     <loc>https://www.gsilabs.de/solutions/structure-os</loc>
     <xhtml:link rel="alternate" hreflang="en" href="https://www.gsilabs.de/solutions/structure-os"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://www.gsilabs.de/de/solutions/structure-os"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://www.gsilabs.de/solutions/structure-os"/>
   </url>
 </urlset>

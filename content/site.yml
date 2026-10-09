@@ -179,8 +179,6 @@ nav:
       - { label: Allplan MCP, href: /solutions/allplan-mcp }
       - { label: Baukosten KI, href: /solutions/baukosten-ki }
       - { label: Piledesigner, href: /solutions/piledesigner }
-      # English only for now, so it is deliberately absent from the German
-      # nav: the briefing has the German version following later.
       - { label: StructureOS, href: /solutions/structure-os }
   - id: company
     label: Company

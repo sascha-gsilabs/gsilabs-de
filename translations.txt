@@ -327,6 +327,12 @@ Piledesigner
 DE
 Piledesigner
 
+[site.yml | nav.0.items.3.label]
+EN
+StructureOS
+DE
+StructureOS
+
 [site.yml | nav.1.label]
 EN
 Company
@@ -5599,3 +5605,318 @@ EN
 Book a demo
 DE
 Demo buchen
+
+
+=== DATEI: solutions/structure-os.md ===
+
+[solutions/structure-os.md | title]
+EN
+StructureOS
+DE
+StructureOS
+
+[solutions/structure-os.md | description]
+EN
+StructureOS is a knowledge system for structural engineering firms. Projects, office standards and building codes in one place, asked in plain language.
+DE
+StructureOS ist ein Wissenssystem für Tragwerksplanungsbüros. Projekte, Bürostandards und Baurichtlinien an einem Ort, abrufbar in normaler Sprache.
+
+[solutions/structure-os.md | blocks.0.title]
+EN
+The Second Brain for Structural Engineering Firms
+DE
+Das Second Brain für Tragwerks&shy;planungsbüros
+
+[solutions/structure-os.md | blocks.0.lede]
+EN
+StructureOS brings your projects, standards and building codes into one system your engineers can ask in plain language.
+DE
+StructureOS führt Ihre Projekte, Bürostandards und Baurichtlinien in einem System zusammen, das Ihre Ingenieure in normaler Sprache fragen können.
+
+[solutions/structure-os.md | blocks.0.cta.label]
+EN
+Let's Talk
+DE
+Sprechen wir darüber
+
+[solutions/structure-os.md | blocks.0.image.alt]
+EN
+Two engineers at a desk discussing a structural model on screen
+DE
+Zwei Ingenieure am Schreibtisch im Gespräch über ein Tragwerksmodell am Bildschirm
+
+[solutions/structure-os.md | blocks.1.title]
+EN
+Your firm knows more than any one engineer can find.
+DE
+Ihr Büro weiß mehr, als ein Einzelner finden kann.
+
+[solutions/structure-os.md | blocks.1.body.0]
+EN
+The answer to today's question usually sits in a calculation from four years ago, in a checking engineer's note, or in a colleague's memory. Finding it often costs more than solving the problem again.
+DE
+Die Antwort auf die heutige Frage steht meist in einer Statik von vor vier Jahren, in einer Anmerkung des Prüfingenieurs oder im Gedächtnis einer Kollegin. Sie zu finden kostet oft mehr, als die Aufgabe noch einmal zu lösen.
+
+[solutions/structure-os.md | blocks.1.body.1]
+EN
+New engineers take months to learn the office standards. When experienced staff leave, what they knew leaves with them.
+DE
+Neue Ingenieure brauchen Monate, bis sie die Bürostandards kennen. Wenn erfahrene Kollegen gehen, geht ihr Wissen mit.
+
+[solutions/structure-os.md | blocks.2.title]
+EN
+A second brain, in the AI sense
+DE
+Was ein Second Brain hier bedeutet
+
+[solutions/structure-os.md | blocks.2.items.0.label]
+EN
+Capture
+DE
+Erfassen
+
+[solutions/structure-os.md | blocks.2.items.0.body]
+EN
+Calculations, reports, correspondence and project files go in as they are.
+DE
+Statiken, Prüfberichte, Korrespondenz und Projektunterlagen gehen so hinein, wie sie sind.
+
+[solutions/structure-os.md | blocks.2.items.1.label]
+EN
+Ask
+DE
+Fragen
+
+[solutions/structure-os.md | blocks.2.items.1.body]
+EN
+Engineers put a question in their own words. The answer comes back with the document it came from.
+DE
+Ihre Ingenieure stellen die Frage in eigenen Worten. Die Antwort kommt mit dem Dokument zurück, aus dem sie stammt.
+
+[solutions/structure-os.md | blocks.2.items.2.label]
+EN
+Connect
+DE
+Verknüpfen
+
+[solutions/structure-os.md | blocks.2.items.2.body]
+EN
+Projects, tasks and recorded hours sit alongside the documents they belong to.
+DE
+Projekte, Aufgaben und erfasste Stunden stehen neben den Unterlagen, zu denen sie gehören.
+
+[solutions/structure-os.md | blocks.3.title]
+EN
+Questions your engineers already ask
+DE
+Fragen, die Ihre Ingenieure ohnehin stellen
+
+[solutions/structure-os.md | blocks.3.body]
+EN
+Today they ask a colleague, or they search. Both cost time, and both depend on who is in the room.
+DE
+Heute fragen sie eine Kollegin, oder sie suchen. Beides kostet Zeit, und beides hängt davon ab, wer gerade da ist.
+
+[solutions/structure-os.md | blocks.3.points.0]
+EN
+How did we solve punching shear on similar flat slabs, and what did the checking engineer note?
+DE
+Wie haben wir das Durchstanzen bei ähnlichen Flachdecken gelöst, und was hat der Prüfingenieur angemerkt?
+
+[solutions/structure-os.md | blocks.3.points.1]
+EN
+Which past projects had comparable soil conditions?
+DE
+Welche früheren Projekte hatten vergleichbare Bodenverhältnisse?
+
+[solutions/structure-os.md | blocks.3.points.2]
+EN
+What does the uploaded guideline require for this connection detail?
+DE
+Was verlangt die hochgeladene Richtlinie für dieses Anschlussdetail?
+
+[solutions/structure-os.md | blocks.3.points.3]
+EN
+How many hours did comparable projects take in the design phase?
+DE
+Wie viele Stunden haben vergleichbare Projekte in der Entwurfsphase gebraucht?
+
+[solutions/structure-os.md | blocks.4.title]
+EN
+Find what the firm knows, act on it, and keep it.
+DE
+Finden, was das Büro weiß, danach handeln, und es behalten.
+
+[solutions/structure-os.md | blocks.4.items.0.label]
+EN
+Find
+DE
+Finden
+
+[solutions/structure-os.md | blocks.4.items.0.body]
+EN
+Every calculation, report and guideline your firm has produced becomes searchable by question.
+DE
+Jede Statik, jeder Bericht und jede Richtlinie, die Ihr Büro erstellt hat, wird über eine Frage auffindbar.
+
+[solutions/structure-os.md | blocks.4.items.0.points.0]
+EN
+Engineers ask in plain language and get answers from your own documents.
+DE
+Ihre Ingenieure fragen in normaler Sprache und bekommen Antworten aus den eigenen Unterlagen.
+
+[solutions/structure-os.md | blocks.4.items.0.points.1]
+EN
+Every answer points to its source.
+DE
+Jede Antwort verweist auf ihre Quelle.
+
+[solutions/structure-os.md | blocks.4.items.0.points.2]
+EN
+Uploaded building codes and guidelines are part of every answer.
+DE
+Hochgeladene Baurichtlinien und Normen fließen in jede Antwort ein.
+
+[solutions/structure-os.md | blocks.4.items.0.image.alt]
+EN
+Two engineers reading a guideline against a drawing on the table
+DE
+Zwei Ingenieure lesen eine Richtlinie gegen eine Zeichnung auf dem Tisch
+
+[solutions/structure-os.md | blocks.4.items.1.label]
+EN
+Act
+DE
+Handeln
+
+[solutions/structure-os.md | blocks.4.items.1.body]
+EN
+Knowledge connects to the tools your team already uses to plan and track work.
+DE
+Das Wissen verbindet sich mit den Werkzeugen, mit denen Ihr Team ohnehin plant und erfasst.
+
+[solutions/structure-os.md | blocks.4.items.1.points.0]
+EN
+Projects and tasks from your project management tool are linked to their documents.
+DE
+Projekte und Aufgaben aus Ihrem Projektmanagement sind mit ihren Unterlagen verknüpft.
+
+[solutions/structure-os.md | blocks.4.items.1.points.1]
+EN
+Timesheet data shows what comparable work actually took.
+DE
+Die Zeiterfassung zeigt, was vergleichbare Arbeit tatsächlich gekostet hat.
+
+[solutions/structure-os.md | blocks.4.items.1.points.2]
+EN
+Teams start new projects from proven solutions.
+DE
+Teams starten neue Projekte von bewährten Lösungen aus.
+
+[solutions/structure-os.md | blocks.4.items.1.image.alt]
+EN
+Two experienced engineers working through a plan together
+DE
+Zwei erfahrene Ingenieure arbeiten gemeinsam einen Plan durch
+
+[solutions/structure-os.md | blocks.4.items.2.label]
+EN
+Retain
+DE
+Behalten
+
+[solutions/structure-os.md | blocks.4.items.2.body]
+EN
+What your engineers learn stays with the firm.
+DE
+Was Ihre Ingenieure lernen, bleibt im Büro.
+
+[solutions/structure-os.md | blocks.4.items.2.points.0]
+EN
+New engineers learn office standards faster.
+DE
+Neue Ingenieure lernen die Bürostandards schneller.
+
+[solutions/structure-os.md | blocks.4.items.2.points.1]
+EN
+Experience remains available when senior staff leave.
+DE
+Erfahrung bleibt verfügbar, wenn erfahrene Kollegen gehen.
+
+[solutions/structure-os.md | blocks.4.items.2.points.2]
+EN
+Each project adds to what the next one can draw on.
+DE
+Jedes Projekt vergrößert das, worauf das nächste zurückgreifen kann.
+
+[solutions/structure-os.md | blocks.4.items.2.image.alt]
+EN
+A city skyline of completed buildings
+DE
+Eine Skyline aus fertiggestellten Gebäuden
+
+[solutions/structure-os.md | blocks.5.title]
+EN
+What it connects to
+DE
+Woran es angebunden ist
+
+[solutions/structure-os.md | blocks.5.items.0.title]
+EN
+Project management
+DE
+Projektmanagement
+
+[solutions/structure-os.md | blocks.5.items.0.body]
+EN
+Projects, tasks and their status, held against the documents they produced.
+DE
+Projekte, Aufgaben und ihr Status, gehalten an den Unterlagen, die daraus entstanden sind.
+
+[solutions/structure-os.md | blocks.5.items.1.title]
+EN
+Timesheet tracking
+DE
+Zeiterfassung
+
+[solutions/structure-os.md | blocks.5.items.1.body]
+EN
+Recorded hours per project, so comparable work can be measured against what it actually took.
+DE
+Erfasste Stunden je Projekt, damit vergleichbare Arbeit daran gemessen werden kann, was sie tatsächlich gekostet hat.
+
+[solutions/structure-os.md | blocks.5.items.2.title]
+EN
+Documents and guidelines
+DE
+Dokumente und Richtlinien
+
+[solutions/structure-os.md | blocks.5.items.2.body]
+EN
+Standards, guidelines and internal rules, uploaded and drawn on in every answer.
+DE
+Normen, Richtlinien und interne Standards, hochgeladen und in jeder Antwort herangezogen.
+
+[solutions/structure-os.md | blocks.6.title]
+EN
+See it against your own projects.
+DE
+Sehen Sie es an Ihren eigenen Projekten.
+
+[solutions/structure-os.md | blocks.6.body]
+EN
+Tell us what your office has already produced and where your engineers lose time looking for it. We come back with an honest read on what would be worth building.
+DE
+Sagen Sie uns, was Ihr Büro bereits erstellt hat und wo Ihre Ingenieure Zeit mit Suchen verlieren. Wir kommen mit einer ehrlichen Einschätzung zurück, was sich zu bauen lohnt.
+
+[solutions/structure-os.md | blocks.6.cta.label]
+EN
+Let's Talk
+DE
+Sprechen wir darüber
+
+[solutions/structure-os.md | blocks.6.secondary.label]
+EN
+See our process
+DE
+Unser Vorgehen ansehen

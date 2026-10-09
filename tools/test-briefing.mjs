@@ -30,7 +30,7 @@ const PAGES = ['solutions/baukosten-ki/index.html', 'de/solutions/baukosten-ki/i
 const NO_DASH = [
   ...PAGES,
   'solutions/piledesigner/index.html', 'de/solutions/piledesigner/index.html',
-  'solutions/structure-os/index.html',
+  'solutions/structure-os/index.html', 'de/solutions/structure-os/index.html',
   'solutions/allplan-mcp/index.html', 'de/solutions/allplan-mcp/index.html',
 ]
 

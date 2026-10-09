@@ -6,10 +6,9 @@ description: >-
 # Based on assets/briefings/structureos-briefing.md. Four things from it that
 # are easy to lose when editing:
 #
-#   1. ENGLISH ONLY, for now. The briefing says German follows later, so this
-#      page has no counterpart under content/de/ and the German navigation does
-#      not list it. The build reports it at the end of every run as a page in one
-#      language only. That is expected, not a fault.
+#   1. BOTH LANGUAGES. The briefing says German follows later. That was overtaken
+#      on 2026-10-09, when the client asked for it the same day, so there is a
+#      counterpart under content/de/ and every change applies to both.
 #
 #   2. ONLY FOUR CONFIRMED FEATURES exist: asking the collected office knowledge
 #      in plain language with a source on every answer, uploading codes and

@@ -96,6 +96,7 @@ nav:
       - { label: Allplan MCP, href: /solutions/allplan-mcp }
       - { label: Baukosten KI, href: /solutions/baukosten-ki }
       - { label: Piledesigner, href: /solutions/piledesigner }
+      - { label: StructureOS, href: /solutions/structure-os }
   - id: company
     label: Unternehmen
     items:

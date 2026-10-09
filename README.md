@@ -440,14 +440,22 @@ Manufacturers" and "For Real Estate Developers". Each of those ten URLs, five
 per language, answers a 301 to the page that now covers its subject, which is
 listed in `vercel.json`.
 
-It is **English only** for the moment:
-`assets/briefings/structureos-briefing.md` has the German version following
-later. So there is no file under `content/de/`, the German navigation does not
-list it, and `npm run build` names it at the end of every run as a page in one
-language only. That is the expected state, not a fault, and `tools/audit.mjs`
-was taught the same thing: a page's hreflang set is now held against the number
-of versions the sitemap has for it rather than against a fixed three, so one
-language and two links passes while a translated page still needs three.
+It exists in both languages. `assets/briefings/structureos-briefing.md` says
+German follows later, and that was overtaken on the day: the client asked for it
+the same afternoon.
+
+The English only state lasted long enough to find something, and the fix stays
+because it was right anyway. `tools/audit.mjs` used to hold every page's
+hreflang set against a fixed three links, which assumed no page is ever
+published in one language. It now holds it against the number of versions the
+sitemap has for that page, so one language and two links passes while a
+translated page still needs three.
+
+The German headline carries a `&shy;` inside "Tragwerksplanungsbüros". Without
+it the word runs out of the six column heading and under the hero image. A
+soft hyphen is used only when the line needs it, which is why it beats
+`hyphens: auto` here: that was tried first, scoped to German heroes, and it made
+other German pages hyphenate words that had been fitting perfectly well.
 
 Only four features of the product are confirmed, and the comment at the top of
 the content file lists them. Nothing else may be stated: no figures, no customer
