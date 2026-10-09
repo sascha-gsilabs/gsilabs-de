@@ -77,8 +77,10 @@ blocks:
           The fee calculation to HOAI builds on that estimate. You export the result as
           PDF, Excel or ZIP.
 
+  # On paper rather than black: the closing band below is the one dark band
+  # on the page, as it is on every other page. Two dark bands in a row run
+  # into each other.
   - type: definitions
-    tone: void
     title: Where the application stops
     lede: >-
       So you know what is not in it before you try it.
@@ -100,28 +102,13 @@ blocks:
         body: >-
           New build above ground. Work on existing stock is not in the benchmarks yet.
 
-  - type: metricTiles
-    plain: true
-    title: Two tiers
-    body: >-
-      Basis shows the total with its range. Pro opens up the derivation per item, the fee
-      calculation, the export and any number of projects.
-    items:
-      - { value: EUR 0, label: Basis }
-      - { value: EUR 9, label: "Pro, per user per month" }
-    note: >-
-      Pro excludes VAT and is billed annually in advance. The month is what the price is
-      measured in, not the billing period. Basis runs without a time limit and is held to
-      one project at a time.
-
   - type: closer
     # The claim stays German: there is no English one and inventing a second
     # brand element is not this page's call to make.
     title: <span lang="de">Die Zahl, die trägt.</span>
     body: >-
-      Seven days with everything the Pro tier has. The trial starts when you register,
-      asks for no payment details and ends by itself. It does not roll into a paid
-      contract.
+      Seven days with everything above. The trial starts when you register, asks for no
+      payment details and ends by itself. It does not roll into a paid contract.
     cta: { label: Try it free, href: "https://www.baukosten-ki.de/" }
     secondary: { label: support@baukosten-ki.de, href: "mailto:support@baukosten-ki.de" }
 ---

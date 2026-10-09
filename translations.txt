@@ -5542,65 +5542,23 @@ Neubau im Hochbau. Bauen im Bestand ist in den Kennwerten noch nicht hinterlegt.
 
 [solutions/baukosten-ki.md | blocks.5.title]
 EN
-Two tiers
-DE
-Zwei Stufen
-
-[solutions/baukosten-ki.md | blocks.5.body]
-EN
-Basis shows the total with its range. Pro opens up the derivation per item, the fee calculation, the export and any number of projects.
-DE
-Basis zeigt die Gesamtsumme mit Bandbreite. Pro öffnet die Herleitung je Position, die Honorarermittlung, den Export und unbegrenzt viele Projekte.
-
-[solutions/baukosten-ki.md | blocks.5.items.0.value]
-EN
-EUR 0
-DE
-0 €
-
-[solutions/baukosten-ki.md | blocks.5.items.0.label]
-EN
-Basis
-DE
-Basis
-
-[solutions/baukosten-ki.md | blocks.5.items.1.value]
-EN
-EUR 9
-DE
-9 €
-
-[solutions/baukosten-ki.md | blocks.5.items.1.label]
-EN
-Pro, per user per month
-DE
-Pro, je Nutzer und Monat
-
-[solutions/baukosten-ki.md | blocks.5.note]
-EN
-Pro excludes VAT and is billed annually in advance. The month is what the price is measured in, not the billing period. Basis runs without a time limit and is held to one project at a time.
-DE
-Pro zuzüglich Umsatzsteuer, jährlich im Voraus abgerechnet. Der Monat ist die Bezugsgröße des Preises, nicht der Abrechnungszeitraum. Basis ist nicht befristet und auf ein Projekt gleichzeitig begrenzt.
-
-[solutions/baukosten-ki.md | blocks.6.title]
-EN
 <span lang="de">Die Zahl, die trägt.</span>
 DE
 Die Zahl, die trägt.
 
-[solutions/baukosten-ki.md | blocks.6.body]
+[solutions/baukosten-ki.md | blocks.5.body]
 EN
-Seven days with everything the Pro tier has. The trial starts when you register, asks for no payment details and ends by itself. It does not roll into a paid contract.
+Seven days with everything above. The trial starts when you register, asks for no payment details and ends by itself. It does not roll into a paid contract.
 DE
-Sieben Tage im vollen Umfang der Stufe Pro. Die Testphase beginnt mit der Registrierung, verlangt keine Zahlungsdaten und endet von selbst. Sie geht nicht in einen entgeltlichen Vertrag über.
+Sieben Tage mit allem, was oben steht. Die Testphase beginnt mit der Registrierung, verlangt keine Zahlungsdaten und endet von selbst. Sie geht nicht in einen entgeltlichen Vertrag über.
 
-[solutions/baukosten-ki.md | blocks.6.cta.label]
+[solutions/baukosten-ki.md | blocks.5.cta.label]
 EN
 Try it free
 DE
 Kostenfrei testen
 
-[solutions/baukosten-ki.md | blocks.6.secondary.label]
+[solutions/baukosten-ki.md | blocks.5.secondary.label]
 EN
 support@baukosten-ki.de
 DE

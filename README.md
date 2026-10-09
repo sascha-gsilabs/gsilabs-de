@@ -385,8 +385,14 @@ exists yet. Measure it against the real one when it does.
 product with its own domain. Unlike the Allplan MCP page it brings no design
 system of its own: that was decided, and the briefing is explicit that the two
 must not be mixed. So the page is composed from the shared blocks, `hero`,
-`statement`, `definitions`, `stages`, `metricTiles` and `closer`, and adds no
-CSS beyond a wide variant of the definition list described below.
+`statement`, `definitions`, `stages` and `closer`, and adds no CSS beyond a wide
+variant of the definition list described below.
+
+It carries no prices. The page leads to the trial rather than to the order
+route, and the comment at the top of each content file says what to watch for if
+they are ever put back: the amounts take a non breaking space before the euro
+sign, and the month is what the price is measured in rather than the billing
+period, which this project has had wrong once before.
 
 Three rules from
 `assets/briefings/261009_Briefing Landingpage gsilabs_V00.md` outlive the

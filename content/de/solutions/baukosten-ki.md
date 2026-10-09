@@ -19,8 +19,10 @@ description: >-
 #      Untergliederung der DIN 276, kein anderes Leistungsbild als Gebäude, keine
 #      Regionalfaktoren unter Bundeslandebene, kein Team, kein Bestandsbau.
 #
-# Vor dem € steht ein geschütztes Leerzeichen, kein gewöhnliches. Es ist
-# unsichtbar, also beim Bearbeiten nicht versehentlich ersetzen.
+# Preise stehen hier bewusst nicht. Die Seite führt zum Testzugang, nicht zum
+# Bestellweg. Wer sie wieder aufnimmt: die Beträge gehören mit geschütztem
+# Leerzeichen vor das Eurozeichen, und der Monat ist die Bezugsgröße des
+# Preises, nicht der Abrechnungszeitraum.
 blocks:
   # Der Hero trägt nur den Namen. Es gibt kein freigegebenes Produktbild, und die
   # rechte Hälfte des bebilderten Heros bliebe sonst leer. Die Beschreibungszeile
@@ -81,8 +83,10 @@ blocks:
           Auf der Kostenschätzung baut die Honorarermittlung nach HOAI auf. Das Ergebnis
           geben Sie als PDF, Excel oder ZIP aus.
 
+  # Auf Papier, nicht auf Schwarz: der Abbinder darunter ist das einzige
+  # dunkle Band der Seite, so wie auf jeder anderen Seite auch. Zwei dunkle
+  # Bänder hintereinander laufen ineinander.
   - type: definitions
-    tone: void
     title: Wo die Anwendung aufhört
     lede: >-
       Damit Sie vor dem Test wissen, was nicht enthalten ist.
@@ -105,26 +109,12 @@ blocks:
         body: >-
           Neubau im Hochbau. Bauen im Bestand ist in den Kennwerten noch nicht hinterlegt.
 
-  - type: metricTiles
-    plain: true
-    title: Zwei Stufen
-    body: >-
-      Basis zeigt die Gesamtsumme mit Bandbreite. Pro öffnet die Herleitung je Position,
-      die Honorarermittlung, den Export und unbegrenzt viele Projekte.
-    items:
-      - { value: "0 €", label: Basis }
-      - { value: "9 €", label: "Pro, je Nutzer und Monat" }
-    note: >-
-      Pro zuzüglich Umsatzsteuer, jährlich im Voraus abgerechnet. Der Monat ist die
-      Bezugsgröße des Preises, nicht der Abrechnungszeitraum. Basis ist nicht befristet
-      und auf ein Projekt gleichzeitig begrenzt.
-
   - type: closer
     title: Die Zahl, die trägt.
     body: >-
-      Sieben Tage im vollen Umfang der Stufe Pro. Die Testphase beginnt mit der
-      Registrierung, verlangt keine Zahlungsdaten und endet von selbst. Sie geht nicht in
-      einen entgeltlichen Vertrag über.
+      Sieben Tage mit allem, was oben steht. Die Testphase beginnt mit der Registrierung,
+      verlangt keine Zahlungsdaten und endet von selbst. Sie geht nicht in einen
+      entgeltlichen Vertrag über.
     cta: { label: Kostenfrei testen, href: "https://www.baukosten-ki.de/" }
     secondary: { label: support@baukosten-ki.de, href: "mailto:support@baukosten-ki.de" }
 ---
