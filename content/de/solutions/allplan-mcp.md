@@ -11,7 +11,7 @@ blocks:
       Sprechen Sie mit Allplan in Ihren eigenen Worten. Es liest das geöffnete Modell,
       beantwortet Ihre Fragen, hebt Elemente hervor und passt Attribute an, wo es nötig
       ist.
-    cta: { label: Preise ansehen, href: "#pricing" }
+    cta: { label: Lizenz anfragen, href: "#license" }
     link: { label: So funktioniert es, href: "#how-it-works" }
     video:
       id: "1231682189"
@@ -106,6 +106,8 @@ blocks:
       Sitzung auflisten und ihn rückgängig machen.
 
   - type: mcpPricing
+    # Taken off the page for now. Remove this line to show the prices again.
+    hidden: true
     id: pricing
     title: Preise
     tiers:

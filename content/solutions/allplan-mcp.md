@@ -13,7 +13,7 @@ blocks:
     lede: >-
       Talk to Allplan in your own words. It reads the model you have open, provides
       answers, highlights elements and adjusts attributes where necessary.
-    cta: { label: See pricing, href: "#pricing" }
+    cta: { label: Request a license, href: "#license" }
     link: { label: See how it works, href: "#how-it-works" }
     video:
       id: "1231988991"
@@ -110,6 +110,8 @@ blocks:
       session did, and undo it.
 
   - type: mcpPricing
+    # Taken off the page for now. Remove this line to show the prices again.
+    hidden: true
     id: pricing
     title: Pricing
     tiers:

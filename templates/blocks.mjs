@@ -729,8 +729,11 @@ export const BLOCKS = {
   ...MCP_BLOCKS,
 }
 
+/* A block carrying `hidden: true` stays in content/ but is not rendered, so a
+   section can be taken off a page and put back with one line. */
 export function renderBlocks(blocks = [], ctx) {
   return blocks
+    .filter((b) => !b.hidden)
     .map((b) => {
       const fn = BLOCKS[b.type]
       if (!fn) throw new Error(`unknown block type: ${b.type}`)
